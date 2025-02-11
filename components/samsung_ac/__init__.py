@@ -503,13 +503,13 @@ async def to_code(config):
 
         if CONF_DEVICE_MODE in device:
             conf = device[CONF_DEVICE_MODE]
-            values = ["Auto", "Cool", "Dry", "Fan", "Heat"]
+            values = ["Auto", "Cool", "Heat"]
             sel = await select.new_select(conf, options=values)
             cg.add(var_dev.set_mode_select(sel))
 
         if CONF_DEVICE_WATER_HEATER_MODE in device:
             conf = device[CONF_DEVICE_WATER_HEATER_MODE]
-            values = ["Eco", "Standard", "Power", "Force"]
+            values = ["Eco", "Standard", "Force"]
             sel = await select.new_select(conf, options=values)
             cg.add(var_dev.set_water_heater_mode_select(sel))
 
