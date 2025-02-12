@@ -765,6 +765,13 @@ namespace esphome
                 target->set_target_temperature_zone2(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_target_offset: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_target_offset, temp, source, dest);
+                target->set_target_offset(source, temp);
+                break;
+            }
             case MessageNumber::ENUM_in_state_humidity_percent:
             {
                 LOG_MESSAGE(ENUM_in_state_humidity_percent, (double)message.value, source, dest);

@@ -95,6 +95,7 @@ namespace esphome
             VAR_OUT_SENSOR_CT1 = 0x8217,
             LVAR_NM_OUT_SENSOR_VOLTAGE = 0x24fc,
             VAR_in_temp_target_zone2 = 0x427F,
+            VAR_in_target_offset = 0x4248,
 
             //Zusätzliche SENSOREN
             VAR_in_current_temp_zone1 = 0x42D8,

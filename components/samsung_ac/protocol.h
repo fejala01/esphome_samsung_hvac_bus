@@ -90,6 +90,7 @@ namespace esphome
             virtual void set_indoor_eva_out_temperature(const std::string address, float value) = 0;
             virtual void set_target_water_temperature(const std::string address, float value) = 0;
             virtual void set_target_temperature_zone2(const std::string address, float value) = 0;
+            virtual void set_target_offset(const std::string address, float value) = 0;
             virtual void set_mode(const std::string address, Mode mode) = 0;
             virtual void set_water_heater_mode(const std::string address, WaterHeaterMode waterheatermode) = 0;
             virtual void set_fanmode(const std::string address, FanMode fanmode) = 0;
