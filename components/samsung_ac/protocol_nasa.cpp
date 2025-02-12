@@ -627,6 +627,13 @@ namespace esphome
                 target->set_current_temp_zone2(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_waterflow: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_waterflow, temp, source, dest);
+                target->set_waterflow(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;
