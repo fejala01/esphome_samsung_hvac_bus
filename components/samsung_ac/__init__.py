@@ -86,7 +86,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 
 #ZUSATZ SENSOREN
-CONF_DEVICE_ENERGY_CONSUMED_LIFETIME = "energy_consumed_lifetime"
+CONF_DEVICE_ENERGY_PRODUCED_LIFETIME = "energy_produced_lifetime"
 CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
 CONF_DEVICE_WATERFLOW = "waterflow"
 CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
@@ -268,7 +268,7 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="Hz",
             accuracy_decimals=0,
         ),
-        cv.Optional(CONF_DEVICE_ENERGY_CONSUMED_LIFETIME): sensor.sensor_schema(
+        cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
             accuracy_decimals=0,
         ),
@@ -619,7 +619,7 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_compressor_frequency_sensor,
             ),
-            CONF_DEVICE_ENERGY_CONSUMED_LIFETIME: (
+            CONF_DEVICE_ENERGY_PRODUCED_LIFETIME: (
                 sensor.new_sensor,
                 var_dev.set_energy_consumded_lifetime_sensor,
             ),

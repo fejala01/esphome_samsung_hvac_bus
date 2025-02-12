@@ -117,10 +117,10 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->compressor_frequency, value); });
       }
-      void set_energy_consumed_lifetime(const std::string address, float value) override
+      void set_energy_produced_lifetime(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_sensor_state(dev->energy_consumed_lifetime, value); });
+                                 { dev->update_sensor_state(dev->energy_produced_lifetime, value); });
       }
       void set_current_temp_zone2(const std::string address, float value) override
       {

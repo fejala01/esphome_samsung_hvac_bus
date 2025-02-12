@@ -641,11 +641,11 @@ namespace esphome
                 target->set_compressor_frequency(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_energy_consumed_lifetime: 
+            case MessageNumber::VAR_in_energy_produced_lifetime: 
             {
                 double temp = (double)message.value / (double)1000;
-                LOG_MESSAGE(VAR_in_energy_consumed_lifetime, temp, source, dest);
-                target->set_energy_consumed_lifetime(source, temp);
+                LOG_MESSAGE(VAR_in_energy_produced_lifetime, temp, source, dest);
+                target->set_energy_produced_lifetime(source, temp);
                 break;
             }
             case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
