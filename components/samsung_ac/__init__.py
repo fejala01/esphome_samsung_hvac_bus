@@ -88,7 +88,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 
 #ZUSATZ SENSOREN
-CONF_DEVICE_FAN = "fan"
+CONF_DEVICE_VENTILATOR = "ventilator"
 CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
 CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
 CONF_DEVICE_FSV1011 = "fsv1011"
@@ -224,7 +224,7 @@ def error_code_sensor_schema(message: int):
         icon="mdi:alert",
         entity_category="diagnostic",
     )
-def fan_sensor_schema(message: int):
+def ventilator_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
         unit_of_measurement="rpm",
@@ -380,7 +380,7 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_ERROR_CODE): error_code_sensor_schema(0x8235),
-        cv.Optional(CONF_DEVICE_FAN): fan_sensor_schema(0x823D),
+        cv.Optional(CONF_DEVICE_VENTILATOR): ventilator_sensor_schema(0x823D),
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
@@ -674,6 +674,7 @@ async def to_code(config):
                 var_dev.set_indoor_eva_out_temperature_sensor,
             ),
             CONF_DEVICE_ERROR_CODE: (sensor.new_sensor, var_dev.set_error_code_sensor),
+            CONF_DEVICE_VENTILATOR: (sensor.new_sensor, var_dev.set_ventilator_sensor),
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM: (
                 sensor.new_sensor,
                 var_dev.set_outdoor_instantaneous_power_sensor,

@@ -110,6 +110,7 @@ namespace esphome
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
       sensor::Sensor *error_code{nullptr};
+      sensor::Sensor *ventilator{nullptr};
       sensor::Sensor *outdoor_instantaneous_power{nullptr};
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
@@ -169,11 +170,20 @@ namespace esphome
       {
         error_code = sensor;
       }
+      void set_ventilator_sensor(sensor::Sensor *sensor)
+      {
+        ventilator = sensor;
+      }
 
       void update_error_code(int value)
       {
         if (error_code != nullptr)
           error_code->publish_state(value);
+      }
+      void update_ventilator(int value)
+      {
+        if (ventilator != nullptr)
+          ventilator->publish_state(value);
       }
 
       void set_outdoor_instantaneous_power_sensor(sensor::Sensor *sensor)

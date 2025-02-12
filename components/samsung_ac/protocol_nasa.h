@@ -116,7 +116,7 @@ namespace esphome
             VAR_in_fsv2032 = 0x4259,
             VAR_in_fsv2051 = 0x425A,
             VAR_in_fsv2052 = 0x425B,
-            VAR_out_error_code = 0x8235,
+            VAR_out_ventilator = 0x823D,
 
 
         };

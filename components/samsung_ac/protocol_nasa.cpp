@@ -895,6 +895,16 @@ namespace esphome
                 target->set_error_code(source, code);
                 break;
             }
+            ase MessageNumber::VAR_out_ventilator:
+            {
+                int code = static_cast<int>(message.value);
+                if (debug_log_messages)
+                {
+                    ESP_LOGW(TAG, "s:%s d:%s VAR_out_ventilator %d", source.c_str(), dest.c_str(), code);
+                }
+                target->set_ventilator(source, code);
+                break;
+            }
             case MessageNumber::LVAR_OUT_CONTROL_WATTMETER_1W_1MIN_SUM:
             {
                 double value = static_cast<double>(message.value);
