@@ -86,6 +86,7 @@ namespace esphome
             virtual void set_compressor_frequency(const std::string address, float value) = 0;
             virtual void set_energy_produced_lifetime(const std::string address, float value) = 0;
             virtual void set_base_heater(const std::string address, float value) = 0;
+            virtual void set_backup_heater(const std::string address, float value) = 0;
             virtual void set_current_temp_zone2(const std::string address, float value) = 0;
             virtual void set_target_temperature(const std::string address, float value) = 0;
             virtual void set_water_outlet_target(const std::string address, float value) = 0;

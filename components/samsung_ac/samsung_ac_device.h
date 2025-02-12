@@ -248,6 +248,10 @@ namespace esphome
       {
         base_heater = sensor;
       }
+      void set_backup_heater_sensor(sensor::Sensor *sensor)
+      {
+        backup_heater = sensor;
+      }
 
       //Sensoren
       void set_fsv1011_sensor(sensor::Sensor *sensor)
