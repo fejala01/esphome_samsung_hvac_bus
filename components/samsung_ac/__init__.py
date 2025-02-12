@@ -86,6 +86,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
 CONF_DEVICE_WATERFLOW = "waterflow"
 CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
 CONF_DEVICE_VENTILATOR = "ventilator"
@@ -236,6 +237,7 @@ def percent_sensor_schema(message: int):
         message=message,
         unit_of_measurement="%",
         accuracy_decimals=0,
+        icon="mdi:water-pump"
     )
 
 
@@ -259,6 +261,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_WATERFLOW): sensor.sensor_schema(
             unit_of_measurement="L/min",
             accuracy_decimals=1,
+            icon="mdi:water-pump",
         ),
         cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
