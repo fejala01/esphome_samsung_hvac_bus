@@ -597,33 +597,33 @@ async def to_code(config):
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
-                conf, min_value=30.0, max_value=70.0, step=0.5
+                conf, min_value=30.0, max_value=60.0, step=0.5
             )
             cg.add(var_dev.set_target_water_temperature_number(num))
-        if CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 in device:
-            conf = device[CONF_DEVICE_TARGET_TEMPERATURE_ZONE2]
-            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
-            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
-            num = await number.new_number(
-                conf, min_value=24.0, max_value=50.0, step=0.5
-            )
-            cg.add(var_dev.set_target_temperature_zone2_number(num))
 
         if CONF_DEVICE_TARGET_TEMPERATURE in device:
             conf = device[CONF_DEVICE_TARGET_TEMPERATURE]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
-                conf, min_value=16.0, max_value=30.0, step=1.0
+                conf, min_value=23.0, max_value=43.0, step=0.5
             )
             cg.add(var_dev.set_target_temperature_number(num))
+        if CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 in device:
+            conf = device[CONF_DEVICE_TARGET_TEMPERATURE_ZONE2]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=23.0, max_value=43.0, step=0.5
+            )
+            cg.add(var_dev.set_target_temperature_zone2_number(num))
 
         if CONF_DEVICE_WATER_OUTLET_TARGET in device:
             conf = device[CONF_DEVICE_WATER_OUTLET_TARGET]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
-                conf, min_value=15.0, max_value=55.0, step=0.1
+                conf, min_value=23.0, max_value=43.0, step=0.1
             )
             cg.add(var_dev.set_water_outlet_target_number(num))
 
