@@ -263,6 +263,10 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=1,
             icon="mdi:water-pump",
         ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
+            unit_of_measurement="Hz",
+            accuracy_decimals=0,
+        ),
         cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
@@ -605,6 +609,10 @@ async def to_code(config):
             CONF_DEVICE_WATERFLOW: (
                 sensor.new_sensor,
                 var_dev.set_waterflow_sensor,
+            ),
+            CONF_DEVICE_COMPRESSOR_FREQUENCY: (
+                sensor.new_sensor,
+                var_dev.set_compressor_frequency_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,
