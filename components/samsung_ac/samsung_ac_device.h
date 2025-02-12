@@ -313,6 +313,16 @@ namespace esphome
           publish_request(request);
         };
       };
+      void set_target_temperature_zone2_number(Samsung_AC_Number *number)
+      {
+        target_temperature_zone2 = number;
+        target_temperature_zone2->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.target_temp_zone2 = value;
+          publish_request(request);
+        };
+      };
 
       void set_climate(Samsung_AC_Climate *value)
       {
@@ -341,6 +351,11 @@ namespace esphome
       {
         if (target_water_temperature != nullptr)
           target_water_temperature->publish_state(value);
+      }
+      void update_target_temperature_zone2(float value)
+      {
+        if (target_temperature_zone2 != nullptr)
+          target_temperature_zone2->publish_state(value);
       }
 
       optional<bool> _cur_power;

@@ -448,6 +448,12 @@ namespace esphome
                 targetwatertemp.value = request.target_water_temp.value() * 10.0;
                 packet.messages.push_back(targetwatertemp);
             }
+            if (request.target_temp_zone2)
+            {
+                MessageSet targettemp_zone2(MessageNumber::VAR_in_temp_target_zone2);
+                targettemp_zone2.value = request.target_temp_zone2.value() * 10.0;
+                packet.messages.push_back(targettemp_zone2);
+            }
 
             if (request.fan_mode)
             {
@@ -620,6 +626,13 @@ namespace esphome
                 double temp = (double)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_temp_water_heater_target_f, temp, source, dest);
                 target->set_target_water_temperature(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_temp_target_zone2: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_temp_target_zone2, temp, source, dest);
+                target->set_target_temperature_zone2(source, temp);
                 break;
             }
             case MessageNumber::ENUM_in_state_humidity_percent:
