@@ -662,6 +662,13 @@ namespace esphome
                 target->set_backup_heater(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_service: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_in_service, temp, source, dest);
+                target->set_service(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

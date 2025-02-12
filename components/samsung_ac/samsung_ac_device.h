@@ -111,6 +111,7 @@ namespace esphome
       sensor::Sensor *energy_produced_lifetime{nullptr};
       sensor::Sensor *base_heater{nullptr};
       sensor::Sensor *backup_heater{nullptr};
+      sensor::Sensor *service{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
@@ -252,6 +253,10 @@ namespace esphome
       void set_backup_heater_sensor(sensor::Sensor *sensor)
       {
         backup_heater = sensor;
+      }
+      void set_service_sensor(sensor::Sensor *sensor)
+      {
+        service = sensor;
       }
 
       //Sensoren
