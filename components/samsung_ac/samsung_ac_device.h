@@ -116,6 +116,7 @@ namespace esphome
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
       Samsung_AC_Switch *power{nullptr};
+      Samsung_AC_Switch *power_zone2{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
       Samsung_AC_Switch *water_heater_power{nullptr};
       Samsung_AC_Mode_Select *mode{nullptr};
@@ -222,6 +223,16 @@ namespace esphome
         {
           ProtocolRequest request;
           request.power = value;
+          publish_request(request);
+        };
+      }
+      void set_power_zone2_switch(Samsung_AC_Switch *switch_)
+      {
+        power_zone2 = switch_;
+        power_zone2->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.power_zone2 = value;
           publish_request(request);
         };
       }
@@ -333,6 +344,7 @@ namespace esphome
       }
 
       optional<bool> _cur_power;
+      optional<bool> _cur_power_zone2;
       optional<bool> _cur_automatic_cleaning;
       optional<bool> _cur_water_heater_power;
       optional<Mode> _cur_mode;
@@ -343,6 +355,14 @@ namespace esphome
         _cur_power = value;
         if (power != nullptr)
           power->publish_state(value);
+        if (climate != nullptr)
+          calc_and_publish_mode();
+      }
+      void update_power_zone2(bool value)
+      {
+        _cur_power_zone2 = value;
+        if (power_zone2 != nullptr)
+          power_zone2->publish_state(value);
         if (climate != nullptr)
           calc_and_publish_mode();
       }
@@ -512,6 +532,8 @@ namespace esphome
       void calc_and_publish_mode()
       {
         if (!_cur_power.has_value())
+          return;
+        if (!_cur_power_zone2.has_value())
           return;
         if (!_cur_mode.has_value())
           return;

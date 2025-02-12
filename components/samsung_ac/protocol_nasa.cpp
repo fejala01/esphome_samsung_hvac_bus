@@ -407,6 +407,12 @@ namespace esphome
                 power.value = request.power.value() ? 1 : 0;
                 packet.messages.push_back(power);
             }
+            if (request.power_zone2)
+            {
+                MessageSet power_zone2(MessageNumber::ENUM_in_operation_power_zone2);
+                power_zone2.value = request.power_zone2.value() ? 1 : 0;
+                packet.messages.push_back(power_zone2);
+            }
 
             if (request.automatic_cleaning)
             {
@@ -625,6 +631,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_operation_power, (double)message.value, source, dest);
                 target->set_power(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_operation_power_zone2:
+            {
+                LOG_MESSAGE(ENUM_in_operation_power_zone2, (double)message.value, source, dest);
+                target->set_power_zone2(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_operation_automatic_cleaning:
