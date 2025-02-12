@@ -621,7 +621,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_ENERGY_PRODUCED_LIFETIME: (
                 sensor.new_sensor,
-                var_dev.set_energy_consumed_lifetime_sensor,
+                var_dev.set_energy_produced_lifetime_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,
