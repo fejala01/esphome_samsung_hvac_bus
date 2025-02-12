@@ -111,6 +111,7 @@ namespace esphome
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
       sensor::Sensor *error_code{nullptr};
       sensor::Sensor *ventilator{nullptr};
+      sensor::Sensor *waterpump_pwm{nullptr};
       sensor::Sensor *outdoor_instantaneous_power{nullptr};
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
@@ -174,6 +175,10 @@ namespace esphome
       {
         ventilator = sensor;
       }
+      void set_waterpump_pwm_sensor(sensor::Sensor *sensor)
+      {
+        waterpump_pwm = sensor;
+      }
 
       void update_error_code(int value)
       {
@@ -184,6 +189,11 @@ namespace esphome
       {
         if (ventilator != nullptr)
           ventilator->publish_state(value);
+      }
+      void update_waterpump_pwm(int value)
+      {
+        if (waterpump_pwm != nullptr)
+          waterpump_pwm->publish_state(value);
       }
 
       void set_outdoor_instantaneous_power_sensor(sensor::Sensor *sensor)

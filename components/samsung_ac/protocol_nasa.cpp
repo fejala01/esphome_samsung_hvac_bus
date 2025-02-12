@@ -905,6 +905,16 @@ namespace esphome
                 target->set_ventilator(source, code);
                 break;
             }
+            case MessageNumber::VAR_in_waterpump_pwm:
+            {
+                int code = static_cast<int>(message.value);
+                if (debug_log_messages)
+                {
+                    ESP_LOGW(TAG, "s:%s d:%s VAR_in_waterpump_pwm %d", source.c_str(), dest.c_str(), code);
+                }
+                target->set_waterpump_pwm(source, code);
+                break;
+            }
             case MessageNumber::LVAR_OUT_CONTROL_WATTMETER_1W_1MIN_SUM:
             {
                 double value = static_cast<double>(message.value);

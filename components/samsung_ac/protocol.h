@@ -100,6 +100,7 @@ namespace esphome
             virtual void set_custom_sensor(const std::string address, uint16_t message_number, float value) = 0;
             virtual void set_error_code(const std::string address, int error_code) = 0;
             virtual void set_ventilator(const std::string address, int ventilator) = 0;
+            virtual void set_waterpump_pwm(const std::string address, int waterpump_pwm) = 0;
             virtual void set_outdoor_instantaneous_power(const std::string &address, float value) = 0;
             virtual void set_outdoor_cumulative_energy(const std::string &address, float value) = 0;
             virtual void set_outdoor_current(const std::string &address, float value) = 0;

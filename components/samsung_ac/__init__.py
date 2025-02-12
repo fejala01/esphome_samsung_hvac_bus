@@ -22,8 +22,6 @@ from esphome.const import (
 )
 from esphome.core import CORE, Lambda
 
-
-
 CODEOWNERS = ["matthias882", "lanwin", "omerfaruk-aran"]
 DEPENDENCIES = ["uart"]
 AUTO_LOAD = ["sensor", "switch", "select", "number", "climate"]
@@ -88,6 +86,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
 CONF_DEVICE_VENTILATOR = "ventilator"
 CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
 CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
@@ -230,6 +229,12 @@ def ventilator_sensor_schema(message: int):
         unit_of_measurement="rpm",
         accuracy_decimals=0,
         icon="mdi:fan",
+    )
+def percent_sensor_schema(message: int):
+    return custom_sensor_schema(
+        message=message,
+        unit_of_measurement="%",
+        accuracy_decimals=0,
     )
 
 
@@ -381,6 +386,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_ERROR_CODE): error_code_sensor_schema(0x8235),
         cv.Optional(CONF_DEVICE_VENTILATOR): ventilator_sensor_schema(0x823D),
+        cv.Optional(CONF_DEVICE_WATERPUMP_PWM): percent_sensor_schema(0x40C4),
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
@@ -675,6 +681,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_ERROR_CODE: (sensor.new_sensor, var_dev.set_error_code_sensor),
             CONF_DEVICE_VENTILATOR: (sensor.new_sensor, var_dev.set_ventilator_sensor),
+            CONF_DEVICE_WATERPUMP_PWM: (sensor.new_sensor, var_dev.set_waterpump_pwm_sensor),
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM: (
                 sensor.new_sensor,
                 var_dev.set_outdoor_instantaneous_power_sensor,
