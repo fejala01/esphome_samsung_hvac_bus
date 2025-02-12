@@ -115,6 +115,7 @@ namespace esphome
       Samsung_AC_Number *target_temperature{nullptr};
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
+      Samsung_AC_Number *target_temperature_zone2{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
