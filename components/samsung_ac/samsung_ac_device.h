@@ -110,6 +110,7 @@ namespace esphome
       sensor::Sensor *compressor_frequency{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
       sensor::Sensor *base_heater{nullptr};
+      sensor::Sensor *backup_heater{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
