@@ -123,6 +123,14 @@ namespace esphome
       sensor::Sensor *fsv1032{nullptr};
       sensor::Sensor *fsv1051{nullptr};
       sensor::Sensor *fsv1052{nullptr};
+      sensor::Sensor *fsv2011{nullptr};
+      sensor::Sensor *fsv2012{nullptr};
+      sensor::Sensor *fsv2021{nullptr};
+      sensor::Sensor *fsv2022{nullptr};
+      sensor::Sensor *fsv2031{nullptr};
+      sensor::Sensor *fsv2032{nullptr};
+      sensor::Sensor *fsv2051{nullptr};
+      sensor::Sensor *fsv2052{nullptr};
 
 
 
