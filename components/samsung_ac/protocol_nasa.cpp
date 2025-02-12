@@ -648,7 +648,7 @@ namespace esphome
                 target->set_energy_produced_lifetime(source, temp);
                 break;
             }
-            case MessageNumber::VAR_out_baseheater: 
+            case MessageNumber::VAR_out_base_heater: 
             {
                 int temp = (int)message.value;
                 LOG_MESSAGE(VAR_out_base_heater, temp, source, dest);
