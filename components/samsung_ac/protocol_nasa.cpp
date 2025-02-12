@@ -669,6 +669,20 @@ namespace esphome
                 target->set_service(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_deice_mode: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_out_deice_mode, temp, source, dest);
+                target->set_deice_mode(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_deice_status: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_in_deice_status, temp, source, dest);
+                target->set_deice_status(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

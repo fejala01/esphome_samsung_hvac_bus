@@ -98,6 +98,8 @@ namespace esphome
             VAR_in_target_offset = 0x4248,
 
             //Zusätzliche SENSOREN
+            VAR_in_deice_status = 0x402E,
+            VAR_out_deice_mode = 0x8061,
             VAR_out_base_heater = 0x80AF,
             VAR_in_backup_heater = 0x406C,
             VAR_in_service = 0x8000,

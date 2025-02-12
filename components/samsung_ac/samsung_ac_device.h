@@ -112,6 +112,8 @@ namespace esphome
       sensor::Sensor *base_heater{nullptr};
       sensor::Sensor *backup_heater{nullptr};
       sensor::Sensor *service{nullptr};
+      sensor::Sensor *deice_mode{nullptr};
+      sensor::Sensor *deice_status{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
@@ -257,6 +259,14 @@ namespace esphome
       void set_service_sensor(sensor::Sensor *sensor)
       {
         service = sensor;
+      }
+      void set_deice_status_sensor(sensor::Sensor *sensor)
+      {
+        deice_status = sensor;
+      }
+      void set_deice_mode_sensor(sensor::Sensor *sensor)
+      {
+        deice_mode = sensor;
       }
 
       //Sensoren
