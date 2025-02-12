@@ -108,6 +108,7 @@ namespace esphome
       sensor::Sensor *current_temp_zone2{nullptr};
       sensor::Sensor *waterflow{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
+      sensor::Sensor *energy_consumed_lifetime{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
@@ -237,6 +238,10 @@ namespace esphome
       void set_compressor_frequency_sensor(sensor::Sensor *sensor)
       {
         compressor_frequency = sensor;
+      }
+      void set_energy_consumed_lifetime_sensor(sensor::Sensor *sensor)
+      {
+        energy_consumed_lifetime = sensor;
       }
 
       //Sensoren
