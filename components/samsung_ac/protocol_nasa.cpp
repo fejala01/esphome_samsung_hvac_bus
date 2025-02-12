@@ -648,17 +648,17 @@ namespace esphome
                 target->set_energy_produced_lifetime(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_base_heater: 
+            case MessageNumber::VAR_out_base_heater: 
             {
                 int temp = (int)message.value;
-                LOG_MESSAGE(VAR_in_base_heater, temp, source, dest);
+                LOG_MESSAGE(VAR_out_base_heater, temp, source, dest);
                 target->set_base_heater(source, temp);
                 break;
             }
-            case MessageNumber::VAR_out_backup_heater: 
+            case MessageNumber::VAR_in_backup_heater: 
             {
                 int temp = (int)message.value;
-                LOG_MESSAGE(VAR_out_backup_heater, temp, source, dest);
+                LOG_MESSAGE(VAR_in_backup_heater, temp, source, dest);
                 target->set_backup_heater(source, temp);
                 break;
             }
