@@ -114,6 +114,19 @@ namespace esphome
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
       sensor::Sensor *outdoor_voltage{nullptr};
+      //Sensoren
+      sensor::Sensor *fsv1011{nullptr};
+      sensor::Sensor *fsv1012{nullptr};
+      sensor::Sensor *fsv1021{nullptr};
+      sensor::Sensor *fsv1022{nullptr};
+      sensor::Sensor *fsv1031{nullptr};
+      sensor::Sensor *fsv1032{nullptr};
+      sensor::Sensor *fsv1051{nullptr};
+      sensor::Sensor *fsv1052{nullptr};
+
+
+
+
       Samsung_AC_Number *target_temperature{nullptr};
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
@@ -186,6 +199,43 @@ namespace esphome
       {
         current_temp_zone2 = sensor;
       }
+
+      //Sensoren
+      void set_fsv1011_sensor(sensor::Sensor *sensor)
+      {
+        fsv1011 = sensor;
+      }
+      void set_fsv1012_sensor(sensor::Sensor *sensor)
+      {
+        fsv1012 = sensor;
+      }
+      void set_fsv1021_sensor(sensor::Sensor *sensor)
+      {
+        fsv1021 = sensor;
+      }
+      void set_fsv1022_sensor(sensor::Sensor *sensor)
+      {
+        fsv1022 = sensor;
+      }
+      void set_fsv1031_sensor(sensor::Sensor *sensor)
+      {
+        fsv1031 = sensor;
+      }
+      void set_fsv1032_sensor(sensor::Sensor *sensor)
+      {
+        fsv1032 = sensor;
+      }
+      void set_fsv1051_sensor(sensor::Sensor *sensor)
+      {
+        fsv1051 = sensor;
+      }
+      void set_fsv1052_sensor(sensor::Sensor *sensor)
+      {
+        fsv1052 = sensor;
+      }
+
+
+
 
       void set_indoor_eva_in_temperature_sensor(sensor::Sensor *sensor)
       {

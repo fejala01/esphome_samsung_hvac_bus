@@ -113,6 +113,50 @@ namespace esphome
                                  { dev->update_sensor_state(dev->current_temp_zone2, value); });
       }
 
+      //Sensoren
+      void set_fsv1011(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1011, value); });
+      }
+      void set_fsv1012(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1012, value); });
+      }
+      void set_fsv1021(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1021, value); });
+      }
+      void set_fsv1022(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1022, value); });
+      }void set_fsv1031(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1031, value); });
+      }
+      void set_fsv1032(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1032, value); });
+      }void set_fsv1051(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1051, value); });
+      }
+      void set_fsv1052(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->fsv1052, value); });
+      }
+
+
+
+
+
       void set_indoor_eva_in_temperature(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)

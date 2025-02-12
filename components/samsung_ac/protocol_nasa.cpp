@@ -621,6 +621,62 @@ namespace esphome
                 target->set_current_temp_zone2(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1011, temp, source, dest);
+                target->set_fsv1011(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1012: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1012, temp, source, dest);
+                target->set_fsv1012(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1021: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1021, temp, source, dest);
+                target->set_fsv1021(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1022: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1022, temp, source, dest);
+                target->set_fsv1022(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1031: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1031, temp, source, dest);
+                target->set_fsv1031(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1032: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1032, temp, source, dest);
+                target->set_fsv1032(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1051: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1051, temp, source, dest);
+                target->set_fsv1051(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1052: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1052, temp, source, dest);
+                target->set_fsv1052(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_temp_target_f: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

@@ -82,8 +82,6 @@ namespace esphome
             ENUM_in_louver_lr_swing = 0x407e,
             ENUM_in_state_humidity_percent = 0x4038,
             VAR_in_temp_room_f = 0x4203,
-            VAR_in_current_temp_zone1 = 0x42D8,
-            VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_temp_target_f = 0x4201,
             VAR_in_temp_water_outlet_target_f = 0x4247,
             VAR_in_temp_water_tank_f = 0x4237,
@@ -97,6 +95,20 @@ namespace esphome
             VAR_OUT_SENSOR_CT1 = 0x8217,
             LVAR_NM_OUT_SENSOR_VOLTAGE = 0x24fc,
             VAR_in_temp_target_zone2 = 0x427F,
+
+            //Zusätzliche SENSOREN
+            VAR_in_current_temp_zone1 = 0x42D8,
+            VAR_in_current_temp_zone2 = 0x42D9,
+            VAR_in_fsv1011 = 0x424A,
+            VAR_in_fsv1012 = 0x424B,
+            VAR_in_fsv1021 = 0x424C,
+            VAR_in_fsv1022 = 0x424D,
+            VAR_in_fsv1031 = 0x424E,
+            VAR_in_fsv1032 = 0x424F,
+            VAR_in_fsv1051 = 0x4252,
+            VAR_in_fsv1052 = 0x4253,
+
+
         };
 
         struct Address
