@@ -634,10 +634,10 @@ namespace esphome
                 target->set_waterflow(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_compressor_frequency: 
+            case MessageNumber::VAR_out_compressor_frequency: 
             {
                 double temp = (double)message.value;
-                LOG_MESSAGE(VAR_in_compressor_frequency, temp, source, dest);
+                LOG_MESSAGE(VAR_out_compressor_frequency, temp, source, dest);
                 target->set_compressor_frequency(source, temp);
                 break;
             }
@@ -646,6 +646,13 @@ namespace esphome
                 double temp = (double)message.value / (double)1000;
                 LOG_MESSAGE(VAR_in_energy_produced_lifetime, temp, source, dest);
                 target->set_energy_produced_lifetime(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_out_baseheater: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_out_base_heater, temp, source, dest);
+                target->set_base_heater(source, temp);
                 break;
             }
             case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML

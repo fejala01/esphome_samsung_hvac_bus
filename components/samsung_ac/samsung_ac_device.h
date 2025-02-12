@@ -109,6 +109,7 @@ namespace esphome
       sensor::Sensor *waterflow{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
+      sensor::Sensor *base_heater{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
@@ -242,6 +243,10 @@ namespace esphome
       void set_energy_produced_lifetime_sensor(sensor::Sensor *sensor)
       {
         energy_produced_lifetime = sensor;
+      }
+      void set_base_heater(sensor::Sensor *sensor)
+      {
+        base_heater = sensor;
       }
 
       //Sensoren

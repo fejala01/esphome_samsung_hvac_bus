@@ -86,6 +86,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_BASE_HEATER = "base_heater"
 CONF_DEVICE_ENERGY_PRODUCED_LIFETIME = "energy_produced_lifetime"
 CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
 CONF_DEVICE_WATERFLOW = "waterflow"
@@ -271,6 +272,8 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
             accuracy_decimals=0,
+        ),
+        cv.Optional(CONF_DEVICE_BASE_HEATER): sensor.sensor_schema(
         ),
         cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -622,6 +625,10 @@ async def to_code(config):
             CONF_DEVICE_ENERGY_PRODUCED_LIFETIME: (
                 sensor.new_sensor,
                 var_dev.set_energy_produced_lifetime_sensor,
+            ),
+            CONF_DEVICE_BASE_HEATER: (
+                sensor.new_sensor,
+                var_dev.set_base_heater_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,

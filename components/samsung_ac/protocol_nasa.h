@@ -98,8 +98,9 @@ namespace esphome
             VAR_in_target_offset = 0x4248,
 
             //Zusätzliche SENSOREN
+            VAR_out_base_heater = 0x80AF,
             VAR_in_energy_produced_lifetime = 0x4427,
-            VAR_in_compressor_frequency = 0x8238,
+            VAR_out_compressor_frequency = 0x8238,
             VAR_in_waterflow = 0x42E9,
             VAR_in_current_temp_zone1 = 0x42D8,
             VAR_in_current_temp_zone2 = 0x42D9,
