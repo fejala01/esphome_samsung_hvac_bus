@@ -136,6 +136,7 @@ namespace esphome
             optional<float> water_outlet_target;
             optional<float> target_water_temp;
             optional<float> target_temp_zone2;
+            optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;
             optional<AltMode> alt_mode;
