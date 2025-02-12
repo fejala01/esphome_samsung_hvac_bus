@@ -895,7 +895,7 @@ namespace esphome
                 target->set_error_code(source, code);
                 break;
             }
-            ase MessageNumber::VAR_out_ventilator:
+            case MessageNumber::VAR_out_ventilator:
             {
                 int code = static_cast<int>(message.value);
                 if (debug_log_messages)
