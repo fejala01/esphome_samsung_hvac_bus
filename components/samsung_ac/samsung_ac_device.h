@@ -244,7 +244,7 @@ namespace esphome
       {
         energy_produced_lifetime = sensor;
       }
-      void set_base_heater(sensor::Sensor *sensor)
+      void set_base_heater_sensor(sensor::Sensor *sensor)
       {
         base_heater = sensor;
       }
