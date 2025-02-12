@@ -82,6 +82,8 @@ namespace esphome
             ENUM_in_louver_lr_swing = 0x407e,
             ENUM_in_state_humidity_percent = 0x4038,
             VAR_in_temp_room_f = 0x4203,
+            VAR_in_current_temp_zone1 = 0x42D8,
+            VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_temp_target_f = 0x4201,
             VAR_in_temp_water_outlet_target_f = 0x4247,
             VAR_in_temp_water_tank_f = 0x4237,

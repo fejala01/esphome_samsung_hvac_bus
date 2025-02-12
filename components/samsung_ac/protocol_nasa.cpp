@@ -607,6 +607,20 @@ namespace esphome
                 target->set_room_temperature(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_current_temp_zone1: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_current_temp_zone1, temp, source, dest);
+                target->set_current_temp_zone1(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_current_temp_zone2: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_current_temp_zone2, temp, source, dest);
+                target->set_current_temp_zone2(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_temp_target_f: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

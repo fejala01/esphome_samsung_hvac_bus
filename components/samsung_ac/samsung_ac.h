@@ -102,6 +102,16 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->outdoor_temperature, value); });
       }
+      void set_current_temp_zone1(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->current_temp_zone1, value); });
+      }
+      void set_current_temp_zone2(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->current_temp_zone2, value); });
+      }
 
       void set_indoor_eva_in_temperature(const std::string address, float value) override
       {

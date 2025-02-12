@@ -84,6 +84,11 @@ CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 
 
+#ZUSATZ SENSOREN
+CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
+CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
+
+
 CONF_CAPABILITIES = "capabilities"
 CONF_CAPABILITIES_HORIZONTAL_SWING = "horizontal_swing"
 CONF_CAPABILITIES_VERTICAL_SWING = "vertical_swing"
@@ -207,6 +212,18 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_CAPABILITIES): CAPABILITIES_SCHEMA,
         cv.Required(CONF_DEVICE_ADDRESS): cv.string,
         cv.Optional(CONF_DEVICE_ROOM_TEMPERATURE): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE1): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -433,6 +450,14 @@ async def to_code(config):
             CONF_DEVICE_ROOM_TEMPERATURE: (
                 sensor.new_sensor,
                 var_dev.set_room_temperature_sensor,
+            ),
+            CONF_DEVICE_CURRENT_TEMP_ZONE1: (
+                sensor.new_sensor,
+                var_dev.set_current_temp_zone1_sensor,
+            ),
+            CONF_DEVICE_CURRENT_TEMP_ZONE2: (
+                sensor.new_sensor,
+                var_dev.set_current_temp_zone2_sensor,
             ),
             CONF_DEVICE_OUTDOOR_TEMPERATURE: (
                 sensor.new_sensor,
