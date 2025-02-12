@@ -95,6 +95,14 @@ CONF_DEVICE_FSV1031 = "fsv1031"
 CONF_DEVICE_FSV1032 = "fsv1032"
 CONF_DEVICE_FSV1051 = "fsv1051"
 CONF_DEVICE_FSV1052 = "fsv1052"
+CONF_DEVICE_FSV2011 = "fsv2011"
+CONF_DEVICE_FSV2012 = "fsv2012"
+CONF_DEVICE_FSV2021 = "fsv2021"
+CONF_DEVICE_FSV2022 = "fsv2022"
+CONF_DEVICE_FSV2031 = "fsv2031"
+CONF_DEVICE_FSV2032 = "fsv2032"
+CONF_DEVICE_FSV2051 = "fsv2051"
+CONF_DEVICE_FSV2052 = "fsv2052"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -285,6 +293,62 @@ DEVICE_SCHEMA = cv.Schema(
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
+
+
+        
+        cv.Optional(CONF_DEVICE_FSV2011): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2012): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2021): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2022): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2031): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2032): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2051): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2052): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+
+
+
+
+
         cv.Optional(CONF_DEVICE_ROOM_TEMPERATURE_OFFSET): cv.float_,
         cv.Optional(CONF_DEVICE_OUTDOOR_TEMPERATURE): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -547,6 +611,43 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_fsv1052_sensor,
             ),
+
+            
+            CONF_DEVICE_FSV2011: (
+                sensor.new_sensor,
+                var_dev.set_fsv2011_sensor,
+            ),
+            CONF_DEVICE_FSV2012: (
+                sensor.new_sensor,
+                var_dev.set_fsv2012_sensor,
+            ),
+            CONF_DEVICE_FSV2021: (
+                sensor.new_sensor,
+                var_dev.set_fsv2021_sensor,
+            ),
+            CONF_DEVICE_FSV2022: (
+                sensor.new_sensor,
+                var_dev.set_fsv2022_sensor,
+            ),
+            CONF_DEVICE_FSV2031: (
+                sensor.new_sensor,
+                var_dev.set_fsv2031_sensor,
+            ),
+            CONF_DEVICE_FSV2032: (
+                sensor.new_sensor,
+                var_dev.set_fsv2032_sensor,
+            ),
+            CONF_DEVICE_FSV2051: (
+                sensor.new_sensor,
+                var_dev.set_fsv2051_sensor,
+            ),
+            CONF_DEVICE_FSV2052: (
+                sensor.new_sensor,
+                var_dev.set_fsv2052_sensor,
+            ),
+
+
+
             CONF_DEVICE_OUTDOOR_TEMPERATURE: (
                 sensor.new_sensor,
                 var_dev.set_outdoor_temperature_sensor,

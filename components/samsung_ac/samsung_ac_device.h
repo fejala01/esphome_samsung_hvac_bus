@@ -233,6 +233,38 @@ namespace esphome
       {
         fsv1052 = sensor;
       }
+      void set_fsv2011_sensor(sensor::Sensor *sensor)
+      {
+        fsv2011 = sensor;
+      }
+      void set_fsv2012_sensor(sensor::Sensor *sensor)
+      {
+        fsv2012 = sensor;
+      }
+      void set_fsv2021_sensor(sensor::Sensor *sensor)
+      {
+        fsv2021 = sensor;
+      }
+      void set_fsv2022_sensor(sensor::Sensor *sensor)
+      {
+        fsv2022 = sensor;
+      }
+      void set_fsv2031_sensor(sensor::Sensor *sensor)
+      {
+        fsv2031 = sensor;
+      }
+      void set_fsv2032_sensor(sensor::Sensor *sensor)
+      {
+        fsv2032 = sensor;
+      }
+      void set_fsv2051_sensor(sensor::Sensor *sensor)
+      {
+        fsv2051 = sensor;
+      }
+      void set_fsv2052_sensor(sensor::Sensor *sensor)
+      {
+        fsv2052 = sensor;
+      }
 
 
 
