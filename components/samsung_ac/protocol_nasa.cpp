@@ -454,6 +454,12 @@ namespace esphome
                 targettemp_zone2.value = request.target_temp_zone2.value() * 10.0;
                 packet.messages.push_back(targettemp_zone2);
             }
+            if (request.target_offset)
+            {
+                MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
+                targetoffset.value = request.target_offset.value() * 10.0;
+                packet.messages.push_back(targetoffset);
+            }
 
             if (request.fan_mode)
             {
