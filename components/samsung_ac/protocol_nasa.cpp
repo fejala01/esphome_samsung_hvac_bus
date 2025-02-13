@@ -465,7 +465,7 @@ namespace esphome
                 MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
                 targetoffset.value = request.target_offset.value() * 10.0;
                 if (targetoffset.value < 0) {
-                    targetoffset = 6554 + targetoffset.value;
+                    targetoffset.value = 6554 + targetoffset.value;
                 }
                 packet.messages.push_back(targetoffset);
             }
