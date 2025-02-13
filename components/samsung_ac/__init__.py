@@ -489,7 +489,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
             icon="mdi:spray-bottle"
-            unit_of_measurement="min"",
+            unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
             icon="mdi:spray-bottle"
