@@ -479,6 +479,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
             icon="mdi:spray-bottle"
+            unit_of_measurement="Uhr",
         ),
         cv.Optional(CONF_DEVICE_FSV3044): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -488,9 +489,11 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
             icon="mdi:spray-bottle"
+            unit_of_measurement="min"",
         ),
         cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
             icon="mdi:spray-bottle"
+            unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
             icon="mdi:valve"
