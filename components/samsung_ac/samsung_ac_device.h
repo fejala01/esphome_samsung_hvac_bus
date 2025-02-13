@@ -316,7 +316,7 @@ namespace esphome
       }
       void set_compressor_status_sensor(sensor::Sensor *sensor)
       {
-        deice_compressor = sensor;
+        compressor_status = sensor;
       }
       void set_deice_mode_sensor(sensor::Sensor *sensor)
       {
