@@ -122,6 +122,7 @@ namespace esphome
       sensor::Sensor *operation_mode_real{nullptr};
       sensor::Sensor *operation_mode_ext{nullptr};
       sensor::Sensor *deice_status{nullptr};
+      sensor::Sensor *compressor_status{nullptr};
       sensor::Sensor *outdoor_temperature{nullptr};
       sensor::Sensor *indoor_eva_in_temperature{nullptr};
       sensor::Sensor *indoor_eva_out_temperature{nullptr};
@@ -312,6 +313,10 @@ namespace esphome
       void set_deice_status_sensor(sensor::Sensor *sensor)
       {
         deice_status = sensor;
+      }
+      void set_compressor_status_sensor(sensor::Sensor *sensor)
+      {
+        deice_compressor = sensor;
       }
       void set_deice_mode_sensor(sensor::Sensor *sensor)
       {

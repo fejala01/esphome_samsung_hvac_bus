@@ -88,6 +88,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
 CONF_DEVICE_COOLANT = "coolant"
 CONF_DEVICE_OPERATION_MODE_EXT = "operation_mode_ext"
 CONF_DEVICE_OPERATION_MODE_REAL = "operation_mode_real"
@@ -367,6 +368,9 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_DEICE_STATUS): sensor.sensor_schema(
             icon="mdi:ice-cream-off",
+        ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_STATUS): sensor.sensor_schema(
+            icon="mdi:engine",
         ),
         cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -832,6 +836,10 @@ async def to_code(config):
             CONF_DEVICE_DEICE_STATUS: (
                 sensor.new_sensor,
                 var_dev.set_deice_status_sensor,
+            ),
+            CONF_DEVICE_COMPRESSOR_STATUS: (
+                sensor.new_sensor,
+                var_dev.set_compressor_status_sensor,
             ),
             CONF_DEVICE_DEICE_MODE: (
                 sensor.new_sensor,
