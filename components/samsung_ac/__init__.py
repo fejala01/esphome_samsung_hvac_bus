@@ -251,7 +251,7 @@ def ventilator_sensor_schema(message: int):
         icon="mdi:fan",
         state_class=STATE_CLASS_MEASUREMENT,
     )
-def pwaterpump_pwm_sensor_schema(message: int):
+def waterpump_pwm_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
         unit_of_measurement="%",
