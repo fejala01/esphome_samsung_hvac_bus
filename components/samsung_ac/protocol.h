@@ -96,6 +96,7 @@ namespace esphome
             virtual void set_service(const std::string address, float value) = 0;
             virtual void set_deice_mode(const std::string address, float value) = 0;
             virtual void set_operation_mode_real(const std::string address, float value) = 0;
+            virtual void set_operation_mode_ext(const std::string address, float value) = 0;
             virtual void set_deice_status(const std::string address, float value) = 0;
             virtual void set_current_temp_zone2(const std::string address, float value) = 0;
             virtual void set_target_temperature(const std::string address, float value) = 0;

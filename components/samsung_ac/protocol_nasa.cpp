@@ -727,6 +727,13 @@ namespace esphome
                 target->set_operation_mode_real(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_operation_mode_ext: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_out_operation_mode_ext, temp, source, dest);
+                target->set_operation_mode_ext(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_deice_status: 
             {
                 int temp = (int)message.value;
