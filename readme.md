@@ -1,8 +1,4 @@
-# ESPHome Samsung HVAC Integration
-
-> ⚠️ **Temporary Availability Notice**  
-> I am currently engaged in a specialized B2B web development project and will have limited availability to respond to issues and discussions until the **end of February**.  
-> I sincerely appreciate your patience and the contributions of the community during this period. Thank you for your understanding and support. 🙏
+# ESPHome Samsung HVAC Integration - Adapted for Samsung Heat Pumps using NASA
 
 Welcome to the **ESPHome Samsung HVAC Integration** project! This project provides an [ESPHome](https://esphome.io/) component to integrate Samsung HVAC units (air conditioners or heat pumps) seamlessly into Home Assistant. Our goal is to empower users with comprehensive control and monitoring of their HVAC systems using modern, open-source tools.
 
