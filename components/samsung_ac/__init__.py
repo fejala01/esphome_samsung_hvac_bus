@@ -85,7 +85,6 @@ CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
-
 #ZUSATZ SENSOREN
 CONF_DEVICE_DEICE_STATUS = "deice_status"
 CONF_DEVICE_DEICE_MODE = "deice_mode"
