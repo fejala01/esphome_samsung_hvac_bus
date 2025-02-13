@@ -134,6 +134,14 @@ namespace esphome
             virtual void set_fsv2051(const std::string address, float value) = 0;
             virtual void set_fsv2052(const std::string address, float value) = 0;
             virtual void set_fsv2041(const std::string address, float value) = 0;
+            virtual void set_fsv2081(const std::string address, float value) = 0;
+            virtual void set_fsv2093(const std::string address, float value) = 0;
+            virtual void set_fsv3022(const std::string address, float value) = 0;
+            virtual void set_fsv3023(const std::string address, float value) = 0;
+            virtual void set_fsv3031(const std::string address, float value) = 0;
+            virtual void set_fsv3032(const std::string address, float value) = 0;
+            virtual void set_fsv3033(const std::string address, float value) = 0;
+            virtual void set_fsv3041(const std::string address, float value) = 0;
         };
 
         struct ProtocolRequest

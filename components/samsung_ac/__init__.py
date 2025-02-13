@@ -116,6 +116,16 @@ CONF_DEVICE_FSV2032 = "fsv2032"
 CONF_DEVICE_FSV2051 = "fsv2051"
 CONF_DEVICE_FSV2052 = "fsv2052"
 CONF_DEVICE_FSV2041 = "fsv2041"
+CONF_DEVICE_FSV2081 = "fsv2081"
+CONF_DEVICE_FSV2093 = "fsv2093"
+CONF_DEVICE_FSV3022 = "fsv3022"
+CONF_DEVICE_FSV3023 = "fsv3023"
+CONF_DEVICE_FSV3031 = "fsv3031"
+CONF_DEVICE_FSV3032 = "fsv3032"
+CONF_DEVICE_FSV3033 = "fsv3033"
+CONF_DEVICE_FSV3041 = "fsv3041"
+
+
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -412,6 +422,37 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV2041): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV2081): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV2093): sensor.sensor_schema(
+        ),
+         cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+         cv.Optional(CONF_DEVICE_FSV3023): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV3031): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV3032): sensor.sensor_schema(
+            unit_of_measurement="min",
+            accuracy_decimals=0,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV3033): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
         ),
 
 
@@ -758,6 +799,38 @@ async def to_code(config):
             CONF_DEVICE_FSV2041: (
                 sensor.new_sensor,
                 var_dev.set_fsv2041_sensor,
+            ),
+            CONF_DEVICE_FSV2081: (
+                sensor.new_sensor,
+                var_dev.set_fsv2081_sensor,
+            ),
+            CONF_DEVICE_FSV2093: (
+                sensor.new_sensor,
+                var_dev.set_fsv2093_sensor,
+            ),
+            CONF_DEVICE_FSV3022: (
+                sensor.new_sensor,
+                var_dev.set_fsv3022_sensor,
+            ),
+            CONF_DEVICE_FSV3023: (
+                sensor.new_sensor,
+                var_dev.set_fsv3023_sensor,
+            ),
+            CONF_DEVICE_FSV3031: (
+                sensor.new_sensor,
+                var_dev.set_fsv3031_sensor,
+            ),
+            CONF_DEVICE_FSV3032: (
+                sensor.new_sensor,
+                var_dev.set_fsv3032_sensor,
+            ),
+            CONF_DEVICE_FSV3033: (
+                sensor.new_sensor,
+                var_dev.set_fsv3033_sensor,
+            ),
+            CONF_DEVICE_FSV3041: (
+                sensor.new_sensor,
+                var_dev.set_fsv3041_sensor,
             ),
 
 

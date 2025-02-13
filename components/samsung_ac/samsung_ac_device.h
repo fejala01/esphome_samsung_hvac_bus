@@ -143,6 +143,12 @@ namespace esphome
       sensor::Sensor *fsv2051{nullptr};
       sensor::Sensor *fsv2052{nullptr};
       sensor::Sensor *fsv2041{nullptr};
+      sensor::Sensor *fsv3022{nullptr};
+      sensor::Sensor *fsv3023{nullptr};
+      sensor::Sensor *fsv3031{nullptr};
+      sensor::Sensor *fsv3032{nullptr};
+      sensor::Sensor *fsv3033{nullptr};
+      sensor::Sensor *fsv3041{nullptr};
 
 
 
@@ -343,6 +349,38 @@ namespace esphome
       void set_fsv2041_sensor(sensor::Sensor *sensor)
       {
         fsv2041 = sensor;
+      }
+      void set_fsv2081_sensor(sensor::Sensor *sensor)
+      {
+        fsv2081 = sensor;
+      }
+      void set_fsv2093_sensor(sensor::Sensor *sensor)
+      {
+        fsv2093 = sensor;
+      }
+      void set_fsv3022_sensor(sensor::Sensor *sensor)
+      {
+        fsv3022 = sensor;
+      }
+      void set_fsv3023_sensor(sensor::Sensor *sensor)
+      {
+        fsv3023 = sensor;
+      }
+      void set_fsv3031_sensor(sensor::Sensor *sensor)
+      {
+        fsv3031 = sensor;
+      }
+      void set_fsv3032_sensor(sensor::Sensor *sensor)
+      {
+        fsv3032 = sensor;
+      }
+      void set_fsv3033_sensor(sensor::Sensor *sensor)
+      {
+        fsv3033 = sensor;
+      }
+      void set_fsv3041_sensor(sensor::Sensor *sensor)
+      {
+        fsv3041 = sensor;
       }
 
 
