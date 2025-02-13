@@ -103,7 +103,7 @@ namespace esphome
             VAR_in_deice_status = 0x402E,
             VAR_out_deice_mode = 0x8061,
             VAR_in_operation_mode_real = 0x8001,
-            VAR_in_operation_mode_ext = 0x4002,
+            VAR_out_operation_mode_ext = 0x4002,
             VAR_out_base_heater = 0x80AF,
             VAR_in_backup_heater = 0x406C,
             VAR_in_booster_heater = 0x4087,
