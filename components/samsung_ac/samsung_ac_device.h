@@ -142,7 +142,7 @@ namespace esphome
       sensor::Sensor *fsv2032{nullptr};
       sensor::Sensor *fsv2051{nullptr};
       sensor::Sensor *fsv2052{nullptr};
-
+      sensor::Sensor *fsv2041{nullptr};
 
 
 
@@ -340,7 +340,10 @@ namespace esphome
       {
         fsv2052 = sensor;
       }
-
+      void set_fsv2041_sensor(sensor::Sensor *sensor)
+      {
+        fsv2041 = sensor;
+      }
 
 
 

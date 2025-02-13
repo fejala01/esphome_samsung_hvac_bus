@@ -115,6 +115,7 @@ CONF_DEVICE_FSV2031 = "fsv2031"
 CONF_DEVICE_FSV2032 = "fsv2032"
 CONF_DEVICE_FSV2051 = "fsv2051"
 CONF_DEVICE_FSV2052 = "fsv2052"
+CONF_DEVICE_FSV2041 = "fsv2041"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -409,6 +410,8 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV2041): sensor.sensor_schema(
         ),
 
 
@@ -751,6 +754,10 @@ async def to_code(config):
             CONF_DEVICE_FSV2052: (
                 sensor.new_sensor,
                 var_dev.set_fsv2052_sensor,
+            ),
+            CONF_DEVICE_FSV2041: (
+                sensor.new_sensor,
+                var_dev.set_fsv2041_sensor,
             ),
 
 
