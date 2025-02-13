@@ -671,6 +671,13 @@ namespace esphome
                 target->set_waterflow(source, temp);
                 break;
             }
+            ase MessageNumber::VAR_out_coolant: 
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_coolant, temp, source, dest);
+                target->set_coolant(source, temp);
+                break;
+            }
             case MessageNumber::VAR_out_compressor_frequency: 
             {
                 double temp = (double)message.value;

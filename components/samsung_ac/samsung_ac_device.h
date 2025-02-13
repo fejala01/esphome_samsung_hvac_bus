@@ -111,6 +111,7 @@ namespace esphome
       sensor::Sensor *three_way_valve{nullptr};
       sensor::Sensor *temp_mixing_valve{nullptr};
       sensor::Sensor *waterflow{nullptr};
+      sensor::Sensor *coolant{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
       sensor::Sensor *base_heater{nullptr};
@@ -279,6 +280,10 @@ namespace esphome
       void set_waterflow_sensor(sensor::Sensor *sensor)
       {
         waterflow = sensor;
+      }
+      void set_coolant_sensor(sensor::Sensor *sensor)
+      {
+        coolant = sensor;
       }
       void set_compressor_frequency_sensor(sensor::Sensor *sensor)
       {

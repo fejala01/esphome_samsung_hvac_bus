@@ -88,6 +88,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_COOLANT = "coolant"
 CONF_DEVICE_OPERATION_MODE_EXT = "operation_mode_ext"
 CONF_DEVICE_OPERATION_MODE_REAL = "operation_mode_real"
 CONF_DEVICE_WATER_PRESSURE = "water_pressure"
@@ -325,6 +326,11 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="L/min",
             accuracy_decimals=1,
             icon="mdi:water-pump",
+        ),
+        cv.Optional(CONF_DEVICE_COOLANT): sensor.sensor_schema(
+            unit_of_measurement="-",
+            accuracy_decimals=0,
+            icon="mdi:car-coolant-level",
         ),
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
             unit_of_measurement="Hz",
@@ -792,6 +798,10 @@ async def to_code(config):
                 var_dev.set_3way_valve_sensor,
             ),
             CONF_DEVICE_WATERFLOW: (
+                sensor.new_sensor,
+                var_dev.set_waterflow_sensor,
+            ),
+            CONF_DEVICE_COOLANT: (
                 sensor.new_sensor,
                 var_dev.set_waterflow_sensor,
             ),

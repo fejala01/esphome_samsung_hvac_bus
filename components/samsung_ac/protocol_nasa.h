@@ -111,6 +111,7 @@ namespace esphome
             VAR_in_energy_produced_lifetime = 0x4427,
             VAR_out_compressor_frequency = 0x8238,
             VAR_in_waterflow = 0x42E9,
+            VAR_out_coolant = 0x808E,
             VAR_in_current_temp_zone1 = 0x42D8,
             VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_outdoor_water_temperature = 0x825E,
