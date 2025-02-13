@@ -300,6 +300,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
             accuracy_decimals=0,
+            icon="mdi:counter"
         ),
         cv.Optional(CONF_DEVICE_BASE_HEATER): sensor.sensor_schema(
             icon="mdi:heating-coil",
@@ -440,11 +441,13 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3031): sensor.sensor_schema(
+            icon="mdi:heating-coil"
         ),
         cv.Optional(CONF_DEVICE_FSV3032): sensor.sensor_schema(
             unit_of_measurement="min",
             accuracy_decimals=0,
             state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:heating-coil"
         ),
         cv.Optional(CONF_DEVICE_FSV3033): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -453,6 +456,7 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
+            icon="mdi:spray-bottle"
         ),
 
 
