@@ -249,13 +249,15 @@ def ventilator_sensor_schema(message: int):
         unit_of_measurement="rpm",
         accuracy_decimals=0,
         icon="mdi:fan",
+        state_class=STATE_CLASS_MEASUREMENT,
     )
-def percent_sensor_schema(message: int):
+def pwaterpump_pwm_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
         unit_of_measurement="%",
         accuracy_decimals=0,
         icon="mdi:water-pump"
+        state_class=STATE_CLASS_MEASUREMENT,
     )
 
 
@@ -423,10 +425,13 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV2041): sensor.sensor_schema(
+            icon="mdi:chart-bell-curve-cumulative"
         ),
         cv.Optional(CONF_DEVICE_FSV2081): sensor.sensor_schema(
+            icon="mdi:chart-bell-curve-cumulative"
         ),
         cv.Optional(CONF_DEVICE_FSV2093): sensor.sensor_schema(
+            icon="mdi:car-cruise-control"
         ),
          cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -458,6 +463,9 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
             icon="mdi:spray-bottle"
         ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
+            icon="mdi:engine"
+        ),
 
 
 
@@ -484,7 +492,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_ERROR_CODE): error_code_sensor_schema(0x8235),
         cv.Optional(CONF_DEVICE_VENTILATOR): ventilator_sensor_schema(0x823D),
-        cv.Optional(CONF_DEVICE_WATERPUMP_PWM): percent_sensor_schema(0x40C4),
+        cv.Optional(CONF_DEVICE_WATERPUMP_PWM): waterpump_pwm_sensor_schema(0x40C4),
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,

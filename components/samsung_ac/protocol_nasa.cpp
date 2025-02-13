@@ -677,7 +677,7 @@ namespace esphome
             }
             case MessageNumber::VAR_in_service: 
             {
-                double temp = (double)message.value;
+                int temp = (int)message.value;
                 LOG_MESSAGE(VAR_in_service, temp, source, dest);
                 target->set_service(source, temp);
                 break;
