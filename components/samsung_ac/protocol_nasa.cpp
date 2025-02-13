@@ -464,9 +464,6 @@ namespace esphome
             {
                 MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
                 targetoffset.value = request.target_offset.value() * 10.0;
-                if (targetoffset.value < 0) {
-                    targetoffset.value = (double)6554 + targetoffset.value;
-                }
                 packet.messages.push_back(targetoffset);
             }
 
@@ -985,10 +982,6 @@ namespace esphome
             case MessageNumber::VAR_in_target_offset: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value;
-                if (temp > (double)6500) {
-                    temp = temp - (double)6554;
-                }
-                temp = temp / (double)10;
                 LOG_MESSAGE(VAR_in_target_offset, temp, source, dest);
                 target->set_target_offset(source, temp);
                 break;
