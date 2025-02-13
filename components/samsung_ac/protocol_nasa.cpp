@@ -720,6 +720,13 @@ namespace esphome
                 target->set_deice_mode(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_operation_mode_real: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_in_operation_mode_real, temp, source, dest);
+                target->set_operation_mode_real(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_deice_status: 
             {
                 int temp = (int)message.value;

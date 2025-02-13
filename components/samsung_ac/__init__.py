@@ -88,6 +88,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_OPERATION_MODE_REAL = "operation_mode_real"
 CONF_DEVICE_WATER_PRESSURE = "water_pressure"
 CONF_DEVICE_3WAY_VALVE = "3way_valve"
 CONF_DEVICE_TEMP_MIXING_VALVE = "temp_mixing_valve"
@@ -350,6 +351,9 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_DEICE_MODE): sensor.sensor_schema(
             icon="mdi:ice-cream-off",
+        ),
+        cv.Optional(CONF_DEVICE_OPERATION_MODE_REAL): sensor.sensor_schema(
+            icon="mdi:information-outline",
         ),
         cv.Optional(CONF_DEVICE_DEICE_STATUS): sensor.sensor_schema(
             icon="mdi:ice-cream-off",
@@ -818,6 +822,10 @@ async def to_code(config):
             CONF_DEVICE_DEICE_MODE: (
                 sensor.new_sensor,
                 var_dev.set_deice_mode_sensor,
+            ),
+            CONF_DEVICE_OPERATION_MODE_REAL: (
+                sensor.new_sensor,
+                var_dev.set_operation_mode_real_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,
