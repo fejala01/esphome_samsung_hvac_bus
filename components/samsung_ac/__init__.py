@@ -320,6 +320,7 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_FREQUENCY,
             state_class=STATE_CLASS_MEASUREMENT,
+            icon:"mdi:engine"
         ),
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
@@ -484,9 +485,6 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
             icon="mdi:spray-bottle",
-        ),
-        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
-            icon="mdi:engine",
         ),
         cv.Optional(CONF_DEVICE_FSV3042): sensor.sensor_schema(
             icon="mdi:spray-bottle",
