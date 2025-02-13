@@ -475,8 +475,10 @@ DEVICE_SCHEMA = cv.Schema(
             icon="mdi:engine"
         ),
         cv.Optional(CONF_DEVICE_FSV3042): sensor.sensor_schema(
+            icon="mdi:spray-bottle"
         ),
         cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
+            icon="mdi:spray-bottle"
         ),
         cv.Optional(CONF_DEVICE_FSV3044): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -485,12 +487,16 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
+            icon="mdi:spray-bottle"
         ),
         cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
+            icon="mdi:spray-bottle"
         ),
         cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
+            icon="mdi:valve"
         ),
         cv.Optional(CONF_DEVICE_FSV4011): sensor.sensor_schema(
+            icon="mdi:priority-high"
         ),
         cv.Optional(CONF_DEVICE_FSV4012): sensor.sensor_schema(
         ),
