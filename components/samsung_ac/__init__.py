@@ -86,6 +86,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_3WAY_VALVE = "3way_valve"
 CONF_DEVICE_TEMP_MIXING_VALVE = "temp_mixing_valve"
 CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE = "outdoor_water_temperature"
 CONF_DEVICE_DEICE_STATUS = "deice_status"
@@ -298,6 +299,9 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_3WAY_VALVE): sensor.sensor_schema(
+            icon="mdi:valve",
         ),
         cv.Optional(CONF_DEVICE_OUTDOOR_TEMPERATURE): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -758,6 +762,10 @@ async def to_code(config):
             CONF_DEVICE_TEMP_MIXING_VALVE: (
                 sensor.new_sensor,
                 var_dev.set_temp_mixing_valve_sensor,
+            ),
+            CONF_DEVICE_3WAY_VALVE: (
+                sensor.new_sensor,
+                var_dev.set_3way_valve_sensor,
             ),
             CONF_DEVICE_WATERFLOW: (
                 sensor.new_sensor,

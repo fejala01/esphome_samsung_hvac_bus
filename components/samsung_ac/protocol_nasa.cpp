@@ -647,6 +647,13 @@ namespace esphome
                 target->set_temp_mixing_valve(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_3way_valve: // unit = 'Celsius' from XML
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_in_3way_valve, temp, source, dest);
+                target->set_3way_valve(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_waterflow: 
             {
                 double temp = (double)message.value / (double)10;
