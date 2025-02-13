@@ -808,9 +808,9 @@ namespace esphome
                 target->set_fsv2052(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_fsv2041: // unit = 'Celsius' from XML
+            case MessageNumber::VAR_in_fsv2041:
             {
-                int temp = (int)message.value;
+                double temp = (double)message.value;
                 LOG_MESSAGE(VAR_in_fsv2041, temp, source, dest);
                 target->set_fsv2041(source, temp);
                 break;
