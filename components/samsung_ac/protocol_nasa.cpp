@@ -871,6 +871,62 @@ namespace esphome
                 target->set_fsv3041(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_fsv3042: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3042, temp, source, dest);
+                target->set_fsv3042(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv3043: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3043, temp, source, dest);
+                target->set_fsv3043(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv3044: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3044, temp, source, dest);
+                target->set_fsv3044(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv3045: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3045, temp, source, dest);
+                target->set_fsv3045(source, temp);
+                break;
+            } 
+            case MessageNumber::VAR_in_fsv3046: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3046, temp, source, dest);
+                target->set_fsv3046(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv3071: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3071, temp, source, dest);
+                target->set_fsv3071(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv4011: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4011, temp, source, dest);
+                target->set_fsv4011(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv4012: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4012, temp, source, dest);
+                target->set_fsv4012(source, temp);
+                break;
+            }
 
 
 

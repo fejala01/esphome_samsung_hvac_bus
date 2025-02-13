@@ -124,6 +124,14 @@ CONF_DEVICE_FSV3031 = "fsv3031"
 CONF_DEVICE_FSV3032 = "fsv3032"
 CONF_DEVICE_FSV3033 = "fsv3033"
 CONF_DEVICE_FSV3041 = "fsv3041"
+CONF_DEVICE_FSV3042 = "fsv3042"
+CONF_DEVICE_FSV3043 = "fsv3043"
+CONF_DEVICE_FSV3044 = "fsv3044"
+CONF_DEVICE_FSV3045 = "fsv3045"
+CONF_DEVICE_FSV3046 = "fsv3046"
+CONF_DEVICE_FSV3071 = "fsv3071"
+CONF_DEVICE_FSV4011 = "fsv4011"
+CONF_DEVICE_FSV4012 = "fsv4012"
 
 
 
@@ -433,13 +441,13 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV2093): sensor.sensor_schema(
             icon="mdi:car-cruise-control"
         ),
-         cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
+        cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-         cv.Optional(CONF_DEVICE_FSV3023): sensor.sensor_schema(
+        cv.Optional(CONF_DEVICE_FSV3023): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -465,6 +473,26 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
             icon="mdi:engine"
+        ),
+        cv.Optional(CONF_DEVICE_FSV3042): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV3044): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV4011): sensor.sensor_schema(
+        ),
+        cv.Optional(CONF_DEVICE_FSV4012): sensor.sensor_schema(
         ),
 
 
@@ -843,6 +871,38 @@ async def to_code(config):
             CONF_DEVICE_FSV3041: (
                 sensor.new_sensor,
                 var_dev.set_fsv3041_sensor,
+            ),
+            CONF_DEVICE_FSV3042: (
+                sensor.new_sensor,
+                var_dev.set_fsv3042_sensor,
+            ),
+            CONF_DEVICE_FSV3043: (
+                sensor.new_sensor,
+                var_dev.set_fsv3043_sensor,
+            ),
+            CONF_DEVICE_FSV3044: (
+                sensor.new_sensor,
+                var_dev.set_fsv3044_sensor,
+            ),
+            CONF_DEVICE_FSV3045: (
+                sensor.new_sensor,
+                var_dev.set_fsv3045_sensor,
+            ),
+            CONF_DEVICE_FSV3046: (
+                sensor.new_sensor,
+                var_dev.set_fsv3046_sensor,
+            ),
+            CONF_DEVICE_FSV3071: (
+                sensor.new_sensor,
+                var_dev.set_fsv3071_sensor,
+            ),
+            CONF_DEVICE_FSV4011: (
+                sensor.new_sensor,
+                var_dev.set_fsv4011_sensor,
+            ),
+            CONF_DEVICE_FSV4012: (
+                sensor.new_sensor,
+                var_dev.set_fsv4012_sensor,
             ),
 
 
