@@ -454,7 +454,7 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3031): sensor.sensor_schema(
-            icon="mdi:heating-coil"
+            icon="mdi:heating-coil",
         ),
         cv.Optional(CONF_DEVICE_FSV3032): sensor.sensor_schema(
             unit_of_measurement="min",
@@ -469,13 +469,13 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
-            icon="mdi:spray-bottle"
+            icon="mdi:spray-bottle",
         ),
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
-            icon="mdi:engine"
+            icon="mdi:engine",
         ),
         cv.Optional(CONF_DEVICE_FSV3042): sensor.sensor_schema(
-            icon="mdi:spray-bottle"
+            icon="mdi:spray-bottle",
         ),
         cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
             icon="mdi:spray-bottle"
@@ -488,7 +488,7 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
-            icon="mdi:spray-bottle"
+            icon="mdi:spray-bottle",
             unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
@@ -496,12 +496,16 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
-            icon="mdi:valve"
+            icon="mdi:valve",
         ),
         cv.Optional(CONF_DEVICE_FSV4011): sensor.sensor_schema(
-            icon="mdi:priority-high"
+            icon="mdi:priority-high",
         ),
         cv.Optional(CONF_DEVICE_FSV4012): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
         ),
 
 
