@@ -643,6 +643,13 @@ namespace esphome
                 target->set_outdoor_water_temperature(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_discharge_temp: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_discharge_temp, temp, source, dest);
+                target->set_discharge_temp(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_water_pressure: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value;

@@ -88,6 +88,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_DISCHARGE_TEMP = "discharge_temp"
 CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
 CONF_DEVICE_COOLANT = "coolant"
 CONF_DEVICE_OPERATION_MODE_EXT = "operation_mode_ext"
@@ -297,6 +298,12 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_DISCHARGE_TEMP): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -788,6 +795,10 @@ async def to_code(config):
             CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE: (
                 sensor.new_sensor,
                 var_dev.set_outdoor_water_temperature_sensor,
+            ),
+            CONF_DEVICE_DISCHARGE_TEMP: (
+                sensor.new_sensor,
+                var_dev.set_discharge_temp_sensor,
             ),
             CONF_DEVICE_WATER_PRESSURE: (
                 sensor.new_sensor,

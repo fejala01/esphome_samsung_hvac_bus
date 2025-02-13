@@ -84,6 +84,7 @@ namespace esphome
             virtual void set_room_temperature(const std::string address, float value) = 0;
             virtual void set_current_temp_zone1(const std::string address, float value) = 0;
             virtual void set_outdoor_water_temperature(const std::string address, float value) = 0;
+            virtual void set_discharge_temp(const std::string address, float value) = 0;
             virtual void set_water_pressure(const std::string address, float value) = 0;
             virtual void set_3way_valve(const std::string address, float value) = 0;
             virtual void set_temp_mixing_valve(const std::string address, float value) = 0;
