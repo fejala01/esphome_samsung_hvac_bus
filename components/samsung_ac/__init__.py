@@ -310,7 +310,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
             accuracy_decimals=0,
-            icon="mdi:counter"
+            icon="mdi:counter",
         ),
         cv.Optional(CONF_DEVICE_BASE_HEATER): sensor.sensor_schema(
             icon="mdi:heating-coil",
@@ -433,13 +433,13 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FSV2041): sensor.sensor_schema(
-            icon="mdi:chart-bell-curve-cumulative"
+            icon="mdi:chart-bell-curve-cumulative",
         ),
         cv.Optional(CONF_DEVICE_FSV2081): sensor.sensor_schema(
-            icon="mdi:chart-bell-curve-cumulative"
+            icon="mdi:chart-bell-curve-cumulative",
         ),
         cv.Optional(CONF_DEVICE_FSV2093): sensor.sensor_schema(
-            icon="mdi:car-cruise-control"
+            icon="mdi:car-cruise-control",
         ),
         cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -478,7 +478,7 @@ DEVICE_SCHEMA = cv.Schema(
             icon="mdi:spray-bottle",
         ),
         cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
-            icon="mdi:spray-bottle"
+            icon="mdi:spray-bottle",
             unit_of_measurement="Uhr",
         ),
         cv.Optional(CONF_DEVICE_FSV3044): sensor.sensor_schema(
@@ -492,7 +492,7 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
-            icon="mdi:spray-bottle"
+            icon="mdi:spray-bottle",
             unit_of_measurement="min",
         ),
         cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
