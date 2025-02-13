@@ -107,7 +107,7 @@ namespace esphome
       sensor::Sensor *current_temp_zone1{nullptr};
       sensor::Sensor *current_temp_zone2{nullptr};
       sensor::Sensor *outdoor_water_temperature{nullptr};
-      sensor::Sensor *3way_valve{nullptr};
+      sensor::Sensor *three_way_valve{nullptr};
       sensor::Sensor *temp_mixing_valve{nullptr};
       sensor::Sensor *waterflow{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
@@ -262,7 +262,7 @@ namespace esphome
       }
       void set_3way_valve_sensor(sensor::Sensor *sensor)
       {
-        3way_valve = sensor;
+        three_way_valve = sensor;
       }
       void set_temp_mixing_valve_sensor(sensor::Sensor *sensor)
       {
