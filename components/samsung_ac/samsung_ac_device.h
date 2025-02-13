@@ -143,6 +143,8 @@ namespace esphome
       sensor::Sensor *fsv2051{nullptr};
       sensor::Sensor *fsv2052{nullptr};
       sensor::Sensor *fsv2041{nullptr};
+      sensor::Sensor *fsv2081{nullptr};
+      sensor::Sensor *fsv2093{nullptr};
       sensor::Sensor *fsv3022{nullptr};
       sensor::Sensor *fsv3023{nullptr};
       sensor::Sensor *fsv3031{nullptr};
