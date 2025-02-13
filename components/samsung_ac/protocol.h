@@ -92,6 +92,7 @@ namespace esphome
             virtual void set_energy_produced_lifetime(const std::string address, float value) = 0;
             virtual void set_base_heater(const std::string address, float value) = 0;
             virtual void set_backup_heater(const std::string address, float value) = 0;
+            virtual void set_booster_heater(const std::string address, float value) = 0;
             virtual void set_service(const std::string address, float value) = 0;
             virtual void set_deice_mode(const std::string address, float value) = 0;
             virtual void set_deice_status(const std::string address, float value) = 0;

@@ -699,6 +699,13 @@ namespace esphome
                 target->set_backup_heater(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_booster_heater: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_in_booster_heater, temp, source, dest);
+                target->set_booster_heater(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_service: 
             {
                 int temp = (int)message.value;

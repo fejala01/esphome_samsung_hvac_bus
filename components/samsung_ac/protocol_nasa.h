@@ -104,6 +104,7 @@ namespace esphome
             VAR_out_deice_mode = 0x8061,
             VAR_out_base_heater = 0x80AF,
             VAR_in_backup_heater = 0x406C,
+            VAR_in_booster_heater = 0x4087,
             VAR_in_service = 0x8000,
             VAR_in_energy_produced_lifetime = 0x4427,
             VAR_out_compressor_frequency = 0x8238,

@@ -96,6 +96,7 @@ CONF_DEVICE_DEICE_STATUS = "deice_status"
 CONF_DEVICE_DEICE_MODE = "deice_mode"
 CONF_DEVICE_SERVICE = "service"
 CONF_DEVICE_BACKUP_HEATER = "backup_heater"
+CONF_DEVICE_BOOSTER_HEATER = "backup_heater"
 CONF_DEVICE_BASE_HEATER = "base_heater"
 CONF_DEVICE_ENERGY_PRODUCED_LIFETIME = "energy_produced_lifetime"
 CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
@@ -339,6 +340,9 @@ DEVICE_SCHEMA = cv.Schema(
             icon="mdi:heating-coil",
         ),
         cv.Optional(CONF_DEVICE_BACKUP_HEATER): sensor.sensor_schema(
+            icon="mdi:heating-coil",
+        ),
+        cv.Optional(CONF_DEVICE_BOOSTER_HEATER): sensor.sensor_schema(
             icon="mdi:heating-coil",
         ),
         cv.Optional(CONF_DEVICE_SERVICE): sensor.sensor_schema(
@@ -798,6 +802,10 @@ async def to_code(config):
             CONF_DEVICE_BACKUP_HEATER: (
                 sensor.new_sensor,
                 var_dev.set_backup_heater_sensor,
+            ),
+            CONF_DEVICE_BOOSTER_HEATER: (
+                sensor.new_sensor,
+                var_dev.set_booster_heater_sensor,
             ),
             CONF_DEVICE_SERVICE: (
                 sensor.new_sensor,
