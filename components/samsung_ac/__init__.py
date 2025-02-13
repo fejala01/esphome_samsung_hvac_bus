@@ -8,6 +8,7 @@ from esphome.const import (
     STATE_CLASS_TOTAL_INCREASING,
     DEVICE_CLASS_ENERGY,
     DEVICE_CLASS_POWER,
+    DEVICE_CLASS_FREQUENCY, 
     DEVICE_CLASS_HUMIDITY,
     DEVICE_CLASS_VOLTAGE,
     DEVICE_CLASS_CURRENT,
@@ -317,6 +318,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
             unit_of_measurement="Hz",
             accuracy_decimals=0,
+            device_class=DEVICE_CLASS_FREQUENCY,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
