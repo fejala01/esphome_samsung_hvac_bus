@@ -640,6 +640,13 @@ namespace esphome
                 target->set_outdoor_water_temperature(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_temp_mixing_valve: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_temp_mixing_valve, temp, source, dest);
+                target->set_temp_mixing_valve(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_waterflow: 
             {
                 double temp = (double)message.value / (double)10;

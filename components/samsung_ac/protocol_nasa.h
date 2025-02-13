@@ -110,6 +110,7 @@ namespace esphome
             VAR_in_current_temp_zone1 = 0x42D8,
             VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_outdoor_water_temperature = 0x825E,
+            VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,
             VAR_in_fsv1012 = 0x424B,
             VAR_in_fsv1021 = 0x424C,

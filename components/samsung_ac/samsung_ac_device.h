@@ -107,6 +107,7 @@ namespace esphome
       sensor::Sensor *current_temp_zone1{nullptr};
       sensor::Sensor *current_temp_zone2{nullptr};
       sensor::Sensor *outdoor_water_temperature{nullptr};
+      sensor::Sensor *temp_mixing_valve{nullptr};
       sensor::Sensor *waterflow{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
@@ -257,6 +258,10 @@ namespace esphome
       void set_outdoor_water_temperature_sensor(sensor::Sensor *sensor)
       {
         outdoor_water_temperature = sensor;
+      }
+      void set_temp_mixing_valve_sensor(sensor::Sensor *sensor)
+      {
+        temp_mixing_valve = sensor;
       }
       void set_waterflow_sensor(sensor::Sensor *sensor)
       {
