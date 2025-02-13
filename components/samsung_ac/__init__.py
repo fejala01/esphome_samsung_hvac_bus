@@ -256,7 +256,7 @@ def pwaterpump_pwm_sensor_schema(message: int):
         message=message,
         unit_of_measurement="%",
         accuracy_decimals=0,
-        icon="mdi:water-pump"
+        icon="mdi:water-pump",
         state_class=STATE_CLASS_MEASUREMENT,
     )
 
