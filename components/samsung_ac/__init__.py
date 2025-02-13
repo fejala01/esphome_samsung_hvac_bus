@@ -769,7 +769,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_WATER_PRESSURE: (
                 sensor.new_sensor,
-                var_dev.set_outdoor_water_pressure_sensor,
+                var_dev.set_water_pressure_sensor,
             ),
             CONF_DEVICE_TEMP_MIXING_VALVE: (
                 sensor.new_sensor,
