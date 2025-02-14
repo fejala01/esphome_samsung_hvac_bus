@@ -178,6 +178,7 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
+      Samsung_AC_Switch *quiet_mode{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
       Samsung_AC_Switch *water_heater_power{nullptr};
@@ -532,6 +533,16 @@ namespace esphome
           publish_request(request);
         };
       }
+      void set_quiet_mode_switch(Samsung_AC_Switch *switch_)
+      {
+        quiet_mode = switch_;
+        quiet_mode->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.quiet_mode = value;
+          publish_request(request);
+        };
+      }
       void set_vacation_switch(Samsung_AC_Switch *switch_)
       {
         vacation = switch_;
@@ -681,6 +692,7 @@ namespace esphome
 
       optional<bool> _cur_power;
       optional<bool> _cur_power_zone2;
+      optional<bool> _cur_quiet_mode;
       optional<bool> _cur_vacation;
       optional<bool> _cur_automatic_cleaning;
       optional<bool> _cur_water_heater_power;
@@ -702,6 +714,12 @@ namespace esphome
           power_zone2->publish_state(value);
         if (climate != nullptr)
           calc_and_publish_mode();
+      }
+      void update_quiet_mode(bool value)
+      {
+        _cur_quiet_mode = value;
+        if (quiet_mode != nullptr)
+          quiet_mode->publish_state(value);
       }
       void update_vacation(bool value)
       {
