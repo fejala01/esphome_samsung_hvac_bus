@@ -336,6 +336,7 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="L/min",
             accuracy_decimals=1,
             icon="mdi:water-pump",
+            state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_COOLANT): sensor.sensor_schema(
             unit_of_measurement="-",
