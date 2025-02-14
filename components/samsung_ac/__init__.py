@@ -832,7 +832,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_COOLANT: (
                 sensor.new_sensor,
-                var_dev.set_waterflow_sensor,
+                var_dev.set_coolant_sensor,
             ),
             CONF_DEVICE_COMPRESSOR_FREQUENCY: (
                 sensor.new_sensor,
