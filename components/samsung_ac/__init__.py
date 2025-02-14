@@ -341,6 +341,8 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="-",
             accuracy_decimals=0,
             icon="mdi:car-coolant-level",
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
             unit_of_measurement="Hz",
