@@ -725,6 +725,8 @@ namespace esphome
         _cur_quiet_mode = value;
         if (quiet_mode != nullptr)
           quiet_mode->publish_state(value);
+        if (climate != nullptr)
+          calc_and_publish_mode();
       }
       void update_vacation(bool value)
       {
@@ -900,6 +902,8 @@ namespace esphome
         if (!_cur_power.has_value())
           return;
         if (!_cur_power_zone2.has_value())
+          return;
+        if (!_cur_quiet_mode.has_value())
           return;
         if (!_cur_mode.has_value())
           return;
