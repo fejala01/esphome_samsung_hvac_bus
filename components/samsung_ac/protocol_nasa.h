@@ -96,7 +96,7 @@ namespace esphome
             LVAR_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM = 0x8414,
             VAR_OUT_SENSOR_CT1 = 0x8217,
             LVAR_NM_OUT_SENSOR_VOLTAGE = 0x24fc,
-            VAR_in_temp_target_zone2 = 0x427F,
+            VAR_in_temp_target_zone2 = 0x42D7,
             VAR_in_target_offset = 0x4248,
 
             //Zusätzliche SENSOREN
