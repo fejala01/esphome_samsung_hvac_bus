@@ -105,6 +105,7 @@ CONF_DEVICE_BACKUP_HEATER = "backup_heater"
 CONF_DEVICE_BOOSTER_HEATER = "booster_heater"
 CONF_DEVICE_BASE_HEATER = "base_heater"
 CONF_DEVICE_ENERGY_PRODUCED_LIFETIME = "energy_produced_lifetime"
+CONF_DEVICE_ENERGY_PRODUCED_NOW = "energy_produced_now"
 CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
 CONF_DEVICE_WATERFLOW = "waterflow"
 CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
@@ -350,6 +351,11 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
+            accuracy_decimals=0,
+            icon="mdi:counter",
+        ),
+        cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_NOW): sensor.sensor_schema(
+            unit_of_measurement="W",
             accuracy_decimals=0,
             icon="mdi:counter",
         ),
@@ -830,6 +836,10 @@ async def to_code(config):
             CONF_DEVICE_ENERGY_PRODUCED_LIFETIME: (
                 sensor.new_sensor,
                 var_dev.set_energy_produced_lifetime_sensor,
+            ),
+            CONF_DEVICE_ENERGY_PRODUCED_NOW: (
+                sensor.new_sensor,
+                var_dev.set_energy_produced_now_sensor,
             ),
             CONF_DEVICE_BASE_HEATER: (
                 sensor.new_sensor,

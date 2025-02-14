@@ -115,6 +115,7 @@ namespace esphome
       sensor::Sensor *coolant{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
+      sensor::Sensor *energy_produced_now{nullptr};
       sensor::Sensor *base_heater{nullptr};
       sensor::Sensor *backup_heater{nullptr};
       sensor::Sensor *booster_heater{nullptr};
@@ -299,6 +300,10 @@ namespace esphome
       void set_energy_produced_lifetime_sensor(sensor::Sensor *sensor)
       {
         energy_produced_lifetime = sensor;
+      }
+      void set_energy_produced_now_sensor(sensor::Sensor *sensor)
+      {
+        energy_produced_now = sensor;
       }
       void set_base_heater_sensor(sensor::Sensor *sensor)
       {

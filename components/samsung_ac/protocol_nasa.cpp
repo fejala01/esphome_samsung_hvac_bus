@@ -705,6 +705,13 @@ namespace esphome
                 target->set_energy_produced_lifetime(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_energy_produced_now: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_energy_produced_now, temp, source, dest);
+                target->set_energy_produced_now(source, temp);
+                break;
+            }
             case MessageNumber::VAR_out_base_heater: 
             {
                 int temp = (int)message.value;
