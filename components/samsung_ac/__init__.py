@@ -803,7 +803,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_WATER_TEMPERATURE_OUT: (
                 sensor.new_sensor,
-                var_dev.setwater_temperature_out_sensor,
+                var_dev.set_water_temperature_out_sensor,
             ),
             CONF_DEVICE_DISCHARGE_TEMP: (
                 sensor.new_sensor,
