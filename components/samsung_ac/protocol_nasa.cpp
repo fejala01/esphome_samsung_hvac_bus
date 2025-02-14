@@ -642,11 +642,11 @@ namespace esphome
                 target->set_current_temp_zone2(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_outdoor_water_temperature: // unit = 'Celsius' from XML
+            case MessageNumber::VAR_in_water_temperature_out: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;
-                LOG_MESSAGE(VAR_in_outdoor_water_temperature, temp, source, dest);
-                target->set_outdoor_water_temperature(source, temp);
+                LOG_MESSAGE(VAR_in_water_temperature_out, temp, source, dest);
+                target->set_water_temperature_out(source, temp);
                 break;
             }
             case MessageNumber::VAR_out_discharge_temp: // unit = 'Celsius' from XML

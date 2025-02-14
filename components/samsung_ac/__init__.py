@@ -97,7 +97,7 @@ CONF_DEVICE_OPERATION_MODE_REAL = "operation_mode_real"
 CONF_DEVICE_WATER_PRESSURE = "water_pressure"
 CONF_DEVICE_3WAY_VALVE = "3way_valve"
 CONF_DEVICE_TEMP_MIXING_VALVE = "temp_mixing_valve"
-CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE = "outdoor_water_temperature"
+CONF_DEVICE_WATER_TEMPERATURE_OUT = "water_temperature_out"
 CONF_DEVICE_DEICE_STATUS = "deice_status"
 CONF_DEVICE_DEICE_MODE = "deice_mode"
 CONF_DEVICE_SERVICE = "service"
@@ -299,7 +299,7 @@ DEVICE_SCHEMA = cv.Schema(
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE): sensor.sensor_schema(
+        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE_OUT): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -801,9 +801,9 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_current_temp_zone1_sensor,
             ),
-            CONF_DEVICE_OUTDOOR_WATER_TEMPERATURE: (
+            CONF_DEVICE_WATER_TEMPERATURE_OUT: (
                 sensor.new_sensor,
-                var_dev.set_outdoor_water_temperature_sensor,
+                var_dev.setwater_temperature_out_sensor,
             ),
             CONF_DEVICE_DISCHARGE_TEMP: (
                 sensor.new_sensor,

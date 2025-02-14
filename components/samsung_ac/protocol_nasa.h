@@ -117,7 +117,7 @@ namespace esphome
             VAR_out_coolant = 0x808E,
             VAR_in_current_temp_zone1 = 0x42D8,
             VAR_in_current_temp_zone2 = 0x42D9,
-            VAR_in_outdoor_water_temperature = 0x825E,
+            VAR_in_water_temperature_out = 0x4238,
             VAR_out_discharge_temp = 0x820A,
             VAR_in_water_pressure = 0x82FE,
             VAR_in_temp_mixing_valve = 0x428C,
