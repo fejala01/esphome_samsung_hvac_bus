@@ -471,7 +471,7 @@ namespace esphome
                 MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
                 targetoffset.value = request.target_offset.value() * 10.0;
                 if (targetoffset.value < 0) {
-                    targetoffset.value = 65535 + targetoffset.value;
+                    targetoffset.value = 65536 + targetoffset.value;
                 }
                 packet.messages.push_back(targetoffset);
             }
@@ -1041,7 +1041,7 @@ namespace esphome
             {
                 double temp = (double)message.value;
                 if (temp > 60000) {
-                    temp = temp - 65535;
+                    temp = temp - 65536;
                 }
                 temp = temp / (double)10;
                 LOG_MESSAGE(VAR_in_target_offset, temp, source, dest);
