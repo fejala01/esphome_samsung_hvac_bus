@@ -358,6 +358,8 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="W",
             accuracy_decimals=0,
             icon="mdi:counter",
+            device_class=DEVICE_CLASS_ENERGY,
+            state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_BASE_HEATER): sensor.sensor_schema(
             icon="mdi:heating-coil",
