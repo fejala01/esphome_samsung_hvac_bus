@@ -180,6 +180,7 @@ namespace esphome
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
       Samsung_AC_Number *target_temperature_zone2{nullptr};
+      Samsung_AC_Number *fsv5013{nullptr};
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
@@ -665,6 +666,16 @@ namespace esphome
           publish_request(request);
         };
       };
+      void set_fsv5013_number(Samsung_AC_Number *number)
+      {
+        fsv5013 = number;
+        fsv5013->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv5013 = value;
+          publish_request(request);
+        };
+      };
       void set_target_offset_number(Samsung_AC_Number *number)
       {
         target_offset = number;
@@ -708,6 +719,11 @@ namespace esphome
       {
         if (target_temperature_zone2 != nullptr)
           target_temperature_zone2->publish_state(value);
+      }
+      void update_fsv5013(float value)
+      {
+        if (fsv5013 != nullptr)
+          fsv5013->publish_state(value);
       }
       void update_target_offset(float value)
       {

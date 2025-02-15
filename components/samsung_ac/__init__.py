@@ -72,6 +72,7 @@ CONF_DEVICE_POWER_ZONE2 = "power_zone2"
 CONF_DEVICE_QUIET_MODE = "quiet_mode"
 CONF_DEVICE_VACATION = "vacation"
 CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 = "target_temperature_zone2"
+CONF_DEVICE_FSV5013 = "fsv5013"
 CONF_DEVICE_AUTOMATIC_CLEANING = "automatic_cleaning"
 CONF_DEVICE_WATER_HEATER_POWER = "water_heater_power"
 CONF_DEVICE_MODE = "mode"
@@ -610,6 +611,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE_ZONE2): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5013): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
@@ -1121,6 +1123,14 @@ async def to_code(config):
                 conf, min_value=23.0, max_value=43.0, step=0.1
             )
             cg.add(var_dev.set_target_temperature_zone2_number(num))
+        if CONF_DEVICE_FSV5013 in device:
+            conf = device[CONF_DEVICE_FSV5013]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=25.0, max_value=27.0, step=1
+            )
+            cg.add(var_dev.set_fsv5013_number(num))
         if CONF_DEVICE_TARGET_OFFSET in device:
             conf = device[CONF_DEVICE_TARGET_OFFSET]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS

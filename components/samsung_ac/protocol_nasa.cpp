@@ -466,6 +466,12 @@ namespace esphome
                 targettemp_zone2.value = request.target_temp_zone2.value() * 10.0;
                 packet.messages.push_back(targettemp_zone2);
             }
+            if (request.fsv5013)
+            {
+                MessageSet fsv5013(MessageNumber::VAR_in_fsv5013);
+                fsv5013.value = request.fsv5013.value() * 10.0;
+                packet.messages.push_back(fsv5013);
+            }
             if (request.target_offset)
             {
                 MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
@@ -1062,6 +1068,13 @@ namespace esphome
                 double temp = (double)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_temp_target_zone2, temp, source, dest);
                 target->set_target_temperature_zone2(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv5013: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv5013, temp, source, dest);
+                target->set_fsv5013(source, temp);
                 break;
             }
             case MessageNumber::VAR_in_target_offset: // unit = 'Celsius' from XML
