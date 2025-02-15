@@ -790,7 +790,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=20.0, max_value=30.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1011_number(num))
+            cg.add(var_dev.set_fsv1011_number(num))
 
         if CONF_DEVICE_FSV1012 in device:
             conf = device[CONF_DEVICE_FSV1012]
@@ -799,7 +799,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=15.0, max_value=20.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1012_number(num))
+            cg.add(var_dev.set_fsv1012_number(num))
 
         if CONF_DEVICE_FSV1021 in device:
             conf = device[CONF_DEVICE_FSV1021]
@@ -808,7 +808,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=25.0, max_value=35.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1021_number(num))
+            cg.add(var_dev.set_fsv1021_number(num))
 
         if CONF_DEVICE_FSV1022 in device:
             conf = device[CONF_DEVICE_FSV1022]
@@ -817,7 +817,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=15.0, max_value=30.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1022_number(num))
+            cg.add(var_dev.set_fsv1022_number(num))
 
         if CONF_DEVICE_FSV1031 in device:
             conf = device[CONF_DEVICE_FSV1031]
@@ -826,7 +826,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=40.0, max_value=70.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_FSV1031_number(num))
+            cg.add(var_dev.set_FSV1031_number(num))
 
         if CONF_DEVICE_FSV1032 in device:
             conf = device[CONF_DEVICE_FSV1032]
@@ -835,7 +835,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=20.0, max_value=30.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1032_number(num))
+            cg.add(var_dev.set_fsv1032_number(num))
 
         if CONF_DEVICE_FSV1041 in device:
             conf = device[CONF_DEVICE_FSV1041]
@@ -844,7 +844,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=20.0, max_value=35.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1041_number(num))
+            cg.add(var_dev.set_fsv1041_number(num))
 
         if CONF_DEVICE_FSV1042 in device:
             conf = device[CONF_DEVICE_FSV1042]
@@ -853,7 +853,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=15.0, max_value=20.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1042_number(num))
+            cg.add(var_dev.set_fsv1042_number(num))
 
         if CONF_DEVICE_FSV1051 in device:
             conf = device[CONF_DEVICE_FSV1051]
@@ -862,7 +862,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=50.0, max_value=70.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1051_number(num))
+            cg.add(var_dev.set_fsv1051_number(num))
 
         if CONF_DEVICE_FSV1052 in device:
             conf = device[CONF_DEVICE_FSV1052]
@@ -871,7 +871,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=25.0, max_value=45.0, step=0.1
             )
-            cg.add(var_dev.set_target_temperature_fsv1052_number(num))
+            cg.add(var_dev.set_fsv1052_number(num))
 
 
         if CONF_DEVICE_TARGET_OFFSET in device:
