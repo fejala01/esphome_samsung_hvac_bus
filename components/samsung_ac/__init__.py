@@ -1204,4 +1204,4 @@ async def to_code(config):
             cg.add(method(config[key]))
 
     await cg.register_component(var, config)
-    await uart.register_Euart_device(var, config)
+    await uart.register_uart_device(var, config)
