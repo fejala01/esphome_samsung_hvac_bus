@@ -166,6 +166,15 @@ namespace esphome
       Samsung_AC_Number *fsv1042{nullptr};
       Samsung_AC_Number *fsv1051{nullptr};
       Samsung_AC_Number *fsv1052{nullptr};
+      Samsung_AC_Number *fsv5011{nullptr};
+      Samsung_AC_Number *fsv5012{nullptr};
+      Samsung_AC_Number *fsv5013{nullptr};
+      Samsung_AC_Number *fsv5014{nullptr};
+      Samsung_AC_Number *fsv5015{nullptr};
+      Samsung_AC_Number *fsv5016{nullptr};
+      Samsung_AC_Number *fsv5017{nullptr};
+      Samsung_AC_Number *fsv5018{nullptr};
+      Samsung_AC_Number *fsv5019{nullptr};
 
       float room_temperature_offset{0};
 
