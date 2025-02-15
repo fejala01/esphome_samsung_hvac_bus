@@ -187,6 +187,11 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->operation_mode_real, value); });
       }
+      void set_evi_bypass_valve(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->evi_bypass_valve, value); });
+      }
       void set_operation_mode_ext(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)

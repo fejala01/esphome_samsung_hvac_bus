@@ -761,6 +761,13 @@ namespace esphome
                 target->set_operation_mode_real(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_evi_bypass_valve: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_out_evi_bypass_valve, temp, source, dest);
+                target->set_evi_bypass_valve(source, temp);
+                break;
+            }
             case MessageNumber::VAR_out_operation_mode_ext: 
             {
                 int temp = (int)message.value;

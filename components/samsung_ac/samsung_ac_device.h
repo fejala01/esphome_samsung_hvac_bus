@@ -122,6 +122,7 @@ namespace esphome
       sensor::Sensor *service{nullptr};
       sensor::Sensor *deice_mode{nullptr};
       sensor::Sensor *operation_mode_real{nullptr};
+      sensor::Sensor *evi_bypass_valve{nullptr};
       sensor::Sensor *operation_mode_ext{nullptr};
       sensor::Sensor *deice_status{nullptr};
       sensor::Sensor *compressor_status{nullptr};
@@ -336,6 +337,10 @@ namespace esphome
       void set_operation_mode_real_sensor(sensor::Sensor *sensor)
       {
         operation_mode_real = sensor;
+      }
+      void set_evi_bypass_valve_sensor(sensor::Sensor *sensor)
+      {
+        evi_bypass_valve = sensor;
       }
       void set_operation_mode_ext_sensor(sensor::Sensor *sensor)
       {

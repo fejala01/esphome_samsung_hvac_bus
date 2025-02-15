@@ -100,6 +100,7 @@ namespace esphome
             virtual void set_service(const std::string address, float value) = 0;
             virtual void set_deice_mode(const std::string address, float value) = 0;
             virtual void set_operation_mode_real(const std::string address, float value) = 0;
+            virtual void set_evi_bypass_valve(const std::string address, float value) = 0;
             virtual void set_operation_mode_ext(const std::string address, float value) = 0;
             virtual void set_deice_status(const std::string address, float value) = 0;
             virtual void set_compressor_status(const std::string address, float value) = 0;

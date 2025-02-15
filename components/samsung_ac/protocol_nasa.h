@@ -105,6 +105,7 @@ namespace esphome
             VAR_out_compressor_status = 0x8010,
             VAR_out_deice_mode = 0x8061,
             VAR_in_operation_mode_real = 0x4002,
+            VAR_out_evi_bypass_valve = 0x8021,
             VAR_out_operation_mode_ext = 0x8001,
             VAR_out_base_heater = 0x80AF,
             VAR_in_backup_heater = 0x406C,
