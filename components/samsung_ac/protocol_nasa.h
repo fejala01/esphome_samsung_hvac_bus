@@ -71,7 +71,7 @@ namespace esphome
             Undefiend = 0,
             ENUM_in_operation_power = 0x4000,
             ENUM_in_operation_power_zone2 = 0x411E,
-            ENUM_in_operation_quiet_mode = 0x4046,
+            ENUM_in_operation_quiet_mode = 0x406E,
             ENUM_in_vacation = 0x406D,
             ENUM_in_operation_automatic_cleaning = 0x4111,
             ENUM_in_water_heater_power = 0x4065,
