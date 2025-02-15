@@ -356,12 +356,14 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_LIFETIME): sensor.sensor_schema(
             unit_of_measurement="kWh",
-            accuracy_decimals=0,
+            accuracy_decimals=3,
+            device_class=DEVICE_CLASS_ENERGY,
+            state_class=STATE_CLASS_MEASUREMENT,
             icon="mdi:counter",
         ),
         cv.Optional(CONF_DEVICE_ENERGY_PRODUCED_NOW): sensor.sensor_schema(
             unit_of_measurement="W",
-            accuracy_decimals=0,
+            accuracy_decimals=1,
             icon="mdi:counter",
             device_class=DEVICE_CLASS_ENERGY,
             state_class=STATE_CLASS_MEASUREMENT,
