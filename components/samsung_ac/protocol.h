@@ -113,7 +113,6 @@ namespace esphome
             virtual void set_indoor_eva_out_temperature(const std::string address, float value) = 0;
             virtual void set_target_water_temperature(const std::string address, float value) = 0;
             virtual void set_target_temperature_zone2(const std::string address, float value) = 0;
-            virtual void set_fsv5013(const std::string address, float value) = 0;
             virtual void set_target_offset(const std::string address, float value) = 0;
             virtual void set_mode(const std::string address, Mode mode) = 0;
             virtual void set_water_heater_mode(const std::string address, WaterHeaterMode waterheatermode) = 0;
@@ -141,33 +140,7 @@ namespace esphome
             virtual void set_fsv1042(const std::string address, float value) = 0;
             virtual void set_fsv1051(const std::string address, float value) = 0;
             virtual void set_fsv1052(const std::string address, float value) = 0;
-            virtual void set_fsv2011(const std::string address, float value) = 0;
-            virtual void set_fsv2012(const std::string address, float value) = 0;
-            virtual void set_fsv2021(const std::string address, float value) = 0;
-            virtual void set_fsv2022(const std::string address, float value) = 0;
-            virtual void set_fsv2031(const std::string address, float value) = 0;
-            virtual void set_fsv2032(const std::string address, float value) = 0;
-            virtual void set_fsv2051(const std::string address, float value) = 0;
-            virtual void set_fsv2052(const std::string address, float value) = 0;
-            virtual void set_fsv2041(const std::string address, float value) = 0;
-            virtual void set_fsv2081(const std::string address, float value) = 0;
-            virtual void set_fsv2093(const std::string address, float value) = 0;
-            virtual void set_fsv3022(const std::string address, float value) = 0;
-            virtual void set_fsv3023(const std::string address, float value) = 0;
-            virtual void set_fsv3031(const std::string address, float value) = 0;
-            virtual void set_fsv3032(const std::string address, float value) = 0;
-            virtual void set_fsv3033(const std::string address, float value) = 0;
-            virtual void set_fsv3041(const std::string address, float value) = 0;
-            virtual void set_fsv3042(const std::string address, float value) = 0;
-            virtual void set_fsv3043(const std::string address, float value) = 0;
-            virtual void set_fsv3044(const std::string address, float value) = 0;
-            virtual void set_fsv3045(const std::string address, float value) = 0;
-            virtual void set_fsv3046(const std::string address, float value) = 0;
-            virtual void set_fsv3071(const std::string address, float value) = 0;
-            virtual void set_fsv4011(const std::string address, float value) = 0;
-            virtual void set_fsv4012(const std::string address, float value) = 0;
-            virtual void set_fsv5011(const std::string address, float value) = 0;
-            virtual void set_fsv5012(const std::string address, float value) = 0;
+            
         };
 
         struct ProtocolRequest
@@ -185,7 +158,16 @@ namespace esphome
             optional<float> water_outlet_target;
             optional<float> target_water_temp;
             optional<float> target_temp_zone2;
-            optional<float> fsv5013;
+            optional<float> fsv1011;
+            optional<float> fsv1012;
+            optional<float> fsv1021;
+            optional<float> fsv1022;
+            optional<float> fsv1031;
+            optional<float> fsv1032;
+            optional<float> fsv1041;
+            optional<float> fsv1042;
+            optional<float> fsv1051;
+            optional<float> fsv1052;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;

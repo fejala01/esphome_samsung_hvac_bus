@@ -466,12 +466,7 @@ namespace esphome
                 targettemp_zone2.value = request.target_temp_zone2.value() * 10.0;
                 packet.messages.push_back(targettemp_zone2);
             }
-            if (request.fsv5013)
-            {
-                MessageSet fsv5013(MessageNumber::VAR_in_fsv5013);
-                fsv5013.value = request.fsv5013.value() * 10.0;
-                packet.messages.push_back(fsv5013);
-            }
+            
             if (request.target_offset)
             {
                 MessageSet targetoffset(MessageNumber::VAR_in_target_offset);
