@@ -665,7 +665,7 @@ namespace esphome
             }
             case MessageNumber::VAR_in_temp_mixing_valve: // unit = 'Celsius' from XML
             {
-                double temp = (double)message.value / (double)10;
+                double temp = (double)((int16_t)message.value) / (double)10;
                 LOG_MESSAGE(VAR_in_temp_mixing_valve, temp, source, dest);
                 target->set_temp_mixing_valve(source, temp);
                 break;
