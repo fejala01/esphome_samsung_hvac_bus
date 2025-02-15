@@ -428,11 +428,59 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_target_temperature_zone2(value); });
       }
-      void set_fsv5013(const std::string address, float value) override
+      void set_fsv1011(const std::string address, float value) override
       {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_fsv5013(value); });
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1011(value); });
       }
+      void set_fsv1012(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1012(value); });
+      }
+      void set_fsv1021(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1021(value); });
+      }
+      void set_fsv1022(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1022(value); });
+      }
+      void set_fsv1031(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1031(value); });
+      }
+      void set_fsv1032(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1032(value); });
+      }
+      void set_fsv1041(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1041(value); });
+      }
+      void set_fsv1042(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1042(value); });
+      }
+      void set_fsv1051(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1051(value); });
+      }
+      void set_fsv1052(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                    { dev->update_fsv1052(value); });
+      }
+
+
+
       void set_target_offset(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)

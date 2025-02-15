@@ -137,42 +137,6 @@ namespace esphome
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
       sensor::Sensor *outdoor_voltage{nullptr};
-      //Sensoren
-      sensor::Sensor *fsv1011{nullptr};
-      sensor::Sensor *fsv1012{nullptr};
-      sensor::Sensor *fsv1021{nullptr};
-      sensor::Sensor *fsv1022{nullptr};
-      sensor::Sensor *fsv1031{nullptr};
-      sensor::Sensor *fsv1032{nullptr};
-      sensor::Sensor *fsv1051{nullptr};
-      sensor::Sensor *fsv1052{nullptr};
-      sensor::Sensor *fsv2011{nullptr};
-      sensor::Sensor *fsv2012{nullptr};
-      sensor::Sensor *fsv2021{nullptr};
-      sensor::Sensor *fsv2022{nullptr};
-      sensor::Sensor *fsv2031{nullptr};
-      sensor::Sensor *fsv2032{nullptr};
-      sensor::Sensor *fsv2051{nullptr};
-      sensor::Sensor *fsv2052{nullptr};
-      sensor::Sensor *fsv2041{nullptr};
-      sensor::Sensor *fsv2081{nullptr};
-      sensor::Sensor *fsv2093{nullptr};
-      sensor::Sensor *fsv3022{nullptr};
-      sensor::Sensor *fsv3023{nullptr};
-      sensor::Sensor *fsv3031{nullptr};
-      sensor::Sensor *fsv3032{nullptr};
-      sensor::Sensor *fsv3033{nullptr};
-      sensor::Sensor *fsv3041{nullptr};
-      sensor::Sensor *fsv3042{nullptr};
-      sensor::Sensor *fsv3043{nullptr};
-      sensor::Sensor *fsv3044{nullptr};
-      sensor::Sensor *fsv3045{nullptr};
-      sensor::Sensor *fsv3046{nullptr};
-      sensor::Sensor *fsv3071{nullptr};
-      sensor::Sensor *fsv4011{nullptr};
-      sensor::Sensor *fsv4012{nullptr};
-      sensor::Sensor *fsv5011{nullptr};
-      sensor::Sensor *fsv5012{nullptr};
 
 
 
@@ -180,7 +144,6 @@ namespace esphome
       Samsung_AC_Number *water_outlet_target{nullptr};
       Samsung_AC_Number *target_water_temperature{nullptr};
       Samsung_AC_Number *target_temperature_zone2{nullptr};
-      Samsung_AC_Number *fsv5013{nullptr};
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
@@ -192,6 +155,18 @@ namespace esphome
       Samsung_AC_Water_Heater_Mode_Select *waterheatermode{nullptr};
       Samsung_AC_Climate *climate{nullptr};
       std::map<uint16_t, sensor::Sensor *> custom_sensor_map;
+
+      Samsung_AC_Number *fsv1011{nullptr};
+      Samsung_AC_Number *fsv1012{nullptr};
+      Samsung_AC_Number *fsv1021{nullptr};
+      Samsung_AC_Number *fsv1022{nullptr};
+      Samsung_AC_Number *fsv1031{nullptr};
+      Samsung_AC_Number *fsv1032{nullptr};
+      Samsung_AC_Number *fsv1041{nullptr};
+      Samsung_AC_Number *fsv1042{nullptr};
+      Samsung_AC_Number *fsv1051{nullptr};
+      Samsung_AC_Number *fsv1052{nullptr};
+
       float room_temperature_offset{0};
 
       template <typename SwingType>
@@ -356,149 +331,6 @@ namespace esphome
       }
 
       //Sensoren
-      void set_fsv1011_sensor(sensor::Sensor *sensor)
-      {
-        fsv1011 = sensor;
-      }
-      void set_fsv1012_sensor(sensor::Sensor *sensor)
-      {
-        fsv1012 = sensor;
-      }
-      void set_fsv1021_sensor(sensor::Sensor *sensor)
-      {
-        fsv1021 = sensor;
-      }
-      void set_fsv1022_sensor(sensor::Sensor *sensor)
-      {
-        fsv1022 = sensor;
-      }
-      void set_fsv1031_sensor(sensor::Sensor *sensor)
-      {
-        fsv1031 = sensor;
-      }
-      void set_fsv1032_sensor(sensor::Sensor *sensor)
-      {
-        fsv1032 = sensor;
-      }
-      void set_fsv1051_sensor(sensor::Sensor *sensor)
-      {
-        fsv1051 = sensor;
-      }
-      void set_fsv1052_sensor(sensor::Sensor *sensor)
-      {
-        fsv1052 = sensor;
-      }
-      void set_fsv2011_sensor(sensor::Sensor *sensor)
-      {
-        fsv2011 = sensor;
-      }
-      void set_fsv2012_sensor(sensor::Sensor *sensor)
-      {
-        fsv2012 = sensor;
-      }
-      void set_fsv2021_sensor(sensor::Sensor *sensor)
-      {
-        fsv2021 = sensor;
-      }
-      void set_fsv2022_sensor(sensor::Sensor *sensor)
-      {
-        fsv2022 = sensor;
-      }
-      void set_fsv2031_sensor(sensor::Sensor *sensor)
-      {
-        fsv2031 = sensor;
-      }
-      void set_fsv2032_sensor(sensor::Sensor *sensor)
-      {
-        fsv2032 = sensor;
-      }
-      void set_fsv2051_sensor(sensor::Sensor *sensor)
-      {
-        fsv2051 = sensor;
-      }
-      void set_fsv2052_sensor(sensor::Sensor *sensor)
-      {
-        fsv2052 = sensor;
-      }
-      void set_fsv2041_sensor(sensor::Sensor *sensor)
-      {
-        fsv2041 = sensor;
-      }
-      void set_fsv2081_sensor(sensor::Sensor *sensor)
-      {
-        fsv2081 = sensor;
-      }
-      void set_fsv2093_sensor(sensor::Sensor *sensor)
-      {
-        fsv2093 = sensor;
-      }
-      void set_fsv3022_sensor(sensor::Sensor *sensor)
-      {
-        fsv3022 = sensor;
-      }
-      void set_fsv3023_sensor(sensor::Sensor *sensor)
-      {
-        fsv3023 = sensor;
-      }
-      void set_fsv3031_sensor(sensor::Sensor *sensor)
-      {
-        fsv3031 = sensor;
-      }
-      void set_fsv3032_sensor(sensor::Sensor *sensor)
-      {
-        fsv3032 = sensor;
-      }
-      void set_fsv3033_sensor(sensor::Sensor *sensor)
-      {
-        fsv3033 = sensor;
-      }
-      void set_fsv3041_sensor(sensor::Sensor *sensor)
-      {
-        fsv3041 = sensor;
-      }
-      void set_fsv3042_sensor(sensor::Sensor *sensor)
-      {
-        fsv3042 = sensor;
-      }
-      void set_fsv3043_sensor(sensor::Sensor *sensor)
-      {
-        fsv3043 = sensor;
-      }
-      void set_fsv3044_sensor(sensor::Sensor *sensor)
-      {
-        fsv3044 = sensor;
-      }
-      void set_fsv3045_sensor(sensor::Sensor *sensor)
-      {
-        fsv3045 = sensor;
-      }
-      void set_fsv3046_sensor(sensor::Sensor *sensor)
-      {
-        fsv3046 = sensor;
-      }
-      void set_fsv3071_sensor(sensor::Sensor *sensor)
-      {
-        fsv3071 = sensor;
-      }
-      void set_fsv4011_sensor(sensor::Sensor *sensor)
-      {
-        fsv4011 = sensor;
-      }
-      void set_fsv4012_sensor(sensor::Sensor *sensor)
-      {
-        fsv4012 = sensor;
-      }
-      void set_fsv5011_sensor(sensor::Sensor *sensor)
-      {
-        fsv5011 = sensor;
-      }
-      void set_fsv5012_sensor(sensor::Sensor *sensor)
-      {
-        fsv5012 = sensor;
-      }
-
-
-
       void set_indoor_eva_in_temperature_sensor(sensor::Sensor *sensor)
       {
         indoor_eva_in_temperature = sensor;
@@ -666,16 +498,116 @@ namespace esphome
           publish_request(request);
         };
       };
-      void set_fsv5013_number(Samsung_AC_Number *number)
+      void set_fsv1011_number(Samsung_AC_Number *number)
       {
-        fsv5013 = number;
-        fsv5013->write_state_ = [this](float value)
-        {
-          ProtocolRequest request;
-          request.fsv5013 = value;
-          publish_request(request);
-        };
-      };
+          fsv1011 = number;
+          fsv1011->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1011 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1012_number(Samsung_AC_Number *number)
+      {
+          fsv1012 = number;
+          fsv1012->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1012 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1021_number(Samsung_AC_Number *number)
+      {
+          fsv1021 = number;
+          fsv1021->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1021 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1022_number(Samsung_AC_Number *number)
+      {
+          fsv1022 = number;
+          fsv1022->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1022 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1031_number(Samsung_AC_Number *number)
+      {
+          fsv1031 = number;
+          fsv1031->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1031 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1032_number(Samsung_AC_Number *number)
+      {
+          fsv1032 = number;
+          fsv1032->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1032 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1041_number(Samsung_AC_Number *number)
+      {
+          fsv1041 = number;
+          fsv1041->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1041 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1042_number(Samsung_AC_Number *number)
+      {
+          fsv1042 = number;
+          fsv1042->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1042 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1051_number(Samsung_AC_Number *number)
+      {
+          fsv1051 = number;
+          fsv1051->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1051 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv1052_number(Samsung_AC_Number *number)
+      {
+          fsv1052 = number;
+          fsv1052->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1052 = value;
+              publish_request(request);
+          };
+      }
+      
       void set_target_offset_number(Samsung_AC_Number *number)
       {
         target_offset = number;
@@ -720,10 +652,55 @@ namespace esphome
         if (target_temperature_zone2 != nullptr)
           target_temperature_zone2->publish_state(value);
       }
-      void update_fsv5013(float value)
+      void update_fsv1011(float value)
       {
-        if (fsv5013 != nullptr)
-          fsv5013->publish_state(value);
+          if (fsv1011 != nullptr)
+              fsv1011->publish_state(value);
+      }
+      void update_fsv1012(float value)
+      {
+          if (fsv1012 != nullptr)
+              fsv1012->publish_state(value);
+      }
+      void update_fsv1021(float value)
+      {
+          if (fsv1021 != nullptr)
+              fsv1021->publish_state(value);
+      }
+      void update_fsv1022(float value)
+      {
+          if (fsv1022 != nullptr)
+              fsv1022->publish_state(value);
+      }
+      void update_fsv1031(float value)
+      {
+          if (fsv1031 != nullptr)
+              fsv1031->publish_state(value);
+      }
+      void update_fsv1032(float value)
+      {
+          if (fsv1032 != nullptr)
+              fsv1032->publish_state(value);
+      }
+      void update_fsv1041(float value)
+      {
+          if (fsv1041 != nullptr)
+              fsv1041->publish_state(value);
+      }
+      void update_fsv1042(float value)
+      {
+          if (fsv1042 != nullptr)
+              fsv1042->publish_state(value);
+      }
+      void update_fsv1051(float value)
+      {
+          if (fsv1051 != nullptr)
+              fsv1051->publish_state(value);
+      }
+      void update_fsv1052(float value)
+      {
+          if (fsv1052 != nullptr)
+              fsv1052->publish_state(value);
       }
       void update_target_offset(float value)
       {

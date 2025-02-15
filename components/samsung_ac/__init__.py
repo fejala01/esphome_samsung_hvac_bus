@@ -72,7 +72,6 @@ CONF_DEVICE_POWER_ZONE2 = "power_zone2"
 CONF_DEVICE_QUIET_MODE = "quiet_mode"
 CONF_DEVICE_VACATION = "vacation"
 CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 = "target_temperature_zone2"
-CONF_DEVICE_FSV5013 = "fsv5013"
 CONF_DEVICE_AUTOMATIC_CLEANING = "automatic_cleaning"
 CONF_DEVICE_WATER_HEATER_POWER = "water_heater_power"
 CONF_DEVICE_MODE = "mode"
@@ -121,35 +120,11 @@ CONF_DEVICE_FSV1021 = "fsv1021"
 CONF_DEVICE_FSV1022 = "fsv1022"
 CONF_DEVICE_FSV1031 = "fsv1031"
 CONF_DEVICE_FSV1032 = "fsv1032"
+CONF_DEVICE_FSV1041 = "fsv1041"
+CONF_DEVICE_FSV1042 = "fsv1042"
 CONF_DEVICE_FSV1051 = "fsv1051"
 CONF_DEVICE_FSV1052 = "fsv1052"
-CONF_DEVICE_FSV2011 = "fsv2011"
-CONF_DEVICE_FSV2012 = "fsv2012"
-CONF_DEVICE_FSV2021 = "fsv2021"
-CONF_DEVICE_FSV2022 = "fsv2022"
-CONF_DEVICE_FSV2031 = "fsv2031"
-CONF_DEVICE_FSV2032 = "fsv2032"
-CONF_DEVICE_FSV2051 = "fsv2051"
-CONF_DEVICE_FSV2052 = "fsv2052"
-CONF_DEVICE_FSV2041 = "fsv2041"
-CONF_DEVICE_FSV2081 = "fsv2081"
-CONF_DEVICE_FSV2093 = "fsv2093"
-CONF_DEVICE_FSV3022 = "fsv3022"
-CONF_DEVICE_FSV3023 = "fsv3023"
-CONF_DEVICE_FSV3031 = "fsv3031"
-CONF_DEVICE_FSV3032 = "fsv3032"
-CONF_DEVICE_FSV3033 = "fsv3033"
-CONF_DEVICE_FSV3041 = "fsv3041"
-CONF_DEVICE_FSV3042 = "fsv3042"
-CONF_DEVICE_FSV3043 = "fsv3043"
-CONF_DEVICE_FSV3044 = "fsv3044"
-CONF_DEVICE_FSV3045 = "fsv3045"
-CONF_DEVICE_FSV3046 = "fsv3046"
-CONF_DEVICE_FSV3071 = "fsv3071"
-CONF_DEVICE_FSV4011 = "fsv4011"
-CONF_DEVICE_FSV4012 = "fsv4012"
-CONF_DEVICE_FSV5011 = "fsv5011"
-CONF_DEVICE_FSV5012 = "fsv5012"
+
 
 
 
@@ -409,189 +384,7 @@ DEVICE_SCHEMA = cv.Schema(
             device_class=DEVICE_CLASS_TEMPERATURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
-        cv.Optional(CONF_DEVICE_FSV1011): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1012): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1021): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1022): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1031): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1032): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1051): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV1052): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-
-
         
-        cv.Optional(CONF_DEVICE_FSV2011): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2012): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2021): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2022): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2031): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2032): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2051): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2052): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV2041): sensor.sensor_schema(
-            icon="mdi:chart-bell-curve-cumulative",
-        ),
-        cv.Optional(CONF_DEVICE_FSV2081): sensor.sensor_schema(
-            icon="mdi:chart-bell-curve-cumulative",
-        ),
-        cv.Optional(CONF_DEVICE_FSV2093): sensor.sensor_schema(
-            icon="mdi:car-cruise-control",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3022): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV3023): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV3031): sensor.sensor_schema(
-            icon="mdi:heating-coil",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3032): sensor.sensor_schema(
-            unit_of_measurement="min",
-            accuracy_decimals=0,
-            state_class=STATE_CLASS_MEASUREMENT,
-            icon="mdi:heating-coil"
-        ),
-        cv.Optional(CONF_DEVICE_FSV3033): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV3041): sensor.sensor_schema(
-            icon="mdi:spray-bottle",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3042): sensor.sensor_schema(
-            icon="mdi:spray-bottle",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3043): sensor.sensor_schema(
-            icon="mdi:spray-bottle",
-            unit_of_measurement="Uhr",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3044): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV3045): sensor.sensor_schema(
-            icon="mdi:spray-bottle",
-            unit_of_measurement="min",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3046): sensor.sensor_schema(
-            icon="mdi:spray-bottle",
-            unit_of_measurement="min",
-        ),
-        cv.Optional(CONF_DEVICE_FSV3071): sensor.sensor_schema(
-            icon="mdi:valve",
-        ),
-        cv.Optional(CONF_DEVICE_FSV4011): sensor.sensor_schema(
-            icon="mdi:priority-high",
-        ),
-        cv.Optional(CONF_DEVICE_FSV4012): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV5011): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_FSV5012): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
         cv.Optional(CONF_DEVICE_INDOOR_EVA_IN_TEMPERATURE): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
@@ -611,7 +404,16 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE_ZONE2): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV5013): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1011): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1012): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1021): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1022): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1031): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1032): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1041): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1042): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1051): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1052): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
@@ -907,149 +709,6 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_current_temp_zone2_sensor,
             ),
-            CONF_DEVICE_FSV1011: (
-                sensor.new_sensor,
-                var_dev.set_fsv1011_sensor,
-            ),
-            CONF_DEVICE_FSV1012: (
-                sensor.new_sensor,
-                var_dev.set_fsv1012_sensor,
-            ),
-            CONF_DEVICE_FSV1021: (
-                sensor.new_sensor,
-                var_dev.set_fsv1021_sensor,
-            ),
-            CONF_DEVICE_FSV1022: (
-                sensor.new_sensor,
-                var_dev.set_fsv1022_sensor,
-            ),
-            CONF_DEVICE_FSV1031: (
-                sensor.new_sensor,
-                var_dev.set_fsv1031_sensor,
-            ),
-            CONF_DEVICE_FSV1032: (
-                sensor.new_sensor,
-                var_dev.set_fsv1032_sensor,
-            ),
-            CONF_DEVICE_FSV1051: (
-                sensor.new_sensor,
-                var_dev.set_fsv1051_sensor,
-            ),
-            CONF_DEVICE_FSV1052: (
-                sensor.new_sensor,
-                var_dev.set_fsv1052_sensor,
-            ),
-
-            
-            CONF_DEVICE_FSV2011: (
-                sensor.new_sensor,
-                var_dev.set_fsv2011_sensor,
-            ),
-            CONF_DEVICE_FSV2012: (
-                sensor.new_sensor,
-                var_dev.set_fsv2012_sensor,
-            ),
-            CONF_DEVICE_FSV2021: (
-                sensor.new_sensor,
-                var_dev.set_fsv2021_sensor,
-            ),
-            CONF_DEVICE_FSV2022: (
-                sensor.new_sensor,
-                var_dev.set_fsv2022_sensor,
-            ),
-            CONF_DEVICE_FSV2031: (
-                sensor.new_sensor,
-                var_dev.set_fsv2031_sensor,
-            ),
-            CONF_DEVICE_FSV2032: (
-                sensor.new_sensor,
-                var_dev.set_fsv2032_sensor,
-            ),
-            CONF_DEVICE_FSV2051: (
-                sensor.new_sensor,
-                var_dev.set_fsv2051_sensor,
-            ),
-            CONF_DEVICE_FSV2052: (
-                sensor.new_sensor,
-                var_dev.set_fsv2052_sensor,
-            ),
-            CONF_DEVICE_FSV2041: (
-                sensor.new_sensor,
-                var_dev.set_fsv2041_sensor,
-            ),
-            CONF_DEVICE_FSV2081: (
-                sensor.new_sensor,
-                var_dev.set_fsv2081_sensor,
-            ),
-            CONF_DEVICE_FSV2093: (
-                sensor.new_sensor,
-                var_dev.set_fsv2093_sensor,
-            ),
-            CONF_DEVICE_FSV3022: (
-                sensor.new_sensor,
-                var_dev.set_fsv3022_sensor,
-            ),
-            CONF_DEVICE_FSV3023: (
-                sensor.new_sensor,
-                var_dev.set_fsv3023_sensor,
-            ),
-            CONF_DEVICE_FSV3031: (
-                sensor.new_sensor,
-                var_dev.set_fsv3031_sensor,
-            ),
-            CONF_DEVICE_FSV3032: (
-                sensor.new_sensor,
-                var_dev.set_fsv3032_sensor,
-            ),
-            CONF_DEVICE_FSV3033: (
-                sensor.new_sensor,
-                var_dev.set_fsv3033_sensor,
-            ),
-            CONF_DEVICE_FSV3041: (
-                sensor.new_sensor,
-                var_dev.set_fsv3041_sensor,
-            ),
-            CONF_DEVICE_FSV3042: (
-                sensor.new_sensor,
-                var_dev.set_fsv3042_sensor,
-            ),
-            CONF_DEVICE_FSV3043: (
-                sensor.new_sensor,
-                var_dev.set_fsv3043_sensor,
-            ),
-            CONF_DEVICE_FSV3044: (
-                sensor.new_sensor,
-                var_dev.set_fsv3044_sensor,
-            ),
-            CONF_DEVICE_FSV3045: (
-                sensor.new_sensor,
-                var_dev.set_fsv3045_sensor,
-            ),
-            CONF_DEVICE_FSV3046: (
-                sensor.new_sensor,
-                var_dev.set_fsv3046_sensor,
-            ),
-            CONF_DEVICE_FSV3071: (
-                sensor.new_sensor,
-                var_dev.set_fsv3071_sensor,
-            ),
-            CONF_DEVICE_FSV4011: (
-                sensor.new_sensor,
-                var_dev.set_fsv4011_sensor,
-            ),
-            CONF_DEVICE_FSV4012: (
-                sensor.new_sensor,
-                var_dev.set_fsv4012_sensor,
-            ),
-            CONF_DEVICE_FSV5011: (
-                sensor.new_sensor,
-                var_dev.set_fsv5011_sensor,
-            ),
-            CONF_DEVICE_FSV5012: (
-                sensor.new_sensor,
-                var_dev.set_fsv5012_sensor,
-            ),
-
 
             CONF_DEVICE_OUTDOOR_TEMPERATURE: (
                 sensor.new_sensor,
@@ -1123,14 +782,98 @@ async def to_code(config):
                 conf, min_value=23.0, max_value=43.0, step=0.1
             )
             cg.add(var_dev.set_target_temperature_zone2_number(num))
-        if CONF_DEVICE_FSV5013 in device:
-            conf = device[CONF_DEVICE_FSV5013]
+        
+        if CONF_DEVICE_FSV1011 in device:
+            conf = device[CONF_DEVICE_FSV1011]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
-                conf, min_value=25.0, max_value=27.0, step=1
+                conf, min_value=20.0, max_value=30.0, step=0.1
             )
-            cg.add(var_dev.set_fsv5013_number(num))
+            cg.add(var_dev.set_target_temperature_FSV1011_number(num))
+
+        if CONF_DEVICE_FSV1012 in device:
+            conf = device[CONF_DEVICE_FSV1012]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=20.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1012_number(num))
+
+        if CONF_DEVICE_FSV1021 in device:
+            conf = device[CONF_DEVICE_FSV1021]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=25.0, max_value=35.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1021_number(num))
+
+        if CONF_DEVICE_FSV1022 in device:
+            conf = device[CONF_DEVICE_FSV1022]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1022_number(num))
+
+        if CONF_DEVICE_FSV1031 in device:
+            conf = device[CONF_DEVICE_FSV1031]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=40.0, max_value=70.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1031_number(num))
+
+        if CONF_DEVICE_FSV1032 in device:
+            conf = device[CONF_DEVICE_FSV1032]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1032_number(num))
+
+        if CONF_DEVICE_FSV1041 in device:
+            conf = device[CONF_DEVICE_FSV1041]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=35.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1041_number(num))
+
+        if CONF_DEVICE_FSV1042 in device:
+            conf = device[CONF_DEVICE_FSV1042]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=20.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1042_number(num))
+
+        if CONF_DEVICE_FSV1051 in device:
+            conf = device[CONF_DEVICE_FSV1051]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=50.0, max_value=70.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1051_number(num))
+
+        if CONF_DEVICE_FSV1052 in device:
+            conf = device[CONF_DEVICE_FSV1052]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=25.0, max_value=45.0, step=0.1
+            )
+            cg.add(var_dev.set_target_temperature_FSV1052_number(num))
+
+
         if CONF_DEVICE_TARGET_OFFSET in device:
             conf = device[CONF_DEVICE_TARGET_OFFSET]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
