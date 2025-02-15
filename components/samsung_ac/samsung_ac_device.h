@@ -697,6 +697,16 @@ namespace esphome
               publish_request(request);
           };
       }
+      void set_fsv5019_number(Samsung_AC_Number *number)
+      {
+          fsv5019 = number;
+          fsv5019->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5019 = value;
+              publish_request(request);
+          };
+      }
       void set_fsv2012_number(Samsung_AC_Number *number)
       {
           fsv2012 = number;
