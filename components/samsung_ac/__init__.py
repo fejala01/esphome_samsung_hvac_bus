@@ -133,6 +133,7 @@ CONF_DEVICE_FSV5016 = "fsv5016"
 CONF_DEVICE_FSV5017 = "fsv5017"
 CONF_DEVICE_FSV5018 = "fsv5018"
 CONF_DEVICE_FSV5019 = "fsv5019"
+CONF_DEVICE_FSV2012 = "fsv2012"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -430,6 +431,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV5017): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5018): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5019): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2012): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
@@ -960,6 +962,14 @@ async def to_code(config):
                 conf, min_value=25.0, max_value=35.0, step=0.1
             )
             cg.add(var_dev.set_fsv5019_number(num))
+        if CONF_DEVICE_FSV2012 in device:
+            conf = device[CONF_DEVICE_FSV2012]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=10.0, max_value=20.0, step=1
+            )
+            cg.add(var_dev.set_fsv2012_number(num))
 
 
 

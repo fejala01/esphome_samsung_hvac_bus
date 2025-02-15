@@ -175,6 +175,7 @@ namespace esphome
       Samsung_AC_Number *fsv5017{nullptr};
       Samsung_AC_Number *fsv5018{nullptr};
       Samsung_AC_Number *fsv5019{nullptr};
+      Samsung_AC_Number *fsv2012{nullptr};
 
       float room_temperature_offset{0};
 
@@ -696,13 +697,13 @@ namespace esphome
               publish_request(request);
           };
       }
-      void set_fsv5019_number(Samsung_AC_Number *number)
+      void set_fsv2012_number(Samsung_AC_Number *number)
       {
-          fsv5019 = number;
-          fsv5019->write_state_ = [this](float value)
+          fsv2012 = number;
+          fsv2012->write_state_ = [this](float value)
           {
               ProtocolRequest request;
-              request.fsv5019 = value;
+              request.fsv2012 = value;
               publish_request(request);
           };
       }
@@ -845,6 +846,11 @@ namespace esphome
       {
           if (fsv5019 != nullptr)
               fsv5019->publish_state(value);
+      }
+      void update_fsv2012(float value)
+      {
+          if (fsv2012 != nullptr)
+              fsv2012->publish_state(value);
       }
       void update_target_offset(float value)
       {
