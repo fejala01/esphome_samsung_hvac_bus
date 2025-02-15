@@ -100,6 +100,7 @@ namespace esphome
             VAR_in_target_offset = 0x4248,
 
             //Zusätzliche SENSOREN
+            VAR_out_compressor_protection = 0x80A6,
             VAR_in_3way_valve = 0x4067,
             VAR_in_deice_status = 0x402E,
             VAR_out_compressor_status = 0x8010,

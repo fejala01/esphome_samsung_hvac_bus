@@ -754,6 +754,13 @@ namespace esphome
                 target->set_compressor_status(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_compressor_protection: 
+            {
+                int temp = (int)message.value;
+                LOG_MESSAGE(VAR_out_compressor_protection, temp, source, dest);
+                target->set_compressor_protection(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_operation_mode_real: 
             {
                 int temp = (int)message.value;

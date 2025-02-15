@@ -89,6 +89,7 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_COMPRESSOR_PROTECTION = "compressor_protection"
 CONF_DEVICE_EVI_BYPASS_VALVE = "evi_bypass_valve"
 CONF_DEVICE_DISCHARGE_TEMP = "discharge_temp"
 CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
@@ -388,6 +389,9 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_EVI_BYPASS_VALVE): sensor.sensor_schema(
             icon="mdi:valve",
+        ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_PROTECTION): sensor.sensor_schema(
+            icon="mdi:engine",
         ),
         cv.Optional(CONF_DEVICE_DEICE_STATUS): sensor.sensor_schema(
             icon="mdi:ice-cream-off",
@@ -889,6 +893,10 @@ async def to_code(config):
             CONF_DEVICE_EVI_BYPASS_VALVE: (
                 sensor.new_sensor,
                 var_dev.set_evi_bypass_valve_sensor,
+            ),
+            CONF_DEVICE_COMPRESSOR_PROTECTION: (
+                sensor.new_sensor,
+                var_dev.set_compressor_protection_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,
