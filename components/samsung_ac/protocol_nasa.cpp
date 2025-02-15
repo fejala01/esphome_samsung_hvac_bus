@@ -1020,7 +1020,20 @@ namespace esphome
                 target->set_fsv4012(source, temp);
                 break;
             }
-
+            case MessageNumber::VAR_in_fsv5011: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv5011, temp, source, dest);
+                target->set_fsv5011(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv5012: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv5012, temp, source, dest);
+                target->set_fsv5012(source, temp);
+                break;
+            }
 
 
             case MessageNumber::VAR_in_temp_target_f: // unit = 'Celsius' from XML

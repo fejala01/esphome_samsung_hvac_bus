@@ -147,7 +147,8 @@ CONF_DEVICE_FSV3046 = "fsv3046"
 CONF_DEVICE_FSV3071 = "fsv3071"
 CONF_DEVICE_FSV4011 = "fsv4011"
 CONF_DEVICE_FSV4012 = "fsv4012"
-
+CONF_DEVICE_FSV5011 = "fsv5011"
+CONF_DEVICE_FSV5012 = "fsv5012"
 
 
 
@@ -573,6 +574,18 @@ DEVICE_SCHEMA = cv.Schema(
             icon="mdi:priority-high",
         ),
         cv.Optional(CONF_DEVICE_FSV4012): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV5011): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FSV5012): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -1026,7 +1039,14 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_fsv4012_sensor,
             ),
-
+            CONF_DEVICE_FSV5011: (
+                sensor.new_sensor,
+                var_dev.set_fsv5011_sensor,
+            ),
+            CONF_DEVICE_FSV5012: (
+                sensor.new_sensor,
+                var_dev.set_fsv5012_sensor,
+            ),
 
 
             CONF_DEVICE_OUTDOOR_TEMPERATURE: (

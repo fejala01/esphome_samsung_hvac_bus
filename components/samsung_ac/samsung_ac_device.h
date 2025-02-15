@@ -171,6 +171,8 @@ namespace esphome
       sensor::Sensor *fsv3071{nullptr};
       sensor::Sensor *fsv4011{nullptr};
       sensor::Sensor *fsv4012{nullptr};
+      sensor::Sensor *fsv5011{nullptr};
+      sensor::Sensor *fsv5012{nullptr};
 
 
 
@@ -484,6 +486,14 @@ namespace esphome
       void set_fsv4012_sensor(sensor::Sensor *sensor)
       {
         fsv4012 = sensor;
+      }
+      void set_fsv5011_sensor(sensor::Sensor *sensor)
+      {
+        fsv5011 = sensor;
+      }
+      void set_fsv5012_sensor(sensor::Sensor *sensor)
+      {
+        fsv5012 = sensor;
       }
 
 
