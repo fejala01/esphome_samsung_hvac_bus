@@ -607,6 +607,96 @@ namespace esphome
               publish_request(request);
           };
       }
+      void set_fsv5011_number(Samsung_AC_Number *number)
+      {
+          fsv5011 = number;
+          fsv5011->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5011 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5012_number(Samsung_AC_Number *number)
+      {
+          fsv5012 = number;
+          fsv5012->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5012 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5013_number(Samsung_AC_Number *number)
+      {
+          fsv5013 = number;
+          fsv5013->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5013 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5014_number(Samsung_AC_Number *number)
+      {
+          fsv5014 = number;
+          fsv5014->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5014 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5015_number(Samsung_AC_Number *number)
+      {
+          fsv5015 = number;
+          fsv5015->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5015 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5016_number(Samsung_AC_Number *number)
+      {
+          fsv5016 = number;
+          fsv5016->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5016 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5017_number(Samsung_AC_Number *number)
+      {
+          fsv5017 = number;
+          fsv5017->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5017 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5018_number(Samsung_AC_Number *number)
+      {
+          fsv5018 = number;
+          fsv5018->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5018 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv5019_number(Samsung_AC_Number *number)
+      {
+          fsv5019 = number;
+          fsv5019->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5019 = value;
+              publish_request(request);
+          };
+      }
       
       void set_target_offset_number(Samsung_AC_Number *number)
       {
@@ -701,6 +791,51 @@ namespace esphome
       {
           if (fsv1052 != nullptr)
               fsv1052->publish_state(value);
+      }
+      void update_fsv5011(float value)
+      {
+          if (fsv5011 != nullptr)
+              fsv5011->publish_state(value);
+      }
+      void update_fsv5012(float value)
+      {
+          if (fsv5012 != nullptr)
+              fsv5012->publish_state(value);
+      }
+      void update_fsv5013(float value)
+      {
+          if (fsv5013 != nullptr)
+              fsv5013->publish_state(value);
+      }
+      void update_fsv5014(float value)
+      {
+          if (fsv5014 != nullptr)
+              fsv5014->publish_state(value);
+      }
+      void update_fsv5015(float value)
+      {
+          if (fsv5015 != nullptr)
+              fsv5015->publish_state(value);
+      }
+      void update_fsv5016(float value)
+      {
+          if (fsv5016 != nullptr)
+              fsv5016->publish_state(value);
+      }
+      void update_fsv5017(float value)
+      {
+          if (fsv5017 != nullptr)
+              fsv5017->publish_state(value);
+      }
+      void update_fsv5018(float value)
+      {
+          if (fsv5018 != nullptr)
+              fsv5018->publish_state(value);
+      }
+      void update_fsv5019(float value)
+      {
+          if (fsv5019 != nullptr)
+              fsv5019->publish_state(value);
       }
       void update_target_offset(float value)
       {

@@ -124,8 +124,15 @@ CONF_DEVICE_FSV1041 = "fsv1041"
 CONF_DEVICE_FSV1042 = "fsv1042"
 CONF_DEVICE_FSV1051 = "fsv1051"
 CONF_DEVICE_FSV1052 = "fsv1052"
-
-
+CONF_DEVICE_FSV5011 = "fsv5011"
+CONF_DEVICE_FSV5012 = "fsv5012"
+CONF_DEVICE_FSV5013 = "fsv5013"
+CONF_DEVICE_FSV5014 = "fsv5014"
+CONF_DEVICE_FSV5015 = "fsv5015"
+CONF_DEVICE_FSV5016 = "fsv5016"
+CONF_DEVICE_FSV5017 = "fsv5017"
+CONF_DEVICE_FSV5018 = "fsv5018"
+CONF_DEVICE_FSV5019 = "fsv5019"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -414,6 +421,15 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV1042): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1051): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1052): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5011): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5012): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5013): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5014): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5015): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5016): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5017): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5018): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5019): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
@@ -872,6 +888,83 @@ async def to_code(config):
                 conf, min_value=25.0, max_value=45.0, step=0.1
             )
             cg.add(var_dev.set_fsv1052_number(num))
+        if CONF_DEVICE_FSV5011 in device:
+            conf = device[CONF_DEVICE_FSV5011]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5011_number(num))
+        if CONF_DEVICE_FSV5012 in device:
+            conf = device[CONF_DEVICE_FSV5012]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=25.0, max_value=35.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5012_number(num))
+        if CONF_DEVICE_FSV5013 in device:
+            conf = device[CONF_DEVICE_FSV5013]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5013_number(num))
+        if CONF_DEVICE_FSV5014 in device:
+            conf = device[CONF_DEVICE_FSV5014]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=25.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5014_number(num))
+        if CONF_DEVICE_FSV5015 in device:
+            conf = device[CONF_DEVICE_FSV5015]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5015_number(num))
+        if CONF_DEVICE_FSV5016 in device:
+            conf = device[CONF_DEVICE_FSV5016]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=20.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5016_number(num))
+        if CONF_DEVICE_FSV5017 in device:
+            conf = device[CONF_DEVICE_FSV5017]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5017_number(num))
+        if CONF_DEVICE_FSV5018 in device:
+            conf = device[CONF_DEVICE_FSV5018]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=15.0, max_value=30.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5018_number(num))
+        if CONF_DEVICE_FSV5019 in device:
+            conf = device[CONF_DEVICE_FSV5019]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=25.0, max_value=35.0, step=0.1
+            )
+            cg.add(var_dev.set_fsv5019_number(num))
+
+
+
+
+
 
 
         if CONF_DEVICE_TARGET_OFFSET in device:

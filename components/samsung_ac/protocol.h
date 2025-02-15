@@ -140,6 +140,15 @@ namespace esphome
             virtual void set_fsv1042(const std::string address, float value) = 0;
             virtual void set_fsv1051(const std::string address, float value) = 0;
             virtual void set_fsv1052(const std::string address, float value) = 0;
+            virtual void set_fsv5011(const std::string address, float value) = 0;
+            virtual void set_fsv5012(const std::string address, float value) = 0;
+            virtual void set_fsv5013(const std::string address, float value) = 0;
+            virtual void set_fsv5014(const std::string address, float value) = 0;
+            virtual void set_fsv5015(const std::string address, float value) = 0;
+            virtual void set_fsv5016(const std::string address, float value) = 0;
+            virtual void set_fsv5017(const std::string address, float value) = 0;
+            virtual void set_fsv5018(const std::string address, float value) = 0;
+            virtual void set_fsv5019(const std::string address, float value) = 0;
             
         };
 
@@ -168,6 +177,15 @@ namespace esphome
             optional<float> fsv1042;
             optional<float> fsv1051;
             optional<float> fsv1052;
+            optional<float> fsv5011;
+            optional<float> fsv5012;
+            optional<float> fsv5013;
+            optional<float> fsv5014;
+            optional<float> fsv5015;
+            optional<float> fsv5016;
+            optional<float> fsv5017;
+            optional<float> fsv5018;
+            optional<float> fsv5019;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;
