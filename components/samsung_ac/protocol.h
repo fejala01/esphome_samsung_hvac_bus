@@ -160,6 +160,21 @@ namespace esphome
             virtual void set_fsv2062(const std::string address, float value) = 0;
             virtual void set_fsv2071(const std::string address, float value) = 0;
             virtual void set_fsv2072(const std::string address, float value) = 0;
+            virtual void set_fsv2041(const std::string address, float value) = 0;
+            virtual void set_fsv2081(const std::string address, float value) = 0;
+            virtual void set_fsv2091(const std::string address, float value) = 0;
+            virtual void set_fsv2092(const std::string address, float value) = 0;
+            virtual void set_fsv2093(const std::string address, float value) = 0;
+            virtual void set_fsv3011(const std::string address, float value) = 0;
+            virtual void set_fsv3041(const std::string address, float value) = 0;
+            virtual void set_fsv3042(const std::string address, float value) = 0;
+            virtual void set_fsv3043(const std::string address, float value) = 0;
+            virtual void set_fsv3045(const std::string address, float value) = 0;
+            virtual void set_fsv3046(const std::string address, float value) = 0;
+            virtual void set_fsv3061(const std::string address, float value) = 0;
+            virtual void set_fsv4061(const std::string address, float value) = 0;
+            virtual void set_fsv5022(const std::string address, float value) = 0;
+
             
         };
 
@@ -208,6 +223,21 @@ namespace esphome
             optional<float> fsv2062;
             optional<float> fsv2071;
             optional<float> fsv2072;
+            optional<float> fsv2041;
+            optional<float> fsv2081;
+            optional<float> fsv2091;
+            optional<float> fsv2092;
+            optional<float> fsv2093;
+            optional<float> fsv3011;
+            optional<float> fsv3041;
+            optional<float> fsv3042;
+            optional<float> fsv3043;
+            optional<float> fsv3045;
+            optional<float> fsv3046;
+            optional<float> fsv3061;
+            optional<float> fsv4061;
+            optional<float> fsv5022;
+
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;

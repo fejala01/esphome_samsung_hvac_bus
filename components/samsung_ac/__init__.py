@@ -134,7 +134,6 @@ CONF_DEVICE_FSV5017 = "fsv5017"
 CONF_DEVICE_FSV5018 = "fsv5018"
 CONF_DEVICE_FSV5019 = "fsv5019"
 CONF_DEVICE_FSV2012 = "fsv2012"
-
 CONF_DEVICE_FSV2021 = "fsv2021"
 CONF_DEVICE_FSV2022 = "fsv2022"
 CONF_DEVICE_FSV2031 = "fsv2031"
@@ -145,6 +144,21 @@ CONF_DEVICE_FSV2061 = "fsv2061"
 CONF_DEVICE_FSV2062 = "fsv2062"
 CONF_DEVICE_FSV2071 = "fsv2071"
 CONF_DEVICE_FSV2072 = "fsv2072"
+
+CONF_DEVICE_FSV2041 = "fsv2041"
+CONF_DEVICE_FSV2081 = "fsv2081"
+CONF_DEVICE_FSV2091 = "fsv2091"
+CONF_DEVICE_FSV2092 = "fsv2092"
+CONF_DEVICE_FSV2093 = "fsv2093"
+CONF_DEVICE_FSV3011 = "fsv3011"
+CONF_DEVICE_FSV3041 = "fsv3041"
+CONF_DEVICE_FSV3042 = "fsv3042"
+CONF_DEVICE_FSV3043 = "fsv3043"
+CONF_DEVICE_FSV3045 = "fsv3045"
+CONF_DEVICE_FSV3046 = "fsv3046"
+CONF_DEVICE_FSV3061 = "fsv3061"
+CONF_DEVICE_FSV4061 = "fsv4061"
+CONF_DEVICE_FSV5022 = "fsv5022"
 
 
 
@@ -454,6 +468,20 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV2062): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2071): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2072): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2041): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2081): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2091): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2092): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2093): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3011): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3041): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3042): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3043): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3045): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3046): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV3061): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4061): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5022): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
@@ -1072,6 +1100,107 @@ async def to_code(config):
                 conf, min_value=5.0, max_value=10.0, step=1
             )
             cg.add(var_dev.set_fsv2072_number(num))
+        if CONF_DEVICE_FSV2041 in device:
+            conf = device[CONF_DEVICE_FSV2041]
+            num = await number.new_number(
+                conf, min_value=1, max_value=2, step=1
+            )
+            cg.add(var_dev.set_fsv2041_number(num))
+
+        if CONF_DEVICE_FSV2081 in device: 
+            conf = device[CONF_DEVICE_FSV2081]
+            num = await number.new_number(
+                conf, min_value=1, max_value=2, step=1
+            )
+            cg.add(var_dev.set_fsv2081_number(num))
+
+        if CONF_DEVICE_FSV2091 in device: 
+            conf = device[CONF_DEVICE_FSV2091]
+            num = await number.new_number(
+                conf, min_value=0, max_value=4, step=1
+            )
+            cg.add(var_dev.set_fsv2091_number(num))
+
+        if CONF_DEVICE_FSV2092 in device: 
+            conf = device[CONF_DEVICE_FSV2092]
+            num = await number.new_number(
+                conf, min_value=0, max_value=4, step=1
+            )
+            cg.add(var_dev.set_fsv2092_number(num))
+
+        if CONF_DEVICE_FSV2093 in device: 
+            conf = device[CONF_DEVICE_FSV2093]
+            num = await number.new_number(
+                conf, min_value=1, max_value=4, step=1
+            )
+            cg.add(var_dev.set_fsv2093_number(num))
+
+        if CONF_DEVICE_FSV3011 in device: 
+            conf = device[CONF_DEVICE_FSV3011]
+            num = await number.new_number(
+                conf, min_value=0, max_value=1, step=1
+            )
+            cg.add(var_dev.set_fsv3011_number(num))
+
+        if CONF_DEVICE_FSV3041 in device: 
+            conf = device[CONF_DEVICE_FSV3041]
+            num = await number.new_number(
+                conf, min_value=0, max_value=1, step=1
+            )
+            cg.add(var_dev.set_fsv3041_number(num))
+
+        if CONF_DEVICE_FSV3042 in device: 
+            conf = device[CONF_DEVICE_FSV3042]
+            num = await number.new_number(
+                conf, min_value=0, max_value=7, step=1
+            )
+            cg.add(var_dev.set_fsv3042_number(num))
+
+        if CONF_DEVICE_FSV3043 in device: 
+            conf = device[CONF_DEVICE_FSV3043]
+            conf[CONF_UNIT_OF_MEASUREMENT] = "Uhr"
+            num = await number.new_number(
+                conf, min_value=1, max_value=23, step=1
+            )
+            cg.add(var_dev.set_fsv3043_number(num))
+
+        if CONF_DEVICE_FSV3045 in device: 
+            conf = device[CONF_DEVICE_FSV3045]
+            conf[CONF_UNIT_OF_MEASUREMENT] = "min"
+            num = await number.new_number(
+                conf, min_value=5, max_value=30, step=1
+            )
+            cg.add(var_dev.set_fsv3045_number(num))
+
+        if CONF_DEVICE_FSV3046 in device: 
+            conf = device[CONF_DEVICE_FSV3046]
+            conf[CONF_UNIT_OF_MEASUREMENT] = "h"
+            num = await number.new_number(
+                conf, min_value=1, max_value=8, step=1
+            )
+            cg.add(var_dev.set_fsv3046_number(num))
+
+        if CONF_DEVICE_FSV3061 in device: 
+            conf = device[CONF_DEVICE_FSV3061]
+            num = await number.new_number(
+                conf, min_value=0, max_value=1, step=1
+            )
+            cg.add(var_dev.set_fsv3061_number(num))
+
+        if CONF_DEVICE_FSV4061 in device: 
+            conf = device[CONF_DEVICE_FSV4061]
+            num = await number.new_number(
+                conf, min_value=0, max_value=1, step=1
+            )
+            cg.add(var_dev.set_fsv4061_number(num))
+
+        if CONF_DEVICE_FSV5022 in device: 
+            conf = device[CONF_DEVICE_FSV5022]
+            num = await number.new_number(
+                conf, min_value=0, max_value=1, step=1
+            )
+            cg.add(var_dev.set_fsv5022_number(num))
+
         
 
         if CONF_DEVICE_TARGET_OFFSET in device:
