@@ -143,16 +143,16 @@ namespace esphome
             VAR_in_fsv5018 = 0x427A,
             VAR_in_fsv5019 = 0x427B,
             VAR_in_fsv2012 = 0x4255,
-            VAR_in_fsv2021 = 0x4256;
-            VAR_in_fsv2022 = 0x4257;
-            VAR_in_fsv2031 = 0x4258;
-            VAR_in_fsv2032 = 0x4259;
-            VAR_in_fsv2051 = 0x425A;
-            VAR_in_fsv2052 = 0x425B;
-            VAR_in_fsv2061 = 0x425C;
-            VAR_in_fsv2062 = 0x425D;
-            VAR_in_fsv2071 = 0x425E;
-            VAR_in_fsv2072 = 0x425F;
+            VAR_in_fsv2021 = 0x4256,
+            VAR_in_fsv2022 = 0x4257,
+            VAR_in_fsv2031 = 0x4258,
+            VAR_in_fsv2032 = 0x4259,
+            VAR_in_fsv2051 = 0x425A,
+            VAR_in_fsv2052 = 0x425B,
+            VAR_in_fsv2061 = 0x425C,
+            VAR_in_fsv2062 = 0x425D,
+            VAR_in_fsv2071 = 0x425E,
+            VAR_in_fsv2072 = 0x425F,
 
             
             VAR_out_ventilator = 0x823D,
