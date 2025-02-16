@@ -438,7 +438,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_REQUEST_FSV): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_REQUEST_FSV): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_QUIET_MODE): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
