@@ -88,7 +88,6 @@ CONF_DEVICE_OUT_CONTROL_WATTMETER_1W_1MIN_SUM = "outdoor_cumulative_energy"
 CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
-CONF_DEVICE_REQUEST_FSV = "request_fsv"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_COMPRESSOR_PROTECTION = "compressor_protection"
@@ -447,7 +446,6 @@ DEVICE_SCHEMA = cv.Schema(
             Samsung_AC_Switch
         ),
         cv.Optional(CONF_DEVICE_MODE): SELECT_MODE_SCHEMA,
-        cv.Optional(CONF_DEVICE_REQUEST_FSV): SELECT_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_CLIMATE): CLIMATE_SCHEMA,
         cv.Optional(CONF_DEVICE_CUSTOM, default=[]): cv.ensure_list(
