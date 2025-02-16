@@ -519,16 +519,6 @@ namespace esphome
           publish_request(request);
         };
       };
-      void set_fsv1011_number(Samsung_AC_Number *number)
-      {
-          fsv1011 = number;
-          fsv1011->write_state_ = [this](float value)
-          {
-              ProtocolRequest request;
-              request.fsv1011 = value;
-              publish_request(request);
-          };
-      }
 
       void set_fsv1012_number(Samsung_AC_Number *number)
       {
@@ -740,6 +730,17 @@ namespace esphome
         };
       };
 
+      void set_fsv1011_number(Samsung_AC_Number *number)
+      {
+        fsv1011 = number;
+        fsv1011->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv1011 = value;
+          publish_request(request);
+        };
+      };
+
       void set_climate(Samsung_AC_Climate *value)
       {
         climate = value;
@@ -772,11 +773,6 @@ namespace esphome
       {
         if (target_temperature_zone2 != nullptr)
           target_temperature_zone2->publish_state(value);
-      }
-      void update_fsv1011(float value)
-      {
-          if (fsv1011 != nullptr)
-              fsv1011->publish_state(value);
       }
       void update_fsv1012(float value)
       {
@@ -877,6 +873,11 @@ namespace esphome
       {
         if (target_offset != nullptr)
           target_offset->publish_state(value);
+      }
+      void update_fsv1011(float value)
+      {
+        if (fsv1011 != nullptr)
+          fsv1011->publish_state(value);
       }
 
       optional<bool> _cur_power;

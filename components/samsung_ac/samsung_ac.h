@@ -258,6 +258,7 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_target_temperature_zone2(value); });
       }
+      
       void set_fsv1011(const std::string address, float value) override
       {
           execute_if_device_exists(address, [value](Samsung_AC_Device *dev)

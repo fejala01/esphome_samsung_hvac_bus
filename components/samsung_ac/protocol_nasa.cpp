@@ -489,6 +489,12 @@ namespace esphome
                 }
                 packet.messages.push_back(targetoffset);
             }
+            if (request.fsv1011)
+            {
+                MessageSet fsv1011(MessageNumber::VAR_in_fsv1011);
+                fsv1011.value = request.fsv1011.value() * 10.0;
+                packet.messages.push_back(fsv1011);
+            }
 
             if (request.fan_mode)
             {
@@ -833,13 +839,6 @@ namespace esphome
                 target->set_target_temperature_zone2(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
-            {
-                double temp = (double)message.value / (double)10;
-                LOG_MESSAGE(VAR_in_fsv1011, temp, source, dest);
-                target->set_fsv1011(source, temp);
-                break;
-            }
             case MessageNumber::VAR_in_fsv1012: // unit = 'Celsius' from XML
                 {
                     double temp = (double)message.value / (double)10;
@@ -980,6 +979,13 @@ namespace esphome
                 double temp = (double)((int16_t)message.value) / (double)10;
                 LOG_MESSAGE(VAR_in_target_offset, temp, source, dest);
                 target->set_target_offset(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv1011: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv1011, temp, source, dest);
+                target->set_fsv1011(source, temp);
                 break;
             }
             case MessageNumber::ENUM_in_state_humidity_percent:
