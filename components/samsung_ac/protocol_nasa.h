@@ -144,6 +144,7 @@ namespace esphome
             VAR_in_fsv5018 = 0x427A,
             VAR_in_fsv5019 = 0x427B,
             VAR_in_fsv2012 = 0x4255,
+
             
             VAR_out_ventilator = 0x823D,
             VAR_in_waterpump_pwm = 0x40C4,

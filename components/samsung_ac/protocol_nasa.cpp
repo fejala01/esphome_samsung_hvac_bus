@@ -495,6 +495,12 @@ namespace esphome
                 fsv1011.value = request.fsv1011.value() * 10.0;
                 packet.messages.push_back(fsv1011);
             }
+            if (request.fsv2012)
+            {
+                MessageSet fsv2012(MessageNumber::VAR_in_fsv2012);
+                fsv2012.value = request.fsv2012.value() * 10.0;
+                packet.messages.push_back(fsv2012);
+            }
 
             if (request.fan_mode)
             {
@@ -965,13 +971,7 @@ namespace esphome
                     target->set_fsv5019(source, temp);
                     break;
                 }
-            case MessageNumber::VAR_in_fsv2012: // unit = 'Celsius' from XML
-                {
-                    double temp = (double)message.value / (double)10;
-                    LOG_MESSAGE(VAR_in_fsv2012, temp, source, dest);
-                    target->set_fsv2012(source, temp);
-                    break;
-                }
+            
 
 
             case MessageNumber::VAR_in_target_offset: // unit = 'Celsius' from XML
@@ -986,6 +986,13 @@ namespace esphome
                 double temp = (double)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_fsv1011, temp, source, dest);
                 target->set_fsv1011(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2012: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2012, temp, source, dest);
+                target->set_fsv2012(source, temp);
                 break;
             }
             case MessageNumber::ENUM_in_state_humidity_percent:

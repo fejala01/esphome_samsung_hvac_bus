@@ -137,6 +137,7 @@ CONF_DEVICE_FSV5019 = "fsv5019"
 CONF_DEVICE_FSV2012 = "fsv2012"
 
 
+
 CONF_CAPABILITIES = "capabilities"
 CONF_CAPABILITIES_HORIZONTAL_SWING = "horizontal_swing"
 CONF_CAPABILITIES_VERTICAL_SWING = "vertical_swing"
@@ -973,10 +974,7 @@ async def to_code(config):
                 conf, min_value=10.0, max_value=20.0, step=1
             )
             cg.add(var_dev.set_fsv2012_number(num))
-
-
-
-
+        
 
 
 
