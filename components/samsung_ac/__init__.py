@@ -69,6 +69,7 @@ CONF_DEVICE_WATER_TEMPERATURE = "water_temperature"
 CONF_DEVICE_WATER_TARGET_TEMPERATURE = "water_target_temperature"
 CONF_DEVICE_POWER = "power"
 CONF_DEVICE_POWER_ZONE2 = "power_zone2"
+CONF_DEVICE_REQUEST_FSV = "request_fsv"
 CONF_DEVICE_QUIET_MODE = "quiet_mode"
 CONF_DEVICE_VACATION = "vacation"
 CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 = "target_temperature_zone2"
@@ -436,6 +437,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_REQUEST_FSV): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_REQUEST_FSV): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_QUIET_MODE): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),

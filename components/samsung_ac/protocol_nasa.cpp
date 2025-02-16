@@ -416,12 +416,14 @@ namespace esphome
             if (request.request_fsv)
             {
                 MessageSet request_fsv(MessageNumber::ENUM_in_request_fsv);
-                // Leere Bytes (0x00, 0x00) als Payload setzen
-                uint8_t empty_bytes[2] = {0x00, 0x00}; // Zwei leere Bytes
-                // Setze den Payload für den MessageSet als die leeren Bytes
-                request_fsv.structure.size = sizeof(empty_bytes);
+                // Setze die Größe des Payloads
+                request_fsv.structure.size = 2;
                 request_fsv.size = 2;
-                memcpy(request_fsv.structure.data, empty_bytes, 2);
+
+                // Setze zwei leere Bytes (0x00, 0x00) als Payload
+                request_fsv.structure.data[0] = 0x00;
+                request_fsv.structure.data[1] = 0x00;
+
                 packet.messages.push_back(request_fsv);
             }
             if (request.quiet_mode)
