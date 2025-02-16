@@ -402,6 +402,16 @@ namespace esphome
           publish_request(request);
         };
       }
+      void set_request_fsv_switch(Samsung_AC_Switch *switch_)
+      {
+        request_fsv = switch_;
+        request_fsv->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.request_fsv= value;
+          publish_request(request);
+        };
+      }
       void set_quiet_mode_switch(Samsung_AC_Switch *switch_)
       {
         quiet_mode = switch_;
