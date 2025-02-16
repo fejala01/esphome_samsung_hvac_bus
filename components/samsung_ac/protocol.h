@@ -158,7 +158,6 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
-            optional<bool> request_fsv;
             optional<bool> quiet_mode;
             optional<bool> vacation;
             optional<bool> automatic_cleaning;

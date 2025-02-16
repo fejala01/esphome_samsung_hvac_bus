@@ -413,19 +413,6 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
-            if (request.request_fsv)
-            {
-                MessageSet request_fsv(MessageNumber::ENUM_in_request_fsv);
-                // Setze die Größe des Payloads
-                request_fsv.structure.size = 2;
-                request_fsv.size = 2;
-
-                // Setze zwei leere Bytes (0x00, 0x00) als Payload
-                request_fsv.structure.data[0] = 0x00;
-                request_fsv.structure.data[1] = 0x00;
-
-                packet.messages.push_back(request_fsv);
-            }
             if (request.quiet_mode)
             {
                 MessageSet quiet_mode(MessageNumber::ENUM_in_operation_quiet_mode);

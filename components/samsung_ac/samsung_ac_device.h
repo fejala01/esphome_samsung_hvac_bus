@@ -147,7 +147,6 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
-      Samsung_AC_Switch *request_fsv{nullptr};
       Samsung_AC_Switch *quiet_mode{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
@@ -400,16 +399,6 @@ namespace esphome
         {
           ProtocolRequest request;
           request.power_zone2 = value;
-          publish_request(request);
-        };
-      }
-      void set_request_fsv_switch(Samsung_AC_Switch *switch_)
-      {
-        request_fsv = switch_;
-        request_fsv->write_state_ = [this](bool value)
-        {
-          ProtocolRequest request;
-          request.request_fsv= value;
           publish_request(request);
         };
       }
