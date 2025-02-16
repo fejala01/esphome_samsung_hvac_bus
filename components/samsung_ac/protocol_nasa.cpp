@@ -482,6 +482,114 @@ namespace esphome
                 fsv1011.value = request.fsv1011.value() * 10.0;
                 packet.messages.push_back(fsv1011);
             }
+            if (request.fsv1012)
+            {
+                MessageSet fsv1012(MessageNumber::VAR_in_fsv1012);
+                fsv1012.value = request.fsv1012.value() * 10.0;
+                packet.messages.push_back(fsv1012);
+            }
+            if (request.fsv1021)
+            {
+                MessageSet fsv1021(MessageNumber::VAR_in_fsv1021);
+                fsv1021.value = request.fsv1021.value() * 10.0;
+                packet.messages.push_back(fsv1021);
+            }
+            if (request.fsv1022)
+            {
+                MessageSet fsv1022(MessageNumber::VAR_in_fsv1022);
+                fsv1022.value = request.fsv1022.value() * 10.0;
+                packet.messages.push_back(fsv1022);
+            }
+            if (request.fsv1031)
+            {
+                MessageSet fsv1031(MessageNumber::VAR_in_fsv1031);
+                fsv1031.value = request.fsv1031.value() * 10.0;
+                packet.messages.push_back(fsv1031);
+            }
+            if (request.fsv1032)
+            {
+                MessageSet fsv1032(MessageNumber::VAR_in_fsv1032);
+                fsv1032.value = request.fsv1032.value() * 10.0;
+                packet.messages.push_back(fsv1032);
+            }
+            if (request.fsv1041)
+            {
+                MessageSet fsv1041(MessageNumber::VAR_in_fsv1041);
+                fsv1041.value = request.fsv1041.value() * 10.0;
+                packet.messages.push_back(fsv1041);
+            }
+            if (request.fsv1042)
+            {
+                MessageSet fsv1042(MessageNumber::VAR_in_fsv1042);
+                fsv1042.value = request.fsv1042.value() * 10.0;
+                packet.messages.push_back(fsv1042);
+            }
+            if (request.fsv1051)
+            {
+                MessageSet fsv1051(MessageNumber::VAR_in_fsv1051);
+                fsv1051.value = request.fsv1051.value() * 10.0;
+                packet.messages.push_back(fsv1051);
+            }
+            if (request.fsv1052)
+            {
+                MessageSet fsv1052(MessageNumber::VAR_in_fsv1052);
+                fsv1052.value = request.fsv1052.value() * 10.0;
+                packet.messages.push_back(fsv1052);
+            }
+            if (request.fsv5011)
+            {
+                MessageSet fsv5011(MessageNumber::VAR_in_fsv5011);
+                fsv5011.value = request.fsv5011.value() * 10.0;
+                packet.messages.push_back(fsv5011);
+            }
+            if (request.fsv5012)
+            {
+                MessageSet fsv5012(MessageNumber::VAR_in_fsv5012);
+                fsv5012.value = request.fsv5012.value() * 10.0;
+                packet.messages.push_back(fsv5012);
+            }
+            if (request.fsv5013)
+            {
+                MessageSet fsv5013(MessageNumber::VAR_in_fsv5013);
+                fsv5013.value = request.fsv5013.value() * 10.0;
+                packet.messages.push_back(fsv5013);
+            }
+            if (request.fsv5014)
+            {
+                MessageSet fsv5014(MessageNumber::VAR_in_fsv5014);
+                fsv5014.value = request.fsv5014.value() * 10.0;
+                packet.messages.push_back(fsv5014);
+            }
+            if (request.fsv5015)
+            {
+                MessageSet fsv5015(MessageNumber::VAR_in_fsv5015);
+                fsv5015.value = request.fsv5015.value() * 10.0;
+                packet.messages.push_back(fsv5015);
+            }
+            if (request.fsv5016)
+            {
+                MessageSet fsv5016(MessageNumber::VAR_in_fsv5016);
+                fsv5016.value = request.fsv5016.value() * 10.0;
+                packet.messages.push_back(fsv5016);
+            }
+            if (request.fsv5017)
+            {
+                MessageSet fsv5017(MessageNumber::VAR_in_fsv5017);
+                fsv5017.value = request.fsv5017.value() * 10.0;
+                packet.messages.push_back(fsv5017);
+            }
+            if (request.fsv5018)
+            {
+                MessageSet fsv5018(MessageNumber::VAR_in_fsv5018);
+                fsv5018.value = request.fsv5018.value() * 10.0;
+                packet.messages.push_back(fsv5018);
+            }
+            if (request.fsv5019)
+            {
+                MessageSet fsv5019(MessageNumber::VAR_in_fsv5019);
+                fsv5019.value = request.fsv5019.value() * 10.0;
+                packet.messages.push_back(fsv5019);
+            }
             if (request.fsv2012)
             {
                 MessageSet fsv2012(MessageNumber::VAR_in_fsv2012);
