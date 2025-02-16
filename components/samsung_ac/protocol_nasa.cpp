@@ -413,6 +413,17 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
+            if (request.request_fsv)
+            {
+                MessageSet request_fsv(MessageNumber::ENUM_in_request_fsv);
+                // Leere Bytes (0x00, 0x00) als Payload setzen
+                uint8_t empty_bytes[2] = {0x00, 0x00}; // Zwei leere Bytes
+                // Setze den Payload für den MessageSet als die leeren Bytes
+                request_fsv.structure.size = sizeof(empty_bytes);
+                request_fsv.size = 2;
+                memcpy(request_fsv.structure.data, empty_bytes, 2);
+                packet.messages.push_back(request_fsv);
+            }
             if (request.quiet_mode)
             {
                 MessageSet quiet_mode(MessageNumber::ENUM_in_operation_quiet_mode);
@@ -960,11 +971,6 @@ namespace esphome
                     target->set_fsv2012(source, temp);
                     break;
                 }
-
-
-
-
-
 
 
             case MessageNumber::VAR_in_target_offset: // unit = 'Celsius' from XML

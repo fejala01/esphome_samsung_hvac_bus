@@ -147,6 +147,7 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
+      Samsung_AC_Switch *request_fsv{nullptr};
       Samsung_AC_Switch *quiet_mode{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
@@ -893,6 +894,7 @@ namespace esphome
         if (climate != nullptr)
           calc_and_publish_mode();
       }
+      
       void update_quiet_mode(bool value)
       {
         _cur_quiet_mode = value;

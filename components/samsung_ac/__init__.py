@@ -87,6 +87,7 @@ CONF_DEVICE_OUT_CONTROL_WATTMETER_1W_1MIN_SUM = "outdoor_cumulative_energy"
 CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
+CONF_DEVICE_REQUEST_FSV = "request_fsv"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_COMPRESSOR_PROTECTION = "compressor_protection"
@@ -435,6 +436,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_REQUEST_FSV): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_QUIET_MODE): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
@@ -444,6 +446,7 @@ DEVICE_SCHEMA = cv.Schema(
             Samsung_AC_Switch
         ),
         cv.Optional(CONF_DEVICE_MODE): SELECT_MODE_SCHEMA,
+        cv.Optional(CONF_DEVICE_REQUEST_FSV): SELECT_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_CLIMATE): CLIMATE_SCHEMA,
         cv.Optional(CONF_DEVICE_CUSTOM, default=[]): cv.ensure_list(
@@ -621,6 +624,7 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
+            CONF_DEVICE_REQUEST_FSV: (switch.new_switch, var_dev.set_request_fsv_switch),
             CONF_DEVICE_QUIET_MODE: (switch.new_switch, var_dev.set_quiet_mode_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
