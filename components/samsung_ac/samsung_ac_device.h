@@ -176,6 +176,16 @@ namespace esphome
       Samsung_AC_Number *fsv5018{nullptr};
       Samsung_AC_Number *fsv5019{nullptr};
       Samsung_AC_Number *fsv2012{nullptr};
+      Samsung_AC_Number *fsv2021{nullptr};
+      Samsung_AC_Number *fsv2022{nullptr};
+      Samsung_AC_Number *fsv2031{nullptr};
+      Samsung_AC_Number *fsv2032{nullptr};
+      Samsung_AC_Number *fsv2051{nullptr};
+      Samsung_AC_Number *fsv2052{nullptr};
+      Samsung_AC_Number *fsv2061{nullptr};
+      Samsung_AC_Number *fsv2062{nullptr};
+      Samsung_AC_Number *fsv2071{nullptr};
+      Samsung_AC_Number *fsv2072{nullptr};
 
 
       float room_temperature_offset{0};
@@ -731,6 +741,115 @@ namespace esphome
           publish_request(request);
         };
       };
+      void set_fsv2021_number(Samsung_AC_Number *number)
+      {
+          fsv2021 = number;
+          fsv2021->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2021 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2022_number(Samsung_AC_Number *number)
+      {
+          fsv2022 = number;
+          fsv2022->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2022 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2031_number(Samsung_AC_Number *number)
+      {
+          fsv2031 = number;
+          fsv2031->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2031 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2032_number(Samsung_AC_Number *number)
+      {
+          fsv2032 = number;
+          fsv2032->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2032 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2051_number(Samsung_AC_Number *number)
+      {
+          fsv2051 = number;
+          fsv2051->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2051 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2052_number(Samsung_AC_Number *number)
+      {
+          fsv2052 = number;
+          fsv2052->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2052 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2061_number(Samsung_AC_Number *number)
+      {
+          fsv2061 = number;
+          fsv2061->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2061 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2062_number(Samsung_AC_Number *number)
+      {
+          fsv2062 = number;
+          fsv2062->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv2062 = value;
+              publish_request(request);
+          };
+      };
+
+      void set_fsv2071_number(Samsung_AC_Number *number)
+      {
+        fsv2071 = number;
+        fsv2071->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv2071 = value;
+          publish_request(request);
+        };
+      };
+      void set_fsv2072_number(Samsung_AC_Number *number)
+      {
+        fsv2072 = number;
+        fsv2072->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv2072 = value;
+          publish_request(request);
+        };
+      };
+
 
       void set_climate(Samsung_AC_Climate *value)
       {
@@ -870,6 +989,65 @@ namespace esphome
       {
         if (fsv2012 != nullptr)
           fsv2012->publish_state(value);
+      }
+      void update_fsv2021(float value)
+      {
+          if (fsv2021 != nullptr)
+              fsv2021->publish_state(value);
+      }
+
+      void update_fsv2022(float value)
+      {
+          if (fsv2022 != nullptr)
+              fsv2022->publish_state(value);
+      }
+
+      void update_fsv2031(float value)
+      {
+          if (fsv2031 != nullptr)
+              fsv2031->publish_state(value);
+      }
+
+      void update_fsv2032(float value)
+      {
+          if (fsv2032 != nullptr)
+              fsv2032->publish_state(value);
+      }
+
+      void update_fsv2051(float value)
+      {
+          if (fsv2051 != nullptr)
+              fsv2051->publish_state(value);
+      }
+
+      void update_fsv2052(float value)
+      {
+          if (fsv2052 != nullptr)
+              fsv2052->publish_state(value);
+      }
+
+      void update_fsv2061(float value)
+      {
+          if (fsv2061 != nullptr)
+              fsv2061->publish_state(value);
+      }
+
+      void update_fsv2062(float value)
+      {
+          if (fsv2062 != nullptr)
+              fsv2062->publish_state(value);
+      }
+
+
+      void update_fsv2071(float value)
+      {
+        if (fsv2071 != nullptr)
+          fsv2071->publish_state(value);
+      }
+      void update_fsv2072(float value)
+      {
+        if (fsv2072 != nullptr)
+          fsv2072->publish_state(value);
       }
 
       optional<bool> _cur_power;

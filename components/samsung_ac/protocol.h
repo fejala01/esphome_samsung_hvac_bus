@@ -150,6 +150,16 @@ namespace esphome
             virtual void set_fsv5018(const std::string address, float value) = 0;
             virtual void set_fsv5019(const std::string address, float value) = 0;
             virtual void set_fsv2012(const std::string address, float value) = 0;
+            virtual void set_fsv2021(const std::string address, float value) = 0;
+            virtual void set_fsv2022(const std::string address, float value) = 0;
+            virtual void set_fsv2031(const std::string address, float value) = 0;
+            virtual void set_fsv2032(const std::string address, float value) = 0;
+            virtual void set_fsv2051(const std::string address, float value) = 0;
+            virtual void set_fsv2052(const std::string address, float value) = 0;
+            virtual void set_fsv2061(const std::string address, float value) = 0;
+            virtual void set_fsv2062(const std::string address, float value) = 0;
+            virtual void set_fsv2071(const std::string address, float value) = 0;
+            virtual void set_fsv2072(const std::string address, float value) = 0;
             
         };
 
@@ -188,6 +198,16 @@ namespace esphome
             optional<float> fsv5018;
             optional<float> fsv5019;
             optional<float> fsv2012;
+            optional<float> fsv2021;
+            optional<float> fsv2022;
+            optional<float> fsv2031;
+            optional<float> fsv2032;
+            optional<float> fsv2051;
+            optional<float> fsv2052;
+            optional<float> fsv2061;
+            optional<float> fsv2062;
+            optional<float> fsv2071;
+            optional<float> fsv2072;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;

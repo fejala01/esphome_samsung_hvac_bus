@@ -596,6 +596,67 @@ namespace esphome
                 fsv2012.value = request.fsv2012.value() * 10.0;
                 packet.messages.push_back(fsv2012);
             }
+            if (request.fsv2021)
+            {
+                MessageSet fsv2021(MessageNumber::VAR_in_fsv2021);
+                fsv2021.value = request.fsv2021.value() * 10.0;
+                packet.messages.push_back(fsv2021);
+            }
+            if (request.fsv2022)
+            {
+                MessageSet fsv2022(MessageNumber::VAR_in_fsv2022);
+                fsv2022.value = request.fsv2022.value() * 10.0;
+                packet.messages.push_back(fsv2022);
+            }
+            if (request.fsv2031)
+            {
+                MessageSet fsv2031(MessageNumber::VAR_in_fsv2031);
+                fsv2031.value = request.fsv2031.value() * 10.0;
+                packet.messages.push_back(fsv2031);
+            }
+            if (request.fsv2032)
+            {
+                MessageSet fsv2032(MessageNumber::VAR_in_fsv2032);
+                fsv2032.value = request.fsv2032.value() * 10.0;
+                packet.messages.push_back(fsv2032);
+            }
+            if (request.fsv2051)
+            {
+                MessageSet fsv2051(MessageNumber::VAR_in_fsv2051);
+                fsv2051.value = request.fsv2051.value() * 10.0;
+                packet.messages.push_back(fsv2051);
+            }
+            if (request.fsv2052)
+            {
+                MessageSet fsv2052(MessageNumber::VAR_in_fsv2052);
+                fsv2052.value = request.fsv2052.value() * 10.0;
+                packet.messages.push_back(fsv2052);
+            }
+            if (request.fsv2061)
+            {
+                MessageSet fsv2061(MessageNumber::VAR_in_fsv2061);
+                fsv2061.value = request.fsv2061.value() * 10.0;
+                packet.messages.push_back(fsv2061);
+            }
+            if (request.fsv2062)
+            {
+                MessageSet fsv2062(MessageNumber::VAR_in_fsv2062);
+                fsv2062.value = request.fsv2062.value() * 10.0;
+                packet.messages.push_back(fsv2062);
+            }
+            if (request.fsv2071)
+            {
+                MessageSet fsv2071(MessageNumber::VAR_in_fsv2071);
+                fsv2071.value = request.fsv2071.value() * 10.0;
+                packet.messages.push_back(fsv2071);
+            }
+            if (request.fsv2072)
+            {
+                MessageSet fsv2072(MessageNumber::VAR_in_fsv2072);
+                fsv2072.value = request.fsv2072.value() * 10.0;
+                packet.messages.push_back(fsv2072);
+            }
+
 
             if (request.fan_mode)
             {
@@ -1090,6 +1151,77 @@ namespace esphome
                 target->set_fsv2012(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_fsv2021: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2021, temp, source, dest);
+                target->set_fsv2021(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2022: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2022, temp, source, dest);
+                target->set_fsv2022(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2031: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2031, temp, source, dest);
+                target->set_fsv2031(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2032: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2032, temp, source, dest);
+                target->set_fsv2032(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2051: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2051, temp, source, dest);
+                target->set_fsv2051(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2052: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2052, temp, source, dest);
+                target->set_fsv2052(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2061: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2061, temp, source, dest);
+                target->set_fsv2061(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2062: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2062, temp, source, dest);
+                target->set_fsv2062(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2071: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2071, temp, source, dest);
+                target->set_fsv2071(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2072: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2072, temp, source, dest);
+                target->set_fsv2072(source, temp);
+                break;
+            }
+
             case MessageNumber::ENUM_in_state_humidity_percent:
             {
                 LOG_MESSAGE(ENUM_in_state_humidity_percent, (double)message.value, source, dest);
