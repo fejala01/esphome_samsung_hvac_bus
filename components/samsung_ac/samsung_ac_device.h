@@ -1160,7 +1160,7 @@ namespace esphome
       void set_fsv3043_number(Samsung_AC_Number *number)
       {
           fsv3043 = number;
-          fsv3043->write_state_ = [this](float value)
+          fsv3043->write_state_ = [this](int value)
           {
               ProtocolRequest request;
               request.fsv3043 = value;
@@ -1568,7 +1568,7 @@ namespace esphome
               fsv3042->publish_state(value);
       }
 
-      void update_fsv3043(float value)
+      void update_fsv3043(int value)
       {
           if (fsv3043 != nullptr)
               fsv3043->publish_state(value);
