@@ -147,6 +147,16 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->compressor_frequency, value); });
       }
+      void set_compressor_frequency_order(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->compressor_frequency_order, value); });
+      }
+      void set_compressor_frequency_target(const std::string address, float value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_sensor_state(dev->compressor_frequency_target, value); });
+      }
       void set_energy_produced_lifetime(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)

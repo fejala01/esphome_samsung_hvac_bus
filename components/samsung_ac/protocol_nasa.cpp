@@ -980,6 +980,20 @@ namespace esphome
                 target->set_compressor_frequency(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_compressor_frequency_order: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_out_compressor_frequency_order, temp, source, dest);
+                target->set_compressor_frequency_order(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_out_compressor_frequency_target: 
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_out_compressor_frequency_target, temp, source, dest);
+                target->set_compressor_frequency_target(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_energy_produced_lifetime: 
             {
                 double temp = (double)message.value / (double)1000;

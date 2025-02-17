@@ -109,6 +109,8 @@ CONF_DEVICE_BASE_HEATER = "base_heater"
 CONF_DEVICE_ENERGY_PRODUCED_LIFETIME = "energy_produced_lifetime"
 CONF_DEVICE_ENERGY_PRODUCED_NOW = "energy_produced_now"
 CONF_DEVICE_COMPRESSOR_FREQUENCY = "compressor_frequency"
+CONF_DEVICE_COMPRESSOR_FREQUENCY_TARGET = "compressor_frequency_target"
+CONF_DEVICE_COMPRESSOR_FREQUENCY_ORDER = "compressor_frequency_order"
 CONF_DEVICE_WATERFLOW = "waterflow"
 CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
 CONF_DEVICE_VENTILATOR = "ventilator"
@@ -359,6 +361,20 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY): sensor.sensor_schema(
+            unit_of_measurement="Hz",
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_FREQUENCY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:engine",
+        ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY_ORDER): sensor.sensor_schema(
+            unit_of_measurement="Hz",
+            accuracy_decimals=0,
+            device_class=DEVICE_CLASS_FREQUENCY,
+            state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:engine",
+        ),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY_TARGET): sensor.sensor_schema(
             unit_of_measurement="Hz",
             accuracy_decimals=0,
             device_class=DEVICE_CLASS_FREQUENCY,
@@ -721,6 +737,14 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_compressor_frequency_sensor,
             ),
+            CONF_DEVICE_COMPRESSOR_FREQUENCY_ORDER: (
+                sensor.new_sensor,
+                var_dev.set_compressor_frequency_order_sensor,
+            ),
+            CONF_DEVICE_COMPRESSOR_FREQUENCY_TARGET: (
+                sensor.new_sensor,
+                var_dev.set_compressor_frequency_target_sensor,
+            ),
             CONF_DEVICE_ENERGY_PRODUCED_LIFETIME: (
                 sensor.new_sensor,
                 var_dev.set_energy_produced_lifetime_sensor,
@@ -1075,7 +1099,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=5.0, max_value=25.0, step=1
             )
-            
+
             cg.add(var_dev.set_fsv2061_number(num))
         if CONF_DEVICE_FSV2062 in device:
             conf = device[CONF_DEVICE_FSV2062]

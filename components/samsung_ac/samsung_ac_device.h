@@ -114,6 +114,8 @@ namespace esphome
       sensor::Sensor *waterflow{nullptr};
       sensor::Sensor *coolant{nullptr};
       sensor::Sensor *compressor_frequency{nullptr};
+      sensor::Sensor *compressor_frequency_order{nullptr};
+      sensor::Sensor *compressor_frequency_target{nullptr};
       sensor::Sensor *energy_produced_lifetime{nullptr};
       sensor::Sensor *energy_produced_now{nullptr};
       sensor::Sensor *base_heater{nullptr};
@@ -313,6 +315,14 @@ namespace esphome
       void set_compressor_frequency_sensor(sensor::Sensor *sensor)
       {
         compressor_frequency = sensor;
+      }
+      void set_compressor_frequency_order_sensor(sensor::Sensor *sensor)
+      {
+        compressor_frequency_order = sensor;
+      }
+      void set_compressor_frequency_target_sensor(sensor::Sensor *sensor)
+      {
+        compressor_frequency_target = sensor;
       }
       void set_energy_produced_lifetime_sensor(sensor::Sensor *sensor)
       {
