@@ -1181,6 +1181,7 @@ async def to_code(config):
             conf = device[CONF_DEVICE_FSV3022]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            icon = "mdi:delta"
             num = await number.new_number(
                 conf, min_value=0, max_value=10, step=1
             )

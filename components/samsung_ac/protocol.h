@@ -170,7 +170,7 @@ namespace esphome
             virtual void set_fsv3011(const std::string address, float value) = 0;
             virtual void set_fsv3041(const std::string address, float value) = 0;
             virtual void set_fsv3042(const std::string address, float value) = 0;
-            virtual void set_fsv3043(const std::string address, float value) = 0;
+            virtual void set_fsv3043(const std::string address, int value) = 0;
             virtual void set_fsv3045(const std::string address, float value) = 0;
             virtual void set_fsv3046(const std::string address, float value) = 0;
             virtual void set_fsv3061(const std::string address, float value) = 0;
