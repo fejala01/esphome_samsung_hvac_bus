@@ -192,6 +192,15 @@ namespace esphome
             virtual void set_fsv3081(const std::string address, float value) = 0;
             virtual void set_fsv3082(const std::string address, float value) = 0;
             virtual void set_fsv3083(const std::string address, float value) = 0;
+            virtual void set_fsv4011(const std::string address, float value) = 0;
+            virtual void set_fsv4013(const std::string address, float value) = 0;
+            virtual void set_fsv4021(const std::string address, float value) = 0;
+            virtual void set_fsv4022(const std::string address, float value) = 0;
+            virtual void set_fsv4023(const std::string address, float value) = 0;
+            virtual void set_fsv4025(const std::string address, float value) = 0;
+            virtual void set_fsv4031(const std::string address, float value) = 0;
+            virtual void set_fsv4032(const std::string address, float value) = 0;
+
 
 
             
@@ -272,6 +281,16 @@ namespace esphome
             optional<float> fsv3081;
             optional<float> fsv3082;
             optional<float> fsv3083;
+            optional<float> fsv3083;
+            optional<float> fsv4011;
+            optional<float> fsv4013;
+            optional<float> fsv4021;
+            optional<float> fsv4022;
+            optional<float> fsv4023;
+            optional<float> fsv4025;
+            optional<float> fsv4031;
+            optional<float> fsv4032;
+
 
 
             optional<float> target_offset;

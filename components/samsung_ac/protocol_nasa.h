@@ -184,7 +184,16 @@ namespace esphome
             VAR_in_fsv3071 = 0x409D, 
             VAR_in_fsv3081 = 0x42ED, 
             VAR_in_fsv3082 = 0x42EE, 
-            VAR_in_fsv3083 = 0x42EF, 
+            VAR_in_fsv3083 = 0x42EF,
+            VAR_in_fsv4011 = 0x409E,
+            VAR_in_fsv4013 = 0x426E,
+            VAR_in_fsv4021 = 0x409F,
+            VAR_in_fsv4022 = 0x40A0,
+            VAR_in_fsv4023 = 0x40A1,
+            VAR_in_fsv4025 = 0x4271,
+            VAR_in_fsv4031 = 0x40A2,
+            VAR_in_fsv4032 = 0x40A3,
+
 
 
 
