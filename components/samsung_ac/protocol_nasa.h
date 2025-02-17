@@ -169,6 +169,25 @@ namespace esphome
             VAR_in_fsv3061 = 0x409C,
             VAR_in_fsv4061 = 0x411A,
             VAR_in_fsv5022 = 0x4128,
+            VAR_in_fsv3021 = 0x4260, 
+            VAR_in_fsv3022 = 0x4261, 
+            VAR_in_fsv3023 = 0x4262, 
+            VAR_in_fsv3024 = 0x4263, 
+            VAR_in_fsv3025 = 0x4264, 
+            VAR_in_fsv3026 = 0x4265, 
+            VAR_in_fsv3031 = 0x4098, 
+            VAR_in_fsv3032 = 0x4266, 
+            VAR_in_fsv3033 = 0x4267, 
+            VAR_in_fsv3044 = 0x426A, 
+            VAR_in_fsv3051 = 0x409B, 
+            VAR_in_fsv3052 = 0x426C, 
+            VAR_in_fsv3071 = 0x409D, 
+            VAR_in_fsv3081 = 0x42ED, 
+            VAR_in_fsv3082 = 0x42EE, 
+            VAR_in_fsv3083 = 0x42EF, 
+
+
+
 
             
             VAR_out_ventilator = 0x823D,

@@ -754,6 +754,122 @@ namespace esphome
                 fsv5022.value = request.fsv5022.value();
                 packet.messages.push_back(fsv5022);
             }
+            
+            
+            if (request.fsv3021) 
+            {
+                MessageSet fsv3021(MessageNumber::VAR_in_fsv3021); 
+                fsv3021.value = request.fsv3021.value() * 10.0; 
+                packet.messages.push_back(fsv3021); 
+            }
+
+            if (request.fsv3022) 
+            {
+                MessageSet fsv3022(MessageNumber::VAR_in_fsv3022); 
+                fsv3022.value = request.fsv3022.value() * 10.0; 
+                packet.messages.push_back(fsv3022); 
+            }
+
+            if (request.fsv3023) 
+            {
+                MessageSet fsv3023(MessageNumber::VAR_in_fsv3023); 
+                fsv3023.value = request.fsv3023.value() * 10.0; 
+                packet.messages.push_back(fsv3023); 
+            }
+
+            if (request.fsv3024) 
+            {
+                MessageSet fsv3024(MessageNumber::VAR_in_fsv3024); 
+                fsv3024.value = request.fsv3024.value(); 
+                packet.messages.push_back(fsv3024); 
+            }
+
+            if (request.fsv3025) 
+            {
+                MessageSet fsv3025(MessageNumber::VAR_in_fsv3025); 
+                fsv3025.value = request.fsv3025.value(); 
+                packet.messages.push_back(fsv3025); 
+            }
+
+            if (request.fsv3026) 
+            {
+                MessageSet fsv3026(MessageNumber::VAR_in_fsv3026); 
+                fsv3026.value = request.fsv3026.value(); 
+                packet.messages.push_back(fsv3026); 
+            }
+
+            if (request.fsv3031) 
+            {
+                MessageSet fsv3031(MessageNumber::VAR_in_fsv3031); 
+                fsv3031.value = request.fsv3031.value(); 
+                packet.messages.push_back(fsv3031); 
+            }
+
+            if (request.fsv3032) 
+            {
+                MessageSet fsv3032(MessageNumber::VAR_in_fsv3032); 
+                fsv3032.value = request.fsv3032.value(); 
+                packet.messages.push_back(fsv3032); 
+            }
+
+            if (request.fsv3033) 
+            {
+                MessageSet fsv3033(MessageNumber::VAR_in_fsv3033); 
+                fsv3033.value = request.fsv3033.value() * 10.0; 
+                packet.messages.push_back(fsv3033); 
+            }
+
+            if (request.fsv3044) 
+            {
+                MessageSet fsv3044(MessageNumber::VAR_in_fsv3044); 
+                fsv3044.value = request.fsv3044.value() * 10.0; 
+                packet.messages.push_back(fsv3044); 
+            }
+
+            if (request.fsv3051) 
+            {
+                MessageSet fsv3051(MessageNumber::VAR_in_fsv3051); 
+                fsv3051.value = request.fsv3051.value(); 
+                packet.messages.push_back(fsv3051); 
+            }
+
+            if (request.fsv3052) 
+            {
+                MessageSet fsv3052(MessageNumber::VAR_in_fsv3052); 
+                fsv3052.value = request.fsv3052.value(); 
+                packet.messages.push_back(fsv3052); 
+            }
+
+            if (request.fsv3071) 
+            {
+                MessageSet fsv3071(MessageNumber::VAR_in_fsv3071); 
+                fsv3071.value = request.fsv3071.value(); 
+                packet.messages.push_back(fsv3071); 
+            }
+
+            if (request.fsv3081) 
+            {
+                MessageSet fsv3081(MessageNumber::VAR_in_fsv3081); 
+                fsv3081.value = request.fsv3081.value(); 
+                packet.messages.push_back(fsv3081); 
+            }
+
+            if (request.fsv3082) 
+            {
+                MessageSet fsv3082(MessageNumber::VAR_in_fsv3082); 
+                fsv3082.value = request.fsv3082.value(); 
+                packet.messages.push_back(fsv3082); 
+            }
+
+            if (request.fsv3083) 
+            {
+                MessageSet fsv3083(MessageNumber::VAR_in_fsv3083); 
+                fsv3083.value = request.fsv3083.value(); 
+                packet.messages.push_back(fsv3083); 
+            }
+
+
+
 
 
 
@@ -1445,6 +1561,145 @@ namespace esphome
                 target->set_fsv5022(source, temp);
                 break;
             }
+
+
+
+            case MessageNumber::VAR_in_fsv3021: // unit = 'Celsius'
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3021, temp, source, dest);
+                target->set_fsv3021(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3022: // unit = 'Celsius'
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3022, temp, source, dest);
+                target->set_fsv3022(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3023: // unit = 'Celsius'
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3023, temp, source, dest);
+                target->set_fsv3023(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3024:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3024, temp, source, dest);
+                target->set_fsv3024(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3025:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3025, temp, source, dest);
+                target->set_fsv3025(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3026:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3026, temp, source, dest);
+                target->set_fsv3026(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3031:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3031, temp, source, dest);
+                target->set_fsv3031(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3032:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3032, temp, source, dest);
+                target->set_fsv3032(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3033: // unit = 'Celsius'
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3033, temp, source, dest);
+                target->set_fsv3033(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3044: // unit = 'Celsius'
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv3044, temp, source, dest);
+                target->set_fsv3044(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3051:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3051, temp, source, dest);
+                target->set_fsv3051(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3052:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3052, temp, source, dest);
+                target->set_fsv3052(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3071:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3071, temp, source, dest);
+                target->set_fsv3071(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3081:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3081, temp, source, dest);
+                target->set_fsv3081(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3082:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3082, temp, source, dest);
+                target->set_fsv3082(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv3083:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv3083, temp, source, dest);
+                target->set_fsv3083(source, temp);
+                break;
+            }
+
+
+
+
+
+
+
+
+
 
 
             case MessageNumber::ENUM_in_state_humidity_percent:

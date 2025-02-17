@@ -202,6 +202,23 @@ namespace esphome
       Samsung_AC_Number *fsv3061{nullptr};
       Samsung_AC_Number *fsv4061{nullptr};
       Samsung_AC_Number *fsv5022{nullptr};
+      Samsung_AC_Number *fsv3021{nullptr};
+      Samsung_AC_Number *fsv3022{nullptr};
+      Samsung_AC_Number *fsv3023{nullptr};
+      Samsung_AC_Number *fsv3024{nullptr};
+      Samsung_AC_Number *fsv3025{nullptr};
+      Samsung_AC_Number *fsv3026{nullptr};
+      Samsung_AC_Number *fsv3031{nullptr};
+      Samsung_AC_Number *fsv3032{nullptr};
+      Samsung_AC_Number *fsv3033{nullptr};
+      Samsung_AC_Number *fsv3044{nullptr};
+      Samsung_AC_Number *fsv3051{nullptr};
+      Samsung_AC_Number *fsv3052{nullptr};
+      Samsung_AC_Number *fsv3071{nullptr};
+      Samsung_AC_Number *fsv3081{nullptr};
+      Samsung_AC_Number *fsv3082{nullptr};
+      Samsung_AC_Number *fsv3083{nullptr};
+
 
 
 
@@ -875,6 +892,183 @@ namespace esphome
           publish_request(request);
         };
       };
+
+      void set_fsv3021_number(Samsung_AC_Number *number)
+      {
+          fsv3021 = number;
+          fsv3021->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3021 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3022_number(Samsung_AC_Number *number)
+      {
+          fsv3022 = number;
+          fsv3022->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3022 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3023_number(Samsung_AC_Number *number)
+      {
+          fsv3023 = number;
+          fsv3023->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3023 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3024_number(Samsung_AC_Number *number)
+      {
+          fsv3024 = number;
+          fsv3024->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3024 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3025_number(Samsung_AC_Number *number)
+      {
+          fsv3025 = number;
+          fsv3025->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3025 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3026_number(Samsung_AC_Number *number)
+      {
+          fsv3026 = number;
+          fsv3026->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3026 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3031_number(Samsung_AC_Number *number)
+      {
+          fsv3031 = number;
+          fsv3031->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3031 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3032_number(Samsung_AC_Number *number)
+      {
+          fsv3032 = number;
+          fsv3032->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3032 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3033_number(Samsung_AC_Number *number)
+      {
+          fsv3033 = number;
+          fsv3033->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3033 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3044_number(Samsung_AC_Number *number)
+      {
+          fsv3044 = number;
+          fsv3044->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3044 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3051_number(Samsung_AC_Number *number)
+      {
+          fsv3051 = number;
+          fsv3051->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3051 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3052_number(Samsung_AC_Number *number)
+      {
+          fsv3052 = number;
+          fsv3052->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3052 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3071_number(Samsung_AC_Number *number)
+      {
+          fsv3071 = number;
+          fsv3071->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3071 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3081_number(Samsung_AC_Number *number)
+      {
+          fsv3081 = number;
+          fsv3081->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3081 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3082_number(Samsung_AC_Number *number)
+      {
+          fsv3082 = number;
+          fsv3082->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3082 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv3083_number(Samsung_AC_Number *number)
+      {
+          fsv3083 = number;
+          fsv3083->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv3083 = value;
+              publish_request(request);
+          };
+      }
+
       void set_fsv2041_number(Samsung_AC_Number *number)
       {
           fsv2041 = number;
@@ -1229,6 +1423,103 @@ namespace esphome
         if (fsv2072 != nullptr)
           fsv2072->publish_state(value);
       }
+
+      void update_fsv3021(float value)
+      {
+          if (fsv3021 != nullptr)
+              fsv3021->publish_state(value);
+      }
+
+      void update_fsv3022(float value)
+      {
+          if (fsv3022 != nullptr)
+              fsv3022->publish_state(value);
+      }
+
+      void update_fsv3023(float value)
+      {
+          if (fsv3023 != nullptr)
+              fsv3023->publish_state(value);
+      }
+
+      void update_fsv3024(float value)
+      {
+          if (fsv3024 != nullptr)
+              fsv3024->publish_state(value);
+      }
+
+      void update_fsv3025(float value)
+      {
+          if (fsv3025 != nullptr)
+              fsv3025->publish_state(value);
+      }
+
+      void update_fsv3026(float value)
+      {
+          if (fsv3026 != nullptr)
+              fsv3026->publish_state(value);
+      }
+
+      void update_fsv3031(float value)
+      {
+          if (fsv3031 != nullptr)
+              fsv3031->publish_state(value);
+      }
+
+      void update_fsv3032(float value)
+      {
+          if (fsv3032 != nullptr)
+              fsv3032->publish_state(value);
+      }
+
+      void update_fsv3033(float value)
+      {
+          if (fsv3033 != nullptr)
+              fsv3033->publish_state(value);
+      }
+
+      void update_fsv3044(float value)
+      {
+          if (fsv3044 != nullptr)
+              fsv3044->publish_state(value);
+      }
+
+      void update_fsv3051(float value)
+      {
+          if (fsv3051 != nullptr)
+              fsv3051->publish_state(value);
+      }
+
+      void update_fsv3052(float value)
+      {
+          if (fsv3052 != nullptr)
+              fsv3052->publish_state(value);
+      }
+
+      void update_fsv3071(float value)
+      {
+          if (fsv3071 != nullptr)
+              fsv3071->publish_state(value);
+      }
+
+      void update_fsv3081(float value)
+      {
+          if (fsv3081 != nullptr)
+              fsv3081->publish_state(value);
+      }
+
+      void update_fsv3082(float value)
+      {
+          if (fsv3082 != nullptr)
+              fsv3082->publish_state(value);
+      }
+
+      void update_fsv3083(float value)
+      {
+          if (fsv3083 != nullptr)
+              fsv3083->publish_state(value);
+      }
+
       void update_fsv2041(float value)
       {
           if (fsv2041 != nullptr)
