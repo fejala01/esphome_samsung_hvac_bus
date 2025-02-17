@@ -1075,6 +1075,7 @@ async def to_code(config):
             num = await number.new_number(
                 conf, min_value=5.0, max_value=25.0, step=1
             )
+            
             cg.add(var_dev.set_fsv2061_number(num))
         if CONF_DEVICE_FSV2062 in device:
             conf = device[CONF_DEVICE_FSV2062]
