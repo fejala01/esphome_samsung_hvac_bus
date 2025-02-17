@@ -345,7 +345,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_WATER_PRESSURE): sensor.sensor_schema(
             unit_of_measurement="bar",
-            accuracy_decimals=2,
+            accuracy_decimals=1,
             device_class=DEVICE_CLASS_PRESSURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
@@ -1349,7 +1349,7 @@ async def to_code(config):
 
         if CONF_DEVICE_FSV3046 in device: 
             conf = device[CONF_DEVICE_FSV3046]
-            conf[CONF_UNIT_OF_MEASUREMENT] = "h"
+            conf[CONF_UNIT_OF_MEASUREMENT] = "min"
             num = await number.new_number(
                 conf, min_value=1, max_value=24, step=1
             )
