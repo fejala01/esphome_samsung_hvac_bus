@@ -1331,7 +1331,7 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv3042_number(num))
 
-        if CONF_DEVICE_FSV3043 in device: 
+        if CONF_DEVICE_FSV3043 in device:
             conf = device[CONF_DEVICE_FSV3043]
             conf[CONF_UNIT_OF_MEASUREMENT] = "Uhr"
             num = await number.new_number(

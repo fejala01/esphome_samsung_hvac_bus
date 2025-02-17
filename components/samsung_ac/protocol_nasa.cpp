@@ -1516,7 +1516,7 @@ namespace esphome
 
             case MessageNumber::VAR_in_fsv3043: 
             {
-                int temp = (int)message.value;
+                double temp = (double)message.value;
                 LOG_MESSAGE(VAR_in_fsv3043, temp, source, dest);
                 target->set_fsv3043(source, temp);
                 break;
