@@ -281,7 +281,6 @@ namespace esphome
             optional<float> fsv3081;
             optional<float> fsv3082;
             optional<float> fsv3083;
-            optional<float> fsv3083;
             optional<float> fsv4011;
             optional<float> fsv4013;
             optional<float> fsv4021;
