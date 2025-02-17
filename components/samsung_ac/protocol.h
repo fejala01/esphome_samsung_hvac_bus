@@ -250,7 +250,7 @@ namespace esphome
             optional<float> fsv3011;
             optional<float> fsv3041;
             optional<float> fsv3042;
-            optional<float> fsv3043;
+            optional<int> fsv3043;
             optional<float> fsv3045;
             optional<float> fsv3046;
             optional<float> fsv3061;

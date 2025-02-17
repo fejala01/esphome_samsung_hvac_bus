@@ -467,7 +467,7 @@ namespace esphome
           { dev->update_fsv3042(value); });
       }
 
-      void set_fsv3043(const std::string address, float value) override
+      void set_fsv3043(const std::string address, int value) override
       {
           execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
           { dev->update_fsv3043(value); });
