@@ -1447,8 +1447,6 @@ async def to_code(config):
 
         if CONF_DEVICE_FSV4031 in device:
             conf = device[CONF_DEVICE_FSV4031]
-            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
-            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
                 conf, min_value=0, max_value=1, step=1
             )
