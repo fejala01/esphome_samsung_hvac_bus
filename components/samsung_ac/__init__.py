@@ -1274,10 +1274,9 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv3051_number(num))
         if CONF_DEVICE_FSV3052 in device:
-            conf = device[CONF_DEVICE_FSV3052]
             conf[CONF_DEVICE_CLASS] = "min"
             num = await number.new_number(
-                conf, min_value=30, max_value=80, step=10
+                conf, min_value=3, max_value=30, step=1
             )
             cg.add(var_dev.set_fsv3052_number(num))
         if CONF_DEVICE_FSV3071 in device:
@@ -1374,7 +1373,7 @@ async def to_code(config):
             conf = device[CONF_DEVICE_FSV3046]
             conf[CONF_UNIT_OF_MEASUREMENT] = "min"
             num = await number.new_number(
-                conf, min_value=1, max_value=24, step=1
+                conf, min_value=10, max_value=240, step=10
             )
             cg.add(var_dev.set_fsv3046_number(num))
 
