@@ -922,7 +922,7 @@ async def to_code(config):
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
             conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
             num = await number.new_number(
-                conf, min_value=23.0, max_value=43.0, step=0.1
+                conf, min_value=23.0, max_value=40.0, step=0.1
             )
             cg.add(var_dev.set_target_temperature_number(num))
         if CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 in device:
@@ -1277,7 +1277,7 @@ async def to_code(config):
             conf = device[CONF_DEVICE_FSV3052]
             conf[CONF_DEVICE_CLASS] = "min"
             num = await number.new_number(
-                conf, min_value=3, max_value=30, step=1
+                conf, min_value=30, max_value=80, step=10
             )
             cg.add(var_dev.set_fsv3052_number(num))
         if CONF_DEVICE_FSV3071 in device:
