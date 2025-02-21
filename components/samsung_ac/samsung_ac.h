@@ -217,11 +217,6 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->compressor_status, value); });
       }
-      void set_compressor_protection(const std::string address, float value) override
-      {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_sensor_state(dev->compressor_protection, value); });
-      }
       void set_current_temp_zone2(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
@@ -662,12 +657,6 @@ namespace esphome
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_power_zone2(value); });
-      }
-      
-      void set_quiet_mode(const std::string address, bool value) override
-      {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_quiet_mode(value); });
       }
       void set_vacation(const std::string address, bool value) override
       {

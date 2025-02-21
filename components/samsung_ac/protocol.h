@@ -78,8 +78,6 @@ namespace esphome
             virtual void register_address(const std::string address) = 0;
             virtual void set_power(const std::string address, bool value) = 0;
             virtual void set_power_zone2(const std::string address, bool value) = 0;
-            virtual void set_fsv_change(const std::string address, bool value) = 0;
-            virtual void set_quiet_mode(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_automatic_cleaning(const std::string address, bool value) = 0;
             virtual void set_water_heater_power(const std::string address, bool value) = 0;
@@ -107,7 +105,6 @@ namespace esphome
             virtual void set_operation_mode_ext(const std::string address, float value) = 0;
             virtual void set_deice_status(const std::string address, float value) = 0;
             virtual void set_compressor_status(const std::string address, float value) = 0;
-            virtual void set_compressor_protection(const std::string address, float value) = 0;
             virtual void set_current_temp_zone2(const std::string address, float value) = 0;
             virtual void set_target_temperature(const std::string address, float value) = 0;
             virtual void set_water_outlet_target(const std::string address, float value) = 0;
@@ -212,8 +209,6 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
-            optional<bool> fsv_change;
-            optional<bool> quiet_mode;
             optional<bool> vacation;
             optional<bool> automatic_cleaning;
             optional<bool> water_heater_power;

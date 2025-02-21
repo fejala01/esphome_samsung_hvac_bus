@@ -69,8 +69,6 @@ CONF_DEVICE_WATER_TEMPERATURE = "water_temperature"
 CONF_DEVICE_WATER_TARGET_TEMPERATURE = "water_target_temperature"
 CONF_DEVICE_POWER = "power"
 CONF_DEVICE_POWER_ZONE2 = "power_zone2"
-CONF_DEVICE_FSV_CHANGE = "fsv_change"
-CONF_DEVICE_QUIET_MODE = "quiet_mode"
 CONF_DEVICE_VACATION = "vacation"
 CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 = "target_temperature_zone2"
 CONF_DEVICE_AUTOMATIC_CLEANING = "automatic_cleaning"
@@ -90,7 +88,6 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
-CONF_DEVICE_COMPRESSOR_PROTECTION = "compressor_protection"
 CONF_DEVICE_EVI_BYPASS_VALVE = "evi_bypass_valve"
 CONF_DEVICE_DISCHARGE_TEMP = "discharge_temp"
 CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
@@ -449,9 +446,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_EVI_BYPASS_VALVE): sensor.sensor_schema(
             icon="mdi:valve",
         ),
-        cv.Optional(CONF_DEVICE_COMPRESSOR_PROTECTION): sensor.sensor_schema(
-            icon="mdi:engine",
-        ),
         cv.Optional(CONF_DEVICE_DEICE_STATUS): sensor.sensor_schema(
             icon="mdi:ice-cream-off",
         ),
@@ -561,8 +555,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_CHANGE): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_QUIET_MODE): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
             Samsung_AC_Switch
@@ -748,8 +740,6 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
-            CONF_DEVICE_FSV_CHANGE: (switch.new_switch, var_dev.set_fsv_change_switch),
-            CONF_DEVICE_QUIET_MODE: (switch.new_switch, var_dev.set_quiet_mode_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
                 switch.new_switch,
@@ -854,10 +844,6 @@ async def to_code(config):
             CONF_DEVICE_EVI_BYPASS_VALVE: (
                 sensor.new_sensor,
                 var_dev.set_evi_bypass_valve_sensor,
-            ),
-            CONF_DEVICE_COMPRESSOR_PROTECTION: (
-                sensor.new_sensor,
-                var_dev.set_compressor_protection_sensor,
             ),
             CONF_DEVICE_CURRENT_TEMP_ZONE2: (
                 sensor.new_sensor,

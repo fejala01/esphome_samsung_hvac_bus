@@ -413,18 +413,6 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
-            if (request.fsv_change)
-            {
-                
-
-                
-            }
-            if (request.quiet_mode)
-            {
-                MessageSet quiet_mode(MessageNumber::ENUM_in_operation_quiet_mode);
-                quiet_mode.value = request.quiet_mode.value() ? 1 : 0;
-                packet.messages.push_back(quiet_mode);
-            }
             if (request.vacation)
             {
                 MessageSet vacation(MessageNumber::ENUM_in_vacation);
@@ -1223,13 +1211,6 @@ namespace esphome
                 int temp = (int)message.value;
                 LOG_MESSAGE(VAR_out_compressor_status, temp, source, dest);
                 target->set_compressor_status(source, temp);
-                break;
-            }
-            case MessageNumber::VAR_out_compressor_protection: 
-            {
-                int temp = (int)message.value;
-                LOG_MESSAGE(VAR_out_compressor_protection, temp, source, dest);
-                target->set_compressor_protection(source, temp);
                 break;
             }
             case MessageNumber::VAR_in_operation_mode_real: 
