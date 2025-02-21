@@ -413,6 +413,12 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
+            if (request.fsv_change)
+            {
+                
+
+                
+            }
             if (request.quiet_mode)
             {
                 MessageSet quiet_mode(MessageNumber::ENUM_in_operation_quiet_mode);

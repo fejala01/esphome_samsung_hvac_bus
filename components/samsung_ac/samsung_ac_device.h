@@ -463,6 +463,11 @@ namespace esphome
           publish_request(request);
         };
       }
+      void set_fsv_change_switch(Samsung_AC_Switch *switch_)
+      {
+        fsv_change = switch_;
+        fsv_change->write_state_ = [this](bool value)
+      }
       void set_quiet_mode_switch(Samsung_AC_Switch *switch_)
       {
         quiet_mode = switch_;
@@ -1755,6 +1760,7 @@ namespace esphome
 
       optional<bool> _cur_power;
       optional<bool> _cur_power_zone2;
+      optional<bool> _cur_fsv_change;
       optional<bool> _cur_quiet_mode;
       optional<bool> _cur_vacation;
       optional<bool> _cur_automatic_cleaning;
@@ -1777,6 +1783,10 @@ namespace esphome
           power_zone2->publish_state(value);
         if (climate != nullptr)
           calc_and_publish_mode();
+      }
+      void update_fsv_change(bool value)
+      {
+        _cur_fsv_change = value;
       }
       
       void update_quiet_mode(bool value)

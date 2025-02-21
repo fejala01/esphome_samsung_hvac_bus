@@ -78,6 +78,7 @@ namespace esphome
             virtual void register_address(const std::string address) = 0;
             virtual void set_power(const std::string address, bool value) = 0;
             virtual void set_power_zone2(const std::string address, bool value) = 0;
+            virtual void set_fsv_change(const std::string address, bool value) = 0;
             virtual void set_quiet_mode(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_automatic_cleaning(const std::string address, bool value) = 0;
@@ -211,6 +212,7 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
+            optional<bool> fsv_change;
             optional<bool> quiet_mode;
             optional<bool> vacation;
             optional<bool> automatic_cleaning;
