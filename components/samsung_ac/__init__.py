@@ -747,7 +747,7 @@ async def to_code(config):
         # Mapping of config keys to their corresponding methods and types
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
-            CONF_DEVICE_FSV_CHANGE: (switch.new_switch, var_dev.set_fsv_change_switch),
+            CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
             CONF_DEVICE_QUIET_MODE: (switch.new_switch, var_dev.set_quiet_mode_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
