@@ -1560,14 +1560,6 @@ namespace esphome
                 target->set_fsv3043(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_fsv3043: 
-            {
-                double temp = (double)message.value;
-                LOG_MESSAGE(VAR_in_fsv3043, temp, source, dest);
-                target->set_fsv3043(source, temp);
-                break;
-            }
-
 
             case MessageNumber::VAR_in_fsv3045: 
             {
