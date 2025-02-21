@@ -476,7 +476,7 @@ namespace esphome
                 }
                 packet.messages.push_back(targetoffset);
             }
-            if (request.fsv1011 && id(change_fsv).state)
+            if (request.fsv1011)
             {
                 MessageSet fsv1011(MessageNumber::VAR_in_fsv1011);
                 fsv1011.value = request.fsv1011.value() * 10.0;
