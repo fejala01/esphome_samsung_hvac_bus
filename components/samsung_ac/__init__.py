@@ -564,6 +564,7 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_MODE): SELECT_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
+        cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_CLIMATE): CLIMATE_SCHEMA,
         cv.Optional(CONF_DEVICE_CUSTOM, default=[]): cv.ensure_list(
             CUSTOM_SENSOR_SCHEMA
@@ -1341,10 +1342,8 @@ async def to_code(config):
                 conf, min_value=0, max_value=7, step=1
             )
             cg.add(var_dev.set_fsv3042_number(num))
-
-        if CONF_DEVICE_FSV3043 in device:
+        if CONF_DEVICE_FSV3043 in device: 
             conf = device[CONF_DEVICE_FSV3043]
-            conf[CONF_UNIT_OF_MEASUREMENT] = "Uhr"
             num = await number.new_number(
                 conf, min_value=0, max_value=23, step=1
             )

@@ -1148,7 +1148,6 @@ namespace esphome
               publish_request(request);
           };
       }
-
       void set_fsv3043_number(Samsung_AC_Number *number)
       {
           fsv3043 = number;
@@ -1159,6 +1158,7 @@ namespace esphome
               publish_request(request);
           };
       }
+
 
       void set_fsv3045_number(Samsung_AC_Number *number)
       {
@@ -1650,8 +1650,7 @@ namespace esphome
           if (fsv3042 != nullptr)
               fsv3042->publish_state(value);
       }
-
-      void update_fsv3043(int value)
+      void update_fsv3043(float value)
       {
           if (fsv3043 != nullptr)
               fsv3043->publish_state(value);
