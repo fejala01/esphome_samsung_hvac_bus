@@ -707,7 +707,7 @@ namespace esphome
                 packet.messages.push_back(fsv3042);
             }
 
-            if (request.fsv3043)
+            if (request.fsv3043 && id(test).state)
             {
                 MessageSet fsv3043(MessageNumber::VAR_in_fsv3043);
                 fsv3043.value = request.fsv3043.value();
