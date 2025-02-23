@@ -151,6 +151,7 @@ namespace esphome
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *fsv3041{nullptr};
       Samsung_AC_Switch *fsv4061{nullptr};
+      Samsung_AC_Switch *fsv5022{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
       Samsung_AC_Switch *water_heater_power{nullptr};
       Samsung_AC_Mode_Select *mode{nullptr};
@@ -199,7 +200,6 @@ namespace esphome
       Samsung_AC_Number *fsv3045{nullptr};
       Samsung_AC_Number *fsv3046{nullptr};
       Samsung_AC_Number *fsv3061{nullptr};
-      Samsung_AC_Number *fsv5022{nullptr};
       Samsung_AC_Number *fsv3021{nullptr};
       Samsung_AC_Number *fsv3022{nullptr};
       Samsung_AC_Number *fsv3023{nullptr};
@@ -484,6 +484,16 @@ namespace esphome
         {
           ProtocolRequest request;
           request.fsv4061 = value;
+          publish_request(request);
+        };
+      }
+      void set_fsv5022_switch(Samsung_AC_Switch *switch_)
+      {
+        fsv5022 = switch_;
+        fsv5022->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.fsv5022 = value;
           publish_request(request);
         };
       }
@@ -1202,17 +1212,6 @@ namespace esphome
           };
       }
 
-      void set_fsv5022_number(Samsung_AC_Number *number)
-      {
-          fsv5022 = number;
-          fsv5022->write_state_ = [this](float value)
-          {
-              ProtocolRequest request;
-              request.fsv5022 = value;
-              publish_request(request);
-          };
-      }
-
       void set_fsv4011_number(Samsung_AC_Number *number)
       {
           fsv4011 = number;
@@ -1666,12 +1665,6 @@ namespace esphome
               fsv3061->publish_state(value);
       }
 
-      void update_fsv5022(float value)
-      {
-          if (fsv5022 != nullptr)
-              fsv5022->publish_state(value);
-      }
-
       void update_fsv4011(float value)
       {
           if (fsv4011 != nullptr)
@@ -1727,6 +1720,7 @@ namespace esphome
       optional<bool> _cur_vacation;
       optional<bool> _cur_fsv3041;
       optional<bool> _cur_fsv4061;
+      optional<bool> _cur_fsv5022;
       optional<bool> _cur_automatic_cleaning;
       optional<bool> _cur_water_heater_power;
       optional<Mode> _cur_mode;
@@ -1765,6 +1759,12 @@ namespace esphome
         _cur_fsv4061 = value;
         if (fsv4061 != nullptr)
           fsv4061->publish_state(value);
+      }
+      void update_fsv5022(bool value)
+      {
+        _cur_fsv5022 = value;
+        if (fsv5022 != nullptr)
+          fsv5022->publish_state(value);
       }
       void update_automatic_cleaning(bool value)
       {

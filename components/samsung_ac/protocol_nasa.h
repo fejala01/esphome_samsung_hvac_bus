@@ -166,7 +166,7 @@ namespace esphome
             VAR_in_fsv3046 = 0x42CE,
             VAR_in_fsv3061 = 0x409C,
             ENUM_in_fsv4061 = 0x411A,
-            VAR_in_fsv5022 = 0x4128,
+            ENUM_in_fsv5022 = 0x4128,
             VAR_in_fsv3021 = 0x4260, 
             VAR_in_fsv3022 = 0x4261, 
             VAR_in_fsv3023 = 0x4262, 

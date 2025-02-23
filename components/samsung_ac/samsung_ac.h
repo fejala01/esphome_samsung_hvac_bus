@@ -475,12 +475,6 @@ namespace esphome
           { dev->update_fsv3061(value); });
       }
 
-      void set_fsv5022(const std::string address, float value) override
-      {
-          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-          { dev->update_fsv5022(value); });
-      }
-
       void set_fsv3021(const std::string address, float value) override
       {
           execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
@@ -659,6 +653,11 @@ namespace esphome
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_fsv4061(value); });
+      }
+      void set_fsv5022(const std::string address, bool value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_fsv5022(value); });
       }
       void set_automatic_cleaning(const std::string address, bool value) override
       {

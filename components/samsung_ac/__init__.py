@@ -519,7 +519,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV3045): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3046): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3061): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV5022): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_FSV3021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3022): NUMBER_SCHEMA,
@@ -556,6 +555,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV4061): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV5022): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
             Samsung_AC_Switch
         ),
@@ -743,7 +743,8 @@ async def to_code(config):
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),
-            CONF_DEVICE_FSV4061: (switch.new_switch, var_dev.set_vacation_switch),
+            CONF_DEVICE_FSV4061: (switch.new_switch, var_dev.set_fsv4061_switch),
+            CONF_DEVICE_FSV5022: (switch.new_switch, var_dev.set_fsv5022_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
                 switch.new_switch,
                 var_dev.set_automatic_cleaning_switch,
@@ -1366,13 +1367,6 @@ async def to_code(config):
                 conf, min_value=0, max_value=2, step=1
             )
             cg.add(var_dev.set_fsv3061_number(num))
-
-        if CONF_DEVICE_FSV5022 in device: 
-            conf = device[CONF_DEVICE_FSV5022]
-            num = await number.new_number(
-                conf, min_value=0, max_value=1, step=1
-            )
-            cg.add(var_dev.set_fsv5022_number(num))
         
         if CONF_DEVICE_FSV4011 in device:
             conf = device[CONF_DEVICE_FSV4011]

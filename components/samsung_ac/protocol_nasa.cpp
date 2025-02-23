@@ -425,6 +425,19 @@ namespace esphome
                 fsv3041.value = request.fsv3041.value() ? 1 : 0;
                 packet.messages.push_back(fsv3041);
             }
+            if (request.fsv4061)
+            {
+                MessageSet fsv4061(MessageNumber::ENUM_in_fsv4061);
+                fsv4061.value = request.fsv4061.value() ? 1 : 0;
+                packet.messages.push_back(fsv4061);
+            }
+
+            if (request.fsv5022)
+            {
+                MessageSet fsv5022(MessageNumber::ENUM_in_fsv5022);
+                fsv5022.value = request.fsv5022.value() ? 1 : 0;
+                packet.messages.push_back(fsv5022);
+            }
 
             if (request.automatic_cleaning)
             {
@@ -733,14 +746,6 @@ namespace esphome
                 fsv3061.value = request.fsv3061.value();
                 packet.messages.push_back(fsv3061);
             }
-
-            if (request.fsv5022)
-            {
-                MessageSet fsv5022(MessageNumber::VAR_in_fsv5022);
-                fsv5022.value = request.fsv5022.value();
-                packet.messages.push_back(fsv5022);
-            }
-            
             
             if (request.fsv3021) 
             {
@@ -1569,16 +1574,6 @@ namespace esphome
                 break;
             }
 
-            case MessageNumber::VAR_in_fsv5022: 
-            {
-                double temp = (double)message.value;
-                LOG_MESSAGE(VAR_in_fsv5022, temp, source, dest);
-                target->set_fsv5022(source, temp);
-                break;
-            }
-
-
-
             case MessageNumber::VAR_in_fsv3021: // unit = 'Celsius'
             {
                 double temp = (double)message.value / (double)10;
@@ -1815,6 +1810,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_fsv4061, (double)message.value, source, dest);
                 target->set_fsv4061(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_fsv5022:
+            {
+                LOG_MESSAGE(ENUM_in_fsv5022, (double)message.value, source, dest);
+                target->set_fsv5022(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_operation_automatic_cleaning:
