@@ -734,13 +734,6 @@ namespace esphome
                 packet.messages.push_back(fsv3061);
             }
 
-            if (request.fsv4061)
-            {
-                MessageSet fsv4061(MessageNumber::VAR_in_fsv4061);
-                fsv4061.value = request.fsv4061.value();
-                packet.messages.push_back(fsv4061);
-            }
-
             if (request.fsv5022)
             {
                 MessageSet fsv5022(MessageNumber::VAR_in_fsv5022);
@@ -1576,14 +1569,6 @@ namespace esphome
                 break;
             }
 
-            case MessageNumber::VAR_in_fsv4061: 
-            {
-                double temp = (double)message.value;
-                LOG_MESSAGE(VAR_in_fsv4061, temp, source, dest);
-                target->set_fsv4061(source, temp);
-                break;
-            }
-
             case MessageNumber::VAR_in_fsv5022: 
             {
                 double temp = (double)message.value;
@@ -1824,6 +1809,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_fsv3041, (double)message.value, source, dest);
                 target->set_fsv3041(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_fsv4061:
+            {
+                LOG_MESSAGE(ENUM_in_fsv4061, (double)message.value, source, dest);
+                target->set_fsv4061(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_operation_automatic_cleaning:

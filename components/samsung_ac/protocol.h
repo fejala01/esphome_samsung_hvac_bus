@@ -80,6 +80,7 @@ namespace esphome
             virtual void set_power_zone2(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_fsv3041(const std::string address, bool value) = 0;
+            virtual void set_fsv4061(const std::string address, bool value) = 0;
             virtual void set_automatic_cleaning(const std::string address, bool value) = 0;
             virtual void set_water_heater_power(const std::string address, bool value) = 0;
             virtual void set_room_temperature(const std::string address, float value) = 0;
@@ -172,7 +173,6 @@ namespace esphome
             virtual void set_fsv3045(const std::string address, float value) = 0;
             virtual void set_fsv3046(const std::string address, float value) = 0;
             virtual void set_fsv3061(const std::string address, float value) = 0;
-            virtual void set_fsv4061(const std::string address, float value) = 0;
             virtual void set_fsv5022(const std::string address, float value) = 0;
             virtual void set_fsv3021(const std::string address, float value) = 0;
             virtual void set_fsv3022(const std::string address, float value) = 0;
@@ -211,6 +211,7 @@ namespace esphome
             optional<bool> power_zone2;
             optional<bool> vacation;
             optional<bool> fsv3041;
+            optional<bool> fsv4061;
             optional<bool> automatic_cleaning;
             optional<bool> water_heater_power;
             optional<Mode> mode;
@@ -260,7 +261,6 @@ namespace esphome
             optional<float> fsv3045;
             optional<float> fsv3046;
             optional<float> fsv3061;
-            optional<float> fsv4061;
             optional<float> fsv5022;
             optional<float> fsv3021;
             optional<float> fsv3022;
