@@ -121,6 +121,9 @@ namespace esphome
             VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_water_temperature_out = 0x4238,
             VAR_out_discharge_temp = 0x820A,
+            VAR_in_water_law_target = 0x427F,
+            VAR_out_sensor_tw1 = 0x82DF,
+            VAR_out_sensor_tw2 = 0x82E0,
             VAR_in_water_pressure = 0x82FE,
             VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,
@@ -191,12 +194,6 @@ namespace esphome
             VAR_in_fsv4025 = 0x4271,
             VAR_in_fsv4031 = 0x40A2,
             VAR_in_fsv4032 = 0x40A3,
-
-
-
-
-
-            
             VAR_out_ventilator = 0x823D,
             VAR_in_waterpump_pwm = 0x40C4,
 

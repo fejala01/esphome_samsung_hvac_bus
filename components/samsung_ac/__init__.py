@@ -88,6 +88,9 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_SENSOR_TW1 = "sensor_tw1"
+CONF_DEVICE_SENSOR_TW2 = "sensor_tw2"
+CONF_DEVICE_WATER_LAW_TARGET = "water_law_target"
 CONF_DEVICE_EVI_BYPASS_VALVE = "evi_bypass_valve"
 CONF_DEVICE_DISCHARGE_TEMP = "discharge_temp"
 CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
@@ -348,6 +351,24 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_DISCHARGE_TEMP): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_WATER_LAW_TARGET): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_SENSOR_TW1): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_SENSOR_TW2): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -768,6 +789,18 @@ async def to_code(config):
             CONF_DEVICE_DISCHARGE_TEMP: (
                 sensor.new_sensor,
                 var_dev.set_discharge_temp_sensor,
+            ),
+            CONF_DEVICE_WATER_LAW_TARGET: (
+                sensor.new_sensor,
+                var_dev.set_water_law_target_sensor,
+            ),
+            CONF_DEVICE_SENSOR_TW1: (
+                sensor.new_sensor,
+                var_dev.set_sensor_tw1_sensor,
+            ),
+            CONF_DEVICE_SENSOR_TW2: (
+                sensor.new_sensor,
+                var_dev.set_sensor_tw2_sensor,
             ),
             CONF_DEVICE_WATER_PRESSURE: (
                 sensor.new_sensor,

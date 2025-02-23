@@ -108,6 +108,9 @@ namespace esphome
       sensor::Sensor *current_temp_zone2{nullptr};
       sensor::Sensor *water_temperature_out{nullptr};
       sensor::Sensor *discharge_temp{nullptr};
+      sensor::Sensor *water_law_target{nullptr};
+      sensor::Sensor *sensor_tw1{nullptr};
+      sensor::Sensor *sensor_tw2{nullptr};
       sensor::Sensor *water_pressure{nullptr};
       sensor::Sensor *three_way_valve{nullptr};
       sensor::Sensor *temp_mixing_valve{nullptr};
@@ -314,6 +317,18 @@ namespace esphome
       void set_discharge_temp_sensor(sensor::Sensor *sensor)
       {
         discharge_temp = sensor;
+      }
+      void set_water_law_target_sensor(sensor::Sensor *sensor)
+      {
+        water_law_target = sensor;
+      }
+      void set_sensor_tw1_sensor(sensor::Sensor *sensor)
+      {
+        sensor_tw1 = sensor;
+      }
+      void set_sensor_tw2_sensor(sensor::Sensor *sensor)
+      {
+        sensor_tw2 = sensor;
       }
       void set_water_pressure_sensor(sensor::Sensor *sensor)
       {

@@ -1098,6 +1098,27 @@ namespace esphome
                 target->set_discharge_temp(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_water_law_target: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_water_law_target, temp, source, dest);
+                target->set_water_law_target(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_out_sensor_tw1: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_sensor_tw1, temp, source, dest);
+                target->set_sensor_tw1(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_out_sensor_tw2: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_sensor_tw2, temp, source, dest);
+                target->set_sensor_tw2(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_water_pressure: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value;
