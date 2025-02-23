@@ -514,7 +514,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV2092): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2093): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3011): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV3041): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3042): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3043): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3045): NUMBER_SCHEMA,
@@ -556,6 +555,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
             Samsung_AC_Switch
         ),
@@ -742,6 +742,7 @@ async def to_code(config):
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
+            CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
                 switch.new_switch,
                 var_dev.set_automatic_cleaning_switch,
@@ -1328,13 +1329,6 @@ async def to_code(config):
                 conf, min_value=0, max_value=2, step=1
             )
             cg.add(var_dev.set_fsv3011_number(num))
-
-        if CONF_DEVICE_FSV3041 in device: 
-            conf = device[CONF_DEVICE_FSV3041]
-            num = await number.new_number(
-                conf, min_value=0, max_value=1, step=1
-            )
-            cg.add(var_dev.set_fsv3041_number(num))
 
         if CONF_DEVICE_FSV3042 in device: 
             conf = device[CONF_DEVICE_FSV3042]

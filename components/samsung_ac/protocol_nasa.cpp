@@ -419,6 +419,12 @@ namespace esphome
                 vacation.value = request.vacation.value() ? 1 : 0;
                 packet.messages.push_back(vacation);
             }
+            if (request.fsv3041)
+            {
+                MessageSet fsv3041(MessageNumber::ENUM_in_fsv3041);
+                fsv3041.value = request.fsv3041.value() ? 1 : 0;
+                packet.messages.push_back(fsv3041);
+            }
 
             if (request.automatic_cleaning)
             {
@@ -691,13 +697,6 @@ namespace esphome
                 MessageSet fsv3011(MessageNumber::VAR_in_fsv3011);
                 fsv3011.value = request.fsv3011.value();
                 packet.messages.push_back(fsv3011);
-            }
-
-            if (request.fsv3041)
-            {
-                MessageSet fsv3041(MessageNumber::VAR_in_fsv3041);
-                fsv3041.value = request.fsv3041.value();
-                packet.messages.push_back(fsv3041);
             }
 
             if (request.fsv3042)
@@ -1538,14 +1537,6 @@ namespace esphome
                 break;
             }
 
-            case MessageNumber::VAR_in_fsv3041: 
-            {
-                double temp = (double)message.value;
-                LOG_MESSAGE(VAR_in_fsv3041, temp, source, dest);
-                target->set_fsv3041(source, temp);
-                break;
-            }
-
             case MessageNumber::VAR_in_fsv3042: 
             {
                 double temp = (double)message.value;
@@ -1827,6 +1818,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_vacation, (double)message.value, source, dest);
                 target->set_vacation(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_fsv3041:
+            {
+                LOG_MESSAGE(ENUM_in_fsv3041, (double)message.value, source, dest);
+                target->set_fsv3041(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_operation_automatic_cleaning:
