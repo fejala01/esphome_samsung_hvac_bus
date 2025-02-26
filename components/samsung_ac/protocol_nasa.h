@@ -127,6 +127,7 @@ namespace esphome
             VAR_in_water_pressure = 0x82FE,
             VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,
+            VAR_in_fsv4052 = 0x428A,
             VAR_in_fsv1012 = 0x424B,
             VAR_in_fsv1021 = 0x424C,
             VAR_in_fsv1022 = 0x424D,

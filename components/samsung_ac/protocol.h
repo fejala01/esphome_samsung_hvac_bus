@@ -137,6 +137,7 @@ namespace esphome
 
             //SENSOREN
             virtual void set_fsv1011(const std::string address, float value) = 0;
+            virtual void set_fsv4052(const std::string address, float value) = 0;
             virtual void set_fsv1012(const std::string address, float value) = 0;
             virtual void set_fsv1021(const std::string address, float value) = 0;
             virtual void set_fsv1022(const std::string address, float value) = 0;
@@ -225,6 +226,7 @@ namespace esphome
             optional<float> target_water_temp;
             optional<float> target_temp_zone2;
             optional<float> fsv1011;
+            optional<float> fsv4052;
             optional<float> fsv1012;
             optional<float> fsv1021;
             optional<float> fsv1022;

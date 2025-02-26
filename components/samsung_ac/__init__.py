@@ -162,6 +162,7 @@ CONF_DEVICE_FSV3046 = "fsv3046"
 CONF_DEVICE_FSV3061 = "fsv3061"
 CONF_DEVICE_FSV4061 = "fsv4061"
 CONF_DEVICE_FSV5022 = "fsv5022"
+CONF_DEVICE_FSV4052 = "fsv4052"
 
 CONF_DEVICE_FSV3021 = "fsv3021"
 CONF_DEVICE_FSV3022 = "fsv3022"
@@ -500,6 +501,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE_ZONE2): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1011): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4052): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1012): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1022): NUMBER_SCHEMA,
@@ -968,6 +970,14 @@ async def to_code(config):
                 conf, min_value=18.0, max_value=25.0, step=1
             )
             cg.add(var_dev.set_fsv1011_number(num))
+        if CONF_DEVICE_FSV4052 in device:
+            conf = device[CONF_DEVICE_FSV4052]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=2.0, max_value=8.0, step=1
+            )
+            cg.add(var_dev.set_fsv4052_number(num))
 
         if CONF_DEVICE_FSV1012 in device:
             conf = device[CONF_DEVICE_FSV1012]
