@@ -1104,6 +1104,20 @@ namespace esphome
                 target->set_discharge_temp(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_inlet_pressure: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_inlet_pressure, temp, source, dest);
+                target->set_inlet_pressure(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_outlet_pressure: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_outlet_pressure, temp, source, dest);
+                target->set_outlet_pressure(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_water_law_target: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

@@ -88,6 +88,8 @@ namespace esphome
             virtual void set_current_temp_zone1(const std::string address, float value) = 0;
             virtual void set_water_temperature_out(const std::string address, float value) = 0;
             virtual void set_discharge_temp(const std::string address, float value) = 0;
+            virtual void set_inlet_pressure(const std::string address, float value) = 0;
+            virtual void set_outlet_pressure(const std::string address, float value) = 0;
             virtual void set_water_law_target(const std::string address, float value) = 0;
             virtual void set_sensor_tw1(const std::string address, float value) = 0;
             virtual void set_sensor_tw2(const std::string address, float value) = 0;
