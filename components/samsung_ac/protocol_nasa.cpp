@@ -1132,6 +1132,20 @@ namespace esphome
                 target->set_sensor_tw1(source, temp);
                 break;
             }
+            case MessageNumber::VAR_out_sat_temp_high_pressure: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_sat_temp_high_pressure, temp, source, dest);
+                target->set_sat_temp_high_pressure(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_out_sat_temp_low_pressure: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_out_sat_temp_low_pressure, temp, source, dest);
+                target->set_sat_temp_low_pressure(source, temp);
+                break;
+            }
             case MessageNumber::VAR_out_sensor_tw2: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;

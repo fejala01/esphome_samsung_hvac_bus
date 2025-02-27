@@ -93,6 +93,8 @@ namespace esphome
             virtual void set_water_law_target(const std::string address, float value) = 0;
             virtual void set_sensor_tw1(const std::string address, float value) = 0;
             virtual void set_sensor_tw2(const std::string address, float value) = 0;
+            virtual void set_sat_temp_high_pressure(const std::string address, float value) = 0;
+            virtual void set_sat_temp_low_pressure(const std::string address, float value) = 0;
             virtual void set_water_pressure(const std::string address, float value) = 0;
             virtual void set_3way_valve(const std::string address, float value) = 0;
             virtual void set_temp_mixing_valve(const std::string address, float value) = 0;

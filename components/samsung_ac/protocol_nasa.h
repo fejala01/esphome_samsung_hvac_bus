@@ -126,6 +126,8 @@ namespace esphome
             VAR_in_water_law_target = 0x427F,
             VAR_out_sensor_tw1 = 0x82DF,
             VAR_out_sensor_tw2 = 0x82E0,
+            VAR_out_sat_temp_low_pressure = 0x82A0,
+            VAR_out_sat_temp_high_pressure = 0x829F,
             VAR_in_water_pressure = 0x82FE,
             VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,

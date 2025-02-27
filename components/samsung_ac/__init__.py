@@ -88,6 +88,8 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE = "sat_temp_high_pressure"
+CONF_DEVICE_SAT_TEMP_LOW_PRESSURE = "sat_temp_low_pressure"
 CONF_DEVICE_SENSOR_TW1 = "sensor_tw1"
 CONF_DEVICE_SENSOR_TW2 = "sensor_tw2"
 CONF_DEVICE_WATER_LAW_TARGET = "water_law_target"
@@ -378,6 +380,18 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_SENSOR_TW1): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_SAT_TEMP_LOW_PRESSURE): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -821,6 +835,14 @@ async def to_code(config):
             CONF_DEVICE_SENSOR_TW1: (
                 sensor.new_sensor,
                 var_dev.set_sensor_tw1_sensor,
+            ),
+            CONF_DEVICE_SAT_TEMP_LOW_PRESSURE: (
+                sensor.new_sensor,
+                var_dev.set_sat_temp_low_pressure_sensor,
+            ),
+            CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE: (
+                sensor.new_sensor,
+                var_dev.set_sat_temp_high_pressure_sensor,
             ),
             CONF_DEVICE_SENSOR_TW2: (
                 sensor.new_sensor,

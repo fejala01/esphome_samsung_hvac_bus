@@ -113,6 +113,8 @@ namespace esphome
       sensor::Sensor *water_law_target{nullptr};
       sensor::Sensor *sensor_tw1{nullptr};
       sensor::Sensor *sensor_tw2{nullptr};
+      sensor::Sensor *sat_temp_high_pressure{nullptr};
+      sensor::Sensor *sat_temp_low_pressure{nullptr};
       sensor::Sensor *water_pressure{nullptr};
       sensor::Sensor *three_way_valve{nullptr};
       sensor::Sensor *temp_mixing_valve{nullptr};
@@ -336,6 +338,14 @@ namespace esphome
       void set_sensor_tw1_sensor(sensor::Sensor *sensor)
       {
         sensor_tw1 = sensor;
+      }
+      void set_sat_temp_low_pressure_sensor(sensor::Sensor *sensor)
+      {
+        sat_temp_low_pressure = sensor;
+      }
+      void set_sat_temp_high_pressure_sensor(sensor::Sensor *sensor)
+      {
+        sat_temp_high_pressure = sensor;
       }
       void set_sensor_tw2_sensor(sensor::Sensor *sensor)
       {
