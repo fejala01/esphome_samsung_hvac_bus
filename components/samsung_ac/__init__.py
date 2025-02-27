@@ -95,8 +95,6 @@ CONF_DEVICE_SENSOR_TW2 = "sensor_tw2"
 CONF_DEVICE_WATER_LAW_TARGET = "water_law_target"
 CONF_DEVICE_EVI_BYPASS_VALVE = "evi_bypass_valve"
 CONF_DEVICE_DISCHARGE_TEMP = "discharge_temp"
-CONF_DEVICE_INLET_PRESSURE = "inlet_pressure"
-CONF_DEVICE_OUTLET_PRESSURE = "outlet_pressure"
 CONF_DEVICE_COMPRESSOR_STATUS = "compressor_status"
 CONF_DEVICE_COOLANT = "coolant"
 CONF_DEVICE_OPERATION_MODE_EXT = "operation_mode_ext"
@@ -359,18 +357,6 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_INLET_PRESSURE): sensor.sensor_schema(
-            unit_of_measurement="bar",
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_PRESSURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_OUTLET_PRESSURE): sensor.sensor_schema(
-            unit_of_measurement="bar",
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_PRESSURE,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_WATER_LAW_TARGET): sensor.sensor_schema(
@@ -819,14 +805,6 @@ async def to_code(config):
             CONF_DEVICE_DISCHARGE_TEMP: (
                 sensor.new_sensor,
                 var_dev.set_discharge_temp_sensor,
-            ),
-            CONF_DEVICE_INLET_PRESSURE: (
-                sensor.new_sensor,
-                var_dev.set_inlet_pressure_sensor,
-            ),
-            CONF_DEVICE_OUTLET_PRESSURE: (
-                sensor.new_sensor,
-                var_dev.set_outlet_pressure_sensor,
             ),
             CONF_DEVICE_WATER_LAW_TARGET: (
                 sensor.new_sensor,

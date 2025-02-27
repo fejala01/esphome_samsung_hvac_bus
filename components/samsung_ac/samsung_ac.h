@@ -117,16 +117,6 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_sensor_state(dev->discharge_temp, value); });
       }
-      void set_inlet_pressure(const std::string address, float value) override
-      {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_sensor_state(dev->inlet_pressure, value); });
-      }
-      void set_outlet_pressure(const std::string address, float value) override
-      {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_sensor_state(dev->outlet_pressure, value); });
-      }
       void set_water_law_target(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
