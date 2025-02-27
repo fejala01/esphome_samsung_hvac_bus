@@ -121,7 +121,7 @@ namespace esphome
             VAR_in_current_temp_zone2 = 0x42D9,
             VAR_in_water_temperature_out = 0x4238,
             VAR_out_discharge_temp = 0x820A,
-            VAR_in_inlet_pressure = 0x82B8,
+            VAR_in_inlet_pressure = 0x40BB,
             VAR_in_outlet_pressure = 0x42C5,
             VAR_in_water_law_target = 0x427F,
             VAR_out_sensor_tw1 = 0x82DF,
