@@ -5,6 +5,8 @@
 #include "util.h"
 #include "protocol_nasa.h"
 #include "debug_mqtt.h"
+#include "esphome/components/number/number.h"  // Importiere den richtigen Typ für number
+
 
 esphome::samsung_ac::Packet packet_;
 
@@ -2160,7 +2162,10 @@ namespace esphome
                 {
                     ESP_LOGW(TAG, "Packet %d failed after 3 attempts.", info.packet.command.packetNumber);
                     // Wenn die Anzahl der Versuche 3 erreicht hat, setze den Wert auf 1
-                    id(retry_fail_counter).publish_state(1);
+                    auto fail_counter = find_component<esphome::number::Number>("retry_fail_counter");
+                    if (fail_counter) {
+                        fail_counter->publish_state(1);  // Setzt den Wert auf 1
+                    }
                 }
             }
         }
