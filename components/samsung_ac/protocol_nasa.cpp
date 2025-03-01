@@ -2150,7 +2150,7 @@ namespace esphome
             uint32_t now = millis();
             for (auto &info : sent_packets)
             {
-                if (now - info.last_sent_time > 1000 && info.retry_count < 3)
+                if (now - info.last_sent_time > 2000 && info.retry_count < 3)
                 {
                     info.retry_count++;
                     info.last_sent_time = now;
@@ -2161,9 +2161,40 @@ namespace esphome
                 else if (info.retry_count >= 3)
                 {
                     ESP_LOGW(TAG, "Packet %d failed after 3 attempts.", info.packet.command.packetNumber);
+                    
+                    for (auto it = sent_packets.begin(); it != sent_packets.end(); ) {
+                        auto& packet = *it;
+                    
+                        if (packet.retryCount >= 3) {
+                            ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", packet.packet.command.packetNumber, info.retry_count);
+                            it = sent_packets.erase(it);  // Iterator nach dem Löschen aktualisieren!
+                        } else {
+                            ++it;  // Nur weitergehen, wenn nichts gelöscht wurde
+                        }
+
                 }
             }
         }
+
+
+
+
+        if (packet_.command.dataType == DataType::Ack)
+        {
+            bool ack_found = false;
+            for (auto it = sent_packets.begin(); it != sent_packets.end(); ++it)
+            {
+                if (it->packet.command.packetNumber == packet_.command.packetNumber)
+                {
+                    ESP_LOGW(TAG, "found Ack for packet number %d", it->packet.command.packetNumber);
+                    sent_packets.erase(it);
+                    ack_found = true;
+                    break;
+                }
+            }
+
+
+
 
         void process_messageset_debug(std::string source, std::string dest, MessageSet &message, MessageTarget *target)
         {
