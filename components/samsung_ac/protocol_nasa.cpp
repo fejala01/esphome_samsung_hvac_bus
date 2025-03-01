@@ -2165,7 +2165,7 @@ namespace esphome
                     for (auto it = sent_packets.begin(); it != sent_packets.end(); ) {
                         auto& packet = *it;
                     
-                        if (packet.retryCount >= 3) {
+                        if (info.retry_count >= 3) {
                             ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", packet.packet.command.packetNumber, info.retry_count);
                             it = sent_packets.erase(it);  // Iterator nach dem Löschen aktualisieren!
                         } else {
