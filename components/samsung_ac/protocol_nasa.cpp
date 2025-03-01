@@ -5,7 +5,6 @@
 #include "util.h"
 #include "protocol_nasa.h"
 #include "debug_mqtt.h"
-#include "esphome/core/id.h"  // Sicherstellen, dass der `id`-Operator verfügbar ist
 
 esphome::samsung_ac::Packet packet_;
 
