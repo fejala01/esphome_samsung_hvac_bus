@@ -2159,6 +2159,8 @@ namespace esphome
                 else if (info.retry_count >= 3)
                 {
                     ESP_LOGW(TAG, "Packet %d failed after 3 attempts.", info.packet.command.packetNumber);
+                    // Wenn die Anzahl der Versuche 3 erreicht hat, setze den Wert auf 1
+                    id(retry_fail_counter).publish_state(1);
                 }
             }
         }
