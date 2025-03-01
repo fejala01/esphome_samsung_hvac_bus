@@ -2178,24 +2178,6 @@ namespace esphome
 
 
 
-
-        if (packet_.command.dataType == DataType::Ack)
-        {
-            bool ack_found = false;
-            for (auto it = sent_packets.begin(); it != sent_packets.end(); ++it)
-            {
-                if (it->packet.command.packetNumber == packet_.command.packetNumber)
-                {
-                    ESP_LOGW(TAG, "found Ack for packet number %d", it->packet.command.packetNumber);
-                    sent_packets.erase(it);
-                    ack_found = true;
-                    break;
-                }
-            }
-
-
-
-
         void process_messageset_debug(std::string source, std::string dest, MessageSet &message, MessageTarget *target)
         {
             if (source == "20.00.00" || source == "20.00.01" || source == "20.00.02" || source == "20.00.03")
