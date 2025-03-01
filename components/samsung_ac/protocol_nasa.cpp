@@ -2104,6 +2104,20 @@ namespace esphome
                     }
                 }
 
+
+
+
+                for (auto it = sent_packets.begin(); it != sent_packets.end(); ) {
+                    auto& packet = *it;
+                
+                    if (info.retry_count >= 3) {
+                        ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", packet.packet.command.packetNumber, info.retry_count);
+                        it = sent_packets.erase(it);  // Iterator nach dem Löschen aktualisieren!
+                    } else {
+                        ++it;  // Nur weitergehen, wenn nichts gelöscht wurde
+                    }
+                }
+
                 if (!ack_found)
                 {
                     ESP_LOGW(TAG, "Ack not found for packet number %d", packet_.command.packetNumber);
@@ -2148,31 +2162,23 @@ namespace esphome
             }
 
             uint32_t now = millis();
-            for (auto &info : sent_packets)
-            {
-                if (now - info.last_sent_time > 2000 && info.retry_count < 3)
-                {
-                    info.retry_count++;
-                    info.last_sent_time = now;
-                    auto data = info.packet.encode();
-                    target->publish_data(data);
-                    ESP_LOGW(TAG, "Resending packet %d number of attempts: %d", info.packet.command.packetNumber, info.retry_count);
-                }
-                else if (info.retry_count >= 3)
-                {
-                    ESP_LOGW(TAG, "Packet %d failed after 3 attempts.", info.packet.command.packetNumber);
-                    
-                    for (auto it = sent_packets.begin(); it != sent_packets.end(); ) {
-                        auto& packet = *it;
-                    
-                        if (info.retry_count >= 3) {
-                            ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", packet.packet.command.packetNumber, info.retry_count);
-                            it = sent_packets.erase(it);  // Iterator nach dem Löschen aktualisieren!
-                        } else {
-                            ++it;  // Nur weitergehen, wenn nichts gelöscht wurde
-                        }
-                    }
+            auto it = sent_packets.begin();  // Iterator für die Liste
 
+            while (it != sent_packets.end()) {
+                if (now - it->last_sent_time > 2000 && it->retry_count < 3) {
+                    it->retry_count++;
+                    it->last_sent_time = now;
+                    auto data = it->packet.encode();
+                    target->publish_data(data);
+                    ESP_LOGW(TAG, "Resending packet %d, attempt: %d", it->packet.command.packetNumber, it->retry_count);
+                    ++it;  // Sicher weiter zum nächsten Element
+                } 
+                else if (it->retry_count >= 3) {
+                    ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", it->packet.command.packetNumber, it->retry_count);
+                    it = sent_packets.erase(it);  // `erase()` gibt den nächsten gültigen Iterator zurück
+                } 
+                else {
+                    ++it;  // Zum nächsten Element weitergehen
                 }
             }
         }
