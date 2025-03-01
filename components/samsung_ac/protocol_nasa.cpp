@@ -2171,6 +2171,7 @@ namespace esphome
                         } else {
                             ++it;  // Nur weitergehen, wenn nichts gelöscht wurde
                         }
+                    }
 
                 }
             }
