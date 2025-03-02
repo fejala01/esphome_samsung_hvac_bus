@@ -2151,7 +2151,7 @@ namespace esphome
             auto it = sent_packets.begin();  // Iterator für die Liste
 
             while (it != sent_packets.end()) {
-                if (now - it->last_sent_time > 2000 && it->retry_count < 3) {
+                if (now - it->last_sent_time > 3000 && it->retry_count < 3) {
                     it->retry_count++;
                     it->last_sent_time = now;
                     auto data = it->packet.encode();
