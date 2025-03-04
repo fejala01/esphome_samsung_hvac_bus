@@ -2166,9 +2166,8 @@ namespace esphome
                     ESP_LOGW(TAG, "Packet %d failed after %d retries. Removing from list.", it->packet.command.packetNumber, it->retry_count);
                     it = sent_packets.erase(it);  // `erase()` gibt den nächsten gültigen Iterator zurück
                     packet_fail_count++;
-                    if (auto *sensor = App.get_sensor("packet_fail_count_sensor")) {
-                        sensor->publish_state(packet_fail_count);
-                    }
+                    if (id(packet_fail_count_sensor) != nullptr) {
+                        id(packet_fail_count_sensor).publish_state
                     
 
                 } 
