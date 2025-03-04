@@ -88,7 +88,6 @@ CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 
 #ZUSATZ SENSOREN
-CONF_DEVICE_PACKET_FAIL = "packet_fail"
 CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE = "sat_temp_high_pressure"
 CONF_DEVICE_SAT_TEMP_LOW_PRESSURE = "sat_temp_low_pressure"
 CONF_DEVICE_SENSOR_TW1 = "sensor_tw1"
