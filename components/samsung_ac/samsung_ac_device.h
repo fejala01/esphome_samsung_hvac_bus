@@ -115,6 +115,7 @@ namespace esphome
       sensor::Sensor *sat_temp_low_pressure{nullptr};
       sensor::Sensor *water_pressure{nullptr};
       sensor::Sensor *filter_warning{nullptr};
+      sensor::Sensor *filter_clean{nullptr};
       sensor::Sensor *three_way_valve{nullptr};
       sensor::Sensor *temp_mixing_valve{nullptr};
       sensor::Sensor *waterflow{nullptr};
@@ -350,6 +351,10 @@ namespace esphome
       void set_filter_warning_sensor(sensor::Sensor *sensor)
       {
         filter_warning = sensor;
+      }
+      void set_filter_clean_sensor(sensor::Sensor *sensor)
+      {
+        filter_clean = sensor;
       }
       void set_3way_valve_sensor(sensor::Sensor *sensor)
       {

@@ -90,6 +90,7 @@ CONF_DEVICE_OPERATION = "operation"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_FILTER_WARNING = "filter_warning"
+CONF_DEVICE_FILTER_CLEAN = "filter_clean"
 CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE = "sat_temp_high_pressure"
 CONF_DEVICE_SAT_TEMP_LOW_PRESSURE = "sat_temp_low_pressure"
 CONF_DEVICE_SENSOR_TW1 = "sensor_tw1"
@@ -398,7 +399,11 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FILTER_WARNING): sensor.sensor_schema(
-            unit_of_measurement="-",
+            accuracy_decimals=0,
+            state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:air-filter"
+        ),
+        cv.Optional(CONF_DEVICE_FILTER_CLEAN): sensor.sensor_schema(
             accuracy_decimals=0,
             state_class=STATE_CLASS_MEASUREMENT,
             icon="mdi:air-filter"
@@ -843,6 +848,10 @@ async def to_code(config):
             CONF_DEVICE_FILTER_WARNING: (
                 sensor.new_sensor,
                 var_dev.set_filter_warning_sensor,
+            ),
+            CONF_DEVICE_FILTER_CLEAN: (
+                sensor.new_sensor,
+                var_dev.set_filter_clean_sensor,
             ),
             CONF_DEVICE_TEMP_MIXING_VALVE: (
                 sensor.new_sensor,

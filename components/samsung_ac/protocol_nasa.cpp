@@ -1159,6 +1159,13 @@ namespace esphome
                 target->set_filter_warning(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_filter_clean: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_filter_clean, temp, source, dest);
+                target->set_filter_clean(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_temp_mixing_valve: // unit = 'Celsius' from XML
             {
                 double temp = (double)((int16_t)message.value) / (double)10;

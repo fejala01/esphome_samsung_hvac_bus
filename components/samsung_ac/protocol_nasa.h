@@ -129,6 +129,7 @@ namespace esphome
             VAR_out_sat_temp_high_pressure = 0x829F,
             VAR_in_water_pressure = 0x82FE,
             VAR_in_filter_warning = 0x4027,
+            VAR_in_filter_clean = 0x4025,
             VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,
             VAR_in_fsv4052 = 0x428A,
