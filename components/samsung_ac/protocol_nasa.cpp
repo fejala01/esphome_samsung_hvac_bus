@@ -1152,6 +1152,13 @@ namespace esphome
                 target->set_water_pressure(source, temp);
                 break;
             }
+            case MessageNumber::VAR_in_filter_warning: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_filter_warning, temp, source, dest);
+                target->set_filter_warning(source, temp);
+                break;
+            }
             case MessageNumber::VAR_in_temp_mixing_valve: // unit = 'Celsius' from XML
             {
                 double temp = (double)((int16_t)message.value) / (double)10;

@@ -89,6 +89,7 @@ CONF_DEVICE_TARGET_OFFSET = "target_offset"
 CONF_DEVICE_OPERATION = "operation"
 
 #ZUSATZ SENSOREN
+CONF_DEVICE_FILTER_WARNING = "filter_warning"
 CONF_DEVICE_SAT_TEMP_HIGH_PRESSURE = "sat_temp_high_pressure"
 CONF_DEVICE_SAT_TEMP_LOW_PRESSURE = "sat_temp_low_pressure"
 CONF_DEVICE_SENSOR_TW1 = "sensor_tw1"
@@ -395,6 +396,12 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_PRESSURE,
             state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_FILTER_WARNING): sensor.sensor_schema(
+            unit_of_measurement="-",
+            accuracy_decimals=0,
+            state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:air-filter"
         ),
         cv.Optional(CONF_DEVICE_TEMP_MIXING_VALVE): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
@@ -832,6 +839,10 @@ async def to_code(config):
             CONF_DEVICE_WATER_PRESSURE: (
                 sensor.new_sensor,
                 var_dev.set_water_pressure_sensor,
+            ),
+            CONF_DEVICE_FILTER_WARNING: (
+                sensor.new_sensor,
+                var_dev.set_filter_warning_sensor,
             ),
             CONF_DEVICE_TEMP_MIXING_VALVE: (
                 sensor.new_sensor,
