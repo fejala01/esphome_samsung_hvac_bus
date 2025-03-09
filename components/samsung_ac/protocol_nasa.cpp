@@ -413,6 +413,12 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
+            if (request.operation)
+            {
+                MessageSet operation(MessageNumber::ENUM_in_operation;
+                operation.value = request.operation.value() ? 1 : 0;
+                packet.messages.push_back(operation);
+            }
             if (request.vacation)
             {
                 MessageSet vacation(MessageNumber::ENUM_in_vacation);
@@ -1840,6 +1846,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_operation_power_zone2, (double)message.value, source, dest);
                 target->set_power_zone2(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_operation:
+            {
+                LOG_MESSAGE(ENUM_in_operation, (double)message.value, source, dest);
+                target->set_operation(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_vacation:

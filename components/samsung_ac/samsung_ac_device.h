@@ -153,6 +153,7 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
+      Samsung_AC_Switch *operation{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *fsv3041{nullptr};
       Samsung_AC_Switch *fsv4061{nullptr};
@@ -480,6 +481,16 @@ namespace esphome
         {
           ProtocolRequest request;
           request.power_zone2 = value;
+          publish_request(request);
+        };
+      }
+      void set_operation_switch(Samsung_AC_Switch *switch_)
+      {
+        operation = switch_;
+        operation->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.operation = value;
           publish_request(request);
         };
       }
@@ -1758,6 +1769,7 @@ namespace esphome
 
       optional<bool> _cur_power;
       optional<bool> _cur_power_zone2;
+      optional<bool> _cur_operation;
       optional<bool> _cur_vacation;
       optional<bool> _cur_fsv3041;
       optional<bool> _cur_fsv4061;
@@ -1782,6 +1794,12 @@ namespace esphome
           power_zone2->publish_state(value);
         if (climate != nullptr)
           calc_and_publish_mode();
+      }
+      void update_operation(bool value)
+      {
+        _cur_operation = value;
+        if (operation != nullptr)
+          operation->publish_state(value);
       }
       void update_vacation(bool value)
       {

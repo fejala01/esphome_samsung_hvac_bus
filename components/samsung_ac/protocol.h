@@ -78,6 +78,7 @@ namespace esphome
             virtual void register_address(const std::string address) = 0;
             virtual void set_power(const std::string address, bool value) = 0;
             virtual void set_power_zone2(const std::string address, bool value) = 0;
+            virtual void set_operation(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_fsv3041(const std::string address, bool value) = 0;
             virtual void set_fsv4061(const std::string address, bool value) = 0;
@@ -215,6 +216,7 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
+            optional<bool> operation;
             optional<bool> vacation;
             optional<bool> fsv3041;
             optional<bool> fsv4061;
