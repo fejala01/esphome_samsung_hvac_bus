@@ -415,7 +415,7 @@ namespace esphome
             }
             if (request.operation)
             {
-                MessageSet operation(MessageNumber::ENUM_in_operation;
+                MessageSet operation(MessageNumber::ENUM_in_operation);
                 operation.value = request.operation.value() ? 1 : 0;
                 packet.messages.push_back(operation);
             }
