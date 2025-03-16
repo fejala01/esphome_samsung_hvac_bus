@@ -501,9 +501,8 @@ namespace esphome
         fsv_read = switch_;
         fsv_read->write_state_ = [this](bool value)
         {
-          ProtocolRequest request;
-          read.fsv_read = 0;
-          publish_read(read);
+          value = 0;
+          publish_fsv_read(value);
         };
       }
 
@@ -1949,11 +1948,6 @@ namespace esphome
       void publish_request(ProtocolRequest &request)
       {
         protocol->publish_request(target, address, request);
-      }
-
-      void publish_read(ProtocolRequest &request)
-      {
-        protocol->publish_read(target, address, request);
       }
 
       bool supports_horizontal_swing()

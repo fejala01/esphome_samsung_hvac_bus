@@ -972,23 +972,13 @@ namespace esphome
 
 
 
-
-
-
-
-
-
-
-        void NasaProtocol::publish_read(MessageTarget *target, const std::string &address, ProtocolRequest &request)
+        void NasaProtocol::publish_fsv_read(MessageTarget *target, const std::string &address)
         {
             Packet packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
-            if (read.fsv_read)
-            {
-                MessageSet fsv_read(MessageNumber::ENUM_in_fsv_read);
-                fsv_read.value = 0;
-                packet.messages.push_back(fsv_read);
-            }
+            MessageSet fsv_read(MessageNumber::ENUM_in_fsv_read);
+            fsv_read.value = 0; // 0 für das Anfordern der Werte
+            packet.messages.push_back(fsv_read);
 
             if (packet.messages.size() == 0)
                 return;
@@ -1002,20 +992,6 @@ namespace esphome
 
             sent_packets.push_back({packet, 0, millis()});
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

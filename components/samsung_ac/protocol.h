@@ -300,12 +300,6 @@ namespace esphome
             optional<float> fsv4025;
             optional<float> fsv4031;
             optional<float> fsv4032;
-
-
-            optional<bool> fsv_read;
-
-
-
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;
@@ -319,7 +313,6 @@ namespace esphome
         {
         public:
             virtual void publish_request(MessageTarget *target, const std::string &address, ProtocolRequest &request) = 0;
-            virtual void publish_read(MessageTarget *target, const std::string &address, ProtocolRequest &request) = 0;
             virtual void protocol_update(MessageTarget *target) = 0;
         };
 
