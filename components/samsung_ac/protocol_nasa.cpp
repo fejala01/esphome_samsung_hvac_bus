@@ -2327,6 +2327,17 @@ namespace esphome
             {
                 ESP_LOGW(TAG, "Response %s", packet_.to_string().c_str());
                 //return;  // No return to continue with process_messageset
+                bool response_found = false;
+                for (auto it = sent_packets.begin(); it != sent_packets.end(); ++it)
+                {
+                    if (it->packet.command.packetNumber == packet_.command.packetNumber)
+                    {
+                        ESP_LOGW(TAG, "found Response for packet number %d", it->packet.command.packetNumber);
+                        sent_packets.erase(it);
+                        response_found = true;
+                        break;
+                    }
+                }
             }
             if (packet_.command.dataType == DataType::Write)
             {
