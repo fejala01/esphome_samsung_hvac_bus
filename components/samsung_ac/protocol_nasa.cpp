@@ -466,6 +466,8 @@ namespace esphome
 
             if (request.automatic_cleaning)
             {
+                Packet packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
                 MessageSet automatic_cleaning(MessageNumber::ENUM_in_operation_automatic_cleaning);
                 automatic_cleaning.value = request.automatic_cleaning.value() ? 1 : 0;
                 packet.messages.push_back(automatic_cleaning);
