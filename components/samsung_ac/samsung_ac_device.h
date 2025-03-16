@@ -494,6 +494,20 @@ namespace esphome
           publish_request(request);
         };
       }
+
+
+      void set_fsv_read_switch(Samsung_AC_Switch *switch_)
+      {
+        fsv_read = switch_;
+        fsv_read->write_state_ = [this](bool value)
+        {
+          ProtocolRead read;
+          read.fsv_read = 0;
+          publish_read(read);
+        };
+      }
+
+
       void set_operation_switch(Samsung_AC_Switch *switch_)
       {
         operation = switch_;

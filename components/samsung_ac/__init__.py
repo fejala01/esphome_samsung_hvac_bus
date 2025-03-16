@@ -122,6 +122,9 @@ CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
 CONF_DEVICE_VENTILATOR = "ventilator"
 CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
 CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
+
+CONF_DEVICE_FSV_READ = "fsv_read"
+
 CONF_DEVICE_FSV1011 = "fsv1011"
 CONF_DEVICE_FSV1012 = "fsv1012"
 CONF_DEVICE_FSV1021 = "fsv1021"
@@ -527,6 +530,8 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE_ZONE2): NUMBER_SCHEMA,
+
+
         cv.Optional(CONF_DEVICE_FSV1011): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4052): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1012): NUMBER_SCHEMA,
@@ -602,6 +607,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
@@ -792,6 +798,7 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
+            CONF_DEVICE_FSV_READ: (switch.new_switch, var_dev.set_fsv_read_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),

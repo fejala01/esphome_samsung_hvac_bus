@@ -78,6 +78,9 @@ namespace esphome
             virtual void register_address(const std::string address) = 0;
             virtual void set_power(const std::string address, bool value) = 0;
             virtual void set_power_zone2(const std::string address, bool value) = 0;
+
+            virtual void set_fsv_read(const std::string address, bool value) = 0;
+
             virtual void set_operation(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_fsv3041(const std::string address, bool value) = 0;
@@ -305,11 +308,23 @@ namespace esphome
             optional<SwingMode> swing_mode;
             optional<AltMode> alt_mode;
         };
+    
+
+
+        struct ProtocolRead
+        {
+        public:
+            optional<bool> fsv_read;
+        }
+
+
+
 
         class Protocol
         {
         public:
             virtual void publish_request(MessageTarget *target, const std::string &address, ProtocolRequest &request) = 0;
+            virtual void publish_read(MessageTarget *target, const std::string &address, ProtocolRead &read) = 0;
             virtual void protocol_update(MessageTarget *target) = 0;
         };
 

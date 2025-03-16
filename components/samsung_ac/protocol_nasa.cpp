@@ -968,6 +968,58 @@ namespace esphome
             sent_packets.push_back({packet, 0, millis()});
         }
 
+
+
+
+
+
+
+
+
+
+
+
+        void NasaProtocol::publish_read(MessageTarget *target, const std::string &address, ProtocolRead &read)
+        {
+            Packet packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+            if (read.fsv_read)
+            {
+                MessageSet fsv_read(MessageNumber::ENUM_in_fsv_read);
+                fsv_read.value = 0;
+                packet.messages.push_back(fsv_read);
+            }
+
+            if (packet.messages.size() == 0)
+                return;
+
+            ESP_LOGW(TAG, "publish packet %s", packet.to_string().c_str());
+
+            out.push_back(packet);
+
+            auto data = packet.encode();
+            target->publish_data(data);
+
+            sent_packets.push_back({packet, 0, millis()});
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Mode operation_mode_to_mode(int value)
         {
             switch (value)
