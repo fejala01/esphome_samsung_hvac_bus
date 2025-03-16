@@ -979,7 +979,7 @@ namespace esphome
 
 
 
-        void NasaProtocol::publish_read(MessageTarget *target, const std::string &address, ProtocolRead &read)
+        void NasaProtocol::publish_read(MessageTarget *target, const std::string &address, ProtocolRequest &request)
         {
             Packet packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
