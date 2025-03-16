@@ -79,8 +79,6 @@ namespace esphome
             virtual void set_power(const std::string address, bool value) = 0;
             virtual void set_power_zone2(const std::string address, bool value) = 0;
 
-            virtual void set_fsv_read(const std::string address, bool value) = 0;
-
             virtual void set_operation(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
             virtual void set_fsv3041(const std::string address, bool value) = 0;
@@ -313,7 +311,6 @@ namespace esphome
         {
         public:
             virtual void publish_request(MessageTarget *target, const std::string &address, ProtocolRequest &request) = 0;
-            virtual void publish_fsv_read(MessageTarget *target, const std::string &address) = 0;
             virtual void protocol_update(MessageTarget *target) = 0;
         };
 

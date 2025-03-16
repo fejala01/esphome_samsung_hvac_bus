@@ -123,7 +123,6 @@ CONF_DEVICE_VENTILATOR = "ventilator"
 CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
 CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
 
-CONF_DEVICE_FSV_READ = "fsv_read"
 
 CONF_DEVICE_FSV1011 = "fsv1011"
 CONF_DEVICE_FSV1012 = "fsv1012"
@@ -798,7 +797,6 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
-            CONF_DEVICE_FSV_READ: (switch.new_switch, var_dev.set_fsv_read_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),

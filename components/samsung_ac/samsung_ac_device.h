@@ -496,17 +496,6 @@ namespace esphome
       }
 
 
-      void set_fsv_read_switch(Samsung_AC_Switch *switch_)
-      {
-        fsv_read = switch_;
-        fsv_read->write_state_ = [this](bool value)
-        {
-          value = 0;
-          publish_fsv_read(value);
-        };
-      }
-
-
       void set_operation_switch(Samsung_AC_Switch *switch_)
       {
         operation = switch_;

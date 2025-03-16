@@ -71,7 +71,6 @@ namespace esphome
             Undefiend = 0,
             ENUM_in_operation_power = 0x4000,
             ENUM_in_operation_power_zone2 = 0x411E,
-            ENUM_in_fsv_read = 0x4255,
             ENUM_in_operation = 0x4063,
             ENUM_in_vacation = 0x406D,
             ENUM_in_operation_automatic_cleaning = 0x4111,
@@ -293,7 +292,6 @@ namespace esphome
             NasaProtocol() = default;
 
             void publish_request(MessageTarget *target, const std::string &address, ProtocolRequest &request) override;
-            void publish_fsv_read(MessageTarget *target, const std::string &address) override;
             void protocol_update(MessageTarget *target) override;
         };
 
