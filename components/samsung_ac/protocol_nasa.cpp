@@ -2145,7 +2145,7 @@ namespace esphome
             if (packet_.command.dataType == DataType::Response)
             {
                 ESP_LOGW(TAG, "Response %s", packet_.to_string().c_str());
-                return;
+                //return;  // No return to continue with process_messageset
             }
             if (packet_.command.dataType == DataType::Write)
             {
