@@ -315,7 +315,7 @@ namespace esphome
         {
         public:
             optional<bool> fsv_read;
-        }
+        };
 
 
 
