@@ -155,6 +155,7 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
+      Samsung_AC_Switch *fsv_read{nullptr};
       Samsung_AC_Switch *operation{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *fsv3041{nullptr};
@@ -493,6 +494,19 @@ namespace esphome
           request.power_zone2 = value;
           publish_request(request);
         };
+      }
+      void set_fsv_read_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read = switch_;
+          fsv_read->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read = 0;
+                  publish_request(request);
+              }
+          };
       }
 
 

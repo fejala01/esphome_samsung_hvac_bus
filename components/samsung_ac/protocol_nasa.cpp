@@ -422,6 +422,14 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
+            if (request.fsv_read)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read(MessageNumber::ENUM_in_fsv_read);
+                fsv_read.value = 0;
+                packet.messages.push_back(fsv_read);
+            }
             if (request.operation)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
