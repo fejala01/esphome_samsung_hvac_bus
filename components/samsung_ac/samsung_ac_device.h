@@ -1951,6 +1951,11 @@ namespace esphome
         protocol->publish_request(target, address, request);
       }
 
+      void publish_read(ProtocolRead &read)
+      {
+        protocol->publish_read(target, address, read);
+      }
+
       bool supports_horizontal_swing()
       {
         return supports_horizontal_swing_;
