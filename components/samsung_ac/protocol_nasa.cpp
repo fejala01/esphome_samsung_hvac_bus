@@ -751,12 +751,39 @@ namespace esphome
                 auto future = std::async(std::launch::async, [&packet]() {
                     std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
                     
-                    ProtocolRequest request;
-                    request.fsv_read = 0;
-                    publish_request(request);
-                });
+                    // Schalter ausschalten
+                    fsv_read->write_state_(false);
 
+                    // Kurze Verzögerung, um den Schalter auszuschalten
+                    std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Verzögerung von 500 Millisekunden
+
+                    // Schalter wieder einschalten
+                    fsv_read->write_state_(true);
+                });
             }
+
+
+
+
+
+void set_fsv_read_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read = switch_;
+          fsv_read->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read = 0;
+                  publish_request(request);
+              }
+          };
+      }
+
+
+
+
+
             if (request.fsv2012)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
