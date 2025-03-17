@@ -1000,6 +1000,11 @@ namespace esphome
                 MessageSet fsv2012(MessageNumber::VAR_in_fsv2012);
                 fsv2012.value = request.fsv2012.value() * 10.0;
                 packet.messages.push_back(fsv2012);
+
+                if (fsv_read20 != nullptr)
+                {
+                    fsv_read20->turn_on();
+                }
             }
             if (request.fsv2021)
             {
@@ -1188,6 +1193,7 @@ namespace esphome
                 MessageSet fsv3021(MessageNumber::VAR_in_fsv3021); 
                 fsv3021.value = request.fsv3021.value() * 10.0; 
                 packet.messages.push_back(fsv3021); 
+
             }
 
             if (request.fsv3022) 
