@@ -4,7 +4,6 @@
 #include "esphome/core/hal.h"
 #include "util.h"
 #include "protocol_nasa.h"
-#include "samsung_ac_device.h"
 #include "debug_mqtt.h"
 //for delay
 #include <thread>
@@ -990,7 +989,7 @@ namespace esphome
                     fsv2011.value = 65536 + fsv2011.value;
                 }
                 packet.messages.push_back(fsv2011);
-                
+
                 set_fsv_read20_switch(true);
             }
 
