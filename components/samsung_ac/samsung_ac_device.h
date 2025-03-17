@@ -1812,7 +1812,6 @@ namespace esphome
 
       optional<bool> _cur_power;
       optional<bool> _cur_power_zone2;
-      optional<bool> _cur_fsv_read;
       optional<bool> _cur_operation;
       optional<bool> _cur_vacation;
       optional<bool> _cur_fsv3041;
@@ -1839,12 +1838,7 @@ namespace esphome
         if (climate != nullptr)
           calc_and_publish_mode();
       }
-      void update_fsv_read(bool value)
-      {
-        _cur_fsv_read = value;
-        if (fsv_read != nullptr)
-          fsv_read->publish_state(value);
-      }
+      
       void update_operation(bool value)
       {
         _cur_operation = value;

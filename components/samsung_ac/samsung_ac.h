@@ -684,11 +684,6 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_power_zone2(value); });
       }
-      void set_fsv_read(bool value) override
-      {
-        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
-                                 { dev->update_fsv_read(value); });
-      }
       void set_operation(const std::string address, bool value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
