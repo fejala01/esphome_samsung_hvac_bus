@@ -1423,12 +1423,6 @@ namespace esphome
           target_temperature_zone2->publish_state(value);
       }
 
-      void update_fsv_read(float value)
-      {
-          if (fsv_read != nullptr)
-              fsv_read->publish_state(value);
-      }
-
       void update_fsv1012(float value)
       {
           if (fsv1012 != nullptr)
