@@ -992,6 +992,16 @@ namespace esphome
 
             }
 
+            if (request.fsv2011)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+
+            }
+
 
             if (request.fsv2012)
             {
@@ -1000,11 +1010,6 @@ namespace esphome
                 MessageSet fsv2012(MessageNumber::VAR_in_fsv2012);
                 fsv2012.value = request.fsv2012.value() * 10.0;
                 packet.messages.push_back(fsv2012);
-
-                if (fsv_read20 != nullptr)
-                {
-                    fsv_read20->turn_on();
-                }
             }
             if (request.fsv2021)
             {
