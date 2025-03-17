@@ -479,6 +479,11 @@ namespace esphome
                 packet.messages.push_back(fsv_read11);
 
 
+                MessageSet fsv_read12(MessageNumber::VAR_in_fsv3021);
+                fsv_read12.value = 0;
+                packet.messages.push_back(fsv_read12);
+
+
 
                 
             }
