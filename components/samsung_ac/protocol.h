@@ -142,6 +142,7 @@ namespace esphome
             virtual void set_outdoor_voltage(const std::string &address, float value) = 0;
 
             //SENSOREN
+            virtual void set_fsv_read(const std::string address, float value) = 0;
             virtual void set_fsv1011(const std::string address, float value) = 0;
             virtual void set_fsv4052(const std::string address, float value) = 0;
             virtual void set_fsv1012(const std::string address, float value) = 0;
