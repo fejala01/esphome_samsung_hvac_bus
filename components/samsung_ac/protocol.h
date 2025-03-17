@@ -162,6 +162,7 @@ namespace esphome
             virtual void set_fsv5017(const std::string address, float value) = 0;
             virtual void set_fsv5018(const std::string address, float value) = 0;
             virtual void set_fsv5019(const std::string address, float value) = 0;
+            virtual void set_fsv2011(const std::string address, float value) = 0;
             virtual void set_fsv2012(const std::string address, float value) = 0;
             virtual void set_fsv2021(const std::string address, float value) = 0;
             virtual void set_fsv2022(const std::string address, float value) = 0;
@@ -253,6 +254,7 @@ namespace esphome
             optional<float> fsv5017;
             optional<float> fsv5018;
             optional<float> fsv5019;
+            optional<float> fsv2011;
             optional<float> fsv2012;
             optional<float> fsv2021;
             optional<float> fsv2022;

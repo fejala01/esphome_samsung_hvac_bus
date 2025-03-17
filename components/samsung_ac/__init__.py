@@ -144,6 +144,7 @@ CONF_DEVICE_FSV5016 = "fsv5016"
 CONF_DEVICE_FSV5017 = "fsv5017"
 CONF_DEVICE_FSV5018 = "fsv5018"
 CONF_DEVICE_FSV5019 = "fsv5019"
+CONF_DEVICE_FSV2011 = "fsv2011"
 CONF_DEVICE_FSV2012 = "fsv2012"
 CONF_DEVICE_FSV2021 = "fsv2021"
 CONF_DEVICE_FSV2022 = "fsv2022"
@@ -552,6 +553,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV5017): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5018): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5019): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV2011): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2012): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV2022): NUMBER_SCHEMA,
@@ -1183,6 +1185,14 @@ async def to_code(config):
                 conf, min_value=30.0, max_value=70.0, step=1
             )
             cg.add(var_dev.set_fsv5019_number(num))
+        if CONF_DEVICE_FSV2011 in device:
+            conf = device[CONF_DEVICE_FSV2011]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=-20.0, max_value=-10.0, step=1
+            )
+            cg.add(var_dev.set_fsv2011_number(num))
         if CONF_DEVICE_FSV2012 in device:
             conf = device[CONF_DEVICE_FSV2012]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS

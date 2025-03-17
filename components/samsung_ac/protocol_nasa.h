@@ -152,6 +152,7 @@ namespace esphome
             VAR_in_fsv5017 = 0x4279,
             VAR_in_fsv5018 = 0x427A,
             VAR_in_fsv5019 = 0x427B,
+            VAR_in_fsv2011 = 0x4254,
             VAR_in_fsv2012 = 0x4255,
             VAR_in_fsv2021 = 0x4256,
             VAR_in_fsv2022 = 0x4257,

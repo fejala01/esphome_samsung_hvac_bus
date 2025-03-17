@@ -426,6 +426,10 @@ namespace esphome
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
                 MessageSet fsv_read1(MessageNumber::VAR_in_fsv2012);
                 fsv_read1.value = 0;
                 packet.messages.push_back(fsv_read1);
@@ -727,6 +731,14 @@ namespace esphome
                 MessageSet fsv5019(MessageNumber::VAR_in_fsv5019);
                 fsv5019.value = request.fsv5019.value() * 10.0;
                 packet.messages.push_back(fsv5019);
+            }
+            if (request.fsv2011)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv2011(MessageNumber::VAR_in_fsv2011);
+                fsv2011.value = request.fsv2011.value() * 10.0;
+                packet.messages.push_back(fsv2011);
             }
             if (request.fsv2012)
             {
@@ -1690,6 +1702,13 @@ namespace esphome
                 double temp = (double)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_fsv4052, temp, source, dest);
                 target->set_fsv4052(source, temp);
+                break;
+            }
+            case MessageNumber::VAR_in_fsv2011: // unit = 'Celsius' from XML
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv2011, temp, source, dest);
+                target->set_fsv2011(source, temp);
                 break;
             }
             case MessageNumber::VAR_in_fsv2012: // unit = 'Celsius' from XML
