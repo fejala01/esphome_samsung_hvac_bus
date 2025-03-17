@@ -752,13 +752,13 @@ namespace esphome
                     std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
                     
                     // Schalter ausschalten
-                    set_fsv_read(false);
+                    set_fsv_read_switch(false);
 
                     // Kurze Verzögerung, um den Schalter auszuschalten
                     std::this_thread::sleep_for(std::chrono::milliseconds(500)); // Verzögerung von 500 Millisekunden
 
                     // Schalter wieder einschalten
-                    set_fsv_read(true);
+                    set_fsv_read_switch(true);
                 });
             }
 
