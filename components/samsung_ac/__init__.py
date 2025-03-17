@@ -87,7 +87,13 @@ CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 CONF_DEVICE_OPERATION = "operation"
-CONF_DEVICE_FSV_READ = "fsv_read"
+CONF_DEVICE_FSV_READ20 = "fsv_read20"
+CONF_DEVICE_FSV_READ30_1 = "fsv_read30_1"
+CONF_DEVICE_FSV_READ30_2 = "fsv_read30_2"
+CONF_DEVICE_FSV_READ40_1 = "fsv_read40_1"
+CONF_DEVICE_FSV_READ40_2 = "fsv_read40_2"
+CONF_DEVICE_FSV_READ50_1 = "fsv_read50_1"
+CONF_DEVICE_FSV_READ50_2 = "fsv_read50_2"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_FILTER_WARNING = "filter_warning"
@@ -191,17 +197,20 @@ CONF_DEVICE_FSV3082 = "fsv3082"
 CONF_DEVICE_FSV3083 = "fsv3083"
 
 CONF_DEVICE_FSV4011 = "fsv4011"
-
+CONF_DEVICE_FSV4012 = "fsv4012"
 CONF_DEVICE_FSV4013 = "fsv4013"
 CONF_DEVICE_FSV4021 = "fsv4021"
 CONF_DEVICE_FSV4022 = "fsv4022"
 CONF_DEVICE_FSV4023 = "fsv4023"
+CONF_DEVICE_FSV4024 = "fsv4024"
 
 CONF_DEVICE_FSV4025 = "fsv4025"
 CONF_DEVICE_FSV4031 = "fsv4031"
 CONF_DEVICE_FSV4032 = "fsv4032"
-
-
+CONF_DEVICE_FSV4033 = "fsv4033"
+CONF_DEVICE_FSV4041 = "fsv4041"
+CONF_DEVICE_FSV4042 = "fsv4042"
+CONF_DEVICE_FSV4043 = "fsv4043"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -595,21 +604,31 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV3083): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_FSV4011): NUMBER_SCHEMA,
- 
+        cv.Optional(CONF_DEVICE_FSV4012): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4013): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4022): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4023): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4024): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_FSV4025): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4031): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4032): NUMBER_SCHEMA,
-
+        cv.Optional(CONF_DEVICE_FSV4033): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4041): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4042): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4043): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ20): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ30_1): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ30_2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ40_1): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ40_2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ50_1): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ50_2): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
@@ -800,7 +819,13 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
-            CONF_DEVICE_FSV_READ: (switch.new_switch, var_dev.set_fsv_read_switch),
+            CONF_DEVICE_FSV_READ20: (switch.new_switch, var_dev.set_fsv_read20_switch),
+            CONF_DEVICE_FSV_READ30_1: (switch.new_switch, var_dev.set_fsv_read30_1_switch),
+            CONF_DEVICE_FSV_READ30_2: (switch.new_switch, var_dev.set_fsv_read30_2_switch),
+            CONF_DEVICE_FSV_READ40_1: (switch.new_switch, var_dev.set_fsv_read40_1_switch),
+            CONF_DEVICE_FSV_READ40_2: (switch.new_switch, var_dev.set_fsv_read40_2_switch),
+            CONF_DEVICE_FSV_READ50_1: (switch.new_switch, var_dev.set_fsv_read50_1_switch),
+            CONF_DEVICE_FSV_READ50_2: (switch.new_switch, var_dev.set_fsv_read50_2_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),
@@ -1480,6 +1505,15 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv4011_number(num))
 
+        if CONF_DEVICE_FSV4012 in device:
+            conf = device[CONF_DEVICE_FSV4012]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=-15.0, max_value=20.0, step=1
+            )
+            cg.add(var_dev.set_fsv4012_number(num))
+
         if CONF_DEVICE_FSV4013 in device:
             conf = device[CONF_DEVICE_FSV4013]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
@@ -1509,6 +1543,14 @@ async def to_code(config):
                 conf, min_value=0, max_value=1, step=1
             )
             cg.add(var_dev.set_fsv4023_number(num))
+        if CONF_DEVICE_FSV4024 in device:
+            conf = device[CONF_DEVICE_FSV4024]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=-25, max_value=35, step=1
+            )
+            cg.add(var_dev.set_fsv4024_number(num))
 
         if CONF_DEVICE_FSV4025 in device:
             conf = device[CONF_DEVICE_FSV4025]
@@ -1532,6 +1574,41 @@ async def to_code(config):
                 conf, min_value=0, max_value=1, step=1
             )
             cg.add(var_dev.set_fsv4032_number(num))
+        
+        if CONF_DEVICE_FSV4033 in device:
+            conf = device[CONF_DEVICE_FSV4033]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=-20.0, max_value=5.0, step=1
+            )
+            cg.add(var_dev.set_fsv4033_number(num))
+        
+        if CONF_DEVICE_FSV4041 in device:
+            conf = device[CONF_DEVICE_FSV4041]
+            num = await number.new_number(
+                conf, min_value=0, max_value=2, step=1
+            )
+            cg.add(var_dev.set_fsv4041_number(num))
+        
+        if CONF_DEVICE_FSV4042 in device:
+            conf = device[CONF_DEVICE_FSV4042]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=5, max_value=15, step=1
+            )
+            cg.add(var_dev.set_fsv4042_number(num))
+        
+        if CONF_DEVICE_FSV4043 in device:
+            conf = device[CONF_DEVICE_FSV4043]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=5, max_value=15, step=1
+            )
+            cg.add(var_dev.set_fsv4043_number(num))
+
 
         
 

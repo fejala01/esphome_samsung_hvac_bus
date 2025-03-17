@@ -426,7 +426,8 @@ namespace esphome
                 power_zone2.value = request.power_zone2.value() ? 1 : 0;
                 packet.messages.push_back(power_zone2);
             }
-            if (request.fsv_read)
+
+            if (request.fsv_read20)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -477,16 +478,241 @@ namespace esphome
                 MessageSet fsv_read11(MessageNumber::VAR_in_fsv2072);
                 fsv_read11.value = 0;
                 packet.messages.push_back(fsv_read11);
-
-
-                MessageSet fsv_read12(MessageNumber::VAR_in_fsv3021);
-                fsv_read12.value = 0;
-                packet.messages.push_back(fsv_read12);
-
-
-
                 
             }
+
+            if (request.fsv_read30_1)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv3021);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv3022);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv3023);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv3024);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv3025);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv3026);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv3031);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv3032);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv3033);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+
+                MessageSet fsv_read10(MessageNumber::VAR_in_fsv3051);
+                fsv_read10.value = 0;
+                packet.messages.push_back(fsv_read10);
+
+                MessageSet fsv_read11(MessageNumber::VAR_in_fsv3052);
+                fsv_read11.value = 0;
+                packet.messages.push_back(fsv_read11);
+                
+            }
+
+            if (request.fsv_read30_2)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv3071);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv3081);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv3082);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv3083);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);                
+            }
+
+            if (request.fsv_read40_1)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv4011);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv4012);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv4013);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv4021);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv4022);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv4023);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv4024);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv4025);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv4031);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+
+                MessageSet fsv_read9(MessageNumber::VAR_in_fsv4032);
+                fsv_read9.value = 0;
+                packet.messages.push_back(fsv_read9);
+
+                MessageSet fsv_read10(MessageNumber::VAR_in_fsv4033);
+                fsv_read10.value = 0;
+                packet.messages.push_back(fsv_read10);
+
+                MessageSet fsv_read11(MessageNumber::VAR_in_fsv4041);
+                fsv_read11.value = 0;
+                packet.messages.push_back(fsv_read11);
+                
+            }
+
+            if (request.fsv_read40_2)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv4042);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv4043);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                /*
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv4044);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv4045);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv4046);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv4051);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv4052);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv4053);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                */
+                
+            }
+
+            /*
+            if (request.fsv_read50_1)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5021);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv5023);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv5041);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv5042);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv5043);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv5051);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv5081);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv5082);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv5083);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+
+                MessageSet fsv_read9(MessageNumber::VAR_in_fsv5091);
+                fsv_read9.value = 0;
+                packet.messages.push_back(fsv_read9);
+
+                MessageSet fsv_read10(MessageNumber::VAR_in_fsv5092);
+                fsv_read10.value = 0;
+                packet.messages.push_back(fsv_read10);
+                
+            }
+
+            if (request.fsv_read50_2)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5093);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+                
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv5094);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+            }*/
+
+            
             if (request.operation)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
@@ -1108,6 +1334,19 @@ namespace esphome
                 packet.messages.push_back(fsv4011);  
             }
 
+            if (request.fsv4012)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4012(MessageNumber::VAR_in_fsv4012);
+                fsv4012.value = request.fsv4012.value() * 10.0;
+                if (fsv4012.value < 0) {
+                    fsv4012.value = 65536 + fsv4012.value;
+                }
+                packet.messages.push_back(fsv4012);
+
+            }
+
             if (request.fsv4013)  
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
@@ -1143,6 +1382,14 @@ namespace esphome
                 fsv4023.value = request.fsv4023.value();  
                 packet.messages.push_back(fsv4023);  
             }
+            if (request.fsv4024)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4024(MessageNumber::VAR_in_fsv4024);  
+                fsv4024.value = request.fsv4024.value() * 10.0;  
+                packet.messages.push_back(fsv4024);   
+            }
 
             if (request.fsv4025)  
             {
@@ -1169,6 +1416,45 @@ namespace esphome
                 MessageSet fsv4032(MessageNumber::VAR_in_fsv4032);  
                 fsv4032.value = request.fsv4032.value();  
                 packet.messages.push_back(fsv4032);  
+            }
+
+            if (request.fsv4033)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4033(MessageNumber::VAR_in_fsv4033);
+                fsv4033.value = request.fsv4033.value() * 10.0;
+                if (fsv4033.value < 0) {
+                    fsv4033.value = 65536 + fsv4033.value;
+                }
+                packet.messages.push_back(fsv4033);
+            }
+
+            if (request.fsv4041)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4041(MessageNumber::VAR_in_fsv4041);  
+                fsv4041.value = request.fsv4041.value();  
+                packet.messages.push_back(fsv4041);  
+            }
+
+            if (request.fsv4042)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4042(MessageNumber::VAR_in_fsv4042);  
+                fsv4042.value = request.fsv4042.value() * 10.0;  
+                packet.messages.push_back(fsv4042);  
+            }
+
+            if (request.fsv4043)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4043(MessageNumber::VAR_in_fsv4043);  
+                fsv4043.value = request.fsv4043.value() * 10.0;  
+                packet.messages.push_back(fsv4043);  
             }
 
 
@@ -2037,6 +2323,14 @@ namespace esphome
                 break;
             }
 
+            case MessageNumber::VAR_in_fsv4012: // unit = 'Celsius' from XML
+            {
+                double temp = (double)(int16_t)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4012, temp, source, dest);
+                target->set_fsv4012(source, temp);
+                break;
+            }
+
             case MessageNumber::VAR_in_fsv4013: // unit = 'Celsius' from XML 
             {
                 double temp = (double)message.value / (double)10;
@@ -2068,6 +2362,13 @@ namespace esphome
                 target->set_fsv4023(source, temp); 
                 break;
             }
+            case MessageNumber::VAR_in_fsv4024:
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4024, temp, source, dest); 
+                target->set_fsv4024(source, temp); 
+                break;
+            }
 
             case MessageNumber::VAR_in_fsv4025: // unit = 'Celsius' from XML 
             {
@@ -2090,6 +2391,38 @@ namespace esphome
                 double temp = (double)message.value;
                 LOG_MESSAGE(VAR_in_fsv4032, temp, source, dest); 
                 target->set_fsv4032(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4033: // unit = 'Celsius' from XML
+            {
+                double temp = (double)(int16_t)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4033, temp, source, dest);
+                target->set_fsv4033(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4041:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4041, temp, source, dest); 
+                target->set_fsv4041(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4042: // unit = 'Celsius' from XML 
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4042, temp, source, dest); 
+                target->set_fsv4042(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4043: // unit = 'Celsius' from XML 
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4043, temp, source, dest); 
+                target->set_fsv4043(source, temp); 
                 break;
             }
 

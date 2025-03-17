@@ -228,13 +228,19 @@ namespace esphome
       Samsung_AC_Number *fsv3082{nullptr};
       Samsung_AC_Number *fsv3083{nullptr};
       Samsung_AC_Number *fsv4011{nullptr};
+      Samsung_AC_Number *fsv4012{nullptr};
       Samsung_AC_Number *fsv4013{nullptr};
       Samsung_AC_Number *fsv4021{nullptr};
       Samsung_AC_Number *fsv4022{nullptr};
       Samsung_AC_Number *fsv4023{nullptr};
+      Samsung_AC_Number *fsv4024{nullptr};
       Samsung_AC_Number *fsv4025{nullptr};
       Samsung_AC_Number *fsv4031{nullptr};
       Samsung_AC_Number *fsv4032{nullptr};
+      Samsung_AC_Number *fsv4033{nullptr};
+      Samsung_AC_Number *fsv4041{nullptr};
+      Samsung_AC_Number *fsv4042{nullptr};
+      Samsung_AC_Number *fsv4043{nullptr};
 
 
 
@@ -496,15 +502,93 @@ namespace esphome
           publish_request(request);
         };
       }
-      void set_fsv_read_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read20_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read = switch_;
-          fsv_read->write_state_ = [this](bool value)
+          fsv_read20 = switch_;
+          fsv_read20->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read = 0;
+                  request.fsv_read20 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read30_1_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read30_1 = switch_;
+          fsv_read30_1->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read30_1 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read30_2_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read30_2 = switch_;
+          fsv_read30_2->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read30_2 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read40_1_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read40_1 = switch_;
+          fsv_read40_1->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read40_1 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read40_2_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read40_2 = switch_;
+          fsv_read40_2->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read40_2 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read50_1_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read50_1 = switch_;
+          fsv_read50_1->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read50_1 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read50_2_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read50_2 = switch_;
+          fsv_read50_2->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read50_2 = 0;
                   publish_request(request);
               }
           };
@@ -1307,6 +1391,17 @@ namespace esphome
           };
       }
 
+      void set_fsv4012_number(Samsung_AC_Number *number)
+      {
+        fsv4012 = number;
+        fsv4012->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv4012 = value;
+          publish_request(request);
+        };
+      };
+
       void set_fsv4013_number(Samsung_AC_Number *number)
       {
           fsv4013 = number;
@@ -1350,6 +1445,16 @@ namespace esphome
               publish_request(request);
           };
       }
+      void set_fsv4024_number(Samsung_AC_Number *number)
+      {
+          fsv4024 = number;
+          fsv4024->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4024 = value;
+              publish_request(request);
+          };
+      }
 
       void set_fsv4025_number(Samsung_AC_Number *number)
       {
@@ -1380,6 +1485,50 @@ namespace esphome
           {
               ProtocolRequest request;
               request.fsv4032 = value;
+              publish_request(request);
+          };
+      }
+      
+      void set_fsv4033_number(Samsung_AC_Number *number)
+      {
+        fsv4033 = number;
+        fsv4033->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv4033 = value;
+          publish_request(request);
+        };
+      };
+
+      void set_fsv4041_number(Samsung_AC_Number *number)
+      {
+          fsv4041 = number;
+          fsv4041->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4041 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4042_number(Samsung_AC_Number *number)
+      {
+          fsv4042 = number;
+          fsv4042->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4042 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4043_number(Samsung_AC_Number *number)
+      {
+          fsv4043 = number;
+          fsv4043->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4043 = value;
               publish_request(request);
           };
       }
@@ -1766,6 +1915,12 @@ namespace esphome
               fsv4011->publish_state(value);
       }
 
+      void update_fsv4012(float value)
+      {
+        if (fsv4012 != nullptr)
+          fsv4012->publish_state(value);
+      }
+
       void update_fsv4013(float value)
       {
           if (fsv4013 != nullptr)
@@ -1789,6 +1944,11 @@ namespace esphome
           if (fsv4023 != nullptr)
               fsv4023->publish_state(value);
       }
+      void update_fsv4024(float value)
+      {
+          if (fsv4024 != nullptr)
+              fsv4024->publish_state(value);
+      }
 
       void update_fsv4025(float value)
       {
@@ -1806,6 +1966,30 @@ namespace esphome
       {
           if (fsv4032 != nullptr)
               fsv4032->publish_state(value);
+      }
+
+      void update_fsv4033(float value)
+      {
+        if (fsv4033 != nullptr)
+          fsv4033->publish_state(value);
+      }
+
+      void update_fsv4041(float value)
+      {
+          if (fsv4041 != nullptr)
+              fsv4041->publish_state(value);
+      }
+
+      void update_fsv4042(float value)
+      {
+          if (fsv4042 != nullptr)
+              fsv4042->publish_state(value);
+      }
+
+      void update_fsv4043(float value)
+      {
+          if (fsv4043 != nullptr)
+              fsv4043->publish_state(value);
       }
 
 

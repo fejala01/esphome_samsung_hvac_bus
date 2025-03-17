@@ -202,13 +202,19 @@ namespace esphome
             virtual void set_fsv3082(const std::string address, float value) = 0;
             virtual void set_fsv3083(const std::string address, float value) = 0;
             virtual void set_fsv4011(const std::string address, float value) = 0;
+            virtual void set_fsv4012(const std::string address, float value) = 0;
             virtual void set_fsv4013(const std::string address, float value) = 0;
             virtual void set_fsv4021(const std::string address, float value) = 0;
             virtual void set_fsv4022(const std::string address, float value) = 0;
             virtual void set_fsv4023(const std::string address, float value) = 0;
+            virtual void set_fsv4024(const std::string address, float value) = 0;
             virtual void set_fsv4025(const std::string address, float value) = 0;
             virtual void set_fsv4031(const std::string address, float value) = 0;
             virtual void set_fsv4032(const std::string address, float value) = 0;
+            virtual void set_fsv4033(const std::string address, float value) = 0;
+            virtual void set_fsv4041(const std::string address, float value) = 0;
+            virtual void set_fsv4042(const std::string address, float value) = 0;
+            virtual void set_fsv4043(const std::string address, float value) = 0;
 
 
 
@@ -220,7 +226,13 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
-            optional<bool> fsv_read;
+            optional<bool> fsv_read20;
+            optional<bool> fsv_read30_1;
+            optional<bool> fsv_read30_2;
+            optional<bool> fsv_read40_1;
+            optional<bool> fsv_read40_2;
+            optional<bool> fsv_read50_1;
+            optional<bool> fsv_read50_2;
             optional<bool> operation;
             optional<bool> vacation;
             optional<bool> fsv3041;
@@ -294,13 +306,19 @@ namespace esphome
             optional<float> fsv3082;
             optional<float> fsv3083;
             optional<float> fsv4011;
+            optional<float> fsv4012;
             optional<float> fsv4013;
             optional<float> fsv4021;
             optional<float> fsv4022;
             optional<float> fsv4023;
+            optional<float> fsv4024;
             optional<float> fsv4025;
             optional<float> fsv4031;
             optional<float> fsv4032;
+            optional<float> fsv4033;
+            optional<float> fsv4041;
+            optional<float> fsv4042;
+            optional<float> fsv4043;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;
