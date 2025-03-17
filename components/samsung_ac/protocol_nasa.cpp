@@ -738,6 +738,9 @@ namespace esphome
 
                 MessageSet fsv2011(MessageNumber::VAR_in_fsv2011);
                 fsv2011.value = request.fsv2011.value() * 10.0;
+                if (fsv2011.value < 0) {
+                    fsv2011.value = 65536 + fsv2011.value;
+                }
                 packet.messages.push_back(fsv2011);
             }
             if (request.fsv2012)
@@ -1706,7 +1709,7 @@ namespace esphome
             }
             case MessageNumber::VAR_in_fsv2011: // unit = 'Celsius' from XML
             {
-                double temp = (double)message.value / (double)10;
+                double temp = (double)((int16_t)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_fsv2011, temp, source, dest);
                 target->set_fsv2011(source, temp);
                 break;
