@@ -430,9 +430,37 @@ namespace esphome
                 fsv_read1.value = 0;
                 packet.messages.push_back(fsv_read1);
 
-                MessageSet fsv_read2(MessageNumber::VAR_in_fsv2022);
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv2021);
                 fsv_read2.value = 0;
                 packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv2022);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv2031);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv2032);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv2051);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv2052);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv2061);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+
+                MessageSet fsv_read9(MessageNumber::VAR_in_fsv2062);
+                fsv_read9.value = 0;
+                packet.messages.push_back(fsv_read9);
             }
             if (request.operation)
             {
