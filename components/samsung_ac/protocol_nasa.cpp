@@ -469,6 +469,20 @@ namespace esphome
                 MessageSet fsv_read9(MessageNumber::VAR_in_fsv2062);
                 fsv_read9.value = 0;
                 packet.messages.push_back(fsv_read9);
+
+                MessageSet fsv_read10(MessageNumber::VAR_in_fsv2071);
+                fsv_read10.value = 0;
+                packet.messages.push_back(fsv_read10);
+
+                MessageSet fsv_read11(MessageNumber::VAR_in_fsv2072);
+                fsv_read11.value = 0;
+                packet.messages.push_back(fsv_read11);
+
+
+
+                MessageSet fsv_read12(MessageNumber::VAR_in_fsv3021);
+                fsv_read12.value = 0;
+                packet.messages.push_back(fsv_read12);
             }
             if (request.operation)
             {
