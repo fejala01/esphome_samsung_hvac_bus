@@ -747,15 +747,6 @@ namespace esphome
                 }
                 packet.messages.push_back(fsv2011);
 
-                //delay
-                auto future = std::async(std::launch::async, [&packet]() {
-                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
-
-                    MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
-                    fsv_read0.value = 0;
-                    packet.messages.push_back(fsv_read0);}
-                );
-
             }
             if (request.fsv2012)
             {
