@@ -2335,7 +2335,7 @@ namespace esphome
                         ESP_LOGW(TAG, "found Response for packet number %d", it->packet.command.packetNumber);
                         sent_packets.erase(it);
                         response_found = true;
-                        
+                        break;
                     }
                 }
             }
