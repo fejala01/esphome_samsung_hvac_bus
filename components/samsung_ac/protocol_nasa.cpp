@@ -747,6 +747,15 @@ namespace esphome
                 }
                 packet.messages.push_back(fsv2011);
 
+                // Asynchrone Verzögerung
+                auto future = std::async(std::launch::async, [&packet]() {
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
+                    
+                    ProtocolRequest request;
+                    request.fsv_read = 0;
+                    publish_request(request);
+                });
+
             }
             if (request.fsv2012)
             {
