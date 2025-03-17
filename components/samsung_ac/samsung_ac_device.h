@@ -155,7 +155,11 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
-      Samsung_AC_Switch *fsv_read{nullptr};
+      Samsung_AC_Switch *fsv_read20{nullptr};
+      Samsung_AC_Switch *fsv_read30_1{nullptr};
+      Samsung_AC_Switch *fsv_read30_2{nullptr};
+      Samsung_AC_Switch *fsv_read40_1{nullptr};
+      Samsung_AC_Switch *fsv_read40_2{nullptr};
       Samsung_AC_Switch *operation{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *fsv3041{nullptr};
