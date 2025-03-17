@@ -989,12 +989,6 @@ namespace esphome
                     fsv2011.value = 65536 + fsv2011.value;
                 }
                 packet.messages.push_back(fsv2011);
-
-                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
-
-                MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
-                fsv_read0.value = 0;
-                packet.messages.push_back(fsv_read0);
             }
 
 
@@ -2723,6 +2717,16 @@ namespace esphome
                     if (it->packet.command.packetNumber == packet_.command.packetNumber)
                     {
                         ESP_LOGW(TAG, "found Ack for packet number %d", it->packet.command.packetNumber);
+                        
+                        if (it->packet.messages == MessageNumber::VAR_in_fsv2011)
+                        {
+                            packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                            MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                            fsv_read0.value = 0;
+                            packet.messages.push_back(fsv_read0);
+                        }
+                        
                         sent_packets.erase(it);
                         ack_found = true;
                         break;
