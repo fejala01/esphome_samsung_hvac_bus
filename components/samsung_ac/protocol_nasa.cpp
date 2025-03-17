@@ -386,6 +386,7 @@ namespace esphome
         void NasaProtocol::publish_request(MessageTarget *target, const std::string &address, ProtocolRequest &request)
         {
             Packet packet;
+            Packet packet_read;
 
             if (request.mode)
             {
@@ -746,6 +747,20 @@ namespace esphome
                     fsv2011.value = 65536 + fsv2011.value;
                 }
                 packet.messages.push_back(fsv2011);
+
+                //delay
+
+                auto future = std::async(std::launch::async, [&packet]() {
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
+
+                    packet_read = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                    MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                    fsv_read0.value = 0;
+                    packet.messages.push_back(fsv_read0);}
+                );
+
+                
 
             }
             if (request.fsv2012)
@@ -1197,6 +1212,18 @@ namespace esphome
             target->publish_data(data);
 
             sent_packets.push_back({packet, 0, millis()});
+
+            if (packet_read.messages.size() == 0)                                   // if no fsv read is necessary
+                return;
+
+            ESP_LOGW(TAG, "publish packet %s", packet_read.to_string().c_str());
+
+            out.push_back(packet_read);
+
+            auto data = packet_read.encode();
+            target->publish_data(data);
+
+            sent_packets.push_back({packet_read, 0, millis()});
         }
 
 
