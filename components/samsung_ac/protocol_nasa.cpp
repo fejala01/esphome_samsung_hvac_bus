@@ -5,6 +5,10 @@
 #include "util.h"
 #include "protocol_nasa.h"
 #include "debug_mqtt.h"
+//for delay
+#include <thread>
+#include <chrono>
+#include <future>
 
 esphome::samsung_ac::Packet packet_;
 
@@ -742,6 +746,16 @@ namespace esphome
                     fsv2011.value = 65536 + fsv2011.value;
                 }
                 packet.messages.push_back(fsv2011);
+
+                //delay
+                auto future = std::async(std::launch::async, [&packet]() {
+                    std::this_thread::sleep_for(std::chrono::seconds(2)); // Verzögerung von 2 Sekunden
+
+                    MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                    fsv_read0.value = 0;
+                    packet.messages.push_back(fsv_read0);}
+                );
+
             }
             if (request.fsv2012)
             {
