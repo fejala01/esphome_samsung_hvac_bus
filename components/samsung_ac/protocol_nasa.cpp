@@ -426,9 +426,13 @@ namespace esphome
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
-                MessageSet fsv_read(MessageNumber::ENUM_in_fsv_read);
-                fsv_read.value = 0;
-                packet.messages.push_back(fsv_read);
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv2012);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv2022);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
             }
             if (request.operation)
             {
