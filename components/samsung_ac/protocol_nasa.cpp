@@ -765,25 +765,6 @@ namespace esphome
 
 
 
-
-void set_fsv_read_switch(Samsung_AC_Switch *switch_)
-      {
-          fsv_read = switch_;
-          fsv_read->write_state_ = [this](bool value)
-          {
-              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
-              {
-                  ProtocolRequest request;
-                  request.fsv_read = 0;
-                  publish_request(request);
-              }
-          };
-      }
-
-
-
-
-
             if (request.fsv2012)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
