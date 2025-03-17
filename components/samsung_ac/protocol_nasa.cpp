@@ -2338,6 +2338,11 @@ namespace esphome
                         break;
                     }
                 }
+                for (auto &message : packet_.messages)
+                {
+                    process_messageset(source, dest, message, target);
+                }
+                return;
             }
             if (packet_.command.dataType == DataType::Write)
             {
