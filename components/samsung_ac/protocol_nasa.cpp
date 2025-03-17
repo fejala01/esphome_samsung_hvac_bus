@@ -1386,9 +1386,12 @@ namespace esphome
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
 
-                MessageSet fsv4024(MessageNumber::VAR_in_fsv4024);  
-                fsv4024.value = request.fsv4024.value() * 10.0;  
-                packet.messages.push_back(fsv4024);   
+                MessageSet fsv4024(MessageNumber::VAR_in_fsv4024);
+                fsv4024.value = request.fsv4024.value() * 10.0;
+                if (fsv4024.value < 0) {
+                    fsv4024.value = 65536 + fsv4024.value;
+                }
+                packet.messages.push_back(fsv4024);
             }
 
             if (request.fsv4025)  
@@ -2364,9 +2367,9 @@ namespace esphome
             }
             case MessageNumber::VAR_in_fsv4024:
             {
-                double temp = (double)message.value / (double)10;
-                LOG_MESSAGE(VAR_in_fsv4024, temp, source, dest); 
-                target->set_fsv4024(source, temp); 
+                double temp = (double)(int16_t)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4024, temp, source, dest);
+                target->set_fsv4024(source, temp);
                 break;
             }
 
