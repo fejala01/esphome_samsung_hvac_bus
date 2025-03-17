@@ -1709,7 +1709,7 @@ namespace esphome
             }
             case MessageNumber::VAR_in_fsv2011: // unit = 'Celsius' from XML
             {
-                double temp = (double)((int16_t)message.value / (double)10;
+                double temp = (double)(int16_t)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_fsv2011, temp, source, dest);
                 target->set_fsv2011(source, temp);
                 break;
