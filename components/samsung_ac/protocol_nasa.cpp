@@ -994,10 +994,9 @@ namespace esphome
 
             if (request.fsv2011)
             {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
                   // Asynchrones Delay von 2 Sekunden
                     std::async(std::launch::async, [this]() {std::this_thread::sleep_for(std::chrono::seconds(2));
-                        
-                        packet = Packet::createa_partial(Address::parse(address), DataType::Read);
                         
                         MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
                         fsv_read0.value = 0;
