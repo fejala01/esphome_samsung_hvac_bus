@@ -990,7 +990,11 @@ namespace esphome
                 }
                 packet.messages.push_back(fsv2011);
 
-                set_fsv_read20_switch(true);
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv2011);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
             }
 
 
