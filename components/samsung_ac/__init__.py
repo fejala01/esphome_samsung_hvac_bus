@@ -1627,13 +1627,15 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv4044_number(num))
         if CONF_DEVICE_FSV4045 in device:
-            conf[CONF_DEVICE_CLASS] = "min"
+            conf = device[CONF_DEVICE_FSV4045]
+            conf[CONF_UNIT_OF_MEASUREMENT] = "min"
             num = await number.new_number(
                 conf, min_value=1, max_value=30, step=1
             )
             cg.add(var_dev.set_fsv4045_number(num))
         if CONF_DEVICE_FSV4046 in device:
-            conf[CONF_DEVICE_CLASS] = "sec"
+            conf = device[CONF_DEVICE_FSV4046]
+            conf[CONF_UNIT_OF_MEASUREMENT] = "sec"
             num = await number.new_number(
                 conf, min_value=6, max_value=24, step=1
             )
