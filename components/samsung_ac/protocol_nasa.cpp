@@ -5,10 +5,6 @@
 #include "util.h"
 #include "protocol_nasa.h"
 #include "debug_mqtt.h"
-//for delay
-#include <thread>
-#include <chrono>
-#include <future>
 
 esphome::samsung_ac::Packet packet_;
 
