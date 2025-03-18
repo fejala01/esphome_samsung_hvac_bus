@@ -216,6 +216,12 @@ namespace esphome
             virtual void set_fsv4041(const std::string address, float value) = 0;
             virtual void set_fsv4042(const std::string address, float value) = 0;
             virtual void set_fsv4043(const std::string address, float value) = 0;
+            virtual void set_fsv4044(const std::string address, float value) = 0;
+            virtual void set_fsv4045(const std::string address, float value) = 0;
+            virtual void set_fsv4046(const std::string address, float value) = 0;
+            virtual void set_fsv4051(const std::string address, float value) = 0;
+            virtual void set_fsv4052(const std::string address, float value) = 0;
+            virtual void set_fsv4053(const std::string address, float value) = 0;
 
 
 
@@ -320,6 +326,12 @@ namespace esphome
             optional<float> fsv4041;
             optional<float> fsv4042;
             optional<float> fsv4043;
+            optional<float> fsv4044;
+            optional<float> fsv4045;
+            optional<float> fsv4046;
+            optional<float> fsv4051;
+            optional<float> fsv4052;
+            optional<float> fsv4053;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;

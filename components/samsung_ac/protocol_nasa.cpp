@@ -618,7 +618,7 @@ namespace esphome
                 fsv_read1.value = 0;
                 packet.messages.push_back(fsv_read1);
 
-                /*
+                
                 MessageSet fsv_read2(MessageNumber::VAR_in_fsv4044);
                 fsv_read2.value = 0;
                 packet.messages.push_back(fsv_read2);
@@ -643,7 +643,7 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
-                */
+                
                 
             }
 
@@ -1458,6 +1458,61 @@ namespace esphome
                 fsv4043.value = request.fsv4043.value() * 10.0;  
                 packet.messages.push_back(fsv4043);  
             }
+
+            if (request.fsv4044)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4044(MessageNumber::VAR_in_fsv4044);  
+                fsv4044.value = request.fsv4044.value();  
+                packet.messages.push_back(fsv4044);  
+            }
+
+            if (request.fsv4045) 
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4045(MessageNumber::VAR_in_fsv4045); 
+                fsv4045.value = request.fsv4045.value(); 
+                packet.messages.push_back(fsv4045); 
+            }
+
+            if (request.fsv4046) 
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4046(MessageNumber::VAR_in_fsv4046); 
+                fsv4046.value = request.fsv4046.value(); 
+                packet.messages.push_back(fsv4046); 
+            }
+
+            if (request.fsv4051)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4051(MessageNumber::VAR_in_fsv4051);  
+                fsv4051.value = request.fsv4051.value();  
+                packet.messages.push_back(fsv4051);  
+            }
+
+            if (request.fsv4052)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4052(MessageNumber::VAR_in_fsv4052);  
+                fsv4052.value = request.fsv4052.value() * 10.0;  
+                packet.messages.push_back(fsv4052);  
+            }
+
+            if (request.fsv4053)  
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv4053(MessageNumber::VAR_in_fsv4053);  
+                fsv4053.value = request.fsv4053.value();  
+                packet.messages.push_back(fsv4053);  
+            }
+
 
 
 
@@ -2425,6 +2480,54 @@ namespace esphome
                 double temp = (double)message.value / (double)10;
                 LOG_MESSAGE(VAR_in_fsv4043, temp, source, dest); 
                 target->set_fsv4043(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4044:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4044, temp, source, dest); 
+                target->set_fsv4044(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4045:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4045, temp, source, dest);
+                target->set_fsv4045(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4046:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4046, temp, source, dest);
+                target->set_fsv4046(source, temp);
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4051:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4051, temp, source, dest); 
+                target->set_fsv4051(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4052: // unit = 'Celsius' from XML 
+            {
+                double temp = (double)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv4052, temp, source, dest); 
+                target->set_fsv4052(source, temp); 
+                break;
+            }
+
+            case MessageNumber::VAR_in_fsv4053:
+            {
+                double temp = (double)message.value;
+                LOG_MESSAGE(VAR_in_fsv4053, temp, source, dest); 
+                target->set_fsv4053(source, temp); 
                 break;
             }
 

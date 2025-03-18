@@ -700,6 +700,42 @@ namespace esphome
           { dev->update_fsv4043(value); });
       }
 
+      void set_fsv4044(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4044(value); });
+      }
+
+      void set_fsv4045(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4045(value); });
+      }
+
+      void set_fsv4046(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4046(value); });
+      }
+
+      void set_fsv4051(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4051(value); });
+      }
+
+      void set_fsv4052(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4052(value); });
+      }
+
+      void set_fsv4053(const std::string address, float value) override
+      {
+          execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+          { dev->update_fsv4053(value); });
+      }
+
 
 
 

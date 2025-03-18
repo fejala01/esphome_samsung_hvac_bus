@@ -248,6 +248,12 @@ namespace esphome
       Samsung_AC_Number *fsv4041{nullptr};
       Samsung_AC_Number *fsv4042{nullptr};
       Samsung_AC_Number *fsv4043{nullptr};
+      Samsung_AC_Number *fsv4044{nullptr};
+      Samsung_AC_Number *fsv4045{nullptr};
+      Samsung_AC_Number *fsv4046{nullptr};
+      Samsung_AC_Number *fsv4051{nullptr};
+      Samsung_AC_Number *fsv4052{nullptr};
+      Samsung_AC_Number *fsv4053{nullptr};
 
 
 
@@ -1549,6 +1555,73 @@ namespace esphome
           };
       }
 
+      void set_fsv4044_number(Samsung_AC_Number *number)
+      {
+          fsv4044 = number;
+          fsv4044->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4044 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4045_number(Samsung_AC_Number *number)
+      {
+          fsv4045 = number;
+          fsv4045->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4045 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4046_number(Samsung_AC_Number *number)
+      {
+          fsv4046 = number;
+          fsv4046>write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4046 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4051_number(Samsung_AC_Number *number)
+      {
+          fsv4051 = number;
+          fsv4051->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4051 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4052_number(Samsung_AC_Number *number)
+      {
+          fsv4052 = number;
+          fsv4052->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4052 = value;
+              publish_request(request);
+          };
+      }
+
+      void set_fsv4053_number(Samsung_AC_Number *number)
+      {
+          fsv4053 = number;
+          fsv4053->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv4053 = value;
+              publish_request(request);
+          };
+      }
+
+
 
 
 
@@ -2006,6 +2079,42 @@ namespace esphome
       {
           if (fsv4043 != nullptr)
               fsv4043->publish_state(value);
+      }
+
+      void update_fsv4044(float value)
+      {
+          if (fsv4044 != nullptr)
+              fsv4044->publish_state(value);
+      }
+
+      void update_fsv4045(float value)
+      {
+          if (fsv4045 != nullptr)
+              fsv4045->publish_state(value);
+      }
+
+      void update_fsv4046(float value)
+      {
+          if (fsv4046 != nullptr)
+              fsv4046->publish_state(value);
+      }
+      
+      void update_fsv4051(float value)
+      {
+          if (fsv4051 != nullptr)
+              fsv4051->publish_state(value);
+      }
+
+      void update_fsv4052(float value)
+      {
+          if (fsv4052 != nullptr)
+              fsv4052->publish_state(value);
+      }
+
+      void update_fsv4053(float value)
+      {
+          if (fsv4053 != nullptr)
+              fsv4053->publish_state(value);
       }
 
 

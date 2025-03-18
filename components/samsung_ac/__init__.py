@@ -211,6 +211,12 @@ CONF_DEVICE_FSV4033 = "fsv4033"
 CONF_DEVICE_FSV4041 = "fsv4041"
 CONF_DEVICE_FSV4042 = "fsv4042"
 CONF_DEVICE_FSV4043 = "fsv4043"
+CONF_DEVICE_FSV4044 = "fsv4044"
+CONF_DEVICE_FSV4045 = "fsv4045"
+CONF_DEVICE_FSV4046 = "fsv4046"
+CONF_DEVICE_FSV4051 = "fsv4051"
+CONF_DEVICE_FSV4052 = "fsv4052"
+CONF_DEVICE_FSV4053 = "fsv4053"
 
 
 CONF_CAPABILITIES = "capabilities"
@@ -627,6 +633,12 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV4041): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4042): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4043): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4044): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4045): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4046): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4051): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4052): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV4053): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
@@ -1618,6 +1630,44 @@ async def to_code(config):
                 conf, min_value=5, max_value=15, step=1
             )
             cg.add(var_dev.set_fsv4043_number(num))
+        if CONF_DEVICE_FSV4044 in device:
+            conf = device[CONF_DEVICE_FSV4044]
+            num = await number.new_number(
+                conf, min_value=1, max_value=5, step=1
+            )
+            cg.add(var_dev.set_fsv4044_number(num))
+        if CONF_DEVICE_FSV4045 in device:
+            conf[CONF_DEVICE_CLASS] = "min"
+            num = await number.new_number(
+                conf, min_value=1, max_value=30, step=1
+            )
+            cg.add(var_dev.set_fsv4045_number(num))
+        if CONF_DEVICE_FSV4046 in device:
+            conf[CONF_DEVICE_CLASS] = "sec"
+            num = await number.new_number(
+                conf, min_value=6, max_value=24, step=1
+            )
+            cg.add(var_dev.set_fsv4046_number(num))
+        if CONF_DEVICE_FSV4051 in device:
+            conf = device[CONF_DEVICE_FSV4051]
+            num = await number.new_number(
+                conf, min_value=0, max_value=2, step=1
+            )
+            cg.add(var_dev.set_fsv4051_number(num))
+        if CONF_DEVICE_FSV4052 in device:
+            conf = device[CONF_DEVICE_FSV4052]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=2, max_value=8, step=1
+            )
+            cg.add(var_dev.set_fsv4052_number(num))
+        if CONF_DEVICE_FSV4053 in device:
+            conf = device[CONF_DEVICE_FSV4053]
+            num = await number.new_number(
+                conf, min_value=1, max_value=3, step=1
+            )
+            cg.add(var_dev.set_fsv4053_number(num))
 
 
         
