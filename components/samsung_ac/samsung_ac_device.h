@@ -176,7 +176,6 @@ namespace esphome
       std::map<uint16_t, sensor::Sensor *> custom_sensor_map;
 
       Samsung_AC_Number *fsv1011{nullptr};
-      Samsung_AC_Number *fsv4052{nullptr};
       Samsung_AC_Number *fsv1012{nullptr};
       Samsung_AC_Number *fsv1021{nullptr};
       Samsung_AC_Number *fsv1022{nullptr};
@@ -966,16 +965,6 @@ namespace esphome
           publish_request(request);
         };
       };
-      void set_fsv4052_number(Samsung_AC_Number *number)
-      {
-        fsv4052 = number;
-        fsv4052->write_state_ = [this](float value)
-        {
-          ProtocolRequest request;
-          request.fsv4052 = value;
-          publish_request(request);
-        };
-      };
       void set_fsv2011_number(Samsung_AC_Number *number)
       {
         fsv2011 = number;
@@ -1761,11 +1750,6 @@ namespace esphome
       {
         if (fsv1011 != nullptr)
           fsv1011->publish_state(value);
-      }
-      void update_fsv4052(float value)
-      {
-        if (fsv4052 != nullptr)
-          fsv4052->publish_state(value);
       }
       void update_fsv2011(float value)
       {

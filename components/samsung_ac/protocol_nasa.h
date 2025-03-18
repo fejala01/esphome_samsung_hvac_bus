@@ -132,7 +132,6 @@ namespace esphome
             VAR_in_filter_clean = 0x4025,
             VAR_in_temp_mixing_valve = 0x428C,
             VAR_in_fsv1011 = 0x424A,
-            VAR_in_fsv4052 = 0x428A,
             VAR_in_fsv1012 = 0x424B,
             VAR_in_fsv1021 = 0x424C,
             VAR_in_fsv1022 = 0x424D,
