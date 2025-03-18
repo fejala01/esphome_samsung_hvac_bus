@@ -129,7 +129,7 @@ CONF_DEVICE_WATERPUMP_PWM = "waterpump_pwm"
 CONF_DEVICE_VENTILATOR = "ventilator"
 CONF_DEVICE_CURRENT_TEMP_ZONE1 = "current_temp_zone1"
 CONF_DEVICE_CURRENT_TEMP_ZONE2 = "current_temp_zone2"
-
+CONF_DEVICE_COMPRESSOR_FREQUENCY_RATIO = "compressor_frequency_ratio"
 
 CONF_DEVICE_FSV1011 = "fsv1011"
 CONF_DEVICE_FSV1012 = "fsv1012"
@@ -344,6 +344,14 @@ def waterpump_pwm_sensor_schema(message: int):
         icon="mdi:water-pump",
         state_class=STATE_CLASS_MEASUREMENT,
     )
+def compressor_frequency_ratio_sensor_schema(message: int):
+    return custom_sensor_schema(
+        message=message,
+        unit_of_measurement="%",
+        accuracy_decimals=0,
+        icon="mdi:engine",
+        state_class=STATE_CLASS_MEASUREMENT,
+    )
 
 
 DEVICE_SCHEMA = cv.Schema(
@@ -536,6 +544,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_ERROR_CODE): error_code_sensor_schema(0x8235),
         cv.Optional(CONF_DEVICE_VENTILATOR): ventilator_sensor_schema(0x823D),
         cv.Optional(CONF_DEVICE_WATERPUMP_PWM): waterpump_pwm_sensor_schema(0x40C4),
+        cv.Optional(CONF_DEVICE_COMPRESSOR_FREQUENCY_RATIO): compressor_frequency_ratio_sensor_schema(0x42F1),
         cv.Optional(CONF_DEVICE_TARGET_TEMPERATURE): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_OUTLET_TARGET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_TARGET_TEMPERATURE): NUMBER_SCHEMA,
@@ -983,6 +992,7 @@ async def to_code(config):
             CONF_DEVICE_ERROR_CODE: (sensor.new_sensor, var_dev.set_error_code_sensor),
             CONF_DEVICE_VENTILATOR: (sensor.new_sensor, var_dev.set_ventilator_sensor),
             CONF_DEVICE_WATERPUMP_PWM: (sensor.new_sensor, var_dev.set_waterpump_pwm_sensor),
+            CONF_DEVICE_COMPRESSOR_FREQUENCY_RATIO: (sensor.new_sensor, var_dev.set_compressor_frequency_ratio_sensor),
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM: (
                 sensor.new_sensor,
                 var_dev.set_outdoor_instantaneous_power_sensor,

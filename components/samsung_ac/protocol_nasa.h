@@ -209,6 +209,7 @@ namespace esphome
             VAR_in_fsv4043 = 0x4287,
             VAR_out_ventilator = 0x823D,
             VAR_in_waterpump_pwm = 0x40C4,
+            VAR_out_compressor_frequency_ratio = 0x42F1,
 
 
         };

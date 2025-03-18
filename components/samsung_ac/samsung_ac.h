@@ -814,6 +814,11 @@ namespace esphome
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
                                  { dev->update_waterpump_pwm(value); });
       }
+      void set_compressor_frequency_ratio(const std::string address, int value) override
+      {
+        execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
+                                 { dev->update_compressor_frequency_ratio(value); });
+      }
 
       void set_outdoor_instantaneous_power(const std::string &address, float value)
       {

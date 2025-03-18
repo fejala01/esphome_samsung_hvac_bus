@@ -141,6 +141,7 @@ namespace esphome
       sensor::Sensor *error_code{nullptr};
       sensor::Sensor *ventilator{nullptr};
       sensor::Sensor *waterpump_pwm{nullptr};
+      sensor::Sensor *compressor_frequency_ratio{nullptr};
       sensor::Sensor *outdoor_instantaneous_power{nullptr};
       sensor::Sensor *outdoor_cumulative_energy{nullptr};
       sensor::Sensor *outdoor_current{nullptr};
@@ -281,6 +282,10 @@ namespace esphome
       {
         waterpump_pwm = sensor;
       }
+      void set_compressor_frequency_ratio_sensor(sensor::Sensor *sensor)
+      {
+        compressor_frequency_ratio = sensor;
+      }
 
       void update_error_code(int value)
       {
@@ -296,6 +301,11 @@ namespace esphome
       {
         if (waterpump_pwm != nullptr)
           waterpump_pwm->publish_state(value);
+      }
+      void update_compressor_frequency_ratio(int value)
+      {
+        if (compressor_frequency_ratio != nullptr)
+          compressor_frequency_ratio->publish_state(value);
       }
 
       void set_outdoor_instantaneous_power_sensor(sensor::Sensor *sensor)
