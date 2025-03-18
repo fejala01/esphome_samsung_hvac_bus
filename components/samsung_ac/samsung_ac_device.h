@@ -1569,7 +1569,7 @@ namespace esphome
       void set_fsv4046_number(Samsung_AC_Number *number)
       {
           fsv4046 = number;
-          fsv4046>write_state_ = [this](float value)
+          fsv4046->write_state_ = [this](float value)
           {
               ProtocolRequest request;
               request.fsv4046 = value;
