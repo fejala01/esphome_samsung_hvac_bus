@@ -459,6 +459,7 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
+                /*
                 MessageSet fsv_read8(MessageNumber::VAR_in_fsv2061);
                 fsv_read8.value = 0;
                 packet.messages.push_back(fsv_read8);
@@ -474,7 +475,7 @@ namespace esphome
                 MessageSet fsv_read11(MessageNumber::VAR_in_fsv2072);
                 fsv_read11.value = 0;
                 packet.messages.push_back(fsv_read11);
-                
+                */
             }
 
             if (request.fsv_read30_1)
@@ -584,6 +585,7 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
+                /*
                 MessageSet fsv_read8(MessageNumber::VAR_in_fsv4031);
                 fsv_read8.value = 0;
                 packet.messages.push_back(fsv_read8);
@@ -591,7 +593,7 @@ namespace esphome
                 MessageSet fsv_read9(MessageNumber::VAR_in_fsv4032);
                 fsv_read9.value = 0;
                 packet.messages.push_back(fsv_read9);
-                
+                */
             }
 
             if (request.fsv_read40_2)
@@ -630,6 +632,7 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
+                /*
                 MessageSet fsv_read8(MessageNumber::VAR_in_fsv4052);
                 fsv_read8.value = 0;
                 packet.messages.push_back(fsv_read8);
@@ -637,6 +640,7 @@ namespace esphome
                 MessageSet fsv_read9(MessageNumber::VAR_in_fsv4053);
                 fsv_read9.value = 0;
                 packet.messages.push_back(fsv_read9);
+                */
             }
 
             /*
