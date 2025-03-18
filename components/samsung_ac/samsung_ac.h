@@ -732,9 +732,6 @@ namespace esphome
       }
 
 
-
-
-
       void set_target_offset(const std::string address, float value) override
       {
         execute_if_device_exists(address, [value](Samsung_AC_Device *dev)
