@@ -523,93 +523,106 @@ namespace esphome
           publish_request(request);
         };
       }
-      void set_fsv_read20_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read1_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read20 = switch_;
-          fsv_read20->write_state_ = [this](bool value)
+          fsv_read1 = switch_;
+          fsv_read1->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read20 = 0;
+                  request.fsv_read1 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read30_1_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read2_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read30_1 = switch_;
-          fsv_read30_1->write_state_ = [this](bool value)
+          fsv_read2 = switch_;
+          fsv_read2->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read30_1 = 0;
+                  request.fsv_read2 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read30_2_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read3_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read30_2 = switch_;
-          fsv_read30_2->write_state_ = [this](bool value)
+          fsv_read3 = switch_;
+          fsv_read3->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read30_2 = 0;
+                  request.fsv_read3 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read40_1_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read4_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read40_1 = switch_;
-          fsv_read40_1->write_state_ = [this](bool value)
+          fsv_read4 = switch_;
+          fsv_read4->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read40_1 = 0;
+                  request.fsv_read4 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read40_2_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read5_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read40_2 = switch_;
-          fsv_read40_2->write_state_ = [this](bool value)
+          fsv_read5 = switch_;
+          fsv_read5->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read40_2 = 0;
+                  request.fsv_read5 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read50_1_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read6_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read50_1 = switch_;
-          fsv_read50_1->write_state_ = [this](bool value)
+          fsv_read6 = switch_;
+          fsv_read6->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read50_1 = 0;
+                  request.fsv_read6 = 0;
                   publish_request(request);
               }
           };
       }
-      void set_fsv_read50_2_switch(Samsung_AC_Switch *switch_)
+      void set_fsv_read7_switch(Samsung_AC_Switch *switch_)
       {
-          fsv_read50_2 = switch_;
-          fsv_read50_2->write_state_ = [this](bool value)
+          fsv_read7 = switch_;
+          fsv_read7->write_state_ = [this](bool value)
           {
               if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
               {
                   ProtocolRequest request;
-                  request.fsv_read50_2 = 0;
+                  request.fsv_read7 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_fsv_read8_switch(Samsung_AC_Switch *switch_)
+      {
+          fsv_read8 = switch_;
+          fsv_read8->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.fsv_read8 = 0;
                   publish_request(request);
               }
           };

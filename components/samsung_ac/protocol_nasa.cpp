@@ -423,7 +423,7 @@ namespace esphome
                 packet.messages.push_back(power_zone2);
             }
 
-            if (request.fsv_read20)
+            if (request.fsv_read1)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -458,27 +458,9 @@ namespace esphome
                 MessageSet fsv_read7(MessageNumber::VAR_in_fsv2052);
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
-
-                /*
-                MessageSet fsv_read8(MessageNumber::VAR_in_fsv2061);
-                fsv_read8.value = 0;
-                packet.messages.push_back(fsv_read8);
-
-                MessageSet fsv_read9(MessageNumber::VAR_in_fsv2062);
-                fsv_read9.value = 0;
-                packet.messages.push_back(fsv_read9);
-
-                MessageSet fsv_read10(MessageNumber::VAR_in_fsv2071);
-                fsv_read10.value = 0;
-                packet.messages.push_back(fsv_read10);
-
-                MessageSet fsv_read11(MessageNumber::VAR_in_fsv2072);
-                fsv_read11.value = 0;
-                packet.messages.push_back(fsv_read11);
-                */
             }
 
-            if (request.fsv_read30_1)
+            if (request.fsv_read2)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -516,7 +498,7 @@ namespace esphome
                 
             }
 
-            if (request.fsv_read30_2)
+            if (request.fsv_read3)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -549,7 +531,7 @@ namespace esphome
                 packet.messages.push_back(fsv_read6);                
             }
 
-            if (request.fsv_read40_1)
+            if (request.fsv_read4)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -585,18 +567,9 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
-                /*
-                MessageSet fsv_read8(MessageNumber::VAR_in_fsv4031);
-                fsv_read8.value = 0;
-                packet.messages.push_back(fsv_read8);
-
-                MessageSet fsv_read9(MessageNumber::VAR_in_fsv4032);
-                fsv_read9.value = 0;
-                packet.messages.push_back(fsv_read9);
-                */
             }
 
-            if (request.fsv_read40_2)
+            if (request.fsv_read5)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
@@ -632,21 +605,47 @@ namespace esphome
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
 
-                /*
-                MessageSet fsv_read8(MessageNumber::VAR_in_fsv4052);
-                fsv_read8.value = 0;
-                packet.messages.push_back(fsv_read8);
-
-                MessageSet fsv_read9(MessageNumber::VAR_in_fsv4053);
-                fsv_read9.value = 0;
-                packet.messages.push_back(fsv_read9);
-                */
             }
 
-            /*
-            if (request.fsv_read50_1)
+            
+            if (request.fsv_read6)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv2061);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv2062);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv2071);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv2072);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv4031);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv4032);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv4052);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv4053);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+            
+            }
+            /*
 
                 MessageSet fsv_read0(MessageNumber::VAR_in_fsv5021);
                 fsv_read0.value = 0;
@@ -694,7 +693,7 @@ namespace esphome
                 
             }
 
-            if (request.fsv_read50_2)
+            if (request.fsv_read7)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 

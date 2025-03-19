@@ -87,13 +87,14 @@ CONF_DEVICE_OUT_SENSOR_CT1 = "outdoor_current"
 CONF_DEVICE_OUT_SENSOR_VOLTAGE = "outdoor_voltage"
 CONF_DEVICE_TARGET_OFFSET = "target_offset"
 CONF_DEVICE_OPERATION = "operation"
-CONF_DEVICE_FSV_READ20 = "fsv_read20"
-CONF_DEVICE_FSV_READ30_1 = "fsv_read30_1"
-CONF_DEVICE_FSV_READ30_2 = "fsv_read30_2"
-CONF_DEVICE_FSV_READ40_1 = "fsv_read40_1"
-CONF_DEVICE_FSV_READ40_2 = "fsv_read40_2"
-CONF_DEVICE_FSV_READ50_1 = "fsv_read50_1"
-CONF_DEVICE_FSV_READ50_2 = "fsv_read50_2"
+CONF_DEVICE_FSV_READ1 = "fsv_read1"
+CONF_DEVICE_FSV_READ2 = "fsv_read2"
+CONF_DEVICE_FSV_READ3 = "fsv_read3"
+CONF_DEVICE_FSV_READ4 = "fsv_read4"
+CONF_DEVICE_FSV_READ5 = "fsv_read5"
+CONF_DEVICE_FSV_READ6 = "fsv_read6"
+CONF_DEVICE_FSV_READ7 = "fsv_read7"
+CONF_DEVICE_FSV_READ8 = "fsv_read8"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_FILTER_WARNING = "filter_warning"
@@ -641,13 +642,14 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_POWER_ZONE2): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ20): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ30_1): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ30_2): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ40_1): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ40_2): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ50_1): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_FSV_READ50_2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ1): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ2): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ3): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ4): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ5): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ6): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ7): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV_READ8): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
@@ -838,13 +840,14 @@ async def to_code(config):
         device_actions = {
             CONF_DEVICE_POWER: (switch.new_switch, var_dev.set_power_switch),
             CONF_DEVICE_POWER_ZONE2: (switch.new_switch, var_dev.set_power_zone2_switch),
-            CONF_DEVICE_FSV_READ20: (switch.new_switch, var_dev.set_fsv_read20_switch),
-            CONF_DEVICE_FSV_READ30_1: (switch.new_switch, var_dev.set_fsv_read30_1_switch),
-            CONF_DEVICE_FSV_READ30_2: (switch.new_switch, var_dev.set_fsv_read30_2_switch),
-            CONF_DEVICE_FSV_READ40_1: (switch.new_switch, var_dev.set_fsv_read40_1_switch),
-            CONF_DEVICE_FSV_READ40_2: (switch.new_switch, var_dev.set_fsv_read40_2_switch),
-            CONF_DEVICE_FSV_READ50_1: (switch.new_switch, var_dev.set_fsv_read50_1_switch),
-            CONF_DEVICE_FSV_READ50_2: (switch.new_switch, var_dev.set_fsv_read50_2_switch),
+            CONF_DEVICE_FSV_READ1: (switch.new_switch, var_dev.set_fsv_read1_switch),
+            CONF_DEVICE_FSV_READ2: (switch.new_switch, var_dev.set_fsv_read2_switch),
+            CONF_DEVICE_FSV_READ3: (switch.new_switch, var_dev.set_fsv_read3_switch),
+            CONF_DEVICE_FSV_READ4: (switch.new_switch, var_dev.set_fsv_read4_switch),
+            CONF_DEVICE_FSV_READ5: (switch.new_switch, var_dev.set_fsv_read5_switch),
+            CONF_DEVICE_FSV_READ6: (switch.new_switch, var_dev.set_fsv_read6_switch),
+            CONF_DEVICE_FSV_READ7: (switch.new_switch, var_dev.set_fsv_read7_switch),
+            CONF_DEVICE_FSV_READ8: (switch.new_switch, var_dev.set_fsv_read8_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),

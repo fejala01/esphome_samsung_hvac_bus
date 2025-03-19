@@ -232,13 +232,14 @@ namespace esphome
         public:
             optional<bool> power;
             optional<bool> power_zone2;
-            optional<bool> fsv_read20;
-            optional<bool> fsv_read30_1;
-            optional<bool> fsv_read30_2;
-            optional<bool> fsv_read40_1;
-            optional<bool> fsv_read40_2;
-            optional<bool> fsv_read50_1;
-            optional<bool> fsv_read50_2;
+            optional<bool> fsv_read1;
+            optional<bool> fsv_read2;
+            optional<bool> fsv_read3;
+            optional<bool> fsv_read4;
+            optional<bool> fsv_read5;
+            optional<bool> fsv_read6;
+            optional<bool> fsv_read7;
+            optional<bool> fsv_read8;
             optional<bool> operation;
             optional<bool> vacation;
             optional<bool> fsv3041;
