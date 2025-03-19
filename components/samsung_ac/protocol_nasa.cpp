@@ -423,6 +423,15 @@ namespace esphome
                 packet.messages.push_back(power_zone2);
             }
 
+            if (request.quiet_mode)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet quiet_mode(MessageNumber::ENUM_in_quiet_mode);
+                quiet_mode.value = request.quiet_mode.value() ? 1 : 0;
+                packet.messages.push_back(quiet_mode);
+            }
+
             if (request.fsv_read1)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
@@ -2537,6 +2546,12 @@ namespace esphome
             {
                 LOG_MESSAGE(ENUM_in_operation_power_zone2, (double)message.value, source, dest);
                 target->set_power_zone2(source, message.value != 0);
+                break;
+            }
+            case MessageNumber::ENUM_in_quiet_mode:
+            {
+                LOG_MESSAGE(ENUM_in_quiet_mode, (double)message.value, source, dest);
+                target->set_quiet_mode(source, message.value != 0);
                 break;
             }
             case MessageNumber::ENUM_in_operation:

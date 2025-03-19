@@ -156,6 +156,7 @@ namespace esphome
       Samsung_AC_Number *target_offset{nullptr};
       Samsung_AC_Switch *power{nullptr};
       Samsung_AC_Switch *power_zone2{nullptr};
+      Samsung_AC_Switch *quiet_mode{nullptr};
       Samsung_AC_Switch *fsv_read1{nullptr};
       Samsung_AC_Switch *fsv_read2{nullptr};
       Samsung_AC_Switch *fsv_read3{nullptr};
@@ -521,6 +522,16 @@ namespace esphome
         {
           ProtocolRequest request;
           request.power_zone2 = value;
+          publish_request(request);
+        };
+      }
+      void set_quiet_mode_switch(Samsung_AC_Switch *switch_)
+      {
+        quiet_mode = switch_;
+        quiet_mode->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.quiet_mode = value;
           publish_request(request);
         };
       }
@@ -2119,6 +2130,7 @@ namespace esphome
 
       optional<bool> _cur_power;
       optional<bool> _cur_power_zone2;
+      optional<bool> _cur_quiet_mode;
       optional<bool> _cur_operation;
       optional<bool> _cur_vacation;
       optional<bool> _cur_fsv3041;
@@ -2144,6 +2156,12 @@ namespace esphome
           power_zone2->publish_state(value);
         if (climate != nullptr)
           calc_and_publish_mode();
+      }
+      void update_quiet_mode(bool value)
+      {
+        _cur_quiet_mode = value;
+        if (quiet_mode != nullptr)
+          quiet_mode->publish_state(value);
       }
       
       void update_operation(bool value)
