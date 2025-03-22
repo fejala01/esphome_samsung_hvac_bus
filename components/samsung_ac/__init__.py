@@ -96,6 +96,7 @@ CONF_DEVICE_FSV_READ5 = "fsv_read5"
 CONF_DEVICE_FSV_READ6 = "fsv_read6"
 CONF_DEVICE_FSV_READ7 = "fsv_read7"
 CONF_DEVICE_FSV_READ8 = "fsv_read8"
+CONF_DEVICE_ENERGY_READ = "energy_read"
 
 #ZUSATZ SENSOREN
 CONF_DEVICE_FILTER_WARNING = "filter_warning"
@@ -652,6 +653,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV_READ6): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV_READ7): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV_READ8): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_ENERGY_READ): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
@@ -851,6 +853,7 @@ async def to_code(config):
             CONF_DEVICE_FSV_READ6: (switch.new_switch, var_dev.set_fsv_read6_switch),
             CONF_DEVICE_FSV_READ7: (switch.new_switch, var_dev.set_fsv_read7_switch),
             CONF_DEVICE_FSV_READ8: (switch.new_switch, var_dev.set_fsv_read8_switch),
+            CONF_DEVICE_ENERGY_READ: (switch.new_switch, var_dev.set_energy_read_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),

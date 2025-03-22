@@ -241,6 +241,7 @@ namespace esphome
             optional<bool> fsv_read6;
             optional<bool> fsv_read7;
             optional<bool> fsv_read8;
+            optional<bool> energy_read;
             optional<bool> operation;
             optional<bool> vacation;
             optional<bool> fsv3041;

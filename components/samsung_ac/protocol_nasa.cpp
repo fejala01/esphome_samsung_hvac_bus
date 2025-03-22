@@ -654,6 +654,20 @@ namespace esphome
                 packet.messages.push_back(fsv_read8);
             
             }
+
+            if (request.energy_read)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet energy_read1(MessageNumber::LVAR_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM);
+                energy_read1.value = 0;
+                packet.messages.push_back(energy_read1);
+
+                MessageSet energy_read2(MessageNumber::VAR_in_energy_produced_lifetime);
+                energy_read2.value = 0;
+                packet.messages.push_back(energy_read2);
+            
+            }
             /*
 
                 MessageSet fsv_read0(MessageNumber::VAR_in_fsv5021);

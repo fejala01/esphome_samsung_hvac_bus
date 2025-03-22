@@ -165,6 +165,7 @@ namespace esphome
       Samsung_AC_Switch *fsv_read6{nullptr};
       Samsung_AC_Switch *fsv_read7{nullptr};
       Samsung_AC_Switch *fsv_read8{nullptr};
+      Samsung_AC_Switch *energy_read{nullptr};
       Samsung_AC_Switch *operation{nullptr};
       Samsung_AC_Switch *vacation{nullptr};
       Samsung_AC_Switch *fsv3041{nullptr};
@@ -635,6 +636,19 @@ namespace esphome
               {
                   ProtocolRequest request;
                   request.fsv_read8 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_energy_read_switch(Samsung_AC_Switch *switch_)
+      {
+          energy_read = switch_;
+          energy_read->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.energy_read = 0;
                   publish_request(request);
               }
           };
