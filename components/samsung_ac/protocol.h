@@ -85,6 +85,8 @@ namespace esphome
             virtual void set_fsv3041(const std::string address, bool value) = 0;
             virtual void set_fsv4061(const std::string address, bool value) = 0;
             virtual void set_fsv5022(const std::string address, bool value) = 0;
+            virtual void set_fsv5041(const std::string address, bool value) = 0;
+            virtual void set_fsv5043(const std::string address, bool value) = 0;
             virtual void set_automatic_cleaning(const std::string address, bool value) = 0;
             virtual void set_water_heater_power(const std::string address, bool value) = 0;
             virtual void set_room_temperature(const std::string address, float value) = 0;
@@ -223,6 +225,8 @@ namespace esphome
             virtual void set_fsv4052(const std::string address, float value) = 0;
             virtual void set_fsv4053(const std::string address, float value) = 0;
             virtual void set_fsv5021(const std::string address, float value) = 0;
+            virtual void set_fsv5023(const std::string address, float value) = 0;
+            virtual void set_fsv5042(const std::string address, float value) = 0;
 
 
 
@@ -250,6 +254,8 @@ namespace esphome
             optional<bool> fsv3041;
             optional<bool> fsv4061;
             optional<bool> fsv5022;
+            optional<bool> fsv5041;
+            optional<bool> fsv5043;
             optional<bool> automatic_cleaning;
             optional<bool> water_heater_power;
             optional<Mode> mode;
@@ -337,6 +343,8 @@ namespace esphome
             optional<float> fsv4052;
             optional<float> fsv4053;
             optional<float> fsv5021;
+            optional<float> fsv5023;
+            optional<float> fsv5042;
             optional<float> target_offset;
             optional<FanMode> fan_mode;
             optional<SwingMode> swing_mode;

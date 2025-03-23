@@ -172,6 +172,8 @@ namespace esphome
       Samsung_AC_Switch *fsv3041{nullptr};
       Samsung_AC_Switch *fsv4061{nullptr};
       Samsung_AC_Switch *fsv5022{nullptr};
+      Samsung_AC_Switch *fsv5041{nullptr};
+      Samsung_AC_Switch *fsv5043{nullptr};
       Samsung_AC_Switch *automatic_cleaning{nullptr};
       Samsung_AC_Switch *water_heater_power{nullptr};
       Samsung_AC_Mode_Select *mode{nullptr};
@@ -258,6 +260,8 @@ namespace esphome
       Samsung_AC_Number *fsv4052{nullptr};
       Samsung_AC_Number *fsv4053{nullptr};
       Samsung_AC_Number *fsv5021{nullptr};
+      Samsung_AC_Number *fsv5023{nullptr};
+      Samsung_AC_Number *fsv5042{nullptr};
 
 
 
@@ -717,6 +721,27 @@ namespace esphome
           publish_request(request);
         };
       }
+      void set_fsv5041_switch(Samsung_AC_Switch *switch_)
+      {
+        fsv5041 = switch_;
+        fsv5041->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.fsv5041 = value;
+          publish_request(request);
+        };
+      }
+      void set_fsv5043_switch(Samsung_AC_Switch *switch_)
+      {
+        fsv5043 = switch_;
+        fsv5043->write_state_ = [this](bool value)
+        {
+          ProtocolRequest request;
+          request.fsv5043 = value;
+          publish_request(request);
+        };
+      }
+
 
       void set_automatic_cleaning_switch(Samsung_AC_Switch *switch_)
       {
@@ -1672,6 +1697,28 @@ namespace esphome
         };
       };
 
+      void set_fsv5023_number(Samsung_AC_Number *number)
+      {
+        fsv5023 = number;
+        fsv5023->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv5023 = value;
+          publish_request(request);
+        };
+      };
+
+      void set_fsv5042_number(Samsung_AC_Number *number)
+      {
+          fsv5042 = number;
+          fsv5042->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv5042 = value;
+              publish_request(request);
+          };
+      }
+
 
 
 
@@ -2169,6 +2216,18 @@ namespace esphome
           fsv5021->publish_state(value);
       }
 
+      void update_fsv5023(float value)
+      {
+        if (fsv5023 != nullptr)
+          fsv5023->publish_state(value);
+      }
+
+      void update_fsv5042(float value)
+      {
+          if (fsv5042 != nullptr)
+              fsv5042->publish_state(value);
+      }
+
 
 
       optional<bool> _cur_power;
@@ -2180,6 +2239,8 @@ namespace esphome
       optional<bool> _cur_fsv3041;
       optional<bool> _cur_fsv4061;
       optional<bool> _cur_fsv5022;
+      optional<bool> _cur_fsv5041;
+      optional<bool> _cur_fsv5043;
       optional<bool> _cur_automatic_cleaning;
       optional<bool> _cur_water_heater_power;
       optional<Mode> _cur_mode;
@@ -2243,6 +2304,18 @@ namespace esphome
         _cur_fsv5022 = value;
         if (fsv5022 != nullptr)
           fsv5022->publish_state(value);
+      }
+      void update_fsv5041(bool value)
+      {
+        _cur_fsv5041 = value;
+        if (fsv5041 != nullptr)
+          fsv5041->publish_state(value);
+      }
+      void update_fsv5043(bool value)
+      {
+        _cur_fsv5043 = value;
+        if (fsv5043 != nullptr)
+          fsv5043->publish_state(value);
       }
       void update_automatic_cleaning(bool value)
       {
