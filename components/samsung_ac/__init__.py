@@ -1408,6 +1408,7 @@ async def to_code(config):
         if CONF_DEVICE_FSV3032 in device:
             conf = device[CONF_DEVICE_FSV3032]
             conf[CONF_DEVICE_CLASS] = "min"
+            icon = "mdi:clock-time-eight-outline"
             num = await number.new_number(
                 conf, min_value=20, max_value=95, step=1
             )
@@ -1508,6 +1509,8 @@ async def to_code(config):
             cg.add(var_dev.set_fsv3042_number(num))
         if CONF_DEVICE_FSV3043 in device: 
             conf = device[CONF_DEVICE_FSV3043]
+            icon = "mdi:clock-time-eight-outline"
+            conf[CONF_UNIT_OF_MEASUREMENT] = "Uhr"
             num = await number.new_number(
                 conf, min_value=0, max_value=23, step=1
             )
@@ -1524,6 +1527,7 @@ async def to_code(config):
         if CONF_DEVICE_FSV3046 in device: 
             conf = device[CONF_DEVICE_FSV3046]
             conf[CONF_UNIT_OF_MEASUREMENT] = "min"
+            icon = "mdi:clock-time-eight-outline"
             num = await number.new_number(
                 conf, min_value=10, max_value=240, step=10
             )
