@@ -675,7 +675,7 @@ namespace esphome
                 fsv_read2.value = 0;
                 packet.messages.push_back(fsv_read2);
 
-                MessageSet fsv_read3(MessageNumber::VAR_in_fsv5041);
+                MessageSet fsv_read3(MessageNumber::ENUM_in_fsv5041);
                 fsv_read3.value = 0;
                 packet.messages.push_back(fsv_read3);
 
@@ -683,7 +683,7 @@ namespace esphome
                 fsv_read4.value = 0;
                 packet.messages.push_back(fsv_read4);
 
-                MessageSet fsv_read5(MessageNumber::VAR_in_fsv5043);
+                MessageSet fsv_read5(MessageNumber::ENUM_in_fsv5043);
                 fsv_read5.value = 0;
                 packet.messages.push_back(fsv_read5);
 
