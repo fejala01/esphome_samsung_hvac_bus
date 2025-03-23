@@ -226,7 +226,14 @@ CONF_DEVICE_FSV5023 = "fsv5023"
 CONF_DEVICE_FSV5041 = "fsv5041"
 CONF_DEVICE_FSV5042 = "fsv5042"
 CONF_DEVICE_FSV5043 = "fsv5043"
-
+CONF_DEVICE_FSV5051 = "fsv5051"
+CONF_DEVICE_FSV5081 = "fsv5081"
+CONF_DEVICE_FSV5082 = "fsv5082"
+CONF_DEVICE_FSV5083 = "fsv5083"
+CONF_DEVICE_FSV5091 = "fsv5091"
+CONF_DEVICE_FSV5092 = "fsv5092"
+CONF_DEVICE_FSV5093 = "fsv5093"
+CONF_DEVICE_FSV5094 = "fsv5094"
 
 CONF_CAPABILITIES = "capabilities"
 CONF_CAPABILITIES_HORIZONTAL_SWING = "horizontal_swing"
@@ -651,6 +658,10 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV5021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5023): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5042): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5082): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5083): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5092): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV5093): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
@@ -673,6 +684,10 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV5022): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5041): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5043): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV5051): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV5081): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV5091): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV5094): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
             Samsung_AC_Switch
         ),
@@ -876,6 +891,10 @@ async def to_code(config):
             CONF_DEVICE_FSV5022: (switch.new_switch, var_dev.set_fsv5022_switch),
             CONF_DEVICE_FSV5041: (switch.new_switch, var_dev.set_fsv5041_switch),
             CONF_DEVICE_FSV5043: (switch.new_switch, var_dev.set_fsv5043_switch),
+            CONF_DEVICE_FSV5051: (switch.new_switch, var_dev.set_fsv5051_switch),
+            CONF_DEVICE_FSV5081: (switch.new_switch, var_dev.set_fsv5081_switch),
+            CONF_DEVICE_FSV5091: (switch.new_switch, var_dev.set_fsv5091_switch),
+            CONF_DEVICE_FSV5094: (switch.new_switch, var_dev.set_fsv5094_switch),
             CONF_DEVICE_AUTOMATIC_CLEANING: (
                 switch.new_switch,
                 var_dev.set_automatic_cleaning_switch,
@@ -1408,7 +1427,6 @@ async def to_code(config):
         if CONF_DEVICE_FSV3032 in device:
             conf = device[CONF_DEVICE_FSV3032]
             conf[CONF_DEVICE_CLASS] = "min"
-            icon = "mdi:clock-time-eight-outline"
             num = await number.new_number(
                 conf, min_value=20, max_value=95, step=1
             )
@@ -1509,7 +1527,6 @@ async def to_code(config):
             cg.add(var_dev.set_fsv3042_number(num))
         if CONF_DEVICE_FSV3043 in device: 
             conf = device[CONF_DEVICE_FSV3043]
-            icon = "mdi:clock-time-eight-outline"
             conf[CONF_UNIT_OF_MEASUREMENT] = "Uhr"
             num = await number.new_number(
                 conf, min_value=0, max_value=23, step=1
@@ -1527,7 +1544,6 @@ async def to_code(config):
         if CONF_DEVICE_FSV3046 in device: 
             conf = device[CONF_DEVICE_FSV3046]
             conf[CONF_UNIT_OF_MEASUREMENT] = "min"
-            icon = "mdi:clock-time-eight-outline"
             num = await number.new_number(
                 conf, min_value=10, max_value=240, step=10
             )
@@ -1716,6 +1732,42 @@ async def to_code(config):
                 conf, min_value=0, max_value=3, step=1
             )
             cg.add(var_dev.set_fsv5042_number(num))
+        
+        if CONF_DEVICE_FSV5082 in device:
+            conf = device[CONF_DEVICE_FSV5082]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=1, max_value=20, step=1
+            )
+            cg.add(var_dev.set_fsv5082_number(num))
+        
+        if CONF_DEVICE_FSV5083 in device:
+            conf = device[CONF_DEVICE_FSV5083]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=1, max_value=50, step=1
+            )
+            cg.add(var_dev.set_fsv5083_number(num))
+
+        if CONF_DEVICE_FSV5092 in device:
+            conf = device[CONF_DEVICE_FSV5092]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=1, max_value=50, step=1
+            )
+            cg.add(var_dev.set_fsv5092_number(num))
+        
+        if CONF_DEVICE_FSV5093 in device:
+            conf = device[CONF_DEVICE_FSV5093]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=1, max_value=40, step=1
+            )
+            cg.add(var_dev.set_fsv5093_number(num))
 
 
         
