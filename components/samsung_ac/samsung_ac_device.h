@@ -257,6 +257,7 @@ namespace esphome
       Samsung_AC_Number *fsv4051{nullptr};
       Samsung_AC_Number *fsv4052{nullptr};
       Samsung_AC_Number *fsv4053{nullptr};
+      Samsung_AC_Number *fsv5021{nullptr};
 
 
 
@@ -1660,6 +1661,17 @@ namespace esphome
           };
       }
 
+      void set_fsv5021_number(Samsung_AC_Number *number)
+      {
+        fsv5021 = number;
+        fsv5021->write_state_ = [this](float value)
+        {
+          ProtocolRequest request;
+          request.fsv5021 = value;
+          publish_request(request);
+        };
+      };
+
 
 
 
@@ -2149,6 +2161,12 @@ namespace esphome
       {
           if (fsv4053 != nullptr)
               fsv4053->publish_state(value);
+      }
+
+      void update_fsv5021(float value)
+      {
+        if (fsv5021 != nullptr)
+          fsv5021->publish_state(value);
       }
 
 

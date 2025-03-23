@@ -663,6 +663,44 @@ namespace esphome
             
             }
 
+            if (request.fsv_read7)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read1(MessageNumber::VAR_in_fsv5021);
+                fsv_read1.value = 0;
+                packet.messages.push_back(fsv_read1);
+
+                MessageSet fsv_read2(MessageNumber::VAR_in_fsv2062);
+                fsv_read2.value = 0;
+                packet.messages.push_back(fsv_read2);
+
+                MessageSet fsv_read3(MessageNumber::VAR_in_fsv2071);
+                fsv_read3.value = 0;
+                packet.messages.push_back(fsv_read3);
+
+                MessageSet fsv_read4(MessageNumber::VAR_in_fsv2072);
+                fsv_read4.value = 0;
+                packet.messages.push_back(fsv_read4);
+
+                MessageSet fsv_read5(MessageNumber::VAR_in_fsv4031);
+                fsv_read5.value = 0;
+                packet.messages.push_back(fsv_read5);
+
+                MessageSet fsv_read6(MessageNumber::VAR_in_fsv4032);
+                fsv_read6.value = 0;
+                packet.messages.push_back(fsv_read6);
+
+                MessageSet fsv_read7(MessageNumber::VAR_in_fsv4052);
+                fsv_read7.value = 0;
+                packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv4053);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
+            
+            }
+
             if (request.energy_read)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
@@ -677,10 +715,6 @@ namespace esphome
             
             }
             /*
-
-                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5021);
-                fsv_read0.value = 0;
-                packet.messages.push_back(fsv_read0);
                 
                 MessageSet fsv_read1(MessageNumber::VAR_in_fsv5023);
                 fsv_read1.value = 0;
@@ -1529,6 +1563,19 @@ namespace esphome
                 MessageSet fsv4053(MessageNumber::VAR_in_fsv4053);  
                 fsv4053.value = request.fsv4053.value();  
                 packet.messages.push_back(fsv4053);  
+            }
+
+
+            if (request.fsv5021)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+
+                MessageSet fsv5021(MessageNumber::VAR_in_fsv5021);
+                fsv5021.value = request.fsv5021.value() * 10.0;
+                if (fsv5021.value < 0) {
+                    fsv5021.value = 65536 + fsv5021.value;
+                }
+                packet.messages.push_back(fsv5021);
             }
 
 
@@ -2542,6 +2589,13 @@ namespace esphome
                 break;
             }
 
+            case MessageNumber::VAR_in_fsv5021: // unit = 'Celsius' from XML
+            {
+                double temp = (double)(int16_t)message.value / (double)10;
+                LOG_MESSAGE(VAR_in_fsv5021, temp, source, dest);
+                target->set_fsv5021(source, temp);
+                break;
+            }
 
 
 

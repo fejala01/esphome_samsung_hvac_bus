@@ -221,6 +221,8 @@ CONF_DEVICE_FSV4051 = "fsv4051"
 CONF_DEVICE_FSV4052 = "fsv4052"
 CONF_DEVICE_FSV4053 = "fsv4053"
 
+CONF_DEVICE_FSV5021 = "fsv5021"
+
 
 CONF_CAPABILITIES = "capabilities"
 CONF_CAPABILITIES_HORIZONTAL_SWING = "horizontal_swing"
@@ -641,6 +643,8 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV4051): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4052): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4053): NUMBER_SCHEMA,
+
+        cv.Optional(CONF_DEVICE_FSV5021): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_TARGET_OFFSET): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_POWER): switch.switch_schema(Samsung_AC_Switch),
@@ -1672,6 +1676,16 @@ async def to_code(config):
                 conf, min_value=1, max_value=3, step=1
             )
             cg.add(var_dev.set_fsv4053_number(num))
+        
+
+        if CONF_DEVICE_FSV5021 in device:
+            conf = device[CONF_DEVICE_FSV5021]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=0, max_value=40, step=1
+            )
+            cg.add(var_dev.set_fsv5021_number(num))
 
 
         
