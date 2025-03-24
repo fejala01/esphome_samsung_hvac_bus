@@ -82,7 +82,10 @@ namespace esphome
             virtual void set_quiet_mode(const std::string address, bool value) = 0;
             virtual void set_operation(const std::string address, bool value) = 0;
             virtual void set_vacation(const std::string address, bool value) = 0;
+            virtual void set_fsv3031(const std::string address, bool value) = 0;
             virtual void set_fsv3041(const std::string address, bool value) = 0;
+            virtual void set_fsv3051(const std::string address, bool value) = 0;
+            virtual void set_fsv4023(const std::string address, bool value) = 0;
             virtual void set_fsv4061(const std::string address, bool value) = 0;
             virtual void set_fsv5022(const std::string address, bool value) = 0;
             virtual void set_fsv5041(const std::string address, bool value) = 0;
@@ -198,11 +201,9 @@ namespace esphome
             virtual void set_fsv3024(const std::string address, float value) = 0;
             virtual void set_fsv3025(const std::string address, float value) = 0;
             virtual void set_fsv3026(const std::string address, float value) = 0;
-            virtual void set_fsv3031(const std::string address, float value) = 0;
             virtual void set_fsv3032(const std::string address, float value) = 0;
             virtual void set_fsv3033(const std::string address, float value) = 0;
             virtual void set_fsv3044(const std::string address, float value) = 0;
-            virtual void set_fsv3051(const std::string address, float value) = 0;
             virtual void set_fsv3052(const std::string address, float value) = 0;
             virtual void set_fsv3071(const std::string address, float value) = 0;
             virtual void set_fsv3081(const std::string address, float value) = 0;
@@ -213,7 +214,6 @@ namespace esphome
             virtual void set_fsv4013(const std::string address, float value) = 0;
             virtual void set_fsv4021(const std::string address, float value) = 0;
             virtual void set_fsv4022(const std::string address, float value) = 0;
-            virtual void set_fsv4023(const std::string address, float value) = 0;
             virtual void set_fsv4024(const std::string address, float value) = 0;
             virtual void set_fsv4025(const std::string address, float value) = 0;
             virtual void set_fsv4031(const std::string address, float value) = 0;
@@ -259,7 +259,10 @@ namespace esphome
             optional<bool> energy_read;
             optional<bool> operation;
             optional<bool> vacation;
+            optional<bool> fsv3031;
             optional<bool> fsv3041;
+            optional<bool> fsv3051;
+            optional<bool> fsv4023;
             optional<bool> fsv4061;
             optional<bool> fsv5022;
             optional<bool> fsv5041;
@@ -324,11 +327,9 @@ namespace esphome
             optional<float> fsv3024;
             optional<float> fsv3025;
             optional<float> fsv3026;
-            optional<float> fsv3031;
             optional<float> fsv3032;
             optional<float> fsv3033;
             optional<float> fsv3044;
-            optional<float> fsv3051;
             optional<float> fsv3052;
             optional<float> fsv3071;
             optional<float> fsv3081;
@@ -339,7 +340,6 @@ namespace esphome
             optional<float> fsv4013;
             optional<float> fsv4021;
             optional<float> fsv4022;
-            optional<float> fsv4023;
             optional<float> fsv4024;
             optional<float> fsv4025;
             optional<float> fsv4031;

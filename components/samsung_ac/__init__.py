@@ -622,11 +622,11 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV3024): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3025): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3026): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV3031): NUMBER_SCHEMA,
+        
         cv.Optional(CONF_DEVICE_FSV3032): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3033): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3044): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV3051): NUMBER_SCHEMA,
+        
         cv.Optional(CONF_DEVICE_FSV3052): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3071): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV3081): NUMBER_SCHEMA,
@@ -638,7 +638,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV4013): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4021): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4022): NUMBER_SCHEMA,
-        cv.Optional(CONF_DEVICE_FSV4023): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV4024): NUMBER_SCHEMA,
 
         cv.Optional(CONF_DEVICE_FSV4025): NUMBER_SCHEMA,
@@ -679,7 +678,10 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_ENERGY_READ): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV3031): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV3041): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV3051): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_FSV4023): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV4061): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5022): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5041): switch.switch_schema(Samsung_AC_Switch),
@@ -886,7 +888,10 @@ async def to_code(config):
             CONF_DEVICE_ENERGY_READ: (switch.new_switch, var_dev.set_energy_read_switch),
             CONF_DEVICE_OPERATION: (switch.new_switch, var_dev.set_operation_switch),
             CONF_DEVICE_VACATION: (switch.new_switch, var_dev.set_vacation_switch),
+            CONF_DEVICE_FSV3031: (switch.new_switch, var_dev.set_fsv3031_switch),
             CONF_DEVICE_FSV3041: (switch.new_switch, var_dev.set_fsv3041_switch),
+            CONF_DEVICE_FSV3051: (switch.new_switch, var_dev.set_fsv3051_switch),
+            CONF_DEVICE_FSV4023: (switch.new_switch, var_dev.set_fsv4023_switch),
             CONF_DEVICE_FSV4061: (switch.new_switch, var_dev.set_fsv4061_switch),
             CONF_DEVICE_FSV5022: (switch.new_switch, var_dev.set_fsv5022_switch),
             CONF_DEVICE_FSV5041: (switch.new_switch, var_dev.set_fsv5041_switch),
@@ -1418,12 +1423,6 @@ async def to_code(config):
                 conf, min_value=0.5, max_value=10, step=0.5
             )
             cg.add(var_dev.set_fsv3026_number(num))
-        if CONF_DEVICE_FSV3031 in device:
-            conf = device[CONF_DEVICE_FSV3031]
-            num = await number.new_number(
-                conf, min_value=0, max_value=1, step=1
-            )
-            cg.add(var_dev.set_fsv3031_number(num))
         if CONF_DEVICE_FSV3032 in device:
             conf = device[CONF_DEVICE_FSV3032]
             conf[CONF_DEVICE_CLASS] = "min"
@@ -1447,12 +1446,6 @@ async def to_code(config):
                 conf, min_value=40, max_value=70, step=1
             )
             cg.add(var_dev.set_fsv3044_number(num))
-        if CONF_DEVICE_FSV3051 in device:
-            conf = device[CONF_DEVICE_FSV3051]
-            num = await number.new_number(
-                conf, min_value=0, max_value=1, step=1
-            )
-            cg.add(var_dev.set_fsv3051_number(num))
         if CONF_DEVICE_FSV3052 in device:
             conf[CONF_DEVICE_CLASS] = "min"
             num = await number.new_number(
@@ -1595,12 +1588,6 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv4022_number(num))
 
-        if CONF_DEVICE_FSV4023 in device:
-            conf = device[CONF_DEVICE_FSV4023]
-            num = await number.new_number(
-                conf, min_value=0, max_value=1, step=1
-            )
-            cg.add(var_dev.set_fsv4023_number(num))
         if CONF_DEVICE_FSV4024 in device:
             conf = device[CONF_DEVICE_FSV4024]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
