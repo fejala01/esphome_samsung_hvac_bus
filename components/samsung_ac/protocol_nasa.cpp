@@ -750,6 +750,14 @@ namespace esphome
                 MessageSet energy_read2(MessageNumber::VAR_in_energy_produced_lifetime);
                 energy_read2.value = 0;
                 packet.messages.push_back(energy_read2);
+
+                MessageSet energy_read3(MessageNumber::VAR_in_energy_produced_now);
+                energy_read3.value = 0;
+                packet.messages.push_back(energy_read3);
+
+                MessageSet energy_read4(MessageNumber::LVAR_OUT_CONTROL_WATTMETER_1W_1MIN_SUM);
+                energy_read4.value = 0;
+                packet.messages.push_back(energy_read4);
             
             }
            
