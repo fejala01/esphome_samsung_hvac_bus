@@ -3171,7 +3171,6 @@ namespace esphome
         }
 
 
-
         void process_messageset_debug(std::string source, std::string dest, MessageSet &message, MessageTarget *target)
         {
             if (source == "20.00.00" || source == "20.00.01" || source == "20.00.02" || source == "20.00.03")
