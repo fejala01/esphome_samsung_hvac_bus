@@ -158,6 +158,7 @@ namespace esphome
       Samsung_AC_Switch *power_zone2{nullptr};
       Samsung_AC_Switch *main_switch{nullptr};
       Samsung_AC_Switch *quiet_mode{nullptr};
+      Samsung_AC_Switch *rfsv1011{nullptr};
       Samsung_AC_Switch *fsv_read1{nullptr};
       Samsung_AC_Switch *fsv_read2{nullptr};
       Samsung_AC_Switch *fsv_read3{nullptr};
@@ -559,6 +560,19 @@ namespace esphome
           request.quiet_mode = value;
           publish_request(request);
         };
+      }
+      void set_rfsv1011_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1011 = switch_;
+          rfsv1011->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1011 = 0;
+                  publish_request(request);
+              }
+          };
       }
       void set_fsv_read1_switch(Samsung_AC_Switch *switch_)
       {

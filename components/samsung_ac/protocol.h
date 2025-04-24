@@ -248,6 +248,7 @@ namespace esphome
             optional<bool> power_zone2;
             optional<bool> main_switch;
             optional<bool> quiet_mode;
+            optional<bool> rfsv1011;
             optional<bool> fsv_read1;
             optional<bool> fsv_read2;
             optional<bool> fsv_read3;
