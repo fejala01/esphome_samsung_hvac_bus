@@ -364,7 +364,6 @@ namespace esphome
       {
         outdoor_voltage = sensor;
       }
-
       void set_outdoor_temperature_sensor(sensor::Sensor *sensor)
       {
         outdoor_temperature = sensor;
