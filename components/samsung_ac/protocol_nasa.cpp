@@ -506,6 +506,70 @@ namespace esphome
                 fsv_read0.value = 0;
                 packet.messages.push_back(fsv_read0);
             }
+            if (request.rfsv1051)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1051);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv1052)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1052);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5011)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5011);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5012)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5012);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5013)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5013);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5014)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5014);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5015)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5015);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv5016)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv5016);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
             
             if (request.fsv_read1)
             {

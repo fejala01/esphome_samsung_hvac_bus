@@ -152,13 +152,21 @@ CONF_DEVICE_RFSV1041 = "rfsv1041"
 CONF_DEVICE_FSV1042 = "fsv1042"
 CONF_DEVICE_RFSV1042 = "rfsv1042"
 CONF_DEVICE_FSV1051 = "fsv1051"
+CONF_DEVICE_RFSV1051 = "rfsv1051"
 CONF_DEVICE_FSV1052 = "fsv1052"
+CONF_DEVICE_RFSV1052 = "rfsv1052"
 CONF_DEVICE_FSV5011 = "fsv5011"
+CONF_DEVICE_RFSV5011 = "rfsv5011"
 CONF_DEVICE_FSV5012 = "fsv5012"
+CONF_DEVICE_RFSV5012 = "rfsv5012"
 CONF_DEVICE_FSV5013 = "fsv5013"
+CONF_DEVICE_RFSV5013 = "rfsv5013"
 CONF_DEVICE_FSV5014 = "fsv5014"
+CONF_DEVICE_RFSV5014 = "rfsv5014"
 CONF_DEVICE_FSV5015 = "fsv5015"
+CONF_DEVICE_RFSV5015 = "rfsv5015"
 CONF_DEVICE_FSV5016 = "fsv5016"
+CONF_DEVICE_RFSV5016 = "rfsv5016"
 CONF_DEVICE_FSV5017 = "fsv5017"
 CONF_DEVICE_FSV5018 = "fsv5018"
 CONF_DEVICE_FSV5019 = "fsv5019"
@@ -691,6 +699,14 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_RFSV1032): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_RFSV1041): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_RFSV1042): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV1051): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV1052): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5011): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5012): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5013): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5014): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5015): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV5016): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_ENERGY_READ): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
@@ -901,6 +917,14 @@ async def to_code(config):
             CONF_DEVICE_RFSV1032: (switch.new_switch, var_dev.set_rfsv1032_switch),
             CONF_DEVICE_RFSV1041: (switch.new_switch, var_dev.set_rfsv1041_switch),
             CONF_DEVICE_RFSV1042: (switch.new_switch, var_dev.set_rfsv1042_switch),
+            CONF_DEVICE_RFSV1051: (switch.new_switch, var_dev.set_rfsv1051_switch),
+            CONF_DEVICE_RFSV1052: (switch.new_switch, var_dev.set_rfsv1052_switch),
+            CONF_DEVICE_RFSV5011: (switch.new_switch, var_dev.set_rfsv5011_switch),
+            CONF_DEVICE_RFSV5012: (switch.new_switch, var_dev.set_rfsv5012_switch),
+            CONF_DEVICE_RFSV5013: (switch.new_switch, var_dev.set_rfsv5013_switch),
+            CONF_DEVICE_RFSV5014: (switch.new_switch, var_dev.set_rfsv5014_switch),
+            CONF_DEVICE_RFSV5015: (switch.new_switch, var_dev.set_rfsv5015_switch),
+            CONF_DEVICE_RFSV5016: (switch.new_switch, var_dev.set_rfsv5016_switch),
             CONF_DEVICE_FSV_READ1: (switch.new_switch, var_dev.set_fsv_read1_switch),
             CONF_DEVICE_FSV_READ2: (switch.new_switch, var_dev.set_fsv_read2_switch),
             CONF_DEVICE_FSV_READ3: (switch.new_switch, var_dev.set_fsv_read3_switch),

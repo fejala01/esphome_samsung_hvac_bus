@@ -256,6 +256,14 @@ namespace esphome
             optional<bool> rfsv1032;
             optional<bool> rfsv1041;
             optional<bool> rfsv1042;
+            optional<bool> rfsv1051;
+            optional<bool> rfsv1052;
+            optional<bool> rfsv5011;
+            optional<bool> rfsv5012;
+            optional<bool> rfsv5013;
+            optional<bool> rfsv5014;
+            optional<bool> rfsv5015;
+            optional<bool> rfsv5016;
             optional<bool> fsv_read1;
             optional<bool> fsv_read2;
             optional<bool> fsv_read3;
