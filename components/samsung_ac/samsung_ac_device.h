@@ -162,6 +162,10 @@ namespace esphome
       Samsung_AC_Switch *rfsv1012{nullptr};
       Samsung_AC_Switch *rfsv1021{nullptr};
       Samsung_AC_Switch *rfsv1022{nullptr};
+      Samsung_AC_Switch *rfsv1031{nullptr};
+      Samsung_AC_Switch *rfsv1032{nullptr};
+      Samsung_AC_Switch *rfsv1041{nullptr};
+      Samsung_AC_Switch *rfsv1042{nullptr};
       Samsung_AC_Switch *fsv_read1{nullptr};
       Samsung_AC_Switch *fsv_read2{nullptr};
       Samsung_AC_Switch *fsv_read3{nullptr};
@@ -612,6 +616,58 @@ namespace esphome
               {
                   ProtocolRequest request;
                   request.rfsv1022 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1031_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1031 = switch_;
+          rfsv1031->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1031 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1032_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1032 = switch_;
+          rfsv1032->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1032 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1041_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1041 = switch_;
+          rfsv1041->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1041 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1042_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1042 = switch_;
+          rfsv1042->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1042 = 0;
                   publish_request(request);
               }
           };

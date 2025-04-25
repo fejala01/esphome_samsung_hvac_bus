@@ -466,12 +466,43 @@ namespace esphome
                 fsv_read0.value = 0;
                 packet.messages.push_back(fsv_read0);
             }
-
             if (request.rfsv1022)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Read);
 
                 MessageSet fsv_read0(MessageNumber::VAR_in_fsv1022);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv1031)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1031);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv1032)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1032);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv1041)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1041);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+            if (request.rfsv1042)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1042);
                 fsv_read0.value = 0;
                 packet.messages.push_back(fsv_read0);
             }
