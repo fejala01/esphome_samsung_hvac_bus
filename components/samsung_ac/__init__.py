@@ -78,7 +78,6 @@ CONF_DEVICE_WATER_HEATER_POWER = "water_heater_power"
 CONF_DEVICE_MODE = "mode"
 CONF_DEVICE_WATER_HEATER_MODE = "water_heater_mode"
 CONF_DEVICE_CLIMATE = "climate"
-CONF_DEVICE_ROOM_HUMIDITY = "room_humidity"
 CONF_DEVICE_CUSTOM = "custom_sensor"
 CONF_DEVICE_CUSTOM_MESSAGE = "message"
 CONF_DEVICE_CUSTOM_RAW_FILTERS = "raw_filters"
@@ -116,7 +115,6 @@ CONF_DEVICE_OPERATION_MODE_REAL = "operation_mode_real"
 CONF_DEVICE_WATER_PRESSURE = "water_pressure"
 CONF_DEVICE_3WAY_VALVE = "3way_valve"
 CONF_DEVICE_TEMP_MIXING_VALVE = "temp_mixing_valve"
-CONF_DEVICE_WATER_TEMPERATURE_OUT = "water_temperature_out"
 CONF_DEVICE_DEICE_STATUS = "deice_status"
 CONF_DEVICE_DEICE_MODE = "deice_mode"
 CONF_DEVICE_SERVICE = "service"
@@ -404,12 +402,6 @@ DEVICE_SCHEMA = cv.Schema(
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_CURRENT_TEMP_ZONE1): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            device_class=DEVICE_CLASS_TEMPERATURE,
-            state_class=STATE_CLASS_MEASUREMENT,
-        ),
-        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE_OUT): sensor.sensor_schema(
             unit_of_measurement=UNIT_CELSIUS,
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_TEMPERATURE,
@@ -737,7 +729,6 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         # keep CUSTOM_SENSOR_KEYS in sync with these
         cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
-        cv.Optional(CONF_DEVICE_ROOM_HUMIDITY): humidity_sensor_schema(0x4038),
         cv.Optional(
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM
         ): sensor.sensor_schema(
@@ -792,7 +783,6 @@ DEVICE_SCHEMA = cv.Schema(
 
 CUSTOM_SENSOR_KEYS = [
     CONF_DEVICE_WATER_TEMPERATURE,
-    CONF_DEVICE_ROOM_HUMIDITY,
 ]
 
 CONF_DEVICES = "devices"
@@ -963,10 +953,6 @@ async def to_code(config):
             CONF_DEVICE_CURRENT_TEMP_ZONE1: (
                 sensor.new_sensor,
                 var_dev.set_current_temp_zone1_sensor,
-            ),
-            CONF_DEVICE_WATER_TEMPERATURE_OUT: (
-                sensor.new_sensor,
-                var_dev.set_water_temperature_out_sensor,
             ),
             CONF_DEVICE_DISCHARGE_TEMP: (
                 sensor.new_sensor,

@@ -106,7 +106,6 @@ namespace esphome
       sensor::Sensor *room_temperature{nullptr};
       sensor::Sensor *current_temp_zone1{nullptr};
       sensor::Sensor *current_temp_zone2{nullptr};
-      sensor::Sensor *water_temperature_out{nullptr};
       sensor::Sensor *discharge_temp{nullptr};
       sensor::Sensor *water_law_target{nullptr};
       sensor::Sensor *sensor_tw1{nullptr};
@@ -377,10 +376,6 @@ namespace esphome
       void set_current_temp_zone2_sensor(sensor::Sensor *sensor)
       {
         current_temp_zone2 = sensor;
-      }
-      void set_water_temperature_out_sensor(sensor::Sensor *sensor)
-      {
-        water_temperature_out = sensor;
       }
       void set_discharge_temp_sensor(sensor::Sensor *sensor)
       {

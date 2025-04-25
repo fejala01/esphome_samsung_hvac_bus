@@ -1984,13 +1984,6 @@ namespace esphome
                 target->set_current_temp_zone2(source, temp);
                 break;
             }
-            case MessageNumber::VAR_in_water_temperature_out: // unit = 'Celsius' from XML
-            {
-                double temp = (double)message.value / (double)10;
-                LOG_MESSAGE(VAR_in_water_temperature_out, temp, source, dest);
-                target->set_water_temperature_out(source, temp);
-                break;
-            }
             case MessageNumber::VAR_out_discharge_temp: // unit = 'Celsius' from XML
             {
                 double temp = (double)message.value / (double)10;
@@ -2850,20 +2843,6 @@ namespace esphome
             }
 
 
-
-
-
-
-
-
-
-
-
-            case MessageNumber::ENUM_in_state_humidity_percent:
-            {
-                LOG_MESSAGE(ENUM_in_state_humidity_percent, (double)message.value, source, dest);
-                break;
-            }
             case MessageNumber::ENUM_in_operation_power:
             {
                 LOG_MESSAGE(ENUM_in_operation_power, (double)message.value, source, dest);
