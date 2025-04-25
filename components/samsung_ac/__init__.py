@@ -786,7 +786,6 @@ CUSTOM_SENSOR_KEYS = [
 ]
 
 CONF_DEVICES = "devices"
-
 CONF_DEBUG_MQTT_HOST = "debug_mqtt_host"
 CONF_DEBUG_MQTT_PORT = "debug_mqtt_port"
 CONF_DEBUG_MQTT_USERNAME = "debug_mqtt_username"
