@@ -357,7 +357,6 @@ def humidity_sensor_schema(message: int):
         state_class=STATE_CLASS_MEASUREMENT,
     )
 
-
 def error_code_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
