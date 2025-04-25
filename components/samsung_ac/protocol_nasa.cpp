@@ -448,6 +448,33 @@ namespace esphome
                 fsv_read0.value = 0;
                 packet.messages.push_back(fsv_read0);
             }
+
+            if (request.rfsv1012)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1012);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+
+            if (request.rfsv1021)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1021);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
+
+            if (request.rfsv1022)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Read);
+
+                MessageSet fsv_read0(MessageNumber::VAR_in_fsv1022);
+                fsv_read0.value = 0;
+                packet.messages.push_back(fsv_read0);
+            }
             
             if (request.fsv_read1)
             {

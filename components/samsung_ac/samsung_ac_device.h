@@ -159,6 +159,9 @@ namespace esphome
       Samsung_AC_Switch *main_switch{nullptr};
       Samsung_AC_Switch *quiet_mode{nullptr};
       Samsung_AC_Switch *rfsv1011{nullptr};
+      Samsung_AC_Switch *rfsv1012{nullptr};
+      Samsung_AC_Switch *rfsv1021{nullptr};
+      Samsung_AC_Switch *rfsv1022{nullptr};
       Samsung_AC_Switch *fsv_read1{nullptr};
       Samsung_AC_Switch *fsv_read2{nullptr};
       Samsung_AC_Switch *fsv_read3{nullptr};
@@ -570,6 +573,45 @@ namespace esphome
               {
                   ProtocolRequest request;
                   request.rfsv1011 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1012_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1012 = switch_;
+          rfsv1012->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1012 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1021_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1021 = switch_;
+          rfsv1021->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1021 = 0;
+                  publish_request(request);
+              }
+          };
+      }
+      void set_rfsv1022_switch(Samsung_AC_Switch *switch_)
+      {
+          rfsv1022 = switch_;
+          rfsv1022->write_state_ = [this](bool value)
+          {
+              if (value) // Nur reagieren, wenn der Schalter eingeschaltet wird
+              {
+                  ProtocolRequest request;
+                  request.rfsv1022 = 0;
                   publish_request(request);
               }
           };

@@ -138,8 +138,11 @@ CONF_DEVICE_COMPRESSOR_FREQUENCY_RATIO = "compressor_frequency_ratio"
 CONF_DEVICE_FSV1011 = "fsv1011"
 CONF_DEVICE_RFSV1011 = "rfsv1011"
 CONF_DEVICE_FSV1012 = "fsv1012"
+CONF_DEVICE_RFSV1012 = "rfsv1012"
 CONF_DEVICE_FSV1021 = "fsv1021"
+CONF_DEVICE_RFSV1021 = "rfsv1021"
 CONF_DEVICE_FSV1022 = "fsv1022"
+CONF_DEVICE_RFSV1022 = "rfsv1022"
 CONF_DEVICE_FSV1031 = "fsv1031"
 CONF_DEVICE_FSV1032 = "fsv1032"
 CONF_DEVICE_FSV1041 = "fsv1041"
@@ -677,6 +680,9 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV_READ7): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV_READ8): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_RFSV1011): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV1012): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV1021): switch.switch_schema(Samsung_AC_Switch),
+        cv.Optional(CONF_DEVICE_RFSV1022): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_ENERGY_READ): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_OPERATION): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_VACATION): switch.switch_schema(Samsung_AC_Switch),
@@ -880,6 +886,9 @@ async def to_code(config):
             CONF_DEVICE_MAIN_SWITCH: (switch.new_switch, var_dev.set_main_switch_switch),
             CONF_DEVICE_QUIET_MODE: (switch.new_switch, var_dev.set_quiet_mode_switch),
             CONF_DEVICE_RFSV1011: (switch.new_switch, var_dev.set_rfsv1011_switch),
+            CONF_DEVICE_RFSV1012: (switch.new_switch, var_dev.set_rfsv1012_switch),
+            CONF_DEVICE_RFSV1021: (switch.new_switch, var_dev.set_rfsv1021_switch),
+            CONF_DEVICE_RFSV1022: (switch.new_switch, var_dev.set_rfsv1022_switch),
             CONF_DEVICE_FSV_READ1: (switch.new_switch, var_dev.set_fsv_read1_switch),
             CONF_DEVICE_FSV_READ2: (switch.new_switch, var_dev.set_fsv_read2_switch),
             CONF_DEVICE_FSV_READ3: (switch.new_switch, var_dev.set_fsv_read3_switch),
