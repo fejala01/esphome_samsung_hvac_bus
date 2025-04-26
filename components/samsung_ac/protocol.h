@@ -379,6 +379,7 @@ namespace esphome
             optional<SwingMode> swing_mode;
             optional<AltMode> alt_mode;
         };
+    
 
         class Protocol
         {
