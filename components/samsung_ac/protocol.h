@@ -235,9 +235,6 @@ namespace esphome
             virtual void set_fsv5083(const std::string address, float value) = 0;
             virtual void set_fsv5092(const std::string address, float value) = 0;
             virtual void set_fsv5093(const std::string address, float value) = 0;
-
-
-
             
         };
 
@@ -382,9 +379,6 @@ namespace esphome
             optional<SwingMode> swing_mode;
             optional<AltMode> alt_mode;
         };
-    
-
-
 
         class Protocol
         {

@@ -73,7 +73,6 @@ CONF_DEVICE_MAIN_SWITCH = "main_switch"
 CONF_DEVICE_QUIET_MODE = "quiet_mode"
 CONF_DEVICE_VACATION = "vacation"
 CONF_DEVICE_TARGET_TEMPERATURE_ZONE2 = "target_temperature_zone2"
-CONF_DEVICE_AUTOMATIC_CLEANING = "automatic_cleaning"
 CONF_DEVICE_WATER_HEATER_POWER = "water_heater_power"
 CONF_DEVICE_MODE = "mode"
 CONF_DEVICE_WATER_HEATER_MODE = "water_heater_mode"
@@ -276,7 +275,6 @@ def preset_entry(name: str, value: int, displayName: str):
         ),
     )
 
-
 PRESETS = {
     "sleep": {"value": 1, "displayName": "Sleep"},
     "quiet": {"value": 2, "displayName": "Quiet"},
@@ -336,7 +334,6 @@ def custom_sensor_schema(
         }
     )
 
-
 def temperature_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
@@ -346,7 +343,6 @@ def temperature_sensor_schema(message: int):
         state_class=STATE_CLASS_MEASUREMENT,
         raw_filters=[{"lambda": Lambda("return (int16_t)x;")}, {"multiply": 0.1}],
     )
-
 
 def humidity_sensor_schema(message: int):
     return custom_sensor_schema(
@@ -721,9 +717,6 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV5081): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5091): switch.switch_schema(Samsung_AC_Switch),
         cv.Optional(CONF_DEVICE_FSV5094): switch.switch_schema(Samsung_AC_Switch),
-        cv.Optional(CONF_DEVICE_AUTOMATIC_CLEANING): switch.switch_schema(
-            Samsung_AC_Switch
-        ),
         cv.Optional(CONF_DEVICE_WATER_HEATER_POWER): switch.switch_schema(
             Samsung_AC_Switch
         ),
@@ -947,10 +940,6 @@ async def to_code(config):
             CONF_DEVICE_FSV5081: (switch.new_switch, var_dev.set_fsv5081_switch),
             CONF_DEVICE_FSV5091: (switch.new_switch, var_dev.set_fsv5091_switch),
             CONF_DEVICE_FSV5094: (switch.new_switch, var_dev.set_fsv5094_switch),
-            CONF_DEVICE_AUTOMATIC_CLEANING: (
-                switch.new_switch,
-                var_dev.set_automatic_cleaning_switch,
-            ),
             CONF_DEVICE_WATER_HEATER_POWER: (
                 switch.new_switch,
                 var_dev.set_water_heater_power_switch,
@@ -1423,8 +1412,6 @@ async def to_code(config):
             )
             cg.add(var_dev.set_fsv2041_number(num))
 
-
-
         if CONF_DEVICE_FSV3021 in device:
             conf = device[CONF_DEVICE_FSV3021]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
@@ -1802,14 +1789,6 @@ async def to_code(config):
                 conf, min_value=1, max_value=40, step=1
             )
             cg.add(var_dev.set_fsv5093_number(num))
-
-
-        
-
-        
-
-
-
 
 
         if CONF_DEVICE_TARGET_OFFSET in device:

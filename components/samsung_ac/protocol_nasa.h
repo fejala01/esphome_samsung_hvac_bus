@@ -75,7 +75,6 @@ namespace esphome
             ENUM_in_quiet_mode = 0x4046,
             ENUM_in_operation = 0x4063,
             ENUM_in_vacation = 0x406D,
-            ENUM_in_operation_automatic_cleaning = 0x4111,
             ENUM_in_water_heater_power = 0x4065,
             ENUM_in_operation_mode = 0x4001,
             ENUM_in_water_heater_mode = 0x4066,
