@@ -311,6 +311,12 @@ CUSTOM_SENSOR_SCHEMA = sensor.sensor_schema().extend(
 
 def custom_sensor_schema(
     message: int,
+    unit_of_measurement,
+    icon,
+    accuracy_decimals,
+    device_class,
+    state_class,
+    entity_category,
 ):
     return sensor.sensor_schema(
         unit_of_measurement=unit_of_measurement,
