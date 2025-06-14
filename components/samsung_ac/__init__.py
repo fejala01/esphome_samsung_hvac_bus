@@ -795,7 +795,7 @@ DEVICE_SCHEMA = cv.Schema(
 )
 
 CUSTOM_SENSOR_KEYS = [
-    #CONF_DEVICE_WATER_TEMPERATURE,
+    CONF_DEVICE_WATER_TEMPERATURE,
     CONF_DEVICE_ROOM_HUMIDITY,
 ]
 
@@ -1004,7 +1004,10 @@ async def to_code(config):
                 sensor.new_sensor,
                 var_dev.set_waterpump_pwm_sensor,
             ),
-            
+            CONF_DEVICE_WATER_TEMPERATURE: (
+                sensor.new_sensor,
+                var_dev.set_watertemperature_sensor,
+            ),
             CONF_DEVICE_FILTER_WARNING: (
                 sensor.new_sensor,
                 var_dev.set_filter_warning_sensor,
