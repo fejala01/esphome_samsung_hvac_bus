@@ -344,10 +344,6 @@ def custom_sensor_schema(
 def temperature_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement=UNIT_CELSIUS,
-        accuracy_decimals=1,
-        device_class=DEVICE_CLASS_TEMPERATURE,
-        state_class=STATE_CLASS_MEASUREMENT,
         raw_filters=[{"lambda": Lambda("return (int16_t)x;")}, {"multiply": 0.1}],
     )
 
@@ -739,7 +735,20 @@ DEVICE_SCHEMA = cv.Schema(
             CUSTOM_SENSOR_SCHEMA
         ),
         # keep CUSTOM_SENSOR_KEYS in sync with these
-        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
+        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE
+        ): sensor.sensor_schema(
+            unit_of_measurement=UNIT_CELSIUS,
+            accuracy_decimals=1,
+            device_class=DEVICE_CLASS_TEMPERATURE
+            icon="mdi:thermometer",
+            state_class: STATE_CLASS_MEASUREMENT,
+        ).extend(
+            {
+                cv.Optional(
+                    CONF_FILTERS, default=[{"multiply": 0.1}]
+                ): sensor.validate_filters
+            }
+        ),
         cv.Optional(CONF_DEVICE_ROOM_HUMIDITY): humidity_sensor_schema(0x4038),
         cv.Optional(
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM
