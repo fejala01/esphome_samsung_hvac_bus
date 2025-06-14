@@ -379,7 +379,7 @@ def ventilator_sensor_schema(message: int):
 def waterpump_pwm_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement="%",
+        unit_of_measurement=UNIT_PERCENT,
         accuracy_decimals=0,
         icon="mdi:water-pump",
         state_class=STATE_CLASS_MEASUREMENT,
