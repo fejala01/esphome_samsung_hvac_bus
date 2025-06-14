@@ -340,9 +340,14 @@ def custom_sensor_schema(
 
     return schema
 
+
 def temperature_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
+        unit_of_measurement=UNIT_CELSIUS,
+        accuracy_decimals=1,
+        device_class=DEVICE_CLASS_TEMPERATURE,
+        state_class=STATE_CLASS_MEASUREMENT,
         raw_filters=[{"lambda": Lambda("return (int16_t)x;")}, {"multiply": 0.1}],
     )
 
@@ -455,12 +460,6 @@ DEVICE_SCHEMA = cv.Schema(
             accuracy_decimals=0,
             state_class=STATE_CLASS_MEASUREMENT,
             icon="mdi:water-pump",
-        ),
-        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): sensor.sensor_schema(
-            unit_of_measurement=UNIT_CELSIUS,
-            accuracy_decimals=1,
-            state_class=STATE_CLASS_MEASUREMENT,
-            icon="mdi:thermometer",
         ),
         cv.Optional(CONF_DEVICE_FILTER_WARNING): sensor.sensor_schema(
             accuracy_decimals=0,
@@ -740,7 +739,7 @@ DEVICE_SCHEMA = cv.Schema(
             CUSTOM_SENSOR_SCHEMA
         ),
         # keep CUSTOM_SENSOR_KEYS in sync with these
-        #cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
+        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
         cv.Optional(CONF_DEVICE_ROOM_HUMIDITY): humidity_sensor_schema(0x4038),
         cv.Optional(
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM
@@ -1003,10 +1002,6 @@ async def to_code(config):
             CONF_DEVICE_WATERPUMP_PWM: (
                 sensor.new_sensor,
                 var_dev.set_waterpump_pwm_sensor,
-            ),
-            CONF_DEVICE_WATER_TEMPERATURE: (
-                sensor.new_sensor,
-                var_dev.set_watertemperature_sensor,
             ),
             CONF_DEVICE_FILTER_WARNING: (
                 sensor.new_sensor,
