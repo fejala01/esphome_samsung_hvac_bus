@@ -379,10 +379,6 @@ def ventilator_sensor_schema(message: int):
 def waterpump_pwm_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement="%",
-        accuracy_decimals=0,
-        icon="mdi:water-pump",
-        state_class=STATE_CLASS_MEASUREMENT,
     )
 def compressor_frequency_ratio_sensor_schema(message: int):
     return custom_sensor_schema(
@@ -461,8 +457,9 @@ DEVICE_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_DEVICE_WATERPUMP_PWM): sensor.sensor_schema(
             unit_of_measurement="%",
-            accuracy_decimals=1,
+            accuracy_decimals=0,
             state_class=STATE_CLASS_MEASUREMENT,
+            icon="mdi:water-pump",
         ),
         cv.Optional(CONF_DEVICE_FILTER_WARNING): sensor.sensor_schema(
             accuracy_decimals=0,
