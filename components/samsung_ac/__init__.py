@@ -1006,7 +1006,7 @@ async def to_code(config):
             ),
             CONF_DEVICE_WATER_TEMPERATURE: (
                 sensor.new_sensor,
-                var_dev.set_watertemperature_sensor,
+                var_dev.set_water_temperature_sensor,
             ),
             CONF_DEVICE_FILTER_WARNING: (
                 sensor.new_sensor,
