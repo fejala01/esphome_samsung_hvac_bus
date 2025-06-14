@@ -740,7 +740,7 @@ DEVICE_SCHEMA = cv.Schema(
             CUSTOM_SENSOR_SCHEMA
         ),
         # keep CUSTOM_SENSOR_KEYS in sync with these
-        cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
+        #cv.Optional(CONF_DEVICE_WATER_TEMPERATURE): temperature_sensor_schema(0x4237),
         cv.Optional(CONF_DEVICE_ROOM_HUMIDITY): humidity_sensor_schema(0x4038),
         cv.Optional(
             CONF_DEVICE_OUT_CONTROL_WATTMETER_ALL_UNIT_ACCUM
@@ -795,7 +795,7 @@ DEVICE_SCHEMA = cv.Schema(
 )
 
 CUSTOM_SENSOR_KEYS = [
-    CONF_DEVICE_WATER_TEMPERATURE,
+    #CONF_DEVICE_WATER_TEMPERATURE,
     CONF_DEVICE_ROOM_HUMIDITY,
 ]
 
