@@ -351,6 +351,7 @@ def temperature_sensor_schema(message: int):
         raw_filters=[{"lambda": Lambda("return (int16_t)x;")}, {"multiply": 0.1}],
     )
 
+
 def humidity_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
