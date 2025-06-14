@@ -340,7 +340,6 @@ def custom_sensor_schema(
 
     return schema
 
-
 def temperature_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
