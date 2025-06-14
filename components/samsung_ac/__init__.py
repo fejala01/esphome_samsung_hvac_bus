@@ -18,6 +18,7 @@ from esphome.const import (
     UNIT_WATT,
     UNIT_VOLT,
     UNIT_AMPERE,
+    UNIT_RPM,
     CONF_UNIT_OF_MEASUREMENT,
     CONF_DEVICE_CLASS,
     CONF_FILTERS,
@@ -371,7 +372,7 @@ def error_code_sensor_schema(message: int):
 def ventilator_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement="rpm",
+        unit_of_measurement=UNIT_RPM,
         accuracy_decimals=0,
         icon="mdi:fan",
         state_class=STATE_CLASS_MEASUREMENT,
@@ -387,7 +388,7 @@ def waterpump_pwm_sensor_schema(message: int):
 def compressor_frequency_ratio_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement="%",
+        unit_of_measurement=UNIT_PERCENT,
         accuracy_decimals=0,
         icon="mdi:engine",
         state_class=STATE_CLASS_MEASUREMENT,
