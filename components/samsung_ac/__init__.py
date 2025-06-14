@@ -18,7 +18,6 @@ from esphome.const import (
     UNIT_WATT,
     UNIT_VOLT,
     UNIT_AMPERE,
-    UNIT_RPM,
     CONF_UNIT_OF_MEASUREMENT,
     CONF_DEVICE_CLASS,
     CONF_FILTERS,
@@ -372,7 +371,7 @@ def error_code_sensor_schema(message: int):
 def ventilator_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement=UNIT_RPM,
+        unit_of_measurement="rpm",
         accuracy_decimals=0,
         icon="mdi:fan",
         state_class=STATE_CLASS_MEASUREMENT,
@@ -380,7 +379,7 @@ def ventilator_sensor_schema(message: int):
 def waterpump_pwm_sensor_schema(message: int):
     return custom_sensor_schema(
         message=message,
-        unit_of_measurement=UNIT_PERCENT,
+        unit_of_measurement="%",
         accuracy_decimals=0,
         icon="mdi:water-pump",
         state_class=STATE_CLASS_MEASUREMENT,
@@ -458,6 +457,11 @@ DEVICE_SCHEMA = cv.Schema(
             unit_of_measurement="bar",
             accuracy_decimals=1,
             device_class=DEVICE_CLASS_PRESSURE,
+            state_class=STATE_CLASS_MEASUREMENT,
+        ),
+        cv.Optional(CONF_DEVICE_WATERPUMP_PWM): sensor.sensor_schema(
+            unit_of_measurement="%",
+            accuracy_decimals=1,
             state_class=STATE_CLASS_MEASUREMENT,
         ),
         cv.Optional(CONF_DEVICE_FILTER_WARNING): sensor.sensor_schema(
@@ -998,6 +1002,10 @@ async def to_code(config):
             CONF_DEVICE_WATER_PRESSURE: (
                 sensor.new_sensor,
                 var_dev.set_water_pressure_sensor,
+            ),
+            CONF_DEVICE_WATERPUMP_PWM: (
+                sensor.new_sensor,
+                var_dev.set_waterpump_pwm_sensor,
             ),
             CONF_DEVICE_FILTER_WARNING: (
                 sensor.new_sensor,
