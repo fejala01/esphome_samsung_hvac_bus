@@ -1104,7 +1104,7 @@ namespace esphome
                 }
                 packet.messages.push_back(fsv1061);
             }
-            f (request.fsv1062)
+            if (request.fsv1062)
             {
                 packet = Packet::createa_partial(Address::parse(address), DataType::Request);
                 MessageSet fsv1062(MessageNumber::VAR_in_fsv1062);
