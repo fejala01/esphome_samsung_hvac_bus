@@ -155,6 +155,9 @@ CONF_DEVICE_FSV1051 = "fsv1051"
 CONF_DEVICE_RFSV1051 = "rfsv1051"
 CONF_DEVICE_FSV1052 = "fsv1052"
 CONF_DEVICE_RFSV1052 = "rfsv1052"
+CONF_DEVICE_FSV1061 = "fsv1061"
+CONF_DEVICE_FSV1062 = "fsv1062"
+
 CONF_DEVICE_FSV5011 = "fsv5011"
 CONF_DEVICE_RFSV5011 = "rfsv5011"
 CONF_DEVICE_FSV5012 = "fsv5012"
@@ -603,6 +606,8 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_FSV1042): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1051): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV1052): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1061): NUMBER_SCHEMA,
+        cv.Optional(CONF_DEVICE_FSV1062): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5011): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5012): NUMBER_SCHEMA,
         cv.Optional(CONF_DEVICE_FSV5013): NUMBER_SCHEMA,
@@ -1256,6 +1261,26 @@ async def to_code(config):
                 conf, min_value=30.0, max_value=40.0, step=1
             )
             cg.add(var_dev.set_fsv1052_number(num))
+
+        if CONF_DEVICE_FSV1061 in device:
+            conf = device[CONF_DEVICE_FSV1061]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=0, max_value=7, step=1
+            )
+            cg.add(var_dev.set_fsv1061_number(num))
+        
+        if CONF_DEVICE_FSV1062 in device:
+            conf = device[CONF_DEVICE_FSV1062]
+            conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS
+            conf[CONF_DEVICE_CLASS] = DEVICE_CLASS_TEMPERATURE
+            num = await number.new_number(
+                conf, min_value=1, max_value=7, step=1
+            )
+            cg.add(var_dev.set_fsv1062_number(num))
+
+
         if CONF_DEVICE_FSV5011 in device:
             conf = device[CONF_DEVICE_FSV5011]
             conf[CONF_UNIT_OF_MEASUREMENT] = UNIT_CELSIUS

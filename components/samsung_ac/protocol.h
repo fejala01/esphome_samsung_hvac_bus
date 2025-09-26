@@ -163,6 +163,8 @@ namespace esphome
             virtual void set_fsv1042(const std::string address, float value) = 0;
             virtual void set_fsv1051(const std::string address, float value) = 0;
             virtual void set_fsv1052(const std::string address, float value) = 0;
+            virtual void set_fsv1061(const std::string address, float value) = 0;
+            virtual void set_fsv1062(const std::string address, float value) = 0;
             virtual void set_fsv5011(const std::string address, float value) = 0;
             virtual void set_fsv5012(const std::string address, float value) = 0;
             virtual void set_fsv5013(const std::string address, float value) = 0;
@@ -302,6 +304,8 @@ namespace esphome
             optional<float> fsv1042;
             optional<float> fsv1051;
             optional<float> fsv1052;
+            optional<float> fsv1061;
+            optional<float> fsv1062;
             optional<float> fsv5011;
             optional<float> fsv5012;
             optional<float> fsv5013;

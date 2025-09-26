@@ -684,6 +684,10 @@ namespace esphome
                 MessageSet fsv_read7(MessageNumber::VAR_in_fsv4025);
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv1061);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
             }
 
             if (request.fsv_read5)
@@ -720,6 +724,10 @@ namespace esphome
                 MessageSet fsv_read7(MessageNumber::VAR_in_fsv4051);
                 fsv_read7.value = 0;
                 packet.messages.push_back(fsv_read7);
+
+                MessageSet fsv_read8(MessageNumber::VAR_in_fsv1062);
+                fsv_read8.value = 0;
+                packet.messages.push_back(fsv_read8);
             }
 
             
@@ -1085,6 +1093,20 @@ namespace esphome
                 MessageSet fsv1052(MessageNumber::VAR_in_fsv1052);
                 fsv1052.value = request.fsv1052.value() * 10.0;
                 packet.messages.push_back(fsv1052);
+            }
+            if (request.fsv1061)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+                MessageSet fsv1061(MessageNumber::VAR_in_fsv1061);
+                fsv1061.value = request.fsv1061.value() * 10.0;
+                packet.messages.push_back(fsv1061);
+            }
+            if (request.fsv1062)
+            {
+                packet = Packet::createa_partial(Address::parse(address), DataType::Request);
+                MessageSet fsv1062(MessageNumber::VAR_in_fsv1062);
+                fsv1062.value = request.fsv1062.value() * 10.0;
+                packet.messages.push_back(fsv1062);
             }
             if (request.fsv5011)
             {
@@ -2134,6 +2156,20 @@ namespace esphome
                     double temp = (double)message.value / (double)10;
                     LOG_MESSAGE(VAR_in_fsv1052, temp, source, dest);
                     target->set_fsv1052(source, temp);
+                    break;
+                }
+            case MessageNumber::VAR_in_fsv1061: // unit = 'Celsius' from XML
+                {
+                    double temp = (double)message.value / (double)10;
+                    LOG_MESSAGE(VAR_in_fsv1061, temp, source, dest);
+                    target->set_fsv1061(source, temp);
+                    break;
+                }
+            case MessageNumber::VAR_in_fsv1062: // unit = 'Celsius' from XML
+                {
+                    double temp = (double)message.value / (double)10;
+                    LOG_MESSAGE(VAR_in_fsv1062, temp, source, dest);
+                    target->set_fsv1062(source, temp);
                     break;
                 }
             case MessageNumber::VAR_in_fsv5011: // unit = 'Celsius' from XML

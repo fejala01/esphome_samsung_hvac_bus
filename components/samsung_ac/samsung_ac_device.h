@@ -214,6 +214,8 @@ namespace esphome
       Samsung_AC_Number *fsv1042{nullptr};
       Samsung_AC_Number *fsv1051{nullptr};
       Samsung_AC_Number *fsv1052{nullptr};
+      Samsung_AC_Number *fsv1061{nullptr};
+      Samsung_AC_Number *fsv1062{nullptr};
       Samsung_AC_Number *fsv5011{nullptr};
       Samsung_AC_Number *fsv5012{nullptr};
       Samsung_AC_Number *fsv5013{nullptr};
@@ -1234,6 +1236,26 @@ namespace esphome
               publish_request(request);
           };
       }
+      void set_fsv1061_number(Samsung_AC_Number *number)
+      {
+          fsv1061 = number;
+          fsv1061->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1061 = value;
+              publish_request(request);
+          };
+      }
+      void set_fsv1062_number(Samsung_AC_Number *number)
+      {
+          fsv1062 = number;
+          fsv1062->write_state_ = [this](float value)
+          {
+              ProtocolRequest request;
+              request.fsv1062 = value;
+              publish_request(request);
+          };
+      }
       void set_fsv5011_number(Samsung_AC_Number *number)
       {
           fsv5011 = number;
@@ -2121,6 +2143,16 @@ namespace esphome
       {
           if (fsv1052 != nullptr)
               fsv1052->publish_state(value);
+      }
+      void update_fsv1061(float value)
+      {
+          if (fsv1061 != nullptr)
+              fsv1061->publish_state(value);
+      }
+      void update_fsv1062(float value)
+      {
+          if (fsv1062 != nullptr)
+              fsv1062->publish_state(value);
       }
       void update_fsv5011(float value)
       {

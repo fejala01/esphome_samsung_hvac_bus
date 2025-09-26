@@ -143,6 +143,8 @@ namespace esphome
             VAR_in_fsv1042 = 0x4251,
             VAR_in_fsv1051 = 0x4252,
             VAR_in_fsv1052 = 0x4253,
+            VAR_in_fsv1061 = 0x431E,
+            VAR_in_fsv1062 = 0x431F,
             VAR_in_fsv5011 = 0x4273,
             VAR_in_fsv5012 = 0x4274,
             VAR_in_fsv5013 = 0x4275,
