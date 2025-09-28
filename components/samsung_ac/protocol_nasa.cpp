@@ -3111,7 +3111,7 @@ namespace esphome
                     {
                         ESP_LOGW(TAG, "found Ack for packet number %d", it->packet.command.packetNumber);
                                                                         
-                        sent_packets.erase(it);
+                        it = sent_packets.erase(it);
                         ack_found = true;
                         break;
                     }
