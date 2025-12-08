@@ -2787,18 +2787,8 @@ namespace esphome
             ESP_LOGW(TAG, "Unsupported alt_mode %d", value);
             return;
           }
-
-          auto preset = altmodename_to_preset(mode->name);
-          if (preset)
-          {
-            climate->preset = preset.value();
-            climate->custom_preset.reset();
-          }
-          else
-          {
-            climate->preset.reset();
-            climate->custom_preset = mode->name;
-          }
+          climate->apply_altmode_from_device(*mode);
+          
           climate->publish_state();
         }
       }
