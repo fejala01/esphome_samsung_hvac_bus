@@ -52,7 +52,7 @@ NUMBER_SCHEMA = number.number_schema(Samsung_AC_Number).extend(
     {cv.GenerateID(): cv.declare_id(Samsung_AC_Number)}
 )
 
-CLIMATE_SCHEMA = climate.CLIMATE_SCHEMA.extend(
+_CLIMATE_SCHEMA = climate.CLIMATE_SCHEMA.extend(
     {cv.GenerateID(): cv.declare_id(Samsung_AC_Climate)}
 )
 
@@ -740,7 +740,7 @@ DEVICE_SCHEMA = cv.Schema(
         cv.Optional(CONF_DEVICE_MODE): SELECT_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
         cv.Optional(CONF_DEVICE_WATER_HEATER_MODE): SELECT_WATER_HEATER_MODE_SCHEMA,
-        cv.Optional(CONF_DEVICE_CLIMATE): CLIMATE_SCHEMA,
+        cv.Optional(CONF_DEVICE_CLIMATE): _CLIMATE_SCHEMA,
         cv.Optional(CONF_DEVICE_CUSTOM, default=[]): cv.ensure_list(
             CUSTOM_SENSOR_SCHEMA
         ),
