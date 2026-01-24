@@ -108,7 +108,8 @@ namespace esphome
       }
 
       auto fanmodeOpt = call.get_fan_mode();
-      const char *custom_fan = call.get_custom_fan_mode();
+      auto custom_fan = call.get_custom_fan_mode();
+
 
       if (fanmodeOpt.has_value())
       {
@@ -129,7 +130,8 @@ namespace esphome
         set_alt_mode_by_name(request, preset_to_altmodename(presetOpt.value()));
       }
 
-      const char *custom_preset = call.get_custom_preset();
+      auto custom_preset = call.get_custom_preset();
+
       if (custom_preset != nullptr && custom_preset[0] != '\0')
       {
         set_alt_mode_by_name(request, AltModeName(custom_preset));
