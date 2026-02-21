@@ -3,10 +3,12 @@
 
 #if defined(USE_ESP8266)
 #include <AsyncMqttClient.h>
-AsyncMqttClient *mqtt_client{nullptr};
-#elif defined(USE_ESP32)
+static AsyncMqttClient *mqtt_client{nullptr};
+#endif
+
+#if defined(USE_ESP32) && defined(SAMSUNG_AC_DEBUG_MQTT)
 #include <mqtt_client.h>
-esp_mqtt_client_handle_t mqtt_client{nullptr};
+static esp_mqtt_client_handle_t mqtt_client{nullptr};
 #endif
 
 namespace esphome
